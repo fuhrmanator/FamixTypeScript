@@ -50,7 +50,7 @@ FamixTypeScriptGenerator class >> packageName [
 { #category : #accessing }
 FamixTypeScriptGenerator class >> prefix [
 
-	^ #'FamixTypeScript1'
+	^ #'FamixTypeScript'
 ]
 
 { #category : #definition }
