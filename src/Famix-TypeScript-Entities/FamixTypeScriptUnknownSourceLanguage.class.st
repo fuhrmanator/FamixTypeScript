@@ -10,7 +10,7 @@ Class {
 FamixTypeScriptUnknownSourceLanguage class >> annotation [
 
 	<FMClass: #UnknownSourceLanguage super: #FamixTypeScriptSourceLanguage>
-	<package: #'Famix-TypeScript-Entities'>
+	<package: #FamixTypeScript>
 	<generated>
 	^self
 ]

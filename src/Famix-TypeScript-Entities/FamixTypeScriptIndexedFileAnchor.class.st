@@ -10,7 +10,7 @@ Class {
 FamixTypeScriptIndexedFileAnchor class >> annotation [
 
 	<FMClass: #IndexedFileAnchor super: #FamixTypeScriptSourceAnchor>
-	<package: #'Famix-TypeScript-Entities'>
+	<package: #FamixTypeScript>
 	<generated>
 	^self
 ]

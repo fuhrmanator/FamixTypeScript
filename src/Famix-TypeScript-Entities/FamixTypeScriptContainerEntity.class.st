@@ -10,7 +10,7 @@ Class {
 FamixTypeScriptContainerEntity class >> annotation [
 
 	<FMClass: #ContainerEntity super: #FamixTypeScriptNamedEntity>
-	<package: #'Famix-TypeScript-Entities'>
+	<package: #FamixTypeScript>
 	<generated>
 	^self
 ]

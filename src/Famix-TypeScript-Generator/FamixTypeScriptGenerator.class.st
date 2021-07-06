@@ -48,9 +48,27 @@ FamixTypeScriptGenerator class >> packageName [
 ]
 
 { #category : #accessing }
+FamixTypeScriptGenerator class >> packageNameForAnnotations [
+
+	^ #'FamixTypeScript'
+]
+
+{ #category : #accessing }
 FamixTypeScriptGenerator class >> prefix [
 
 	^ #'FamixTypeScript'
+]
+
+{ #category : #accessing }
+FamixTypeScriptGenerator class >> translationDictionary [
+
+	| classNames associations |
+
+	classNames := 'Famix-TypeScript-Entities' asPackage definedClasses collect: [:e | e name withoutPrefix: 'FamixTypeScript' ].
+	
+	associations := classNames collect: [ :each | ('FamixTypeScript.', each) -> ('FamixTypeScript.', each) ] as: OrderedCollection.
+
+	^ Dictionary newFrom: associations.	
 ]
 
 { #category : #definition }

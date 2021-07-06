@@ -10,7 +10,7 @@ Class {
 FamixTypeScriptSourcedEntity class >> annotation [
 
 	<FMClass: #SourcedEntity super: #FamixTypeScriptEntity>
-	<package: #'Famix-TypeScript-Entities'>
+	<package: #FamixTypeScript>
 	<generated>
 	^self
 ]

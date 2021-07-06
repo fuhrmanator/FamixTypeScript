@@ -1,3 +1,20 @@
+"
+file :=  'ArgoUML-0.34.mse' asFileReference readStream.
+
+dictionary := Dictionary newFrom: (
+	FamixTypeScriptEntity withAllSubclasses collect: [ :c | 
+		cn := c name withoutPrefix: #FamixTypeScript.
+		('FAMIX.', cn) -> ('FamixTypescript-Entities.', cn) ]).
+
+dictionary at: 'FAMIX.TypescriptSourceLanguage' put: 'FamixTypescript-Entities.SourceLanguage'.
+
+repo := MooseModel importFrom: file withMetamodel: FamixTypescriptGenerator metamodel translationDictionary: dictionary.
+
+model := MooseModel new.
+	model silentlyAddAll: repo elements.
+	model entityStorage forRuntime.
+model.
+"
 Class {
 	#name : #FamixTypeScriptEntity,
 	#superclass : #MooseEntity,
@@ -8,7 +25,7 @@ Class {
 FamixTypeScriptEntity class >> annotation [
 
 	<FMClass: #Entity super: #MooseEntity>
-	<package: #'Famix-TypeScript-Entities'>
+	<package: #FamixTypeScript>
 	<generated>
 	^self
 ]

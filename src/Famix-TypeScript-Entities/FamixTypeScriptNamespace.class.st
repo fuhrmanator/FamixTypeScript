@@ -14,7 +14,7 @@ Class {
 FamixTypeScriptNamespace class >> annotation [
 
 	<FMClass: #Namespace super: #FamixTypeScriptContainerEntity>
-	<package: #'Famix-TypeScript-Entities'>
+	<package: #FamixTypeScript>
 	<generated>
 	^self
 ]
