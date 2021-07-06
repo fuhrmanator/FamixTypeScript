@@ -1,0 +1,16 @@
+Class {
+	#name : #FamixTypeScriptSourceAnchor,
+	#superclass : #FamixTypeScriptEntity,
+	#traits : 'FamixTSourceAnchor',
+	#classTraits : 'FamixTSourceAnchor classTrait',
+	#category : #'Famix-TypeScript-Entities-Entities'
+}
+
+{ #category : #meta }
+FamixTypeScriptSourceAnchor class >> annotation [
+
+	<FMClass: #SourceAnchor super: #FamixTypeScriptEntity>
+	<package: #'Famix-TypeScript-Entities'>
+	<generated>
+	^self
+]
