@@ -97,6 +97,46 @@ FamixTypeScriptGenerator class >> translationDictionary [
 	^ Dictionary newFrom: associations.	
 ]
 
+{ #category : #comments }
+FamixTypeScriptGenerator >> commentForTCanBeSynchronized [
+	^ 'I allow an entity to be synchronized
+ex:
+
+```java
+public class SynchronizedCounter {
+    private int c = 0;
+
+    public synchronized void increment() {
+        c++;
+    }
+}
+```'
+]
+
+{ #category : #comments }
+FamixTypeScriptGenerator >> commentForTCanBeTransient [
+	^ 'I allow an entity to be transient
+ex:
+
+```java
+public class Student implements Serializable{  
+ transient int age; //Now it will not be serialized  
+}  
+```'
+]
+
+{ #category : #comments }
+FamixTypeScriptGenerator >> commentForTCanBeVolatile [
+	^ 'I allow an entity to be volatible
+ex:
+
+```java
+public class SharedObject {
+    public volatile int counter = 0;
+}
+```'
+]
+
 { #category : #definition }
 FamixTypeScriptGenerator >> defineClasses [
 	super defineClasses.
@@ -110,6 +150,8 @@ FamixTypeScriptGenerator >> defineClasses [
 	scopingEntity := builder newClassNamed: #ScopingEntity.
 	cSourceLanguage := builder newClassNamed: #CSourceLanguage.
 	cUSTOMSourceLanguage := builder newClassNamed: #CustomSourceLanguage.
+	method := builder newClassNamed: #Method.
+	behaviouralEntity := builder newClassNamed: #BehaviouralEntity.
 ]
 
 { #category : #definition }
@@ -159,7 +201,26 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	
 	scopingEntity --|> containerEntity.
 	scopingEntity --|> #TWithGlobalVariables.
+	
+	method --|> behaviouralEntity.
+	method --|> #TMethod.
+	method --|> #TWithThrownExceptions.
+	method --|> #TWithDeclaredExceptions.
+	method --|> #TWithCaughtExceptions.
+	method --|> tCanBeSynchronized.
+	
+	behaviouralEntity --|> containerEntity.
+	behaviouralEntity --|> #TWithParameters.
+	behaviouralEntity --|> #TInvocable.
+	behaviouralEntity --|> #TWithReferences.
+	behaviouralEntity --|> #TTypedEntity.
+	behaviouralEntity --|> #TWithLocalVariables.
+	behaviouralEntity --|> #TWithImplicitVariables.
+	behaviouralEntity --|> #TWithDereferencedInvocations.
+	behaviouralEntity --|> #THasSignature.
+	behaviouralEntity --|> #TWithStatements.
 
+	
 ]
 
 { #category : #definition }
@@ -173,6 +234,14 @@ super defineProperties.
 			comment: 'Child scopes embedded in this scope, if any.').
 			
 
+]
+
+{ #category : #definition }
+FamixTypeScriptGenerator >> defineTraits [
+	super defineTraits.
+	tCanBeVolatile := builder newTraitNamed: #TCanBeVolatile comment: self commentForTCanBeVolatile.
+	tCanBeTransient := builder newTraitNamed: #TCanBeTransient comment: self commentForTCanBeTransient.
+	tCanBeSynchronized := builder newTraitNamed: #TCanBeSynchronized comment: self commentForTCanBeSynchronized
 ]
 
 { #category : #definition }

@@ -11,6 +11,12 @@ FamixTypeScriptImportingContext >> importAbstractFileAnchor [
 ]
 
 { #category : #testing }
+FamixTypeScriptImportingContext >> importBehaviouralEntity [
+	<generated>
+	^ self import: FamixTypeScriptBehaviouralEntity
+]
+
+{ #category : #testing }
 FamixTypeScriptImportingContext >> importCSourceLanguage [
 	<generated>
 	^ self import: FamixTypeScriptCSourceLanguage
@@ -50,6 +56,12 @@ FamixTypeScriptImportingContext >> importEntity [
 FamixTypeScriptImportingContext >> importIndexedFileAnchor [
 	<generated>
 	^ self import: FamixTypeScriptIndexedFileAnchor
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> importMethod [
+	<generated>
+	^ self import: FamixTypeScriptMethod
 ]
 
 { #category : #testing }
@@ -113,6 +125,12 @@ FamixTypeScriptImportingContext >> shouldImportAbstractFileAnchor [
 ]
 
 { #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportBehaviouralEntity [
+	<generated>
+	^ self shouldImport: FamixTypeScriptBehaviouralEntity
+]
+
+{ #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportCSourceLanguage [
 	<generated>
 	^ self shouldImport: FamixTypeScriptCSourceLanguage
@@ -152,6 +170,12 @@ FamixTypeScriptImportingContext >> shouldImportEntity [
 FamixTypeScriptImportingContext >> shouldImportIndexedFileAnchor [
 	<generated>
 	^ self shouldImport: FamixTypeScriptIndexedFileAnchor
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportMethod [
+	<generated>
+	^ self shouldImport: FamixTypeScriptMethod
 ]
 
 { #category : #testing }

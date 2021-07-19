@@ -1,8 +1,8 @@
 Class {
 	#name : #FamixTypeScriptClass,
 	#superclass : #FamixTypeScriptType,
-	#traits : 'FamixTCanBeAbstract + FamixTCanBeClassSide + FamixTCanBeFinal + FamixTClass + FamixTHasVisibility + FamixTLCOMMetrics + FamixTWithExceptions',
-	#classTraits : 'FamixTCanBeAbstract classTrait + FamixTCanBeClassSide classTrait + FamixTCanBeFinal classTrait + FamixTClass classTrait + FamixTHasVisibility classTrait + FamixTLCOMMetrics classTrait + FamixTWithExceptions classTrait',
+	#traits : 'FamixTCanBeClassSide + FamixTClass + FamixTWithExceptions',
+	#classTraits : 'FamixTCanBeClassSide classTrait + FamixTClass classTrait + FamixTWithExceptions classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 
