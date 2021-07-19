@@ -8,35 +8,61 @@ Class {
 		'annotationType',
 		'annotationTypeAttribute',
 		'attribute',
+		'behaviouralEntity',
+		'cFile',
+		'cPPSourceLanguage',
+		'cSourceLanguage',
+		'cUSTOMSourceLanguage',
 		'caughtException',
 		'class',
+		'compilationUnit',
 		'containerEntity',
 		'declaredException',
+		'dereferencedInvocation',
 		'enum',
 		'enumValue',
 		'exception',
+		'function',
 		'globalVariable',
+		'header',
 		'implicitVariable',
+		'include',
 		'inheritance',
 		'invocation',
+		'jAVASourceLanguage',
+		'leafEntity',
 		'localVariable',
 		'method',
+		'module',
 		'namespace',
 		'parameter',
 		'parameterType',
 		'parameterizableClass',
+		'parameterizedType',
+		'pharoAnchor',
+		'preprocessorDefine',
+		'preprocessorIfdef',
+		'preprocessorStatement',
 		'primitiveType',
 		'reference',
+		'sMALLTALKSourceLanguage',
+		'scopingEntity',
+		'structuralEntity',
 		'thrownException',
 		'type',
+		'typeAlias',
 		'unknownVariable',
-		'parameterizedType',
+		'trait',
+		'traitUsage',
+		'abstractFileAnchor',
 		'file',
+		'fileAnchor',
 		'folder',
 		'indexedFileAnchor',
+		'multipleFileAnchor',
 		'tCanBeVolatile',
-		'tCanBeTransient',
-		'tCanBeSynchronized'
+		'tCanBeSynchronized',
+		'tCanBeTransient'
 	],
 	#category : #'Famix-TypeScript-Generator'
 }
@@ -80,75 +106,73 @@ FamixTypeScriptGenerator >> defineClasses [
 	indexedFileAnchor := builder newClassNamed: #IndexedFileAnchor.
 	type := builder newClassNamed: #Type.
    namespace := builder newClassNamed: #Namespace.
-	self defineComments
-]
-
-{ #category : #definition }
-FamixTypeScriptGenerator >> defineComments [
-	(builder ensureClassNamed: #Entity)
-		comment:
-			'file :=  ''ArgoUML-0.34.mse'' asFileReference readStream.
-
-dictionary := Dictionary newFrom: (
-	FamixTypeScriptEntity withAllSubclasses collect: [ :c | 
-		cn := c name withoutPrefix: #FamixTypeScript.
-		(''FAMIX.'', cn) -> (''FamixTypescript-Entities.'', cn) ]).
-
-dictionary at: ''FAMIX.TypescriptSourceLanguage'' put: ''FamixTypescript-Entities.SourceLanguage''.
-
-repo := MooseModel importFrom: file withMetamodel: FamixTypescriptGenerator metamodel translationDictionary: dictionary.
-
-model := MooseModel new.
-	model silentlyAddAll: repo elements.
-	model entityStorage forRuntime.
-model.'
+	abstractFileAnchor := builder newClassNamed: #AbstractFileAnchor.
+	scopingEntity := builder newClassNamed: #ScopingEntity.
+	cSourceLanguage := builder newClassNamed: #CSourceLanguage.
+	cUSTOMSourceLanguage := builder newClassNamed: #CustomSourceLanguage.
 ]
 
 { #category : #definition }
 FamixTypeScriptGenerator >> defineHierarchy [
 	super defineHierarchy.
+	
+	cSourceLanguage --|> sourceLanguage.
 
-	indexedFileAnchor --|> sourceAnchor.
+	cUSTOMSourceLanguage --|> sourceLanguage.
+	cUSTOMSourceLanguage --|> #TNamedEntity.
+	
+	abstractFileAnchor --|> sourceAnchor.
+	abstractFileAnchor --|> #TFileAnchor.
+
+	indexedFileAnchor --|> abstractFileAnchor.
 	indexedFileAnchor --|> #TIndexedFileNavigation.
 
 	class --|> type.
 	class --|> #TWithExceptions.
 	class --|> #TClass.
-	class --|> #TLCOMMetrics.
-	class --|> #TCanBeAbstract.
-	class --|> #TCanBeFinal.
-	class --|> #THasVisibility.
-	class --|> #TCanBeClassSide.	
+	class --|> #TCanBeClassSide.		
 
 	containerEntity --|> namedEntity.
 	containerEntity --|> #TWithClasses.
+	containerEntity --|> #TWithFunctions.
 	containerEntity --|> #TWithAnnotationTypes.
 	containerEntity --|> #TOODependencyQueries.
 
 	namedEntity --|> #TPackageable.
 	namedEntity --|> #TInvocationsReceiver.
 	namedEntity --|> #TWithAnnotationInstances.
+	namedEntity --|> #THasVisibility.
+	namedEntity --|> #TCanBeAbstract.
+	namedEntity --|> #TCanBeFinal.
 
 	type --|> containerEntity.
 	type --|> #TType.
 	type --|> #TWithTypeAliases.
-	type --|> #TParameterizedTypeUser.
 	type --|> #TWithMethods.
+	type --|> #TWithInheritances.
+	type --|> #TWithAttributes.
+	type --|> #TParameterizedTypeUser.
+	type --|> #TTraitUser. 
 
-namespace --|> containerEntity.
+	namespace --|> scopingEntity.
 	namespace --|> #TNamespace.
-	namespace --|> #TWithGlobalVariables.
 	
-
+	scopingEntity --|> containerEntity.
+	scopingEntity --|> #TWithGlobalVariables.
 
 ]
 
 { #category : #definition }
 FamixTypeScriptGenerator >> defineProperties [
-	super defineProperties.
-	((namespace property: #parentNamespace)
-		comment: 'Parent namespace embedding this namespace, if any.';
-		container) *- ((namespace property: #childNamespaces) comment: 'Namespaces embedded in this namespace, if any.').
+super defineProperties.
+	((scopingEntity property: #parentScope)
+			comment: 'Parent scope embedding this scope, if any.';
+			container)
+		*-
+	((scopingEntity property: #childScopes)
+			comment: 'Child scopes embedded in this scope, if any.').
+			
+
 ]
 
 { #category : #definition }

@@ -5,6 +5,18 @@ Class {
 }
 
 { #category : #testing }
+FamixTypeScriptImportingContext >> importAbstractFileAnchor [
+	<generated>
+	^ self import: FamixTypeScriptAbstractFileAnchor
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> importCSourceLanguage [
+	<generated>
+	^ self import: FamixTypeScriptCSourceLanguage
+]
+
+{ #category : #testing }
 FamixTypeScriptImportingContext >> importClass [
 	<generated>
 	^ self import: FamixTypeScriptClass
@@ -20,6 +32,12 @@ FamixTypeScriptImportingContext >> importComment [
 FamixTypeScriptImportingContext >> importContainerEntity [
 	<generated>
 	^ self import: FamixTypeScriptContainerEntity
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> importCustomSourceLanguage [
+	<generated>
+	^ self import: FamixTypeScriptCustomSourceLanguage
 ]
 
 { #category : #testing }
@@ -44,6 +62,12 @@ FamixTypeScriptImportingContext >> importNamedEntity [
 FamixTypeScriptImportingContext >> importNamespace [
 	<generated>
 	^ self import: FamixTypeScriptNamespace
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> importScopingEntity [
+	<generated>
+	^ self import: FamixTypeScriptScopingEntity
 ]
 
 { #category : #testing }
@@ -83,6 +107,18 @@ FamixTypeScriptImportingContext >> importUnknownSourceLanguage [
 ]
 
 { #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportAbstractFileAnchor [
+	<generated>
+	^ self shouldImport: FamixTypeScriptAbstractFileAnchor
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportCSourceLanguage [
+	<generated>
+	^ self shouldImport: FamixTypeScriptCSourceLanguage
+]
+
+{ #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportClass [
 	<generated>
 	^ self shouldImport: FamixTypeScriptClass
@@ -98,6 +134,12 @@ FamixTypeScriptImportingContext >> shouldImportComment [
 FamixTypeScriptImportingContext >> shouldImportContainerEntity [
 	<generated>
 	^ self shouldImport: FamixTypeScriptContainerEntity
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportCustomSourceLanguage [
+	<generated>
+	^ self shouldImport: FamixTypeScriptCustomSourceLanguage
 ]
 
 { #category : #testing }
@@ -122,6 +164,12 @@ FamixTypeScriptImportingContext >> shouldImportNamedEntity [
 FamixTypeScriptImportingContext >> shouldImportNamespace [
 	<generated>
 	^ self shouldImport: FamixTypeScriptNamespace
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportScopingEntity [
+	<generated>
+	^ self shouldImport: FamixTypeScriptScopingEntity
 ]
 
 { #category : #testing }

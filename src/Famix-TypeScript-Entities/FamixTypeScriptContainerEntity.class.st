@@ -1,8 +1,8 @@
 Class {
 	#name : #FamixTypeScriptContainerEntity,
 	#superclass : #FamixTypeScriptNamedEntity,
-	#traits : 'FamixTWithAnnotationTypes + FamixTWithClasses + TOODependencyQueries',
-	#classTraits : 'FamixTWithAnnotationTypes classTrait + FamixTWithClasses classTrait + TOODependencyQueries classTrait',
+	#traits : 'FamixTWithAnnotationTypes + FamixTWithClasses + FamixTWithFunctions + TOODependencyQueries',
+	#classTraits : 'FamixTWithAnnotationTypes classTrait + FamixTWithClasses classTrait + FamixTWithFunctions classTrait + TOODependencyQueries classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 
