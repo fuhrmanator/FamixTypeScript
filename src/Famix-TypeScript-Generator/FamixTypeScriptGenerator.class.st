@@ -45,6 +45,7 @@ Class {
 		'preprocessorStatement',
 		'primitiveType',
 		'reference',
+		'TYPESCRIPTSourceLanguage',
 		'sMALLTALKSourceLanguage',
 		'scopingEntity',
 		'structuralEntity',
@@ -143,15 +144,37 @@ FamixTypeScriptGenerator >> defineClasses [
 	
 	class := builder newClassNamed: #Class.
 	containerEntity := builder newClassNamed: #ContainerEntity.
-	indexedFileAnchor := builder newClassNamed: #IndexedFileAnchor.
+
 	type := builder newClassNamed: #Type.
    namespace := builder newClassNamed: #Namespace.
-	abstractFileAnchor := builder newClassNamed: #AbstractFileAnchor.
+	
 	scopingEntity := builder newClassNamed: #ScopingEntity.
 	cSourceLanguage := builder newClassNamed: #CSourceLanguage.
 	cUSTOMSourceLanguage := builder newClassNamed: #CustomSourceLanguage.
 	method := builder newClassNamed: #Method.
 	behaviouralEntity := builder newClassNamed: #BehaviouralEntity.
+	
+	TYPESCRIPTSourceLanguage := builder newClassNamed: #TypeScriptSourceLanguage.
+	
+	sMALLTALKSourceLanguage := builder newClassNamed: #SmalltalkSourceLanguage.
+	
+	cFile := builder newClassNamed: #CFile.
+	cPPSourceLanguage := builder newClassNamed: #CppSourceLanguage.
+	pharoAnchor := builder newClassNamed: #PharoAnchor.
+	preprocessorDefine := builder newClassNamed: #PreprocessorDefine.
+	preprocessorIfdef := builder newClassNamed: #PreprocessorIfdef.
+	preprocessorStatement := builder newClassNamed: #PreprocessorStatement.
+	
+	reference := builder newClassNamed: #Reference.
+	trait := builder newClassNamed: #Trait.
+	traitUsage := builder newClassNamed: #TraitUsage.
+	
+	abstractFileAnchor := builder newClassNamed: #AbstractFileAnchor.
+	file := builder newClassNamed: #File.
+	fileAnchor := builder newClassNamed: #FileAnchor.
+	folder := builder newClassNamed: #Folder.
+	indexedFileAnchor := builder newClassNamed: #IndexedFileAnchor.
+	multipleFileAnchor := builder newClassNamed: #MultipleFileAnchor.
 ]
 
 { #category : #definition }
@@ -163,12 +186,6 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	cUSTOMSourceLanguage --|> sourceLanguage.
 	cUSTOMSourceLanguage --|> #TNamedEntity.
 	
-	abstractFileAnchor --|> sourceAnchor.
-	abstractFileAnchor --|> #TFileAnchor.
-
-	indexedFileAnchor --|> abstractFileAnchor.
-	indexedFileAnchor --|> #TIndexedFileNavigation.
-
 	class --|> type.
 	class --|> #TWithExceptions.
 	class --|> #TClass.
@@ -220,7 +237,40 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	behaviouralEntity --|> #THasSignature.
 	behaviouralEntity --|> #TWithStatements.
 
+	TYPESCRIPTSourceLanguage --|> sourceLanguage.	
+	pharoAnchor --|> sourceAnchor.
 	
+	sMALLTALKSourceLanguage --|> sourceLanguage.
+
+	cFile --|> file.
+	cFile --|> #TWithFileIncludes.
+
+	cPPSourceLanguage --|> cSourceLanguage.
+	preprocessorDefine --|> preprocessorStatement.
+	preprocessorDefine --|> #TPreprocessorIfdef.
+
+	preprocessorIfdef --|> preprocessorStatement.
+
+	preprocessorStatement --|> sourcedEntity.
+abstractFileAnchor --|> sourceAnchor.
+	abstractFileAnchor --|> #TFileAnchor.
+
+	file --|> namedEntity.
+	file --|> #TFile.
+
+	fileAnchor --|> abstractFileAnchor.
+	fileAnchor --|> #TFileNavigation.
+
+	folder --|> namedEntity.
+	folder --|> #TFolder.
+
+	indexedFileAnchor --|> abstractFileAnchor.
+	indexedFileAnchor --|> #TIndexedFileNavigation.
+
+	multipleFileAnchor --|> sourceAnchor.
+	multipleFileAnchor --|> #TMultipleFileAnchor.
+
+	sourcedEntity --|> #TWithFiles
 ]
 
 { #category : #definition }

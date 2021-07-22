@@ -1,8 +1,8 @@
 Class {
 	#name : #FamixTypeScriptSourcedEntity,
 	#superclass : #FamixTypeScriptEntity,
-	#traits : 'FamixTSourceEntity + FamixTWithComments',
-	#classTraits : 'FamixTSourceEntity classTrait + FamixTWithComments classTrait',
+	#traits : 'FamixTSourceEntity + FamixTWithComments + FamixTWithFiles',
+	#classTraits : 'FamixTSourceEntity classTrait + FamixTWithComments classTrait + FamixTWithFiles classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 
