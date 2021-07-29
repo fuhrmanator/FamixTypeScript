@@ -175,6 +175,10 @@ FamixTypeScriptGenerator >> defineClasses [
 	folder := builder newClassNamed: #Folder.
 	indexedFileAnchor := builder newClassNamed: #IndexedFileAnchor.
 	multipleFileAnchor := builder newClassNamed: #MultipleFileAnchor.
+	
+	parameter := builder newClassNamed: #Parameter.
+	structuralEntity := builder newClassNamed: #StructuralEntity.
+	leafEntity := builder newClassNamed: #LeafEntity.
 ]
 
 { #category : #definition }
@@ -252,7 +256,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	preprocessorIfdef --|> preprocessorStatement.
 
 	preprocessorStatement --|> sourcedEntity.
-abstractFileAnchor --|> sourceAnchor.
+	abstractFileAnchor --|> sourceAnchor.
 	abstractFileAnchor --|> #TFileAnchor.
 
 	file --|> namedEntity.
@@ -270,7 +274,14 @@ abstractFileAnchor --|> sourceAnchor.
 	multipleFileAnchor --|> sourceAnchor.
 	multipleFileAnchor --|> #TMultipleFileAnchor.
 
-	sourcedEntity --|> #TWithFiles
+	sourcedEntity --|> #TWithFiles.
+	
+	leafEntity --|> namedEntity.
+	parameter --|> structuralEntity.
+	parameter --|> #TParameter.
+	structuralEntity --|> leafEntity.
+	structuralEntity --|> #TStructuralEntity.
+	structuralEntity --|> #TWithDereferencedInvocations.
 ]
 
 { #category : #definition }

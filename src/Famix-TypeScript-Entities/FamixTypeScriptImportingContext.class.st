@@ -89,6 +89,12 @@ FamixTypeScriptImportingContext >> importIndexedFileAnchor [
 ]
 
 { #category : #testing }
+FamixTypeScriptImportingContext >> importLeafEntity [
+	<generated>
+	^ self import: FamixTypeScriptLeafEntity
+]
+
+{ #category : #testing }
 FamixTypeScriptImportingContext >> importMethod [
 	<generated>
 	^ self import: FamixTypeScriptMethod
@@ -110,6 +116,12 @@ FamixTypeScriptImportingContext >> importNamedEntity [
 FamixTypeScriptImportingContext >> importNamespace [
 	<generated>
 	^ self import: FamixTypeScriptNamespace
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> importParameter [
+	<generated>
+	^ self import: FamixTypeScriptParameter
 ]
 
 { #category : #testing }
@@ -176,6 +188,12 @@ FamixTypeScriptImportingContext >> importSourceTextAnchor [
 FamixTypeScriptImportingContext >> importSourcedEntity [
 	<generated>
 	^ self import: FamixTypeScriptSourcedEntity
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> importStructuralEntity [
+	<generated>
+	^ self import: FamixTypeScriptStructuralEntity
 ]
 
 { #category : #testing }
@@ -293,6 +311,12 @@ FamixTypeScriptImportingContext >> shouldImportIndexedFileAnchor [
 ]
 
 { #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportLeafEntity [
+	<generated>
+	^ self shouldImport: FamixTypeScriptLeafEntity
+]
+
+{ #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportMethod [
 	<generated>
 	^ self shouldImport: FamixTypeScriptMethod
@@ -314,6 +338,12 @@ FamixTypeScriptImportingContext >> shouldImportNamedEntity [
 FamixTypeScriptImportingContext >> shouldImportNamespace [
 	<generated>
 	^ self shouldImport: FamixTypeScriptNamespace
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportParameter [
+	<generated>
+	^ self shouldImport: FamixTypeScriptParameter
 ]
 
 { #category : #testing }
@@ -380,6 +410,12 @@ FamixTypeScriptImportingContext >> shouldImportSourceTextAnchor [
 FamixTypeScriptImportingContext >> shouldImportSourcedEntity [
 	<generated>
 	^ self shouldImport: FamixTypeScriptSourcedEntity
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportStructuralEntity [
+	<generated>
+	^ self shouldImport: FamixTypeScriptStructuralEntity
 ]
 
 { #category : #testing }
