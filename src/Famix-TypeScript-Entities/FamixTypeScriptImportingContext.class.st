@@ -17,12 +17,6 @@ FamixTypeScriptImportingContext >> importBehaviouralEntity [
 ]
 
 { #category : #testing }
-FamixTypeScriptImportingContext >> importCFile [
-	<generated>
-	^ self import: FamixTypeScriptCFile
-]
-
-{ #category : #testing }
 FamixTypeScriptImportingContext >> importCSourceLanguage [
 	<generated>
 	^ self import: FamixTypeScriptCSourceLanguage
@@ -44,12 +38,6 @@ FamixTypeScriptImportingContext >> importComment [
 FamixTypeScriptImportingContext >> importContainerEntity [
 	<generated>
 	^ self import: FamixTypeScriptContainerEntity
-]
-
-{ #category : #testing }
-FamixTypeScriptImportingContext >> importCppSourceLanguage [
-	<generated>
-	^ self import: FamixTypeScriptCppSourceLanguage
 ]
 
 { #category : #testing }
@@ -125,45 +113,9 @@ FamixTypeScriptImportingContext >> importParameter [
 ]
 
 { #category : #testing }
-FamixTypeScriptImportingContext >> importPharoAnchor [
-	<generated>
-	^ self import: FamixTypeScriptPharoAnchor
-]
-
-{ #category : #testing }
-FamixTypeScriptImportingContext >> importPreprocessorDefine [
-	<generated>
-	^ self import: FamixTypeScriptPreprocessorDefine
-]
-
-{ #category : #testing }
-FamixTypeScriptImportingContext >> importPreprocessorIfdef [
-	<generated>
-	^ self import: FamixTypeScriptPreprocessorIfdef
-]
-
-{ #category : #testing }
-FamixTypeScriptImportingContext >> importPreprocessorStatement [
-	<generated>
-	^ self import: FamixTypeScriptPreprocessorStatement
-]
-
-{ #category : #testing }
-FamixTypeScriptImportingContext >> importReference [
-	<generated>
-	^ self import: FamixTypeScriptReference
-]
-
-{ #category : #testing }
 FamixTypeScriptImportingContext >> importScopingEntity [
 	<generated>
 	^ self import: FamixTypeScriptScopingEntity
-]
-
-{ #category : #testing }
-FamixTypeScriptImportingContext >> importSmalltalkSourceLanguage [
-	<generated>
-	^ self import: FamixTypeScriptSmalltalkSourceLanguage
 ]
 
 { #category : #testing }
@@ -197,27 +149,9 @@ FamixTypeScriptImportingContext >> importStructuralEntity [
 ]
 
 { #category : #testing }
-FamixTypeScriptImportingContext >> importTrait [
-	<generated>
-	^ self import: FamixTypeScriptTrait
-]
-
-{ #category : #testing }
-FamixTypeScriptImportingContext >> importTraitUsage [
-	<generated>
-	^ self import: FamixTypeScriptTraitUsage
-]
-
-{ #category : #testing }
 FamixTypeScriptImportingContext >> importType [
 	<generated>
 	^ self import: FamixTypeScriptType
-]
-
-{ #category : #testing }
-FamixTypeScriptImportingContext >> importTypeScriptSourceLanguage [
-	<generated>
-	^ self import: FamixTypeScriptTypeScriptSourceLanguage
 ]
 
 { #category : #testing }
@@ -236,12 +170,6 @@ FamixTypeScriptImportingContext >> shouldImportAbstractFileAnchor [
 FamixTypeScriptImportingContext >> shouldImportBehaviouralEntity [
 	<generated>
 	^ self shouldImport: FamixTypeScriptBehaviouralEntity
-]
-
-{ #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportCFile [
-	<generated>
-	^ self shouldImport: FamixTypeScriptCFile
 ]
 
 { #category : #testing }
@@ -266,12 +194,6 @@ FamixTypeScriptImportingContext >> shouldImportComment [
 FamixTypeScriptImportingContext >> shouldImportContainerEntity [
 	<generated>
 	^ self shouldImport: FamixTypeScriptContainerEntity
-]
-
-{ #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportCppSourceLanguage [
-	<generated>
-	^ self shouldImport: FamixTypeScriptCppSourceLanguage
 ]
 
 { #category : #testing }
@@ -347,45 +269,9 @@ FamixTypeScriptImportingContext >> shouldImportParameter [
 ]
 
 { #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportPharoAnchor [
-	<generated>
-	^ self shouldImport: FamixTypeScriptPharoAnchor
-]
-
-{ #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportPreprocessorDefine [
-	<generated>
-	^ self shouldImport: FamixTypeScriptPreprocessorDefine
-]
-
-{ #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportPreprocessorIfdef [
-	<generated>
-	^ self shouldImport: FamixTypeScriptPreprocessorIfdef
-]
-
-{ #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportPreprocessorStatement [
-	<generated>
-	^ self shouldImport: FamixTypeScriptPreprocessorStatement
-]
-
-{ #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportReference [
-	<generated>
-	^ self shouldImport: FamixTypeScriptReference
-]
-
-{ #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportScopingEntity [
 	<generated>
 	^ self shouldImport: FamixTypeScriptScopingEntity
-]
-
-{ #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportSmalltalkSourceLanguage [
-	<generated>
-	^ self shouldImport: FamixTypeScriptSmalltalkSourceLanguage
 ]
 
 { #category : #testing }
@@ -419,27 +305,9 @@ FamixTypeScriptImportingContext >> shouldImportStructuralEntity [
 ]
 
 { #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportTrait [
-	<generated>
-	^ self shouldImport: FamixTypeScriptTrait
-]
-
-{ #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportTraitUsage [
-	<generated>
-	^ self shouldImport: FamixTypeScriptTraitUsage
-]
-
-{ #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportType [
 	<generated>
 	^ self shouldImport: FamixTypeScriptType
-]
-
-{ #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportTypeScriptSourceLanguage [
-	<generated>
-	^ self shouldImport: FamixTypeScriptTypeScriptSourceLanguage
 ]
 
 { #category : #testing }

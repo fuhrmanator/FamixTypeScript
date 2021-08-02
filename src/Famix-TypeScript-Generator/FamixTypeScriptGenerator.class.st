@@ -154,28 +154,12 @@ FamixTypeScriptGenerator >> defineClasses [
 	method := builder newClassNamed: #Method.
 	behaviouralEntity := builder newClassNamed: #BehaviouralEntity.
 	
-	TYPESCRIPTSourceLanguage := builder newClassNamed: #TypeScriptSourceLanguage.
-	
-	sMALLTALKSourceLanguage := builder newClassNamed: #SmalltalkSourceLanguage.
-	
-	cFile := builder newClassNamed: #CFile.
-	cPPSourceLanguage := builder newClassNamed: #CppSourceLanguage.
-	pharoAnchor := builder newClassNamed: #PharoAnchor.
-	preprocessorDefine := builder newClassNamed: #PreprocessorDefine.
-	preprocessorIfdef := builder newClassNamed: #PreprocessorIfdef.
-	preprocessorStatement := builder newClassNamed: #PreprocessorStatement.
-	
-	reference := builder newClassNamed: #Reference.
-	trait := builder newClassNamed: #Trait.
-	traitUsage := builder newClassNamed: #TraitUsage.
-	
 	abstractFileAnchor := builder newClassNamed: #AbstractFileAnchor.
 	file := builder newClassNamed: #File.
 	fileAnchor := builder newClassNamed: #FileAnchor.
 	folder := builder newClassNamed: #Folder.
 	indexedFileAnchor := builder newClassNamed: #IndexedFileAnchor.
 	multipleFileAnchor := builder newClassNamed: #MultipleFileAnchor.
-	
 	parameter := builder newClassNamed: #Parameter.
 	structuralEntity := builder newClassNamed: #StructuralEntity.
 	leafEntity := builder newClassNamed: #LeafEntity.
@@ -194,6 +178,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	class --|> #TWithExceptions.
 	class --|> #TClass.
 	class --|> #TCanBeClassSide.		
+	class --|> #TWithSourceLanguages.
 
 	containerEntity --|> namedEntity.
 	containerEntity --|> #TWithClasses.
@@ -229,6 +214,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	method --|> #TWithDeclaredExceptions.
 	method --|> #TWithCaughtExceptions.
 	method --|> tCanBeSynchronized.
+	method --|> #TWithSourceLanguages.
 	
 	behaviouralEntity --|> containerEntity.
 	behaviouralEntity --|> #TWithParameters.
@@ -240,22 +226,14 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	behaviouralEntity --|> #TWithDereferencedInvocations.
 	behaviouralEntity --|> #THasSignature.
 	behaviouralEntity --|> #TWithStatements.
-
-	TYPESCRIPTSourceLanguage --|> sourceLanguage.	
-	pharoAnchor --|> sourceAnchor.
 	
-	sMALLTALKSourceLanguage --|> sourceLanguage.
-
-	cFile --|> file.
-	cFile --|> #TWithFileIncludes.
-
-	cPPSourceLanguage --|> cSourceLanguage.
-	preprocessorDefine --|> preprocessorStatement.
-	preprocessorDefine --|> #TPreprocessorIfdef.
-
-	preprocessorIfdef --|> preprocessorStatement.
-
-	preprocessorStatement --|> sourcedEntity.
+	leafEntity --|> namedEntity.
+	parameter --|> structuralEntity.
+	parameter --|> #TParameter.
+	structuralEntity --|> leafEntity.
+	structuralEntity --|> #TStructuralEntity.
+	structuralEntity --|> #TWithDereferencedInvocations.
+	
 	abstractFileAnchor --|> sourceAnchor.
 	abstractFileAnchor --|> #TFileAnchor.
 
@@ -274,14 +252,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	multipleFileAnchor --|> sourceAnchor.
 	multipleFileAnchor --|> #TMultipleFileAnchor.
 
-	sourcedEntity --|> #TWithFiles.
-	
-	leafEntity --|> namedEntity.
-	parameter --|> structuralEntity.
-	parameter --|> #TParameter.
-	structuralEntity --|> leafEntity.
-	structuralEntity --|> #TStructuralEntity.
-	structuralEntity --|> #TWithDereferencedInvocations.
+	sourcedEntity --|> #TWithFiles
 ]
 
 { #category : #definition }
