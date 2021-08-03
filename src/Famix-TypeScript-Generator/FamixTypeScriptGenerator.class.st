@@ -163,6 +163,8 @@ FamixTypeScriptGenerator >> defineClasses [
 	parameter := builder newClassNamed: #Parameter.
 	structuralEntity := builder newClassNamed: #StructuralEntity.
 	leafEntity := builder newClassNamed: #LeafEntity.
+	
+	localVariable := builder newClassNamed: #LocalVariable.
 ]
 
 { #category : #definition }
@@ -252,7 +254,9 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	multipleFileAnchor --|> sourceAnchor.
 	multipleFileAnchor --|> #TMultipleFileAnchor.
 
-	sourcedEntity --|> #TWithFiles
+	sourcedEntity --|> #TWithFiles.
+	localVariable --|> structuralEntity.
+	localVariable --|> #TLocalVariable.
 ]
 
 { #category : #definition }

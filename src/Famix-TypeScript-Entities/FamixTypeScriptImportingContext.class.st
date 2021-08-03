@@ -83,6 +83,12 @@ FamixTypeScriptImportingContext >> importLeafEntity [
 ]
 
 { #category : #testing }
+FamixTypeScriptImportingContext >> importLocalVariable [
+	<generated>
+	^ self import: FamixTypeScriptLocalVariable
+]
+
+{ #category : #testing }
 FamixTypeScriptImportingContext >> importMethod [
 	<generated>
 	^ self import: FamixTypeScriptMethod
@@ -236,6 +242,12 @@ FamixTypeScriptImportingContext >> shouldImportIndexedFileAnchor [
 FamixTypeScriptImportingContext >> shouldImportLeafEntity [
 	<generated>
 	^ self shouldImport: FamixTypeScriptLeafEntity
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportLocalVariable [
+	<generated>
+	^ self shouldImport: FamixTypeScriptLocalVariable
 ]
 
 { #category : #testing }
