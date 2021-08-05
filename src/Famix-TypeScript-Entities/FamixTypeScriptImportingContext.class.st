@@ -11,6 +11,12 @@ FamixTypeScriptImportingContext >> importAbstractFileAnchor [
 ]
 
 { #category : #testing }
+FamixTypeScriptImportingContext >> importAttribute [
+	<generated>
+	^ self import: FamixTypeScriptAttribute
+]
+
+{ #category : #testing }
 FamixTypeScriptImportingContext >> importBehaviouralEntity [
 	<generated>
 	^ self import: FamixTypeScriptBehaviouralEntity
@@ -170,6 +176,12 @@ FamixTypeScriptImportingContext >> importUnknownSourceLanguage [
 FamixTypeScriptImportingContext >> shouldImportAbstractFileAnchor [
 	<generated>
 	^ self shouldImport: FamixTypeScriptAbstractFileAnchor
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportAttribute [
+	<generated>
+	^ self shouldImport: FamixTypeScriptAttribute
 ]
 
 { #category : #testing }

@@ -21,6 +21,13 @@ FamixTypeScriptEntity class >> metamodel [
 ]
 
 { #category : #testing }
+FamixTypeScriptEntity >> isAttribute [
+
+	<generated>
+	^ false
+]
+
+{ #category : #testing }
 FamixTypeScriptEntity >> isBehavioural [
 
 	<generated>

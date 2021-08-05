@@ -165,6 +165,7 @@ FamixTypeScriptGenerator >> defineClasses [
 	leafEntity := builder newClassNamed: #LeafEntity.
 	
 	localVariable := builder newClassNamed: #LocalVariable.
+	attribute := builder newClassNamed: #Attribute.
 ]
 
 { #category : #definition }
@@ -257,6 +258,12 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	sourcedEntity --|> #TWithFiles.
 	localVariable --|> structuralEntity.
 	localVariable --|> #TLocalVariable.
+	
+	attribute --|> structuralEntity.
+	attribute --|> #TAttribute.
+	attribute --|> #TWithClassScope.
+	attribute --|> tCanBeVolatile.
+	attribute --|> tCanBeTransient.
 ]
 
 { #category : #definition }
