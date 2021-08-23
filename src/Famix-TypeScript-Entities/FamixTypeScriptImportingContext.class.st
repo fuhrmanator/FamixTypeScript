@@ -11,6 +11,12 @@ FamixTypeScriptImportingContext >> importAbstractFileAnchor [
 ]
 
 { #category : #testing }
+FamixTypeScriptImportingContext >> importAccess [
+	<generated>
+	^ self import: FamixTypeScriptAccess
+]
+
+{ #category : #testing }
 FamixTypeScriptImportingContext >> importAttribute [
 	<generated>
 	^ self import: FamixTypeScriptAttribute
@@ -176,6 +182,12 @@ FamixTypeScriptImportingContext >> importUnknownSourceLanguage [
 FamixTypeScriptImportingContext >> shouldImportAbstractFileAnchor [
 	<generated>
 	^ self shouldImport: FamixTypeScriptAbstractFileAnchor
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportAccess [
+	<generated>
+	^ self shouldImport: FamixTypeScriptAccess
 ]
 
 { #category : #testing }

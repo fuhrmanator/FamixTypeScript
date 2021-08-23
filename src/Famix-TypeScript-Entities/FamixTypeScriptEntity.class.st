@@ -21,6 +21,20 @@ FamixTypeScriptEntity class >> metamodel [
 ]
 
 { #category : #testing }
+FamixTypeScriptEntity >> isAccess [
+
+	<generated>
+	^ false
+]
+
+{ #category : #testing }
+FamixTypeScriptEntity >> isAssociation [
+
+	<generated>
+	^ false
+]
+
+{ #category : #testing }
 FamixTypeScriptEntity >> isAttribute [
 
 	<generated>

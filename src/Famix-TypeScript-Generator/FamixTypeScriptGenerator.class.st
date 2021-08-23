@@ -142,6 +142,7 @@ public class SharedObject {
 FamixTypeScriptGenerator >> defineClasses [
 	super defineClasses.
 	
+	access := builder newClassNamed: #Access.
 	class := builder newClassNamed: #Class.
 	containerEntity := builder newClassNamed: #ContainerEntity.
 
@@ -172,6 +173,7 @@ FamixTypeScriptGenerator >> defineClasses [
 FamixTypeScriptGenerator >> defineHierarchy [
 	super defineHierarchy.
 	
+	access --|> #TAccess.
 	cSourceLanguage --|> sourceLanguage.
 
 	cUSTOMSourceLanguage --|> sourceLanguage.
@@ -181,7 +183,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	class --|> #TWithExceptions.
 	class --|> #TClass.
 	class --|> #TCanBeClassSide.		
-	class --|> #TWithSourceLanguages.
+	"class --|> #TWithSourceLanguages."
 
 	containerEntity --|> namedEntity.
 	containerEntity --|> #TWithClasses.
@@ -217,7 +219,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	method --|> #TWithDeclaredExceptions.
 	method --|> #TWithCaughtExceptions.
 	method --|> tCanBeSynchronized.
-	method --|> #TWithSourceLanguages.
+	"method --|> #TWithSourceLanguages."
 	
 	behaviouralEntity --|> containerEntity.
 	behaviouralEntity --|> #TWithParameters.
