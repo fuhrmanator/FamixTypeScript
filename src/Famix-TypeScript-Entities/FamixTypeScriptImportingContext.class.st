@@ -89,6 +89,12 @@ FamixTypeScriptImportingContext >> importIndexedFileAnchor [
 ]
 
 { #category : #testing }
+FamixTypeScriptImportingContext >> importInvocation [
+	<generated>
+	^ self import: FamixTypeScriptInvocation
+]
+
+{ #category : #testing }
 FamixTypeScriptImportingContext >> importLeafEntity [
 	<generated>
 	^ self import: FamixTypeScriptLeafEntity
@@ -260,6 +266,12 @@ FamixTypeScriptImportingContext >> shouldImportFolder [
 FamixTypeScriptImportingContext >> shouldImportIndexedFileAnchor [
 	<generated>
 	^ self shouldImport: FamixTypeScriptIndexedFileAnchor
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportInvocation [
+	<generated>
+	^ self shouldImport: FamixTypeScriptInvocation
 ]
 
 { #category : #testing }

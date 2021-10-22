@@ -143,6 +143,7 @@ FamixTypeScriptGenerator >> defineClasses [
 	super defineClasses.
 	
 	access := builder newClassNamed: #Access.
+	invocation := builder newClassNamed: #Invocation.
 	class := builder newClassNamed: #Class.
 	containerEntity := builder newClassNamed: #ContainerEntity.
 
@@ -266,6 +267,9 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	attribute --|> #TWithClassScope.
 	attribute --|> tCanBeVolatile.
 	attribute --|> tCanBeTransient.
+	
+	invocation --|> #TInvocation.
+	invocation --|> #THasSignature.
 ]
 
 { #category : #definition }
