@@ -56,6 +56,20 @@ FamixTypeScriptEntity >> isClass [
 ]
 
 { #category : #testing }
+FamixTypeScriptEntity >> isFunction [
+
+	<generated>
+	^ false
+]
+
+{ #category : #testing }
+FamixTypeScriptEntity >> isInheritance [
+
+	<generated>
+	^ false
+]
+
+{ #category : #testing }
 FamixTypeScriptEntity >> isInvocation [
 
 	<generated>

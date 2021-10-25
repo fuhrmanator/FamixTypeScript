@@ -168,6 +168,8 @@ FamixTypeScriptGenerator >> defineClasses [
 	
 	localVariable := builder newClassNamed: #LocalVariable.
 	attribute := builder newClassNamed: #Attribute.
+	inheritance := builder newClassNamed: #Inheritance.
+	function := builder newClassNamed: #Function.
 ]
 
 { #category : #definition }
@@ -270,6 +272,12 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	
 	invocation --|> #TInvocation.
 	invocation --|> #THasSignature.
+	
+	function --|> behaviouralEntity.
+	function --|> #TFunction.
+	function --|> #TDefinedInModule.
+
+	inheritance --|> #TInheritance.
 ]
 
 { #category : #definition }

@@ -83,9 +83,21 @@ FamixTypeScriptImportingContext >> importFolder [
 ]
 
 { #category : #testing }
+FamixTypeScriptImportingContext >> importFunction [
+	<generated>
+	^ self import: FamixTypeScriptFunction
+]
+
+{ #category : #testing }
 FamixTypeScriptImportingContext >> importIndexedFileAnchor [
 	<generated>
 	^ self import: FamixTypeScriptIndexedFileAnchor
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> importInheritance [
+	<generated>
+	^ self import: FamixTypeScriptInheritance
 ]
 
 { #category : #testing }
@@ -263,9 +275,21 @@ FamixTypeScriptImportingContext >> shouldImportFolder [
 ]
 
 { #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportFunction [
+	<generated>
+	^ self shouldImport: FamixTypeScriptFunction
+]
+
+{ #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportIndexedFileAnchor [
 	<generated>
 	^ self shouldImport: FamixTypeScriptIndexedFileAnchor
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportInheritance [
+	<generated>
+	^ self shouldImport: FamixTypeScriptInheritance
 ]
 
 { #category : #testing }
