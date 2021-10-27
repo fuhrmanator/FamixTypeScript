@@ -63,7 +63,8 @@ Class {
 		'multipleFileAnchor',
 		'tCanBeVolatile',
 		'tCanBeSynchronized',
-		'tCanBeTransient'
+		'tCanBeTransient',
+		'tCanBeInterface'
 	],
 	#category : #'Famix-TypeScript-Generator'
 }
@@ -96,6 +97,18 @@ FamixTypeScriptGenerator class >> translationDictionary [
 	associations := classNames collect: [ :each | ('FamixTypeScript.', each) -> ('FamixTypeScript.', each) ] as: OrderedCollection.
 
 	^ Dictionary newFrom: associations.	
+]
+
+{ #category : #comments }
+FamixTypeScriptGenerator >> commentForTCanBeInterface [
+	^ 'I allow an entity to be an interface abstraction
+ex:
+
+```java
+public interface Flyable {
+    public void fly();
+}
+```'
 ]
 
 { #category : #comments }
@@ -209,6 +222,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	type --|> #TWithAttributes.
 	type --|> #TParameterizedTypeUser.
 	type --|> #TTraitUser. 
+	type --|> tCanBeInterface. "Trait defined locally"
 
 	namespace --|> scopingEntity.
 	namespace --|> #TNamespace.
@@ -290,6 +304,8 @@ super defineProperties.
 	((scopingEntity property: #childScopes)
 			comment: 'Child scopes embedded in this scope, if any.').
 			
+	((tCanBeInterface property: #isInterface type: #Boolean) 
+		comment: 'Entity can be an abstraction representing an implementationless interface (language dependent)').
 
 ]
 
@@ -298,7 +314,9 @@ FamixTypeScriptGenerator >> defineTraits [
 	super defineTraits.
 	tCanBeVolatile := builder newTraitNamed: #TCanBeVolatile comment: self commentForTCanBeVolatile.
 	tCanBeTransient := builder newTraitNamed: #TCanBeTransient comment: self commentForTCanBeTransient.
-	tCanBeSynchronized := builder newTraitNamed: #TCanBeSynchronized comment: self commentForTCanBeSynchronized
+	tCanBeSynchronized := builder newTraitNamed: #TCanBeSynchronized comment: self commentForTCanBeSynchronized.
+	
+	tCanBeInterface := builder newTraitNamed: #TCanBeInterface comment: self commentForTCanBeInterface
 ]
 
 { #category : #definition }
