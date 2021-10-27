@@ -199,6 +199,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	class --|> #TWithExceptions.
 	class --|> #TClass.
 	class --|> #TCanBeClassSide.		
+	class --|> tCanBeInterface. "Trait defined locally"
 	"class --|> #TWithSourceLanguages."
 
 	containerEntity --|> namedEntity.
@@ -222,7 +223,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	type --|> #TWithAttributes.
 	type --|> #TParameterizedTypeUser.
 	type --|> #TTraitUser. 
-	type --|> tCanBeInterface. "Trait defined locally"
+	
 
 	namespace --|> scopingEntity.
 	namespace --|> #TNamespace.
