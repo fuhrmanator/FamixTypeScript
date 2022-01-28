@@ -149,6 +149,24 @@ FamixTypeScriptImportingContext >> importParameter [
 ]
 
 { #category : #testing }
+FamixTypeScriptImportingContext >> importParameterType [
+	<generated>
+	^ self import: FamixTypeScriptParameterType
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> importParameterizableClass [
+	<generated>
+	^ self import: FamixTypeScriptParameterizableClass
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> importParameterizedType [
+	<generated>
+	^ self import: FamixTypeScriptParameterizedType
+]
+
+{ #category : #testing }
 FamixTypeScriptImportingContext >> importScopingEntity [
 	<generated>
 	^ self import: FamixTypeScriptScopingEntity
@@ -338,6 +356,24 @@ FamixTypeScriptImportingContext >> shouldImportNamespace [
 FamixTypeScriptImportingContext >> shouldImportParameter [
 	<generated>
 	^ self shouldImport: FamixTypeScriptParameter
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportParameterType [
+	<generated>
+	^ self shouldImport: FamixTypeScriptParameterType
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportParameterizableClass [
+	<generated>
+	^ self shouldImport: FamixTypeScriptParameterizableClass
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportParameterizedType [
+	<generated>
+	^ self shouldImport: FamixTypeScriptParameterizedType
 ]
 
 { #category : #testing }

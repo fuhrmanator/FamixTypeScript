@@ -1,8 +1,8 @@
 Class {
 	#name : #FamixTypeScriptParameter,
 	#superclass : #FamixTypeScriptStructuralEntity,
-	#traits : 'FamixTParameter',
-	#classTraits : 'FamixTParameter classTrait',
+	#traits : 'FamixTCanBeFinal + FamixTParameter',
+	#classTraits : 'FamixTCanBeFinal classTrait + FamixTParameter classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 

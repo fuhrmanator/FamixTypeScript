@@ -176,6 +176,9 @@ FamixTypeScriptGenerator >> defineClasses [
 	indexedFileAnchor := builder newClassNamed: #IndexedFileAnchor.
 	multipleFileAnchor := builder newClassNamed: #MultipleFileAnchor.
 	parameter := builder newClassNamed: #Parameter.
+	parameterType := builder newClassNamed: #ParameterType.
+	parameterizableClass := builder newClassNamed: #ParameterizableClass.
+	parameterizedType := builder newClassNamed: #ParameterizedType.
 	structuralEntity := builder newClassNamed: #StructuralEntity.
 	leafEntity := builder newClassNamed: #LeafEntity.
 	
@@ -227,6 +230,21 @@ FamixTypeScriptGenerator >> defineHierarchy [
 
 	namespace --|> scopingEntity.
 	namespace --|> #TNamespace.
+
+	parameter --|> namedEntity.
+	parameter --|> #TParameter.
+	parameter --|> #TCanBeFinal.
+
+	parameterType --|> type.
+	parameterType --|> #TParameterType.
+
+	parameterizableClass --|> class.
+	parameterizableClass --|> #TWithParameterizedTypes.
+
+	parameterizedType --|> type.
+	parameterizedType --|> #TParameterizedType.
+	parameterizedType --|> #TWithParameterizedTypeUsers.
+	parameterizedType --|> #TWithInheritances.
 	
 	scopingEntity --|> containerEntity.
 	scopingEntity --|> #TWithGlobalVariables.
