@@ -3,68 +3,34 @@ Class {
 	#superclass : #FamixBasicInfrastructureGenerator,
 	#instVars : [
 		'access',
-		'annotationInstance',
-		'annotationInstanceAttribute',
-		'annotationType',
-		'annotationTypeAttribute',
-		'attribute',
-		'behaviouralEntity',
-		'cFile',
-		'cPPSourceLanguage',
-		'cSourceLanguage',
-		'cUSTOMSourceLanguage',
-		'caughtException',
 		'class',
-		'compilationUnit',
+		'type',
+		'tCanBeInterface',
 		'containerEntity',
-		'declaredException',
-		'dereferencedInvocation',
-		'enum',
-		'enumValue',
-		'exception',
-		'function',
-		'globalVariable',
-		'header',
-		'implicitVariable',
-		'include',
-		'inheritance',
-		'invocation',
-		'jAVASourceLanguage',
-		'leafEntity',
-		'localVariable',
-		'method',
-		'module',
 		'namespace',
+		'scopingEntity',
 		'parameter',
 		'parameterType',
 		'parameterizableClass',
 		'parameterizedType',
-		'pharoAnchor',
-		'preprocessorDefine',
-		'preprocessorIfdef',
-		'preprocessorStatement',
-		'primitiveType',
-		'reference',
-		'TYPESCRIPTSourceLanguage',
-		'sMALLTALKSourceLanguage',
-		'scopingEntity',
+		'method',
+		'behaviouralEntity',
+		'leafEntity',
 		'structuralEntity',
-		'thrownException',
-		'type',
-		'typeAlias',
-		'unknownVariable',
-		'trait',
-		'traitUsage',
 		'abstractFileAnchor',
 		'file',
 		'fileAnchor',
 		'folder',
 		'indexedFileAnchor',
 		'multipleFileAnchor',
+		'localVariable',
+		'attribute',
 		'tCanBeVolatile',
-		'tCanBeSynchronized',
 		'tCanBeTransient',
-		'tCanBeInterface'
+		'invocation',
+		'function',
+		'inheritance',
+		'module'
 	],
 	#category : #'Famix-TypeScript-Generator'
 }
@@ -189,10 +155,6 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	super defineHierarchy.
 	
 	access --|> #TAccess.
-	cSourceLanguage --|> sourceLanguage.
-
-	cUSTOMSourceLanguage --|> sourceLanguage.
-	cUSTOMSourceLanguage --|> #TNamedEntity.
 	
 	class --|> type.
 	class --|> #TWithExceptions.
@@ -247,23 +209,9 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	
 	method --|> behaviouralEntity.
 	method --|> #TMethod.
-	method --|> #TWithThrownExceptions.
-	method --|> #TWithDeclaredExceptions.
-	method --|> #TWithCaughtExceptions.
-	method --|> tCanBeSynchronized.
-	method --|> #TWithImplicitVariables. "self et super"
 	"method --|> #TWithSourceLanguages."
 	
 	behaviouralEntity --|> containerEntity.
-	behaviouralEntity --|> #TWithParameters.
-	behaviouralEntity --|> #TInvocable.
-	behaviouralEntity --|> #TWithAccesses.
-	behaviouralEntity --|> #TWithInvocations.	
-	behaviouralEntity --|> #TWithReferences.
-	behaviouralEntity --|> #TTypedEntity.
-	behaviouralEntity --|> #TWithLocalVariables.
-	behaviouralEntity --|> #THasSignature.
-	behaviouralEntity --|> #TWithStatements.
 	
 	leafEntity --|> namedEntity.
 	parameter --|> structuralEntity.
@@ -306,6 +254,8 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	function --|> behaviouralEntity.
 	function --|> #TFunction.
 	function --|> #TDefinedInModule.
+	function --|> #TInvocable.
+	function --|> #TWithLocalVariables.
 
 	inheritance --|> #TInheritance.
 ]
@@ -328,9 +278,6 @@ super defineProperties.
 { #category : #definition }
 FamixTypeScriptGenerator >> defineTraits [
 	super defineTraits.
-	tCanBeVolatile := builder newTraitNamed: #TCanBeVolatile comment: self commentForTCanBeVolatile.
-	tCanBeTransient := builder newTraitNamed: #TCanBeTransient comment: self commentForTCanBeTransient.
-	tCanBeSynchronized := builder newTraitNamed: #TCanBeSynchronized comment: self commentForTCanBeSynchronized.
 	
 	tCanBeInterface := builder newTraitNamed: #TCanBeInterface comment: self commentForTCanBeInterface
 ]
