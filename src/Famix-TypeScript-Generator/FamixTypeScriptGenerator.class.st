@@ -162,30 +162,26 @@ FamixTypeScriptGenerator >> defineClasses [
 
 	type := builder newClassNamed: #Type.
    namespace := builder newClassNamed: #Namespace.
-	
 	scopingEntity := builder newClassNamed: #ScopingEntity.
-	cSourceLanguage := builder newClassNamed: #CSourceLanguage.
-	cUSTOMSourceLanguage := builder newClassNamed: #CustomSourceLanguage.
+
 	method := builder newClassNamed: #Method.
 	behaviouralEntity := builder newClassNamed: #BehaviouralEntity.
 	
-	abstractFileAnchor := builder newClassNamed: #AbstractFileAnchor.
-	file := builder newClassNamed: #File.
-	fileAnchor := builder newClassNamed: #FileAnchor.
-	folder := builder newClassNamed: #Folder.
 	indexedFileAnchor := builder newClassNamed: #IndexedFileAnchor.
-	multipleFileAnchor := builder newClassNamed: #MultipleFileAnchor.
 	parameter := builder newClassNamed: #Parameter.
 	parameterType := builder newClassNamed: #ParameterType.
 	parameterizableClass := builder newClassNamed: #ParameterizableClass.
 	parameterizedType := builder newClassNamed: #ParameterizedType.
 	structuralEntity := builder newClassNamed: #StructuralEntity.
-	leafEntity := builder newClassNamed: #LeafEntity.
 	
 	localVariable := builder newClassNamed: #LocalVariable.
 	attribute := builder newClassNamed: #Attribute.
 	inheritance := builder newClassNamed: #Inheritance.
 	function := builder newClassNamed: #Function.
+	
+	file := builder newClassNamed: #File.
+	folder := builder newClassNamed: #Folder.
+	module := builder newClassName: #Module.
 ]
 
 { #category : #definition }
@@ -255,23 +251,24 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	method --|> #TWithDeclaredExceptions.
 	method --|> #TWithCaughtExceptions.
 	method --|> tCanBeSynchronized.
+	method --|> #TWithImplicitVariables. "self et super"
 	"method --|> #TWithSourceLanguages."
 	
 	behaviouralEntity --|> containerEntity.
 	behaviouralEntity --|> #TWithParameters.
 	behaviouralEntity --|> #TInvocable.
+	behaviouralEntity --|> #TWithAccesses.
+	behaviouralEntity --|> #TWithInvocations.	
 	behaviouralEntity --|> #TWithReferences.
 	behaviouralEntity --|> #TTypedEntity.
 	behaviouralEntity --|> #TWithLocalVariables.
-	behaviouralEntity --|> #TWithImplicitVariables.
-	behaviouralEntity --|> #TWithDereferencedInvocations.
 	behaviouralEntity --|> #THasSignature.
 	behaviouralEntity --|> #TWithStatements.
 	
 	leafEntity --|> namedEntity.
 	parameter --|> structuralEntity.
 	parameter --|> #TParameter.
-	structuralEntity --|> leafEntity.
+	structuralEntity --|> #TAccessible.
 	structuralEntity --|> #TStructuralEntity.
 	structuralEntity --|> #TWithDereferencedInvocations.
 	
