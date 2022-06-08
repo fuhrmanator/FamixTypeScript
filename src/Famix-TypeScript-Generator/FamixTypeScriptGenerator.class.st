@@ -6,9 +6,7 @@ Class {
 		'class',
 		'type',
 		'tCanBeInterface',
-		'containerEntity',
 		'namespace',
-		'scopingEntity',
 		'parameter',
 		'parameterType',
 		'parameterizableClass',
@@ -30,7 +28,8 @@ Class {
 		'invocation',
 		'function',
 		'inheritance',
-		'module'
+		'module',
+		'scopingEntity'
 	],
 	#category : #'Famix-TypeScript-Generator'
 }
@@ -124,11 +123,10 @@ FamixTypeScriptGenerator >> defineClasses [
 	access := builder newClassNamed: #Access.
 	invocation := builder newClassNamed: #Invocation.
 	class := builder newClassNamed: #Class.
-	containerEntity := builder newClassNamed: #ContainerEntity.
+	scopingEntity := builder newClassNamed: #ContainerEntity.
 
 	type := builder newClassNamed: #Type.
    namespace := builder newClassNamed: #Namespace.
-	scopingEntity := builder newClassNamed: #ScopingEntity.
 
 	method := builder newClassNamed: #Method.
 	behaviouralEntity := builder newClassNamed: #BehaviouralEntity.
@@ -157,37 +155,23 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	access --|> #TAccess.
 	
 	class --|> type.
-	class --|> #TWithExceptions.
 	class --|> #TClass.
-	class --|> #TCanBeClassSide.		
 	class --|> tCanBeInterface. "Trait defined locally"
 	"class --|> #TWithSourceLanguages."
 
-	containerEntity --|> namedEntity.
-	containerEntity --|> #TWithClasses.
-	containerEntity --|> #TWithFunctions.
-	containerEntity --|> #TWithAnnotationTypes.
-	containerEntity --|> #TOODependencyQueries.
+	scopingEntity --|> namedEntity.
+	scopingEntity --|> #TWithClasses.
+	scopingEntity --|> #TWithFunctions.
+	scopingEntity --|> #TWithAnnotationTypes.
+	scopingEntity --|> #TOODependencyQueries.
 
-	namedEntity --|> #TPackageable.
-	namedEntity --|> #TInvocationsReceiver.
-	namedEntity --|> #TWithAnnotationInstances.
-	namedEntity --|> #THasVisibility.
-	namedEntity --|> #TCanBeAbstract.
-	namedEntity --|> #TCanBeFinal.
-
-	type --|> containerEntity.
+	type --|> scopingEntity.
 	type --|> #TType.
-	type --|> #TWithTypeAliases.
-	type --|> #TWithMethods.
-	type --|> #TWithInheritances.
-	type --|> #TWithAttributes.
-	type --|> #TParameterizedTypeUser.
-	type --|> #TTraitUser. 
-	
+	type --|> #TWithTypeAliases.	
 
 	namespace --|> scopingEntity.
-	namespace --|> #TNamespace.
+	namespace --|> #TNamespace. "no use (empty trait)"
+	namespace --|> #TDefinedInModule.
 
 	parameter --|> namedEntity.
 	parameter --|> #TParameter.
@@ -203,15 +187,12 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	parameterizedType --|> #TParameterizedType.
 	parameterizedType --|> #TWithParameterizedTypeUsers.
 	parameterizedType --|> #TWithInheritances.
-	
-	scopingEntity --|> containerEntity.
-	scopingEntity --|> #TWithGlobalVariables.
-	
+		
 	method --|> behaviouralEntity.
 	method --|> #TMethod.
 	"method --|> #TWithSourceLanguages."
 	
-	behaviouralEntity --|> containerEntity.
+	behaviouralEntity --|> scopingEntity.
 	
 	leafEntity --|> namedEntity.
 	parameter --|> structuralEntity.
@@ -258,18 +239,13 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	function --|> #TWithLocalVariables.
 
 	inheritance --|> #TInheritance.
+	
+   "Module"
 ]
 
 { #category : #definition }
 FamixTypeScriptGenerator >> defineProperties [
 super defineProperties.
-	((scopingEntity property: #parentScope)
-			comment: 'Parent scope embedding this scope, if any.';
-			container)
-		*-
-	((scopingEntity property: #childScopes)
-			comment: 'Child scopes embedded in this scope, if any.').
-			
 	((tCanBeInterface property: #isInterface type: #Boolean) 
 		comment: 'Entity can be an abstraction representing an implementationless interface (language dependent)').
 
