@@ -5,12 +5,6 @@ Class {
 }
 
 { #category : #testing }
-FamixTypeScriptImportingContext >> importAbstractFileAnchor [
-	<generated>
-	^ self import: FamixTypeScriptAbstractFileAnchor
-]
-
-{ #category : #testing }
 FamixTypeScriptImportingContext >> importAccess [
 	<generated>
 	^ self import: FamixTypeScriptAccess
@@ -26,12 +20,6 @@ FamixTypeScriptImportingContext >> importAttribute [
 FamixTypeScriptImportingContext >> importBehaviouralEntity [
 	<generated>
 	^ self import: FamixTypeScriptBehaviouralEntity
-]
-
-{ #category : #testing }
-FamixTypeScriptImportingContext >> importCSourceLanguage [
-	<generated>
-	^ self import: FamixTypeScriptCSourceLanguage
 ]
 
 { #category : #testing }
@@ -53,12 +41,6 @@ FamixTypeScriptImportingContext >> importContainerEntity [
 ]
 
 { #category : #testing }
-FamixTypeScriptImportingContext >> importCustomSourceLanguage [
-	<generated>
-	^ self import: FamixTypeScriptCustomSourceLanguage
-]
-
-{ #category : #testing }
 FamixTypeScriptImportingContext >> importEntity [
 	<generated>
 	^ self import: FamixTypeScriptEntity
@@ -68,12 +50,6 @@ FamixTypeScriptImportingContext >> importEntity [
 FamixTypeScriptImportingContext >> importFile [
 	<generated>
 	^ self import: FamixTypeScriptFile
-]
-
-{ #category : #testing }
-FamixTypeScriptImportingContext >> importFileAnchor [
-	<generated>
-	^ self import: FamixTypeScriptFileAnchor
 ]
 
 { #category : #testing }
@@ -107,12 +83,6 @@ FamixTypeScriptImportingContext >> importInvocation [
 ]
 
 { #category : #testing }
-FamixTypeScriptImportingContext >> importLeafEntity [
-	<generated>
-	^ self import: FamixTypeScriptLeafEntity
-]
-
-{ #category : #testing }
 FamixTypeScriptImportingContext >> importLocalVariable [
 	<generated>
 	^ self import: FamixTypeScriptLocalVariable
@@ -125,9 +95,9 @@ FamixTypeScriptImportingContext >> importMethod [
 ]
 
 { #category : #testing }
-FamixTypeScriptImportingContext >> importMultipleFileAnchor [
+FamixTypeScriptImportingContext >> importModule [
 	<generated>
-	^ self import: FamixTypeScriptMultipleFileAnchor
+	^ self import: FamixTypeScriptModule
 ]
 
 { #category : #testing }
@@ -164,12 +134,6 @@ FamixTypeScriptImportingContext >> importParameterizableClass [
 FamixTypeScriptImportingContext >> importParameterizedType [
 	<generated>
 	^ self import: FamixTypeScriptParameterizedType
-]
-
-{ #category : #testing }
-FamixTypeScriptImportingContext >> importScopingEntity [
-	<generated>
-	^ self import: FamixTypeScriptScopingEntity
 ]
 
 { #category : #testing }
@@ -215,12 +179,6 @@ FamixTypeScriptImportingContext >> importUnknownSourceLanguage [
 ]
 
 { #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportAbstractFileAnchor [
-	<generated>
-	^ self shouldImport: FamixTypeScriptAbstractFileAnchor
-]
-
-{ #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportAccess [
 	<generated>
 	^ self shouldImport: FamixTypeScriptAccess
@@ -236,12 +194,6 @@ FamixTypeScriptImportingContext >> shouldImportAttribute [
 FamixTypeScriptImportingContext >> shouldImportBehaviouralEntity [
 	<generated>
 	^ self shouldImport: FamixTypeScriptBehaviouralEntity
-]
-
-{ #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportCSourceLanguage [
-	<generated>
-	^ self shouldImport: FamixTypeScriptCSourceLanguage
 ]
 
 { #category : #testing }
@@ -263,12 +215,6 @@ FamixTypeScriptImportingContext >> shouldImportContainerEntity [
 ]
 
 { #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportCustomSourceLanguage [
-	<generated>
-	^ self shouldImport: FamixTypeScriptCustomSourceLanguage
-]
-
-{ #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportEntity [
 	<generated>
 	^ self shouldImport: FamixTypeScriptEntity
@@ -278,12 +224,6 @@ FamixTypeScriptImportingContext >> shouldImportEntity [
 FamixTypeScriptImportingContext >> shouldImportFile [
 	<generated>
 	^ self shouldImport: FamixTypeScriptFile
-]
-
-{ #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportFileAnchor [
-	<generated>
-	^ self shouldImport: FamixTypeScriptFileAnchor
 ]
 
 { #category : #testing }
@@ -317,12 +257,6 @@ FamixTypeScriptImportingContext >> shouldImportInvocation [
 ]
 
 { #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportLeafEntity [
-	<generated>
-	^ self shouldImport: FamixTypeScriptLeafEntity
-]
-
-{ #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportLocalVariable [
 	<generated>
 	^ self shouldImport: FamixTypeScriptLocalVariable
@@ -335,9 +269,9 @@ FamixTypeScriptImportingContext >> shouldImportMethod [
 ]
 
 { #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportMultipleFileAnchor [
+FamixTypeScriptImportingContext >> shouldImportModule [
 	<generated>
-	^ self shouldImport: FamixTypeScriptMultipleFileAnchor
+	^ self shouldImport: FamixTypeScriptModule
 ]
 
 { #category : #testing }
@@ -374,12 +308,6 @@ FamixTypeScriptImportingContext >> shouldImportParameterizableClass [
 FamixTypeScriptImportingContext >> shouldImportParameterizedType [
 	<generated>
 	^ self shouldImport: FamixTypeScriptParameterizedType
-]
-
-{ #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportScopingEntity [
-	<generated>
-	^ self shouldImport: FamixTypeScriptScopingEntity
 ]
 
 { #category : #testing }

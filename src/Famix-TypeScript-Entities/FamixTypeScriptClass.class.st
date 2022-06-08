@@ -1,8 +1,11 @@
 Class {
 	#name : #FamixTypeScriptClass,
 	#superclass : #FamixTypeScriptType,
-	#traits : 'FamixTCanBeClassSide + FamixTClass + FamixTWithExceptions + FamixTypeScriptTCanBeInterface',
-	#classTraits : 'FamixTCanBeClassSide classTrait + FamixTClass classTrait + FamixTWithExceptions classTrait + FamixTypeScriptTCanBeInterface classTrait',
+	#traits : 'FamixTClass',
+	#classTraits : 'FamixTClass classTrait',
+	#instVars : [
+		'#isInterface => FMProperty'
+	],
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 
@@ -13,4 +16,19 @@ FamixTypeScriptClass class >> annotation [
 	<package: #FamixTypeScript>
 	<generated>
 	^self
+]
+
+{ #category : #accessing }
+FamixTypeScriptClass >> isInterface [
+
+	<FMProperty: #isInterface type: #Boolean>
+	<generated>
+	<FMComment: 'Entity can be an abstraction representing an implementationless interface (language dependent)'>
+	^ isInterface
+]
+
+{ #category : #accessing }
+FamixTypeScriptClass >> isInterface: anObject [
+	<generated>
+	isInterface := anObject
 ]

@@ -5,7 +5,6 @@ Class {
 		'access',
 		'class',
 		'type',
-		'tCanBeInterface',
 		'namespace',
 		'parameter',
 		'parameterType',
@@ -23,8 +22,6 @@ Class {
 		'multipleFileAnchor',
 		'localVariable',
 		'attribute',
-		'tCanBeVolatile',
-		'tCanBeTransient',
 		'invocation',
 		'function',
 		'inheritance',
@@ -145,7 +142,7 @@ FamixTypeScriptGenerator >> defineClasses [
 	
 	file := builder newClassNamed: #File.
 	folder := builder newClassNamed: #Folder.
-	module := builder newClassName: #Module.
+	module := builder newClassNamed: #Module.
 ]
 
 { #category : #definition }
@@ -156,7 +153,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	
 	class --|> type.
 	class --|> #TClass.
-	class --|> tCanBeInterface. "Trait defined locally"
+	"class --|> tCanBeInterface." "Trait defined locally"
 	"class --|> #TWithSourceLanguages."
 
 	scopingEntity --|> namedEntity.
@@ -194,30 +191,20 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	
 	behaviouralEntity --|> scopingEntity.
 	
-	leafEntity --|> namedEntity.
 	parameter --|> structuralEntity.
 	parameter --|> #TParameter.
 	structuralEntity --|> #TAccessible.
 	structuralEntity --|> #TStructuralEntity.
 	structuralEntity --|> #TWithDereferencedInvocations.
 	
-	abstractFileAnchor --|> sourceAnchor.
-	abstractFileAnchor --|> #TFileAnchor.
-
 	file --|> namedEntity.
 	file --|> #TFile.
-
-	fileAnchor --|> abstractFileAnchor.
-	fileAnchor --|> #TFileNavigation.
 
 	folder --|> namedEntity.
 	folder --|> #TFolder.
 
-	indexedFileAnchor --|> abstractFileAnchor.
 	indexedFileAnchor --|> #TIndexedFileNavigation.
-
-	multipleFileAnchor --|> sourceAnchor.
-	multipleFileAnchor --|> #TMultipleFileAnchor.
+	indexedFileAnchor --|> #TSourceAnchor.
 
 	sourcedEntity --|> #TWithFiles.
 	localVariable --|> structuralEntity.
@@ -225,9 +212,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	
 	attribute --|> structuralEntity.
 	attribute --|> #TAttribute.
-	attribute --|> #TWithClassScope.
-	attribute --|> tCanBeVolatile.
-	attribute --|> tCanBeTransient.
+	attribute --|> #TCanBeClassSide.
 	
 	invocation --|> #TInvocation.
 	invocation --|> #THasSignature.
@@ -246,16 +231,9 @@ FamixTypeScriptGenerator >> defineHierarchy [
 { #category : #definition }
 FamixTypeScriptGenerator >> defineProperties [
 super defineProperties.
-	((tCanBeInterface property: #isInterface type: #Boolean) 
+	((class property: #isInterface type: #Boolean) 
 		comment: 'Entity can be an abstraction representing an implementationless interface (language dependent)').
 
-]
-
-{ #category : #definition }
-FamixTypeScriptGenerator >> defineTraits [
-	super defineTraits.
-	
-	tCanBeInterface := builder newTraitNamed: #TCanBeInterface comment: self commentForTCanBeInterface
 ]
 
 { #category : #definition }
