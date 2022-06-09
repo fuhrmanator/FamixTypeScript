@@ -153,6 +153,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	
 	class --|> type.
 	class --|> #TClass.
+	class --|> #TCanBeAbstract.
 	"class --|> tCanBeInterface." "Trait defined locally"
 	"class --|> #TWithSourceLanguages."
 
