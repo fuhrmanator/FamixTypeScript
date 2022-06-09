@@ -1,15 +1,15 @@
 Class {
 	#name : #FamixTypeScriptStructuralEntity,
-	#superclass : #FamixTypeScriptLeafEntity,
-	#traits : 'FamixTStructuralEntity + FamixTWithDereferencedInvocations',
-	#classTraits : 'FamixTStructuralEntity classTrait + FamixTWithDereferencedInvocations classTrait',
+	#superclass : #FamixTypeScriptEntity,
+	#traits : 'FamixTAccessible + FamixTStructuralEntity + FamixTWithDereferencedInvocations',
+	#classTraits : 'FamixTAccessible classTrait + FamixTStructuralEntity classTrait + FamixTWithDereferencedInvocations classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 
 { #category : #meta }
 FamixTypeScriptStructuralEntity class >> annotation [
 
-	<FMClass: #StructuralEntity super: #FamixTypeScriptLeafEntity>
+	<FMClass: #StructuralEntity super: #FamixTypeScriptEntity>
 	<package: #FamixTypeScript>
 	<generated>
 	^self

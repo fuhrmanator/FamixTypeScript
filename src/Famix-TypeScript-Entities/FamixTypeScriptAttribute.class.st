@@ -1,8 +1,8 @@
 Class {
 	#name : #FamixTypeScriptAttribute,
 	#superclass : #FamixTypeScriptStructuralEntity,
-	#traits : 'FamixTAttribute + FamixTWithClassScope + FamixTypeScriptTCanBeTransient + FamixTypeScriptTCanBeVolatile',
-	#classTraits : 'FamixTAttribute classTrait + FamixTWithClassScope classTrait + FamixTypeScriptTCanBeTransient classTrait + FamixTypeScriptTCanBeVolatile classTrait',
+	#traits : 'FamixTAttribute + FamixTCanBeClassSide',
+	#classTraits : 'FamixTAttribute classTrait + FamixTCanBeClassSide classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 

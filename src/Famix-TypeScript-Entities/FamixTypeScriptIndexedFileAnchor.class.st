@@ -1,15 +1,15 @@
 Class {
 	#name : #FamixTypeScriptIndexedFileAnchor,
-	#superclass : #FamixTypeScriptAbstractFileAnchor,
-	#traits : 'FamixTIndexedFileNavigation',
-	#classTraits : 'FamixTIndexedFileNavigation classTrait',
+	#superclass : #FamixTypeScriptEntity,
+	#traits : 'FamixTIndexedFileNavigation + FamixTSourceAnchor',
+	#classTraits : 'FamixTIndexedFileNavigation classTrait + FamixTSourceAnchor classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 
 { #category : #meta }
 FamixTypeScriptIndexedFileAnchor class >> annotation [
 
-	<FMClass: #IndexedFileAnchor super: #FamixTypeScriptAbstractFileAnchor>
+	<FMClass: #IndexedFileAnchor super: #FamixTypeScriptEntity>
 	<package: #FamixTypeScript>
 	<generated>
 	^self

@@ -1,15 +1,15 @@
 Class {
 	#name : #FamixTypeScriptNamedEntity,
-	#superclass : #FamixTypeScriptSourcedEntity,
-	#traits : 'FamixTCanBeAbstract + FamixTCanBeFinal + FamixTHasVisibility + FamixTInvocationsReceiver + FamixTNamedEntity + FamixTPackageable + FamixTWithAnnotationInstances',
-	#classTraits : 'FamixTCanBeAbstract classTrait + FamixTCanBeFinal classTrait + FamixTHasVisibility classTrait + FamixTInvocationsReceiver classTrait + FamixTNamedEntity classTrait + FamixTPackageable classTrait + FamixTWithAnnotationInstances classTrait',
+	#superclass : #FamixTypeScriptEntity,
+	#traits : 'FamixTNamedEntity',
+	#classTraits : 'FamixTNamedEntity classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 
 { #category : #meta }
 FamixTypeScriptNamedEntity class >> annotation [
 
-	<FMClass: #NamedEntity super: #FamixTypeScriptSourcedEntity>
+	<FMClass: #NamedEntity super: #FamixTypeScriptEntity>
 	<package: #FamixTypeScript>
 	<generated>
 	^self
