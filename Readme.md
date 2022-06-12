@@ -5,7 +5,7 @@ This project is normally synchronized with [FamixTypeScriptImporter](https://git
 
 ## Loading from a playground
 
-This version must be loaded in a [Moose 8.0.2 image](https://github.com/moosetechnology/Moose/releases/download/v8.0.2/Moose8-stable.zip). 
+This version works in Moose 10. 
 
 ```st
 Metacello new
@@ -15,3 +15,13 @@ Metacello new
 ```
 
 Note to students: If you're working with a fork of this project, you should change the `githubUser` above to match your fork.
+
+## Loading a FamixTypeScript model (from importer)
+
+Assuming the model is in `entity.json` and you've cloned your repos in the same `GitHub` tree:
+
+```st
+'../../../GitHub/FamixTypeScriptImporter/entity.json' asFileReference 
+	readStreamDo: [ :stream | model := FamixTypeScriptModel new
+	importFromJSONStream: stream. model install ]. 
+```
