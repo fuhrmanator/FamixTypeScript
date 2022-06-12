@@ -190,6 +190,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	method --|> behaviouralEntity.
 	method --|> #TMethod.
 	method --|> #TCanBeAbstract.
+	method --|> #THasKind.
 	"method --|> #TWithSourceLanguages."
 	
 	behaviouralEntity --|> scopingEntity.
