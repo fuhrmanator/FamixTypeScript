@@ -1,8 +1,8 @@
 Class {
 	#name : #FamixTypeScriptMethod,
 	#superclass : #FamixTypeScriptBehaviouralEntity,
-	#traits : 'FamixTCanBeAbstract + FamixTHasKind + FamixTMethod + FamixTypeScriptTCanBeSynchronized',
-	#classTraits : 'FamixTCanBeAbstract classTrait + FamixTHasKind classTrait + FamixTMethod classTrait + FamixTypeScriptTCanBeSynchronized classTrait',
+	#traits : 'FamixTCanBeAbstract + FamixTHasKind + FamixTHasVisibility + FamixTMethod + FamixTypeScriptTCanBeSynchronized',
+	#classTraits : 'FamixTCanBeAbstract classTrait + FamixTHasKind classTrait + FamixTHasVisibility classTrait + FamixTMethod classTrait + FamixTypeScriptTCanBeSynchronized classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 

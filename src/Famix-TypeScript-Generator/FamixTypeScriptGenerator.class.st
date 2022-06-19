@@ -191,6 +191,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	method --|> #TMethod.
 	method --|> #TCanBeAbstract.
 	method --|> #THasKind.
+	method --|> #THasVisibility.
 	"method --|> #TWithSourceLanguages."
 	
 	behaviouralEntity --|> scopingEntity.
@@ -217,6 +218,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	attribute --|> structuralEntity.
 	attribute --|> #TAttribute.
 	attribute --|> #TCanBeClassSide.
+	attribute --|> #THasVisibility.
 	
 	invocation --|> #TInvocation.
 	invocation --|> #THasSignature.
