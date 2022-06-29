@@ -22,10 +22,10 @@ jobs:
         # Prepare the CI - download the correct VM :-) 
       - uses: hpi-swa/setup-smalltalkCI@v1
         with:
-          smalltalk-image: $
+          smalltalk-image: ${{ matrix.smalltalk }}
       
         # Use the CI - always better to run test
-      - run: smalltalkci -s $
+      - run: smalltalkci -s ${{ matrix.smalltalk }}
         shell: bash
         timeout-minutes: 15
         
