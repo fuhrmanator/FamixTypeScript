@@ -1,0 +1,67 @@
+# Name of the project in the GitHub action panel
+name: CI
+
+# Execute the CI on push on the master branch
+on:
+  push:
+    branches: 
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # Use Moose 9 that includes our visualization tool
+        smalltalk: [ Moose64-9.0]
+    name: $
+    steps:
+        # checkout the project
+      - uses: actions/checkout@v2
+      
+        # Prepare the CI - download the correct VM :-) 
+      - uses: hpi-swa/setup-smalltalkCI@v1
+        with:
+          smalltalk-image: $
+      
+        # Use the CI - always better to run test
+      - run: smalltalkci -s $
+        shell: bash
+        timeout-minutes: 15
+        
+      - name: Build meta-model planuml image
+        run: |
+          $SMALLTALK_CI_VM  $SMALLTALK_CI_IMAGE eval "'FamixTypeScript.puml' asFileReference writeStreamDo: [ :stream | stream nextPutAll:  (FamixMMUMLDocumentor new model: FamixTypeScriptModel; beWithStub; generatePlantUMLModel)]."
+      
+      - name: Generate Coaster PNG Diagrams
+        uses: cloudbees/plantuml-github-action@master
+        with:
+          args: -v -tpng FamixTypeScript.puml
+          
+      - name: Move artifact
+        run: |
+          mkdir doc-uml
+          mv *.png doc-uml
+
+      - name: Init new repo in doc-uml folder and commit generated files
+        run: |
+          cd doc-uml/
+          git init
+          git add -A
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -m 'update doc'
+
+      # Careful, this can kill your project
+      - name: Force push to destination branch
+        uses: ad-m/github-push-action@v0.5.0
+        with:
+          # Token for the repo. Can be passed in using $\{{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          force: true
+          # Destination branch to push changes
+          branch: v1/doc
+          # We have to push from the folder where files were generated.
+          # Same were the new repo was initialized in the previous step
+          directory: ./doc-uml
+  
