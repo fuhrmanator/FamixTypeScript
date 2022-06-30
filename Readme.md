@@ -3,6 +3,11 @@
 
 This project is normally synchronized with [FamixTypeScriptImporter](https://github.com/Arezoo-Nasr/FamixTypeScriptImporter) as it is the FamixNG metamodel it supports.
 
+
+## Visualizing the Metamodel
+
+![FamixTypeScript Metamodel](https://raw.githubusercontent.com/Arezoo-Nasr/FamixTypeScript/v1/doc/FamixTypeScript.svg)
+
 ## Loading from a playground
 
 This version works in Moose 10. 
