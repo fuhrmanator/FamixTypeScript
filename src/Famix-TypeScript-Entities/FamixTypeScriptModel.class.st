@@ -16,9 +16,3 @@ FamixTypeScriptModel class >> annotation [
 	<package: #FamixTypeScript>
 	<generated>
 ]
-
-{ #category : #testing }
-FamixTypeScriptModel class >> canBeImportedFromFile [
-
-    ^ true
-]
