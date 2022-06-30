@@ -181,9 +181,6 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	scopingEntity --|> #TWithAnnotationTypes.
 	scopingEntity --|> #TOODependencyQueries.
 
-	sourcedEntity --|> #TWithFiles.
-
-	structuralEntity --|> #TAccessible.
 	structuralEntity --|> #TStructuralEntity.
 	structuralEntity --|> #TWithDereferencedInvocations.
 
