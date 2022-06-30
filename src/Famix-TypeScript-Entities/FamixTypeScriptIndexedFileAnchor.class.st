@@ -1,8 +1,8 @@
 Class {
 	#name : #FamixTypeScriptIndexedFileAnchor,
 	#superclass : #FamixTypeScriptEntity,
-	#traits : 'FamixTIndexedFileNavigation + FamixTSourceAnchor',
-	#classTraits : 'FamixTIndexedFileNavigation classTrait + FamixTSourceAnchor classTrait',
+	#traits : 'FamixTIndexedFileNavigation',
+	#classTraits : 'FamixTIndexedFileNavigation classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 

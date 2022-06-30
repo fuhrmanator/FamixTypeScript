@@ -111,22 +111,48 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	
 	access --|> #TAccess.
 	
+	attribute --|> structuralEntity.
+	attribute --|> #TAttribute.
+	attribute --|> #TCanBeClassSide.
+	attribute --|> #THasVisibility.
+	
+	behaviouralEntity --|> scopingEntity.
+	
 	class --|> type.
 	class --|> #TClass.
 	class --|> #TCanBeAbstract.
 	
-	"class --|> tCanBeInterface." "Trait defined locally"
-	"class --|> #TWithSourceLanguages."
+	file --|> namedEntity.
+	file --|> #TFile.
 
-	scopingEntity --|> namedEntity.
-	scopingEntity --|> #TWithClasses.
-	scopingEntity --|> #TWithFunctions.
-	scopingEntity --|> #TWithAnnotationTypes.
-	scopingEntity --|> #TOODependencyQueries.
+	folder --|> namedEntity.
+	folder --|> #TFolder.
 
-	type --|> scopingEntity.
-	type --|> #TType.
-	type --|> #TWithTypeAliases.	
+	function --|> behaviouralEntity.
+	function --|> #TFunction.
+	function --|> #TDefinedInModule.
+	function --|> #TInvocable.
+	function --|> #TWithLocalVariables.
+
+	indexedFileAnchor --|> #TIndexedFileNavigation.
+
+	inheritance --|> #TInheritance.
+	
+	invocation --|> #TInvocation.
+	invocation --|> #THasSignature.
+	
+	localVariable --|> structuralEntity.
+	localVariable --|> #TLocalVariable.
+	
+	method --|> behaviouralEntity.
+	method --|> #TMethod.
+	method --|> #TCanBeAbstract.
+	method --|> #THasKind.
+	method --|> #THasVisibility.
+	"method --|> #TWithSourceLanguages."
+	
+   "Module"
+	module --|> #TWithLocalVariables. "var can have module scope"
 
 	namespace --|> scopingEntity.
 	namespace --|> #TNamespace. "no use (empty trait)"
@@ -136,9 +162,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	parameter --|> namedEntity.
 	parameter --|> #TParameter.
 	parameter --|> #TCanBeFinal.
-
-	parameterType --|> type.
-	parameterType --|> #TParameterType.
+	parameter --|> structuralEntity.	
 
 	parameterizableClass --|> class.
 	parameterizableClass --|> #TWithParameterizedTypes.
@@ -147,53 +171,25 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	parameterizedType --|> #TParameterizedType.
 	parameterizedType --|> #TWithParameterizedTypeUsers.
 	parameterizedType --|> #TWithInheritances.
+
+	parameterType --|> type.
+	parameterType --|> #TParameterType.
 		
-	method --|> behaviouralEntity.
-	method --|> #TMethod.
-	method --|> #TCanBeAbstract.
-	method --|> #THasKind.
-	method --|> #THasVisibility.
-	"method --|> #TWithSourceLanguages."
-	
-	behaviouralEntity --|> scopingEntity.
-	
-	parameter --|> structuralEntity.
-	parameter --|> #TParameter.
+	scopingEntity --|> namedEntity.
+	scopingEntity --|> #TWithClasses.
+	scopingEntity --|> #TWithFunctions.
+	scopingEntity --|> #TWithAnnotationTypes.
+	scopingEntity --|> #TOODependencyQueries.
+
+	sourcedEntity --|> #TWithFiles.
+
 	structuralEntity --|> #TAccessible.
 	structuralEntity --|> #TStructuralEntity.
 	structuralEntity --|> #TWithDereferencedInvocations.
-	
-	file --|> namedEntity.
-	file --|> #TFile.
 
-	folder --|> namedEntity.
-	folder --|> #TFolder.
-
-	indexedFileAnchor --|> #TIndexedFileNavigation.
-	indexedFileAnchor --|> #TSourceAnchor.
-
-	sourcedEntity --|> #TWithFiles.
-	localVariable --|> structuralEntity.
-	localVariable --|> #TLocalVariable.
-	
-	attribute --|> structuralEntity.
-	attribute --|> #TAttribute.
-	attribute --|> #TCanBeClassSide.
-	attribute --|> #THasVisibility.
-	
-	invocation --|> #TInvocation.
-	invocation --|> #THasSignature.
-	
-	function --|> behaviouralEntity.
-	function --|> #TFunction.
-	function --|> #TDefinedInModule.
-	function --|> #TInvocable.
-	function --|> #TWithLocalVariables.
-
-	inheritance --|> #TInheritance.
-	
-   "Module"
-	module --|> #TWithLocalVariables. "var can have module scope"
+	type --|> scopingEntity.
+	type --|> #TType.
+	type --|> #TWithTypeAliases.	
 
 ]
 
