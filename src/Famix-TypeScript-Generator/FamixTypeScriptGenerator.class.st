@@ -73,46 +73,6 @@ public interface Flyable {
 ```'
 ]
 
-{ #category : #comments }
-FamixTypeScriptGenerator >> commentForTCanBeSynchronized [
-	^ 'I allow an entity to be synchronized
-ex:
-
-```java
-public class SynchronizedCounter {
-    private int c = 0;
-
-    public synchronized void increment() {
-        c++;
-    }
-}
-```'
-]
-
-{ #category : #comments }
-FamixTypeScriptGenerator >> commentForTCanBeTransient [
-	^ 'I allow an entity to be transient
-ex:
-
-```java
-public class Student implements Serializable{  
- transient int age; //Now it will not be serialized  
-}  
-```'
-]
-
-{ #category : #comments }
-FamixTypeScriptGenerator >> commentForTCanBeVolatile [
-	^ 'I allow an entity to be volatible
-ex:
-
-```java
-public class SharedObject {
-    public volatile int counter = 0;
-}
-```'
-]
-
 { #category : #definition }
 FamixTypeScriptGenerator >> defineClasses [
 	super defineClasses.
