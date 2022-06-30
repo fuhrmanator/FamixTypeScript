@@ -31,17 +31,17 @@ jobs:
         
       - name: Build meta-model planuml image
         run: |
-          $SMALLTALK_CI_VM  $SMALLTALK_CI_IMAGE eval "'FamixTypeScript.puml' asFileReference writeStreamDo: [ :stream | stream nextPutAll:  (FamixMMUMLDocumentor new model: FamixTypeScriptModel; beWithStub; generatePlantUMLModel)]."
+          $SMALLTALK_CI_VM  $SMALLTALK_CI_IMAGE eval "'FamixTypeScript.puml' asFileReference writeStreamDo: [ :stream | stream nextPutAll:  (FamixMMUMLDocumentor new withModel: FamixTypeScriptModel andColor: Color lightBlue ; beWithStub; generatePlantUMLModel)]"
       
-      - name: Generate Coaster PNG Diagrams
+      - name: Generate SVG Diagrams
         uses: cloudbees/plantuml-github-action@master
         with:
-          args: -v -tpng FamixTypeScript.puml
+          args: -v -tsvg FamixTypeScript.puml
           
       - name: Move artifact
         run: |
           mkdir doc-uml
-          mv *.png doc-uml
+          mv *.svg doc-uml
 
       - name: Init new repo in doc-uml folder and commit generated files
         run: |
