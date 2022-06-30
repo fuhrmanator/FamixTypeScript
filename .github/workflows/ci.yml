@@ -14,7 +14,7 @@ jobs:
       matrix:
         # Use Moose 9 that includes our visualization tool
         smalltalk: [ Moose64-9.0]
-    name: $
+    name: ${{ matrix.smalltalk }}
     steps:
         # checkout the project
       - uses: actions/checkout@v2
