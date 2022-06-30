@@ -1,5 +1,5 @@
 # Name of the project in the GitHub action panel
-name: CI
+name: Generate-Model-Diagram
 
 # Execute the CI on push on the master branch
 on:
