@@ -77,6 +77,13 @@ FamixTypeScriptEntity >> isInvocation [
 ]
 
 { #category : #testing }
+FamixTypeScriptEntity >> isLocalVariable [
+
+	<generated>
+	^ false
+]
+
+{ #category : #testing }
 FamixTypeScriptEntity >> isMethod [
 
 	<generated>
