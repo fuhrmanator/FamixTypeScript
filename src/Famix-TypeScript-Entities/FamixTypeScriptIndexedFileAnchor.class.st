@@ -1,6 +1,6 @@
 Class {
 	#name : #FamixTypeScriptIndexedFileAnchor,
-	#superclass : #FamixTypeScriptEntity,
+	#superclass : #FamixTypeScriptSourceAnchor,
 	#traits : 'FamixTIndexedFileNavigation',
 	#classTraits : 'FamixTIndexedFileNavigation classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
@@ -9,7 +9,7 @@ Class {
 { #category : #meta }
 FamixTypeScriptIndexedFileAnchor class >> annotation [
 
-	<FMClass: #IndexedFileAnchor super: #FamixTypeScriptEntity>
+	<FMClass: #IndexedFileAnchor super: #FamixTypeScriptSourceAnchor>
 	<package: #FamixTypeScript>
 	<generated>
 	^self

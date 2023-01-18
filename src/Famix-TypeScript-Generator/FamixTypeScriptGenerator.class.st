@@ -12,14 +12,10 @@ Class {
 		'parameterizedType',
 		'method',
 		'behaviouralEntity',
-		'leafEntity',
 		'structuralEntity',
-		'abstractFileAnchor',
 		'file',
-		'fileAnchor',
 		'folder',
 		'indexedFileAnchor',
-		'multipleFileAnchor',
 		'localVariable',
 		'attribute',
 		'invocation',
@@ -134,6 +130,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	function --|> #TInvocable.
 	function --|> #TWithLocalVariables.
 
+	indexedFileAnchor --|> sourceAnchor.
 	indexedFileAnchor --|> #TIndexedFileNavigation.
 
 	inheritance --|> #TInheritance.
