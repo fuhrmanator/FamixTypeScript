@@ -1,6 +1,6 @@
 Class {
 	#name : #FamixTypeScriptFunction,
-	#superclass : #FamixTypeScriptBehaviouralEntity,
+	#superclass : #FamixTypeScriptContainerEntity,
 	#traits : 'FamixTDefinedInModule + FamixTFunction + FamixTInvocable + FamixTWithLocalVariables',
 	#classTraits : 'FamixTDefinedInModule classTrait + FamixTFunction classTrait + FamixTInvocable classTrait + FamixTWithLocalVariables classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
@@ -9,7 +9,7 @@ Class {
 { #category : #meta }
 FamixTypeScriptFunction class >> annotation [
 
-	<FMClass: #Function super: #FamixTypeScriptBehaviouralEntity>
+	<FMClass: #Function super: #FamixTypeScriptContainerEntity>
 	<package: #FamixTypeScript>
 	<generated>
 	^self

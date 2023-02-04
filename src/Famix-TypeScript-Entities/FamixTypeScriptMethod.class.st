@@ -1,6 +1,6 @@
 Class {
 	#name : #FamixTypeScriptMethod,
-	#superclass : #FamixTypeScriptBehaviouralEntity,
+	#superclass : #FamixTypeScriptContainerEntity,
 	#traits : 'FamixTCanBeAbstract + FamixTHasKind + FamixTHasVisibility + FamixTMethod',
 	#classTraits : 'FamixTCanBeAbstract classTrait + FamixTHasKind classTrait + FamixTHasVisibility classTrait + FamixTMethod classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
@@ -9,7 +9,7 @@ Class {
 { #category : #meta }
 FamixTypeScriptMethod class >> annotation [
 
-	<FMClass: #Method super: #FamixTypeScriptBehaviouralEntity>
+	<FMClass: #Method super: #FamixTypeScriptContainerEntity>
 	<package: #FamixTypeScript>
 	<generated>
 	^self
