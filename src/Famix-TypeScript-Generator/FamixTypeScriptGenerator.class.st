@@ -21,7 +21,8 @@ Class {
 		'function',
 		'inheritance',
 		'module',
-		'containerEntity'
+		'containerEntity',
+		'tTypeScriptClassMetrics'
 	],
 	#category : #'Famix-TypeScript-Generator'
 }
@@ -116,6 +117,9 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	class --|> type.
 	class --|> #TClass.
 	class --|> #TCanBeAbstract.
+	class --|> #TLCOMMetrics.
+	"class --|> #TClassMetrics."
+	class --|> tTypeScriptClassMetrics. "not sure why this is repeated, like this in FamixJava"
 	
 	"this level of hierarchy to follow Java's metamodel, to accommodate Interfac properly TODO"
 	containerEntity --|> namedEntity.
@@ -196,6 +200,13 @@ super defineProperties.
 	((class property: #isInterface type: #Boolean) 
 		comment: 'Entity can be an abstraction representing an implementationless interface (language dependent)').
 
+]
+
+{ #category : #definition }
+FamixTypeScriptGenerator >> defineTraits [ 
+
+	super defineTraits.
+	tTypeScriptClassMetrics := builder newTraitNamed: #TClassMetrics.
 ]
 
 { #category : #definition }

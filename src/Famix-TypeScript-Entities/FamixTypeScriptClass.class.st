@@ -1,8 +1,8 @@
 Class {
 	#name : #FamixTypeScriptClass,
 	#superclass : #FamixTypeScriptType,
-	#traits : 'FamixTCanBeAbstract + FamixTClass',
-	#classTraits : 'FamixTCanBeAbstract classTrait + FamixTClass classTrait',
+	#traits : 'FamixTCanBeAbstract + FamixTClass + FamixTLCOMMetrics + FamixTypeScriptTClassMetrics',
+	#classTraits : 'FamixTCanBeAbstract classTrait + FamixTClass classTrait + FamixTLCOMMetrics classTrait + FamixTypeScriptTClassMetrics classTrait',
 	#instVars : [
 		'#isInterface => FMProperty'
 	],
