@@ -17,12 +17,6 @@ FamixTypeScriptImportingContext >> importAttribute [
 ]
 
 { #category : #testing }
-FamixTypeScriptImportingContext >> importBehaviouralEntity [
-	<generated>
-	^ self import: FamixTypeScriptBehaviouralEntity
-]
-
-{ #category : #testing }
 FamixTypeScriptImportingContext >> importClass [
 	<generated>
 	^ self import: FamixTypeScriptClass
@@ -188,12 +182,6 @@ FamixTypeScriptImportingContext >> shouldImportAccess [
 FamixTypeScriptImportingContext >> shouldImportAttribute [
 	<generated>
 	^ self shouldImport: FamixTypeScriptAttribute
-]
-
-{ #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportBehaviouralEntity [
-	<generated>
-	^ self shouldImport: FamixTypeScriptBehaviouralEntity
 ]
 
 { #category : #testing }

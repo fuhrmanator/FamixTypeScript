@@ -1,8 +1,8 @@
 Class {
 	#name : #FamixTypeScriptNamedEntity,
 	#superclass : #FamixTypeScriptEntity,
-	#traits : 'FamixTNamedEntity',
-	#classTraits : 'FamixTNamedEntity classTrait',
+	#traits : 'FamixTInvocationsReceiver + FamixTNamedEntity',
+	#classTraits : 'FamixTInvocationsReceiver classTrait + FamixTNamedEntity classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 

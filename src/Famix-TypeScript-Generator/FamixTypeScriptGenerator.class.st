@@ -11,7 +11,6 @@ Class {
 		'parameterizableClass',
 		'parameterizedType',
 		'method',
-		'behaviouralEntity',
 		'structuralEntity',
 		'file',
 		'folder',
@@ -22,7 +21,7 @@ Class {
 		'function',
 		'inheritance',
 		'module',
-		'scopingEntity'
+		'containerEntity'
 	],
 	#category : #'Famix-TypeScript-Generator'
 }
@@ -76,13 +75,13 @@ FamixTypeScriptGenerator >> defineClasses [
 	access := builder newClassNamed: #Access.
 	invocation := builder newClassNamed: #Invocation.
 	class := builder newClassNamed: #Class.
-	scopingEntity := builder newClassNamed: #ContainerEntity.
+	containerEntity := builder newClassNamed: #ContainerEntity.
 
 	type := builder newClassNamed: #Type.
    namespace := builder newClassNamed: #Namespace.
 
 	method := builder newClassNamed: #Method.
-	behaviouralEntity := builder newClassNamed: #BehaviouralEntity.
+	"behaviouralEntity := builder newClassNamed: #BehaviouralEntity."
 	
 	indexedFileAnchor := builder newClassNamed: #IndexedFileAnchor.
 	parameter := builder newClassNamed: #Parameter.
@@ -112,11 +111,14 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	attribute --|> #TCanBeClassSide.
 	attribute --|> #THasVisibility.
 	
-	behaviouralEntity --|> scopingEntity.
+	"behaviouralEntity --|> scopingEntity."
 	
 	class --|> type.
 	class --|> #TClass.
 	class --|> #TCanBeAbstract.
+	
+	"this level of hierarchy to follow Java's metamodel, to accommodate Interfac properly TODO"
+	containerEntity --|> namedEntity.
 	
 	file --|> namedEntity.
 	file --|> #TFile.
@@ -124,7 +126,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	folder --|> namedEntity.
 	folder --|> #TFolder.
 
-	function --|> behaviouralEntity.
+	function --|> containerEntity.
 	function --|> #TFunction.
 	function --|> #TDefinedInModule.
 	function --|> #TInvocable.
@@ -141,7 +143,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	localVariable --|> structuralEntity.
 	localVariable --|> #TLocalVariable.
 	
-	method --|> behaviouralEntity.
+	method --|> containerEntity.
 	method --|> #TMethod.
 	method --|> #TCanBeAbstract.
 	method --|> #THasKind.
@@ -151,10 +153,12 @@ FamixTypeScriptGenerator >> defineHierarchy [
    "Module"
 	module --|> #TWithLocalVariables. "var can have module scope"
 
-	namespace --|> scopingEntity.
+	namespace --|> containerEntity.
 	namespace --|> #TNamespace. "no use (empty trait)"
 	namespace --|> #TDefinedInModule.
 	namespace --|> #TWithLocalVariables. "var can have namespace scope"
+
+	namedEntity --|> #TInvocationsReceiver.
 
 	parameter --|> namedEntity.
 	parameter --|> #TParameter.
@@ -172,15 +176,15 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	parameterType --|> type.
 	parameterType --|> #TParameterType.
 		
-	scopingEntity --|> namedEntity.
-	scopingEntity --|> #TWithClasses.
-	scopingEntity --|> #TWithFunctions.
-	scopingEntity --|> #TWithAnnotationTypes.
+	containerEntity --|> namedEntity.
+	containerEntity --|> #TWithClasses.
+	containerEntity --|> #TWithFunctions.
+	containerEntity --|> #TWithAnnotationTypes.
 
 	structuralEntity --|> #TStructuralEntity.
 	structuralEntity --|> #TWithDereferencedInvocations.
 
-	type --|> scopingEntity.
+	type --|> containerEntity.
 	type --|> #TType.
 	type --|> #TWithTypeAliases.	
 
