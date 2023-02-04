@@ -18,6 +18,16 @@ FamixTypeScriptClass class >> annotation [
 	^self
 ]
 
+{ #category : #'Famix-Extensions-metrics-support' }
+FamixTypeScriptClass >> accessedAttributes [
+	
+	"Returns my attributes accessed by my methods. If the same attribute is accessed 
+	by two different methods it is counted twice.
+	Used to support the calculation of LCOM"
+	
+	^ self methodsWithoutSutbsAndConstructors asOrderedCollection flatCollect: [ :method | method accessedAttributes ]
+]
+
 { #category : #accessing }
 FamixTypeScriptClass >> isInterface [
 
@@ -31,4 +41,13 @@ FamixTypeScriptClass >> isInterface [
 FamixTypeScriptClass >> isInterface: anObject [
 	<generated>
 	isInterface := anObject
+]
+
+{ #category : #'Famix-Extensions-metrics-support' }
+FamixTypeScriptClass >> methodsWithoutSutbsAndConstructors [
+
+	"Removing stub and contructor methods. Used to support the calculation of LCOM."
+	
+	^ (self methods select: [ :each | 
+		each isStub not and: [each isConstructor not]]) asSet
 ]
