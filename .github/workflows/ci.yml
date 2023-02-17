@@ -12,8 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
+        # List of images at https://github.com/hpi-swa/smalltalkCI#images
         # Use Moose 10 that includes our visualization tool
-        smalltalk: [ Moose64-10.0]
+        smalltalk: [ Moose64-10]
     name: ${{ matrix.smalltalk }}
     steps:
         # checkout the project
