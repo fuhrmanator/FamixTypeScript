@@ -98,6 +98,13 @@ FamixTypeScriptEntity >> isNamespace [
 ]
 
 { #category : #testing }
+FamixTypeScriptEntity >> isPrimitiveType [
+
+	<generated>
+	^ false
+]
+
+{ #category : #testing }
 FamixTypeScriptEntity >> isStructuralEntity [
 
 	<generated>

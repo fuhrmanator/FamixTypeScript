@@ -91,6 +91,7 @@ FamixTypeScriptGenerator >> defineClasses [
 	file := builder newClassNamed: #File.
 	folder := builder newClassNamed: #Folder.
 	function := builder newClassNamed: #Function.
+	implementation := builder newClassNamed: #Implementation.
 	indexedFileAnchor := builder newClassNamed: #IndexedFileAnchor.
 	inheritance := builder newClassNamed: #Inheritance.
 	interface := builder newClassNamed: #Interface.

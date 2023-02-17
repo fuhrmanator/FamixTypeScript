@@ -1,8 +1,8 @@
 Class {
 	#name : #FamixTypeScriptType,
 	#superclass : #FamixTypeScriptContainerEntity,
-	#traits : 'FamixTType + FamixTWithTypeAliases',
-	#classTraits : 'FamixTType classTrait + FamixTWithTypeAliases classTrait',
+	#traits : 'FamixTParameterizedTypeUser + FamixTType + FamixTWithMethods',
+	#classTraits : 'FamixTParameterizedTypeUser classTrait + FamixTType classTrait + FamixTWithMethods classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 

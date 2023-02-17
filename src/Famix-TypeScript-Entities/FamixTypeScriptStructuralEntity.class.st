@@ -1,8 +1,6 @@
 Class {
 	#name : #FamixTypeScriptStructuralEntity,
 	#superclass : #FamixTypeScriptEntity,
-	#traits : 'FamixTStructuralEntity + FamixTWithDereferencedInvocations',
-	#classTraits : 'FamixTStructuralEntity classTrait + FamixTWithDereferencedInvocations classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 

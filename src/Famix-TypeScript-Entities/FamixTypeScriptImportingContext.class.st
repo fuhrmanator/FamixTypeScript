@@ -59,6 +59,12 @@ FamixTypeScriptImportingContext >> importFunction [
 ]
 
 { #category : #testing }
+FamixTypeScriptImportingContext >> importImplementation [
+	<generated>
+	^ self import: FamixTypeScriptImplementation
+]
+
+{ #category : #testing }
 FamixTypeScriptImportingContext >> importIndexedFileAnchor [
 	<generated>
 	^ self import: FamixTypeScriptIndexedFileAnchor
@@ -128,6 +134,12 @@ FamixTypeScriptImportingContext >> importParameterizableClass [
 FamixTypeScriptImportingContext >> importParameterizedType [
 	<generated>
 	^ self import: FamixTypeScriptParameterizedType
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> importPrimitiveType [
+	<generated>
+	^ self import: FamixTypeScriptPrimitiveType
 ]
 
 { #category : #testing }
@@ -233,6 +245,12 @@ FamixTypeScriptImportingContext >> shouldImportFunction [
 ]
 
 { #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportImplementation [
+	<generated>
+	^ self shouldImport: FamixTypeScriptImplementation
+]
+
+{ #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportIndexedFileAnchor [
 	<generated>
 	^ self shouldImport: FamixTypeScriptIndexedFileAnchor
@@ -302,6 +320,12 @@ FamixTypeScriptImportingContext >> shouldImportParameterizableClass [
 FamixTypeScriptImportingContext >> shouldImportParameterizedType [
 	<generated>
 	^ self shouldImport: FamixTypeScriptParameterizedType
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportPrimitiveType [
+	<generated>
+	^ self shouldImport: FamixTypeScriptPrimitiveType
 ]
 
 { #category : #testing }
