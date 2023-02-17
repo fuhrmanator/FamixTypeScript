@@ -23,7 +23,10 @@ Class {
 		'tTypeScriptClassMetrics',
 		'variable',
 		'field',
-		'interface'
+		'interface',
+		'primitiveType',
+		'tWithInterfaces',
+		'implementation'
 	],
 	#category : #'Famix-TypeScript-Generator'
 }
@@ -71,6 +74,12 @@ public interface Flyable {
 ]
 
 { #category : #definition }
+FamixTypeScriptGenerator >> commentForTWithInterfaces [
+
+^ 'I can contain interfaces (Packages, Methods, Classes...)'
+]
+
+{ #category : #definition }
 FamixTypeScriptGenerator >> defineClasses [
 	super defineClasses.
 	
@@ -93,6 +102,7 @@ FamixTypeScriptGenerator >> defineClasses [
 	parameterizableClass := builder newClassNamed: #ParameterizableClass.
 	parameterizedType := builder newClassNamed: #ParameterizedType.
 	parameterType := builder newClassNamed: #ParameterType.
+	primitiveType := builder newClassNamed: #PrimitiveType.
 	structuralEntity := builder newClassNamed: #StructuralEntity.
 	type := builder newClassNamed: #Type.
 	variable := builder newClassNamed: #Variable.
@@ -105,6 +115,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	
 	access --|> #TAccess.
 	
+	"Note: attribute in Java"
 	field --|> structuralEntity.
 	field --|> #TAttribute.
 	field --|> #TCanBeClassSide.
@@ -169,6 +180,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	
 	interface --|> type.
 	
+	implementation --|> #TImplementation.
 	
 	variable --|> structuralEntity.
 	variable --|> #TLocalVariable.
@@ -205,18 +217,27 @@ FamixTypeScriptGenerator >> defineHierarchy [
 
 	parameterType --|> type.
 	parameterType --|> #TParameterType.
-		
+
+	primitiveType --|> type.
+	primitiveType --|> #TPrimitiveType.
+	
 	containerEntity --|> namedEntity.
 	containerEntity --|> #TWithClasses.
+	containerEntity --|> tWithInterfaces.
 	containerEntity --|> #TWithFunctions.
 	containerEntity --|> #TWithAnnotationTypes.
+	"containerEntity --|> #TWithModules?" "TypeScript has modules?"
+	
+	tWithInterfaces --|> #TWithTypes.
 
-	structuralEntity --|> #TStructuralEntity.
-	structuralEntity --|> #TWithDereferencedInvocations.
+	"Not in FamixJava"
+	"structuralEntity --|> #TStructuralEntity.
+	structuralEntity --|> #TWithDereferencedInvocations."
 
 	type --|> containerEntity.
 	type --|> #TType.
-	type --|> #TWithTypeAliases.	
+	type --|> #TParameterizedTypeUser.
+	type --|> #TWithMethods.
 
 ]
 
@@ -236,6 +257,10 @@ FamixTypeScriptGenerator >> defineTraits [
 
 	super defineTraits.
 	"tTypeScriptClassMetrics := builder newTraitNamed: #TClassMetrics."
+	
+	tWithInterfaces := builder newTraitNamed: #TWithInterfaces.
+	tWithInterfaces comment: self commentForTWithInterfaces.
+
 ]
 
 { #category : #definition }
