@@ -1,8 +1,11 @@
 Class {
 	#name : #FamixTypeScriptMethod,
 	#superclass : #FamixTypeScriptContainerEntity,
-	#traits : 'FamixTCanBeAbstract + FamixTHasKind + FamixTHasVisibility + FamixTMethod',
-	#classTraits : 'FamixTCanBeAbstract classTrait + FamixTHasKind classTrait + FamixTHasVisibility classTrait + FamixTMethod classTrait',
+	#traits : 'FamixTCanBeAbstract + FamixTHasKind + FamixTHasVisibility + FamixTMethod + FamixTWithLocalVariables',
+	#classTraits : 'FamixTCanBeAbstract classTrait + FamixTHasKind classTrait + FamixTHasVisibility classTrait + FamixTMethod classTrait + FamixTWithLocalVariables classTrait',
+	#instVars : [
+		'#isConstructor => FMProperty'
+	],
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 
@@ -22,4 +25,19 @@ FamixTypeScriptMethod >> accessedAttributes [
 	Used to support the calculation of LCOM"
 	
 	^ (self queryOutgoingAccesses opposites withinParentUsing: FamixTClass) asSet select: #isAttribute
+]
+
+{ #category : #accessing }
+FamixTypeScriptMethod >> isConstructor [
+
+	<FMProperty: #isConstructor type: #Boolean>
+	<generated>
+	<FMComment: 'Method is a constructor (class initilizer)'>
+	^ isConstructor
+]
+
+{ #category : #accessing }
+FamixTypeScriptMethod >> isConstructor: anObject [
+	<generated>
+	isConstructor := anObject
 ]

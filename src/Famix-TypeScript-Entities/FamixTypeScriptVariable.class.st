@@ -9,7 +9,7 @@ Class {
 { #category : #meta }
 FamixTypeScriptVariable class >> annotation [
 
-	<FMClass: #LocalVariable super: #FamixTypeScriptStructuralEntity>
+	<FMClass: #Variable super: #FamixTypeScriptStructuralEntity>
 	<package: #FamixTypeScript>
 	<generated>
 	^self

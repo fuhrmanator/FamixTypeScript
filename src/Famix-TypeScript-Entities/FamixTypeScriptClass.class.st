@@ -1,11 +1,8 @@
 Class {
 	#name : #FamixTypeScriptClass,
 	#superclass : #FamixTypeScriptType,
-	#traits : 'FamixTCanBeAbstract + FamixTClass + FamixTClassMetrics + FamixTLCOMMetrics',
-	#classTraits : 'FamixTCanBeAbstract classTrait + FamixTClass classTrait + FamixTClassMetrics classTrait + FamixTLCOMMetrics classTrait',
-	#instVars : [
-		'#isInterface => FMProperty'
-	],
+	#traits : 'FamixTCanBeAbstract + FamixTCanImplement + FamixTClass + FamixTClassMetrics + FamixTImportable + FamixTLCOMMetrics + FamixTWithImports',
+	#classTraits : 'FamixTCanBeAbstract classTrait + FamixTCanImplement classTrait + FamixTClass classTrait + FamixTClassMetrics classTrait + FamixTImportable classTrait + FamixTLCOMMetrics classTrait + FamixTWithImports classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 
@@ -26,21 +23,6 @@ FamixTypeScriptClass >> accessedAttributes [
 	Used to support the calculation of LCOM"
 	
 	^ self methodsWithoutSutbsAndConstructors asOrderedCollection flatCollect: [ :method | method accessedAttributes ]
-]
-
-{ #category : #accessing }
-FamixTypeScriptClass >> isInterface [
-
-	<FMProperty: #isInterface type: #Boolean>
-	<generated>
-	<FMComment: 'Entity can be an abstraction representing an implementationless interface (language dependent)'>
-	^ isInterface
-]
-
-{ #category : #accessing }
-FamixTypeScriptClass >> isInterface: anObject [
-	<generated>
-	isInterface := anObject
 ]
 
 { #category : #'Famix-Extensions-metrics-support' }

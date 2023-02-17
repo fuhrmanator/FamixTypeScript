@@ -11,12 +11,6 @@ FamixTypeScriptImportingContext >> importAccess [
 ]
 
 { #category : #testing }
-FamixTypeScriptImportingContext >> importAttribute [
-	<generated>
-	^ self import: FamixTypeScriptField
-]
-
-{ #category : #testing }
 FamixTypeScriptImportingContext >> importClass [
 	<generated>
 	^ self import: FamixTypeScriptClass
@@ -38,6 +32,12 @@ FamixTypeScriptImportingContext >> importContainerEntity [
 FamixTypeScriptImportingContext >> importEntity [
 	<generated>
 	^ self import: FamixTypeScriptEntity
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> importField [
+	<generated>
+	^ self import: FamixTypeScriptField
 ]
 
 { #category : #testing }
@@ -71,15 +71,15 @@ FamixTypeScriptImportingContext >> importInheritance [
 ]
 
 { #category : #testing }
-FamixTypeScriptImportingContext >> importInvocation [
+FamixTypeScriptImportingContext >> importInterface [
 	<generated>
-	^ self import: FamixTypeScriptInvocation
+	^ self import: FamixTypeScriptInterface
 ]
 
 { #category : #testing }
-FamixTypeScriptImportingContext >> importLocalVariable [
+FamixTypeScriptImportingContext >> importInvocation [
 	<generated>
-	^ self import: FamixTypeScriptVariable
+	^ self import: FamixTypeScriptInvocation
 ]
 
 { #category : #testing }
@@ -173,15 +173,15 @@ FamixTypeScriptImportingContext >> importUnknownSourceLanguage [
 ]
 
 { #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportAccess [
+FamixTypeScriptImportingContext >> importVariable [
 	<generated>
-	^ self shouldImport: FamixTypeScriptAccess
+	^ self import: FamixTypeScriptVariable
 ]
 
 { #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportAttribute [
+FamixTypeScriptImportingContext >> shouldImportAccess [
 	<generated>
-	^ self shouldImport: FamixTypeScriptField
+	^ self shouldImport: FamixTypeScriptAccess
 ]
 
 { #category : #testing }
@@ -206,6 +206,12 @@ FamixTypeScriptImportingContext >> shouldImportContainerEntity [
 FamixTypeScriptImportingContext >> shouldImportEntity [
 	<generated>
 	^ self shouldImport: FamixTypeScriptEntity
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportField [
+	<generated>
+	^ self shouldImport: FamixTypeScriptField
 ]
 
 { #category : #testing }
@@ -239,15 +245,15 @@ FamixTypeScriptImportingContext >> shouldImportInheritance [
 ]
 
 { #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportInvocation [
+FamixTypeScriptImportingContext >> shouldImportInterface [
 	<generated>
-	^ self shouldImport: FamixTypeScriptInvocation
+	^ self shouldImport: FamixTypeScriptInterface
 ]
 
 { #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportLocalVariable [
+FamixTypeScriptImportingContext >> shouldImportInvocation [
 	<generated>
-	^ self shouldImport: FamixTypeScriptVariable
+	^ self shouldImport: FamixTypeScriptInvocation
 ]
 
 { #category : #testing }
@@ -338,4 +344,10 @@ FamixTypeScriptImportingContext >> shouldImportType [
 FamixTypeScriptImportingContext >> shouldImportUnknownSourceLanguage [
 	<generated>
 	^ self shouldImport: FamixTypeScriptUnknownSourceLanguage
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportVariable [
+	<generated>
+	^ self shouldImport: FamixTypeScriptVariable
 ]

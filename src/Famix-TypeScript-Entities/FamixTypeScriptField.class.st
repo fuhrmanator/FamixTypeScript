@@ -9,7 +9,7 @@ Class {
 { #category : #meta }
 FamixTypeScriptField class >> annotation [
 
-	<FMClass: #Attribute super: #FamixTypeScriptStructuralEntity>
+	<FMClass: #Field super: #FamixTypeScriptStructuralEntity>
 	<package: #FamixTypeScript>
 	<generated>
 	^self
