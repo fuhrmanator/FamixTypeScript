@@ -1,5 +1,5 @@
 Class {
-	#name : #FamixTypeScriptLocalVariable,
+	#name : #FamixTypeScriptVariable,
 	#superclass : #FamixTypeScriptStructuralEntity,
 	#traits : 'FamixTLocalVariable',
 	#classTraits : 'FamixTLocalVariable classTrait',
@@ -7,7 +7,7 @@ Class {
 }
 
 { #category : #meta }
-FamixTypeScriptLocalVariable class >> annotation [
+FamixTypeScriptVariable class >> annotation [
 
 	<FMClass: #LocalVariable super: #FamixTypeScriptStructuralEntity>
 	<package: #FamixTypeScript>

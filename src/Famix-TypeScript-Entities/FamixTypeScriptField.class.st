@@ -1,5 +1,5 @@
 Class {
-	#name : #FamixTypeScriptAttribute,
+	#name : #FamixTypeScriptField,
 	#superclass : #FamixTypeScriptStructuralEntity,
 	#traits : 'FamixTAttribute + FamixTCanBeClassSide + FamixTHasVisibility',
 	#classTraits : 'FamixTAttribute classTrait + FamixTCanBeClassSide classTrait + FamixTHasVisibility classTrait',
@@ -7,7 +7,7 @@ Class {
 }
 
 { #category : #meta }
-FamixTypeScriptAttribute class >> annotation [
+FamixTypeScriptField class >> annotation [
 
 	<FMClass: #Attribute super: #FamixTypeScriptStructuralEntity>
 	<package: #FamixTypeScript>

@@ -13,7 +13,7 @@ FamixTypeScriptImportingContext >> importAccess [
 { #category : #testing }
 FamixTypeScriptImportingContext >> importAttribute [
 	<generated>
-	^ self import: FamixTypeScriptAttribute
+	^ self import: FamixTypeScriptField
 ]
 
 { #category : #testing }
@@ -79,7 +79,7 @@ FamixTypeScriptImportingContext >> importInvocation [
 { #category : #testing }
 FamixTypeScriptImportingContext >> importLocalVariable [
 	<generated>
-	^ self import: FamixTypeScriptLocalVariable
+	^ self import: FamixTypeScriptVariable
 ]
 
 { #category : #testing }
@@ -181,7 +181,7 @@ FamixTypeScriptImportingContext >> shouldImportAccess [
 { #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportAttribute [
 	<generated>
-	^ self shouldImport: FamixTypeScriptAttribute
+	^ self shouldImport: FamixTypeScriptField
 ]
 
 { #category : #testing }
@@ -247,7 +247,7 @@ FamixTypeScriptImportingContext >> shouldImportInvocation [
 { #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportLocalVariable [
 	<generated>
-	^ self shouldImport: FamixTypeScriptLocalVariable
+	^ self shouldImport: FamixTypeScriptVariable
 ]
 
 { #category : #testing }

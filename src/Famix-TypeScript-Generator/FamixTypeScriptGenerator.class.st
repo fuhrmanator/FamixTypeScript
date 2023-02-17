@@ -15,14 +15,15 @@ Class {
 		'file',
 		'folder',
 		'indexedFileAnchor',
-		'localVariable',
-		'attribute',
 		'invocation',
 		'function',
 		'inheritance',
 		'module',
 		'containerEntity',
-		'tTypeScriptClassMetrics'
+		'tTypeScriptClassMetrics',
+		'variable',
+		'field',
+		'interface'
 	],
 	#category : #'Famix-TypeScript-Generator'
 }
@@ -74,31 +75,28 @@ FamixTypeScriptGenerator >> defineClasses [
 	super defineClasses.
 	
 	access := builder newClassNamed: #Access.
-	invocation := builder newClassNamed: #Invocation.
+	"behaviouralEntity := builder newClassNamed: #BehaviouralEntity."
 	class := builder newClassNamed: #Class.
 	containerEntity := builder newClassNamed: #ContainerEntity.
-
-	type := builder newClassNamed: #Type.
-   namespace := builder newClassNamed: #Namespace.
-
-	method := builder newClassNamed: #Method.
-	"behaviouralEntity := builder newClassNamed: #BehaviouralEntity."
-	
-	indexedFileAnchor := builder newClassNamed: #IndexedFileAnchor.
-	parameter := builder newClassNamed: #Parameter.
-	parameterType := builder newClassNamed: #ParameterType.
-	parameterizableClass := builder newClassNamed: #ParameterizableClass.
-	parameterizedType := builder newClassNamed: #ParameterizedType.
-	structuralEntity := builder newClassNamed: #StructuralEntity.
-	
-	localVariable := builder newClassNamed: #LocalVariable.
-	attribute := builder newClassNamed: #Attribute.
-	inheritance := builder newClassNamed: #Inheritance.
-	function := builder newClassNamed: #Function.
-	
+	field := builder newClassNamed: #Field.
 	file := builder newClassNamed: #File.
 	folder := builder newClassNamed: #Folder.
+	function := builder newClassNamed: #Function.
+	indexedFileAnchor := builder newClassNamed: #IndexedFileAnchor.
+	inheritance := builder newClassNamed: #Inheritance.
+	interface := builder newClassNamed: #Interface.
+	invocation := builder newClassNamed: #Invocation.
+	method := builder newClassNamed: #Method.
 	module := builder newClassNamed: #Module.
+	namespace := builder newClassNamed: #Namespace.
+	parameter := builder newClassNamed: #Parameter.
+	parameterizableClass := builder newClassNamed: #ParameterizableClass.
+	parameterizedType := builder newClassNamed: #ParameterizedType.
+	parameterType := builder newClassNamed: #ParameterType.
+	structuralEntity := builder newClassNamed: #StructuralEntity.
+	type := builder newClassNamed: #Type.
+	variable := builder newClassNamed: #Variable.
+
 ]
 
 { #category : #definition }
@@ -107,20 +105,45 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	
 	access --|> #TAccess.
 	
-	attribute --|> structuralEntity.
-	attribute --|> #TAttribute.
-	attribute --|> #TCanBeClassSide.
-	attribute --|> #THasVisibility.
+	field --|> structuralEntity.
+	field --|> #TAttribute.
+	field --|> #TCanBeClassSide.
+	field --|> #THasVisibility.
 	
 	"behaviouralEntity --|> scopingEntity."
 	
 	class --|> type.
 	class --|> #TClass.
-	class --|> #TCanBeAbstract.
 	class --|> #TLCOMMetrics.
+	class --|> #TCanBeAbstract.
+	"class --|> #TCanBeFinal." "not possible in TypeScript?"
+	"class --|> #THasVisibility." "classes in modules/namespaces can't be declared private/public"
 	class --|> #TClassMetrics.
-	"class --|> tTypeScriptClassMetrics." "not sure why this is repeated, like this in FamixJava"
-	
+	"class --|> #TCanBeClassSide." 
+	class --|> #TCanImplement.
+	class --|> #TWithImports.
+	class --|> #TImportable.
+
+   "The following come from #TClass"
+	"class --|> #TWithMethods.
+	class --|> #TWithInheritances.
+	class --|> #TWithAttributes.
+	class --|> #TInvocationsReceiver.
+	class --|> #TWithComments."
+
+	interface --|> type.
+	"interface --|> #TPackageable."
+	interface --|> #TWithMethods.
+	interface --|> #TWithInheritances.
+	interface --|> #TWithAttributes.
+	interface --|> #TInvocationsReceiver.
+	"interface --|> #TCanBeFinal."
+	"interface --|> #THasVisibility." "classes in modules/namespaces can't be declared private/public"
+	interface --|> #TWithComments.
+	interface --|> #TImplementable.
+	interface --|> #TWithImports.
+	interface --|> #TImportable.
+		
 	"this level of hierarchy to follow Java's metamodel, to accommodate Interfac properly TODO"
 	containerEntity --|> namedEntity.
 	
@@ -144,15 +167,18 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	invocation --|> #TInvocation.
 	invocation --|> #THasSignature.
 	
-	localVariable --|> structuralEntity.
-	localVariable --|> #TLocalVariable.
+	interface --|> type.
+	
+	
+	variable --|> structuralEntity.
+	variable --|> #TLocalVariable.
 	
 	method --|> containerEntity.
 	method --|> #TMethod.
 	method --|> #TCanBeAbstract.
 	method --|> #THasKind.
 	method --|> #THasVisibility.
-	"method --|> #TWithSourceLanguages."
+	method --|> #TWithLocalVariables.
 	
    "Module"
 	module --|> #TWithLocalVariables. "var can have module scope"
@@ -196,9 +222,12 @@ FamixTypeScriptGenerator >> defineHierarchy [
 
 { #category : #definition }
 FamixTypeScriptGenerator >> defineProperties [
-super defineProperties.
-	((class property: #isInterface type: #Boolean) 
-		comment: 'Entity can be an abstraction representing an implementationless interface (language dependent)').
+  super defineProperties.
+
+  ((method property: #isConstructor type: #Boolean) 
+		comment: 'Method is a constructor (class initilizer)').
+	"((class property: #isInterface type: #Boolean) 
+		comment: 'Entity can be an abstraction representing an implementationless interface (language dependent)')."
 
 ]
 
