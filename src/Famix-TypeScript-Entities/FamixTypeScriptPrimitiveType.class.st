@@ -1,3 +1,6 @@
+"
+I represent a TypeScript primitive type (string, number, boolean).
+"
 Class {
 	#name : #FamixTypeScriptPrimitiveType,
 	#superclass : #FamixTypeScriptType,

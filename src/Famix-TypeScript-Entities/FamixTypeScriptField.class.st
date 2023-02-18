@@ -1,3 +1,6 @@
+"
+I represent a TypeScript class field.
+"
 Class {
 	#name : #FamixTypeScriptField,
 	#superclass : #FamixTypeScriptStructuralEntity,

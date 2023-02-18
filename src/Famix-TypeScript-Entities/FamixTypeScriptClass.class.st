@@ -1,3 +1,6 @@
+"
+I represent a TypeScript class.
+"
 Class {
 	#name : #FamixTypeScriptClass,
 	#superclass : #FamixTypeScriptType,

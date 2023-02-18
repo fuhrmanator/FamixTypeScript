@@ -85,30 +85,30 @@ FamixTypeScriptGenerator >> defineClasses [
 	
 	access := builder newClassNamed: #Access.
 	"behaviouralEntity := builder newClassNamed: #BehaviouralEntity."
-	class := builder newClassNamed: #Class.
+	class := builder newClassNamed: #Class comment: 'I represent a TypeScript class.'.
 	class withTesting.
 	containerEntity := builder newClassNamed: #ContainerEntity.
-	field := builder newClassNamed: #Field.
+	field := builder newClassNamed: #Field comment: 'I represent a TypeScript class field.'.
 	file := builder newClassNamed: #File.
 	folder := builder newClassNamed: #Folder.
-	function := builder newClassNamed: #Function.
-	implementation := builder newClassNamed: #Implementation.
+	function := builder newClassNamed: #Function comment: 'I represent a TypeScript function.'.
+	implementation := builder newClassNamed: #Implementation comment: 'I represent a TypeScript element that is an implementation of an interface.'.
 	indexedFileAnchor := builder newClassNamed: #IndexedFileAnchor.
 	inheritance := builder newClassNamed: #Inheritance.
-	interface := builder newClassNamed: #Interface.
+	interface := builder newClassNamed: #Interface comment: 'I represent a TypeScript interface.'.
 	interface withTesting.
 	invocation := builder newClassNamed: #Invocation.
-	method := builder newClassNamed: #Method.
+	method := builder newClassNamed: #Method comment: 'I represent a TypeScript method.'.
 	module := builder newClassNamed: #Module.
 	namespace := builder newClassNamed: #Namespace.
 	parameter := builder newClassNamed: #Parameter.
 	parameterizableClass := builder newClassNamed: #ParameterizableClass.
 	parameterizedType := builder newClassNamed: #ParameterizedType.
 	parameterType := builder newClassNamed: #ParameterType.
-	primitiveType := builder newClassNamed: #PrimitiveType.
+	primitiveType := builder newClassNamed: #PrimitiveType comment: 'I represent a TypeScript primitive type (string, number, boolean).'.
 	structuralEntity := builder newClassNamed: #StructuralEntity.
-	type := builder newClassNamed: #Type.
-	variable := builder newClassNamed: #Variable.
+	type := builder newClassNamed: #Type comment: 'I represent a TypeScript type.'.
+	variable := builder newClassNamed: #Variable comment: 'I represent a TypeScript variable.'.
 
 	primitiveType withTesting.
 	"self defineComments."

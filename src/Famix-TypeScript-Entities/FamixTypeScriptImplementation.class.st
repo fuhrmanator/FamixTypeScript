@@ -1,3 +1,6 @@
+"
+I represent a TypeScript element that is an implementation of an interface.
+"
 Class {
 	#name : #FamixTypeScriptImplementation,
 	#superclass : #FamixTypeScriptEntity,

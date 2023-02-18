@@ -1,3 +1,6 @@
+"
+I represent a TypeScript variable.
+"
 Class {
 	#name : #FamixTypeScriptVariable,
 	#superclass : #FamixTypeScriptStructuralEntity,

@@ -1,3 +1,6 @@
+"
+I represent a TypeScript interface.
+"
 Class {
 	#name : #FamixTypeScriptInterface,
 	#superclass : #FamixTypeScriptType,
