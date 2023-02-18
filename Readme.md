@@ -15,7 +15,7 @@ This version works in Moose 10.
 
 ```st
 Metacello new
-	githubUser: 'Arezoo-Nasr' project: 'FamixTypeScript' commitish: 'master' path: 'src';
+	githubUser: 'fuhrmanator' project: 'FamixTypeScript' commitish: 'master' path: 'src';
 	baseline: 'FamixTypeScript';
 	load
 ```
