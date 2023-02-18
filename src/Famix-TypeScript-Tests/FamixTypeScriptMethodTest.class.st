@@ -19,7 +19,7 @@ FamixTypeScriptMethodTest >> setUp [
 { #category : #test }
 FamixTypeScriptMethodTest >> testIsConstructor [
 
-	method inspect.
+	self skip: 'This test is not ready. It is not clear to me how such methods are created in the Entities classes'.
 
 	self deny: method isConstructor.
 
@@ -30,6 +30,8 @@ FamixTypeScriptMethodTest >> testIsConstructor [
 
 { #category : #tests }
 FamixTypeScriptMethodTest >> testIsSetter [
+
+	self skip: 'This test is not ready. It is not clear to me how such methods are created in the Entities classes'.
 
 	self deny: method isSetter.
 

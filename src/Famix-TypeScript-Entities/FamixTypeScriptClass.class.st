@@ -25,6 +25,11 @@ FamixTypeScriptClass >> accessedAttributes [
 	^ self methodsWithoutSutbsAndConstructors asOrderedCollection flatCollect: [ :method | method accessedAttributes ]
 ]
 
+{ #category : #testing }
+FamixTypeScriptClass >> isInterface [
+	^ false
+]
+
 { #category : #'Famix-Extensions-metrics-support' }
 FamixTypeScriptClass >> methodsWithoutSutbsAndConstructors [
 

@@ -14,3 +14,8 @@ FamixTypeScriptType class >> annotation [
 	<generated>
 	^self
 ]
+
+{ #category : #testing }
+FamixTypeScriptType >> isInterface [
+	^ false
+]

@@ -70,6 +70,13 @@ FamixTypeScriptEntity >> isInheritance [
 ]
 
 { #category : #testing }
+FamixTypeScriptEntity >> isInterface [
+
+	<generated>
+	^ false
+]
+
+{ #category : #testing }
 FamixTypeScriptEntity >> isInvocation [
 
 	<generated>
