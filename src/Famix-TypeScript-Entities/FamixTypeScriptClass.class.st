@@ -27,7 +27,18 @@ FamixTypeScriptClass >> accessedAttributes [
 
 { #category : #testing }
 FamixTypeScriptClass >> isInterface [
-	^ false
+
+	<FMProperty: #isInterface type: #Boolean>
+	<FMComment: 'This is a boolean flag used to distinguish between classes with implementation and interfaces'>
+
+	^ self attributeAt: #isInterface ifAbsent: [ false ]
+]
+
+{ #category : #testing }
+FamixTypeScriptClass >> isInterface: aBoolean [
+	self halt. "Code copied from FamixJavaClass - but not clear to me."
+	"Why is the following line not using aBoolean?"
+	^ self attributeAt: #isInterface put: true
 ]
 
 { #category : #'Famix-Extensions-metrics-support' }

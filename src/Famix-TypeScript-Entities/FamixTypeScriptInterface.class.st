@@ -18,6 +18,6 @@ FamixTypeScriptInterface class >> annotation [
 { #category : #testing }
 FamixTypeScriptInterface >> isInterface [
 
-	<generated>
+	"<generated>"  "In FamixJavaInterface, this method is generated. Where/how?"
 	^ true
 ]

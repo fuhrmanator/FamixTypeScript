@@ -14,3 +14,10 @@ FamixTypeScriptPrimitiveType class >> annotation [
 	<generated>
 	^self
 ]
+
+{ #category : #testing }
+FamixTypeScriptPrimitiveType >> isPrimitiveType [
+
+	<generated>
+	^ true
+]

@@ -108,6 +108,8 @@ FamixTypeScriptGenerator >> defineClasses [
 	type := builder newClassNamed: #Type.
 	variable := builder newClassNamed: #Variable.
 
+	primitiveType withTesting.
+
 ]
 
 { #category : #definition }
