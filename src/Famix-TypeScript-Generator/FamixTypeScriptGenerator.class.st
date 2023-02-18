@@ -86,6 +86,7 @@ FamixTypeScriptGenerator >> defineClasses [
 	access := builder newClassNamed: #Access.
 	"behaviouralEntity := builder newClassNamed: #BehaviouralEntity."
 	class := builder newClassNamed: #Class.
+	class withTesting.
 	containerEntity := builder newClassNamed: #ContainerEntity.
 	field := builder newClassNamed: #Field.
 	file := builder newClassNamed: #File.
@@ -95,6 +96,7 @@ FamixTypeScriptGenerator >> defineClasses [
 	indexedFileAnchor := builder newClassNamed: #IndexedFileAnchor.
 	inheritance := builder newClassNamed: #Inheritance.
 	interface := builder newClassNamed: #Interface.
+	interface withTesting.
 	invocation := builder newClassNamed: #Invocation.
 	method := builder newClassNamed: #Method.
 	module := builder newClassNamed: #Module.
@@ -109,7 +111,7 @@ FamixTypeScriptGenerator >> defineClasses [
 	variable := builder newClassNamed: #Variable.
 
 	primitiveType withTesting.
-
+	"self defineComments."
 ]
 
 { #category : #definition }

@@ -26,6 +26,13 @@ FamixTypeScriptClass >> accessedAttributes [
 ]
 
 { #category : #testing }
+FamixTypeScriptClass >> isClass [
+
+	<generated>
+	^ true
+]
+
+{ #category : #testing }
 FamixTypeScriptClass >> isInterface [
 
 	<FMProperty: #isInterface type: #Boolean>
