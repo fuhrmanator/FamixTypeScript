@@ -3,7 +3,7 @@
 
 [![Smalltalk CI](https://github.com/fuhrmanator/FamixTypeScript/actions/workflows/ci.yml/badge.svg)](https://github.com/fuhrmanator/FamixTypeScript/actions/workflows/ci.yml)
 
-This project is normally synchronized with [FamixTypeScriptImporter](https://github.com/Arezoo-Nasr/FamixTypeScriptImporter) as it is the FamixNG metamodel it supports.
+This project is normally synchronized with [FamixTypeScriptImporter](https://github.com/fuhrmanator/FamixTypeScriptImporter) as it is the FamixNG metamodel it supports.
 
 ## Metamodel documentation (visualization)
 
