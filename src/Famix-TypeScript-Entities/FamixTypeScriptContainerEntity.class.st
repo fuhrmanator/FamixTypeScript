@@ -14,9 +14,3 @@ FamixTypeScriptContainerEntity class >> annotation [
 	<generated>
 	^self
 ]
-
-{ #category : #adding }
-FamixTypeScriptContainerEntity >> addInterface: anInterface [
-	
-	types add: anInterface
-]

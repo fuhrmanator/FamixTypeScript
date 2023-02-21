@@ -25,5 +25,5 @@ BaselineOfFamixTypeScript >> defineGroups: spec [
 
 { #category : #baselines }
 BaselineOfFamixTypeScript >> definePackages: spec [
-	spec package: 'Famix-TypeScript-Generator'; package: 'Famix-TypeScript-Entities'; package: 'Famix-TypeScript-Tests'
+	spec package: 'Famix-TypeScript-Generator'; package: 'Famix-TypeScript-Entities'; package: 'Famix-TypeScript-Extensions'; package: 'Famix-TypeScript-Tests'
 ]
