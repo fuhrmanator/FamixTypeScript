@@ -7,7 +7,7 @@ Class {
 	#instVars : [
 		'method'
 	],
-	#category : #'Famix-TypeScript-Tests'
+	#category : #'Famix-TypeScript-Tests-Entities'
 }
 
 { #category : #running }

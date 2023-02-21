@@ -1,7 +1,7 @@
 Class {
 	#name : #FamixTypeScriptClassTest,
 	#superclass : #TestCase,
-	#category : #'Famix-TypeScript-Tests'
+	#category : #'Famix-TypeScript-Tests-Entities'
 }
 
 { #category : #testing }

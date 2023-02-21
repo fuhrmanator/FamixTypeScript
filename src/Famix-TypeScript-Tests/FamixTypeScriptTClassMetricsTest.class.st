@@ -4,7 +4,7 @@ A FamixTypeScriptTClassMetricsTest is a test class for testing the behavior of F
 Class {
 	#name : #FamixTypeScriptTClassMetricsTest,
 	#superclass : #TestCase,
-	#category : #'Famix-TypeScript-Tests'
+	#category : #'Famix-TypeScript-Tests-Entities'
 }
 
 { #category : #tests }
