@@ -4,8 +4,8 @@ I represent a TypeScript class.
 Class {
 	#name : #FamixTypeScriptClass,
 	#superclass : #FamixTypeScriptType,
-	#traits : 'FamixTCanBeAbstract + FamixTCanImplement + FamixTClass + FamixTClassMetrics + FamixTImportable + FamixTLCOMMetrics + FamixTWithImports',
-	#classTraits : 'FamixTCanBeAbstract classTrait + FamixTCanImplement classTrait + FamixTClass classTrait + FamixTClassMetrics classTrait + FamixTImportable classTrait + FamixTLCOMMetrics classTrait + FamixTWithImports classTrait',
+	#traits : 'FamixTCanBeAbstract + FamixTCanImplement + FamixTClass + FamixTClassMetrics + FamixTImportable + FamixTLCOMMetrics + FamixTWithImports + FamixTypeScriptTClassMetrics',
+	#classTraits : 'FamixTCanBeAbstract classTrait + FamixTCanImplement classTrait + FamixTClass classTrait + FamixTClassMetrics classTrait + FamixTImportable classTrait + FamixTLCOMMetrics classTrait + FamixTWithImports classTrait + FamixTypeScriptTClassMetrics classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 

@@ -116,18 +116,19 @@ FamixTypeScriptGenerator >> defineClasses [
 
 { #category : #definition }
 FamixTypeScriptGenerator >> defineHierarchy [
+
 	super defineHierarchy.
-	
+
 	access --|> #TAccess.
-	
+
 	"Note: attribute in Java"
 	field --|> structuralEntity.
 	field --|> #TAttribute.
 	field --|> #TCanBeClassSide.
 	field --|> #THasVisibility.
-	
+
 	"behaviouralEntity --|> scopingEntity."
-	
+
 	class --|> type.
 	class --|> #TClass.
 	class --|> #TLCOMMetrics.
@@ -135,12 +136,13 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	"class --|> #TCanBeFinal." "not possible in TypeScript?"
 	"class --|> #THasVisibility." "classes in modules/namespaces can't be declared private/public"
 	class --|> #TClassMetrics.
-	"class --|> #TCanBeClassSide." 
+	class --|> tTypeScriptClassMetrics.
+	"class --|> #TCanBeClassSide."
 	class --|> #TCanImplement.
 	class --|> #TWithImports.
 	class --|> #TImportable.
 
-   "The following come from #TClass"
+	"The following come from #TClass"
 	"class --|> #TWithMethods.
 	class --|> #TWithInheritances.
 	class --|> #TWithAttributes.
@@ -159,10 +161,10 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	interface --|> #TImplementable.
 	interface --|> #TWithImports.
 	interface --|> #TImportable.
-		
+
 	"this level of hierarchy to follow Java's metamodel, to accommodate Interfac properly TODO"
 	containerEntity --|> namedEntity.
-	
+
 	file --|> namedEntity.
 	file --|> #TFile.
 
@@ -179,25 +181,25 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	indexedFileAnchor --|> #TIndexedFileNavigation.
 
 	inheritance --|> #TInheritance.
-	
+
 	invocation --|> #TInvocation.
 	invocation --|> #THasSignature.
-	
+
 	interface --|> type.
-	
+
 	implementation --|> #TImplementation.
-	
+
 	variable --|> structuralEntity.
 	variable --|> #TLocalVariable.
-	
+
 	method --|> containerEntity.
 	method --|> #TMethod.
 	method --|> #TCanBeAbstract.
 	method --|> #THasKind.
 	method --|> #THasVisibility.
 	method --|> #TWithLocalVariables.
-	
-   "Module"
+
+	"Module"
 	module --|> #TWithLocalVariables. "var can have module scope"
 
 	namespace --|> containerEntity.
@@ -210,7 +212,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	parameter --|> namedEntity.
 	parameter --|> #TParameter.
 	parameter --|> #TCanBeFinal.
-	parameter --|> structuralEntity.	
+	parameter --|> structuralEntity.
 
 	parameterizableClass --|> class.
 	parameterizableClass --|> #TWithParameterizedTypes.
@@ -225,14 +227,14 @@ FamixTypeScriptGenerator >> defineHierarchy [
 
 	primitiveType --|> type.
 	primitiveType --|> #TPrimitiveType.
-	
+
 	containerEntity --|> namedEntity.
 	containerEntity --|> #TWithClasses.
 	containerEntity --|> tWithInterfaces.
 	containerEntity --|> #TWithFunctions.
 	containerEntity --|> #TWithAnnotationTypes.
 	"containerEntity --|> #TWithModules?" "TypeScript has modules?"
-	
+
 	tWithInterfaces --|> #TWithTypes.
 
 	"Not in FamixJava"
@@ -242,30 +244,30 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	type --|> containerEntity.
 	type --|> #TType.
 	type --|> #TParameterizedTypeUser.
-	type --|> #TWithMethods.
-
+	type --|> #TWithMethods
 ]
 
 { #category : #definition }
 FamixTypeScriptGenerator >> defineProperties [
-  super defineProperties.
 
-  ((method property: #isConstructor type: #Boolean) 
-		comment: 'Method is a constructor (class initilizer)').
-	"((class property: #isInterface type: #Boolean) 
-		comment: 'Entity can be an abstraction representing an implementationless interface (language dependent)')."
+	super defineProperties.
 
+	(method property: #isConstructor type: #Boolean defaultValue: false) comment:
+		'Method is a constructor (class initilizer)'.
+	(method property: #isGetter type: #Boolean defaultValue: false) comment:
+		'Method is a getter'.
+	(method property: #isSetter type: #Boolean defaultValue: false) comment:
+		'Method is a setter'
 ]
 
 { #category : #definition }
 FamixTypeScriptGenerator >> defineTraits [ 
 
 	super defineTraits.
-	"tTypeScriptClassMetrics := builder newTraitNamed: #TClassMetrics."
-	
 	tWithInterfaces := builder newTraitNamed: #TWithInterfaces.
 	tWithInterfaces comment: self commentForTWithInterfaces.
 
+	tTypeScriptClassMetrics := builder newTraitNamed: #TClassMetrics.
 ]
 
 { #category : #definition }
