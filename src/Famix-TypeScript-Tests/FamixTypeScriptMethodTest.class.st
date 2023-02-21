@@ -18,8 +18,9 @@ FamixTypeScriptMethodTest >> setUp [
 
 { #category : #test }
 FamixTypeScriptMethodTest >> testIsConstructor [
+
 	self deny: method isConstructor.
-	method isConstructor: true.
+	method beConstructor.
 	self assert: method isConstructor
 ]
 
@@ -27,7 +28,7 @@ FamixTypeScriptMethodTest >> testIsConstructor [
 FamixTypeScriptMethodTest >> testIsGetter [
 
 	self deny: method isGetter.
-	method isGetter: true.
+	method beGetter.
 	self assert: method isGetter
 ]
 
@@ -35,6 +36,6 @@ FamixTypeScriptMethodTest >> testIsGetter [
 FamixTypeScriptMethodTest >> testIsSetter [
 
 	self deny: method isSetter.
-	method isSetter: true.
+	method beSetter.
 	self assert: method isSetter
 ]

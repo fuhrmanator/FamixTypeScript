@@ -252,12 +252,14 @@ FamixTypeScriptGenerator >> defineProperties [
 
 	super defineProperties.
 
-	(method property: #isConstructor type: #Boolean defaultValue: false) comment:
-		'Method is a constructor (class initilizer)'.
-	(method property: #isGetter type: #Boolean defaultValue: false) comment:
-		'Method is a getter'.
-	(method property: #isSetter type: #Boolean defaultValue: false) comment:
-		'Method is a setter'
+	"The following are not need because of THasKind (?)"
+
+	"(method property: #isConstructor type: #Boolean defaultValue: false) 
+		comment: 'Method is a constructor (class initilizer)'.
+	(method property: #isGetter type: #Boolean defaultValue: false) 
+		comment: 'Method is a getter'.
+	(method property: #isSetter type: #Boolean defaultValue: false) 
+		comment: 'Method is a setter'"
 ]
 
 { #category : #definition }
