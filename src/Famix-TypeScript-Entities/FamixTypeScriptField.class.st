@@ -15,5 +15,5 @@ FamixTypeScriptField class >> annotation [
 	<FMClass: #Field super: #FamixTypeScriptStructuralEntity>
 	<package: #FamixTypeScript>
 	<generated>
-	^self
+	^ self
 ]

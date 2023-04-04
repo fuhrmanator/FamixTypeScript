@@ -10,7 +10,15 @@ FamixTypeScriptEntity class >> annotation [
 	<FMClass: #Entity super: #MooseEntity>
 	<package: #FamixTypeScript>
 	<generated>
-	^self
+	<abstract>
+	^ self
+]
+
+{ #category : #testing }
+FamixTypeScriptEntity class >> isAbstract [
+
+	<generated>
+	^ self == FamixTypeScriptEntity
 ]
 
 { #category : #meta }

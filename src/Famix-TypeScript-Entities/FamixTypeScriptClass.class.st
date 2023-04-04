@@ -15,7 +15,7 @@ FamixTypeScriptClass class >> annotation [
 	<FMClass: #Class super: #FamixTypeScriptType>
 	<package: #FamixTypeScript>
 	<generated>
-	^self
+	^ self
 ]
 
 { #category : #testing }

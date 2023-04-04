@@ -12,5 +12,5 @@ FamixTypeScriptComment class >> annotation [
 	<FMClass: #Comment super: #FamixTypeScriptSourcedEntity>
 	<package: #FamixTypeScript>
 	<generated>
-	^self
+	^ self
 ]

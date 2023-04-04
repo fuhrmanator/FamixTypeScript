@@ -12,5 +12,5 @@ FamixTypeScriptFolder class >> annotation [
 	<FMClass: #Folder super: #FamixTypeScriptNamedEntity>
 	<package: #FamixTypeScript>
 	<generated>
-	^self
+	^ self
 ]

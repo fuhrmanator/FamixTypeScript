@@ -14,5 +14,5 @@ FamixTypeScriptTWithInterfaces classSide >> annotation [
 	<FMClass: #TWithInterfaces super: #Object>
 	<package: #FamixTypeScript>
 	<generated>
-	^self
+	^ self
 ]

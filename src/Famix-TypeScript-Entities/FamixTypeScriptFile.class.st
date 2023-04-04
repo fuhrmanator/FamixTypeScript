@@ -12,5 +12,5 @@ FamixTypeScriptFile class >> annotation [
 	<FMClass: #File super: #FamixTypeScriptNamedEntity>
 	<package: #FamixTypeScript>
 	<generated>
-	^self
+	^ self
 ]

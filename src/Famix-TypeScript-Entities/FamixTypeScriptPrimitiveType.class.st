@@ -15,7 +15,7 @@ FamixTypeScriptPrimitiveType class >> annotation [
 	<FMClass: #PrimitiveType super: #FamixTypeScriptType>
 	<package: #FamixTypeScript>
 	<generated>
-	^self
+	^ self
 ]
 
 { #category : #testing }

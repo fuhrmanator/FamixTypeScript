@@ -15,5 +15,5 @@ FamixTypeScriptMethod class >> annotation [
 	<FMClass: #Method super: #FamixTypeScriptContainerEntity>
 	<package: #FamixTypeScript>
 	<generated>
-	^self
+	^ self
 ]

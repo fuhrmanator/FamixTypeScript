@@ -12,5 +12,5 @@ FamixTypeScriptSourceTextAnchor class >> annotation [
 	<FMClass: #SourceTextAnchor super: #FamixTypeScriptSourceAnchor>
 	<package: #FamixTypeScript>
 	<generated>
-	^self
+	^ self
 ]

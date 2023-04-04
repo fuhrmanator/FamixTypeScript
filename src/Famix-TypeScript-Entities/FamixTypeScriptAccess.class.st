@@ -12,5 +12,5 @@ FamixTypeScriptAccess class >> annotation [
 	<FMClass: #Access super: #FamixTypeScriptEntity>
 	<package: #FamixTypeScript>
 	<generated>
-	^self
+	^ self
 ]

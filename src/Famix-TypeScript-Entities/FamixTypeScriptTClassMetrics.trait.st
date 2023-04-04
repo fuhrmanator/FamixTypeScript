@@ -9,5 +9,5 @@ FamixTypeScriptTClassMetrics classSide >> annotation [
 	<FMClass: #TClassMetrics super: #Object>
 	<package: #FamixTypeScript>
 	<generated>
-	^self
+	^ self
 ]

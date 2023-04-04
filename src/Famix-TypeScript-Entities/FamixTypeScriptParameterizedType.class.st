@@ -12,5 +12,5 @@ FamixTypeScriptParameterizedType class >> annotation [
 	<FMClass: #ParameterizedType super: #FamixTypeScriptType>
 	<package: #FamixTypeScript>
 	<generated>
-	^self
+	^ self
 ]

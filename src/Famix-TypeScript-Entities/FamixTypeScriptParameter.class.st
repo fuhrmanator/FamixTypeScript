@@ -12,5 +12,5 @@ FamixTypeScriptParameter class >> annotation [
 	<FMClass: #Parameter super: #FamixTypeScriptStructuralEntity>
 	<package: #FamixTypeScript>
 	<generated>
-	^self
+	^ self
 ]

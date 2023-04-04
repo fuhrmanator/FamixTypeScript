@@ -22,3 +22,10 @@ FamixTypeScriptModel class >> canBeImportedFromFile [
 	<generated>
 	^true
 ]
+
+{ #category : #accessing }
+FamixTypeScriptModel class >> importingContextClass [
+
+	<generated>
+	^ FamixTypeScriptImportingContext
+]

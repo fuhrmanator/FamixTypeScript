@@ -1,377 +1,394 @@
+"
+This class is used to choose the entities to be imported when loading a model from file.
+It is used by `MiImportingContextPresenter` in a `MiImportModelFromFileDialog` to import a FamixTypeScriptModel.
+"
 Class {
 	#name : #FamixTypeScriptImportingContext,
-	#superclass : #FmxImportingContext,
-	#category : #'Famix-TypeScript-Entities'
+	#superclass : #FamixImportingContext,
+	#category : #'Famix-TypeScript-Entities-Import'
 }
 
-{ #category : #testing }
+{ #category : #accessing }
+FamixTypeScriptImportingContext class >> importedMetamodel [
+
+	<generated>
+	^ FamixTypeScriptModel metamodel
+]
+
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importAccess [
+
 	<generated>
-	^ self import: FamixTypeScriptAccess
+	^ self importAssociation: (self class fm3ClassNamed: #Access)
 ]
 
-{ #category : #testing }
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importClass [
+
 	<generated>
-	^ self import: FamixTypeScriptClass
+	^ self importConcreteEntity: (self class fm3ClassNamed: #Class)
 ]
 
-{ #category : #testing }
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importComment [
+
 	<generated>
-	^ self import: FamixTypeScriptComment
+	^ self importConcreteEntity: (self class fm3ClassNamed: #Comment)
 ]
 
-{ #category : #testing }
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importContainerEntity [
+
 	<generated>
-	^ self import: FamixTypeScriptContainerEntity
+	^ self importConcreteEntity: (self class fm3ClassNamed: #ContainerEntity)
 ]
 
-{ #category : #testing }
-FamixTypeScriptImportingContext >> importEntity [
-	<generated>
-	^ self import: FamixTypeScriptEntity
-]
-
-{ #category : #testing }
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importField [
+
 	<generated>
-	^ self import: FamixTypeScriptField
+	^ self importConcreteEntity: (self class fm3ClassNamed: #Field)
 ]
 
-{ #category : #testing }
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importFile [
+
 	<generated>
-	^ self import: FamixTypeScriptFile
+	^ self importConcreteEntity: (self class fm3ClassNamed: #File)
 ]
 
-{ #category : #testing }
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importFolder [
+
 	<generated>
-	^ self import: FamixTypeScriptFolder
+	^ self importConcreteEntity: (self class fm3ClassNamed: #Folder)
 ]
 
-{ #category : #testing }
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importFunction [
+
 	<generated>
-	^ self import: FamixTypeScriptFunction
+	^ self importConcreteEntity: (self class fm3ClassNamed: #Function)
 ]
 
-{ #category : #testing }
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importImplementation [
+
 	<generated>
-	^ self import: FamixTypeScriptImplementation
+	^ self importAssociation: (self class fm3ClassNamed: #Implementation)
 ]
 
-{ #category : #testing }
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importIndexedFileAnchor [
+
 	<generated>
-	^ self import: FamixTypeScriptIndexedFileAnchor
+	^ self importConcreteEntity: (self class fm3ClassNamed: #IndexedFileAnchor)
 ]
 
-{ #category : #testing }
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importInheritance [
+
 	<generated>
-	^ self import: FamixTypeScriptInheritance
+	^ self importAssociation: (self class fm3ClassNamed: #Inheritance)
 ]
 
-{ #category : #testing }
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importInterface [
+
 	<generated>
-	^ self import: FamixTypeScriptInterface
+	^ self importConcreteEntity: (self class fm3ClassNamed: #Interface)
 ]
 
-{ #category : #testing }
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importInvocation [
+
 	<generated>
-	^ self import: FamixTypeScriptInvocation
+	^ self importAssociation: (self class fm3ClassNamed: #Invocation)
 ]
 
-{ #category : #testing }
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importMethod [
+
 	<generated>
-	^ self import: FamixTypeScriptMethod
+	^ self importConcreteEntity: (self class fm3ClassNamed: #Method)
 ]
 
-{ #category : #testing }
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importModule [
+
 	<generated>
-	^ self import: FamixTypeScriptModule
+	^ self importConcreteEntity: (self class fm3ClassNamed: #Module)
 ]
 
-{ #category : #testing }
-FamixTypeScriptImportingContext >> importNamedEntity [
-	<generated>
-	^ self import: FamixTypeScriptNamedEntity
-]
-
-{ #category : #testing }
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importNamespace [
+
 	<generated>
-	^ self import: FamixTypeScriptNamespace
+	^ self importConcreteEntity: (self class fm3ClassNamed: #Namespace)
 ]
 
-{ #category : #testing }
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importParameter [
+
 	<generated>
-	^ self import: FamixTypeScriptParameter
+	^ self importConcreteEntity: (self class fm3ClassNamed: #Parameter)
 ]
 
-{ #category : #testing }
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importParameterType [
+
 	<generated>
-	^ self import: FamixTypeScriptParameterType
+	^ self importConcreteEntity: (self class fm3ClassNamed: #ParameterType)
 ]
 
-{ #category : #testing }
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importParameterizableClass [
+
 	<generated>
-	^ self import: FamixTypeScriptParameterizableClass
+	^ self importConcreteEntity: (self class fm3ClassNamed: #ParameterizableClass)
 ]
 
-{ #category : #testing }
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importParameterizedType [
+
 	<generated>
-	^ self import: FamixTypeScriptParameterizedType
+	^ self importConcreteEntity: (self class fm3ClassNamed: #ParameterizedType)
 ]
 
-{ #category : #testing }
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importPrimitiveType [
+
 	<generated>
-	^ self import: FamixTypeScriptPrimitiveType
+	^ self importConcreteEntity: (self class fm3ClassNamed: #PrimitiveType)
 ]
 
-{ #category : #testing }
-FamixTypeScriptImportingContext >> importSourceAnchor [
-	<generated>
-	^ self import: FamixTypeScriptSourceAnchor
-]
-
-{ #category : #testing }
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importSourceLanguage [
+
 	<generated>
-	^ self import: FamixTypeScriptSourceLanguage
+	^ self importConcreteEntity: (self class fm3ClassNamed: #SourceLanguage)
 ]
 
-{ #category : #testing }
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importSourceTextAnchor [
+
 	<generated>
-	^ self import: FamixTypeScriptSourceTextAnchor
+	^ self importConcreteEntity: (self class fm3ClassNamed: #SourceTextAnchor)
 ]
 
-{ #category : #testing }
-FamixTypeScriptImportingContext >> importSourcedEntity [
-	<generated>
-	^ self import: FamixTypeScriptSourcedEntity
-]
-
-{ #category : #testing }
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importStructuralEntity [
+
 	<generated>
-	^ self import: FamixTypeScriptStructuralEntity
+	^ self importConcreteEntity: (self class fm3ClassNamed: #StructuralEntity)
 ]
 
-{ #category : #testing }
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importType [
+
 	<generated>
-	^ self import: FamixTypeScriptType
+	^ self importConcreteEntity: (self class fm3ClassNamed: #Type)
 ]
 
-{ #category : #testing }
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importUnknownSourceLanguage [
+
 	<generated>
-	^ self import: FamixTypeScriptUnknownSourceLanguage
+	^ self importConcreteEntity: (self class fm3ClassNamed: #UnknownSourceLanguage)
 ]
 
-{ #category : #testing }
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importVariable [
+
 	<generated>
-	^ self import: FamixTypeScriptVariable
+	^ self importConcreteEntity: (self class fm3ClassNamed: #Variable)
 ]
 
 { #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportAccess [
+
 	<generated>
-	^ self shouldImport: FamixTypeScriptAccess
+	^ self shouldImport: #Access
 ]
 
 { #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportClass [
+
 	<generated>
-	^ self shouldImport: FamixTypeScriptClass
+	^ self shouldImport: #Class
 ]
 
 { #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportComment [
+
 	<generated>
-	^ self shouldImport: FamixTypeScriptComment
+	^ self shouldImport: #Comment
 ]
 
 { #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportContainerEntity [
-	<generated>
-	^ self shouldImport: FamixTypeScriptContainerEntity
-]
 
-{ #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportEntity [
 	<generated>
-	^ self shouldImport: FamixTypeScriptEntity
+	^ self shouldImport: #ContainerEntity
 ]
 
 { #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportField [
+
 	<generated>
-	^ self shouldImport: FamixTypeScriptField
+	^ self shouldImport: #Field
 ]
 
 { #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportFile [
+
 	<generated>
-	^ self shouldImport: FamixTypeScriptFile
+	^ self shouldImport: #File
 ]
 
 { #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportFolder [
+
 	<generated>
-	^ self shouldImport: FamixTypeScriptFolder
+	^ self shouldImport: #Folder
 ]
 
 { #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportFunction [
+
 	<generated>
-	^ self shouldImport: FamixTypeScriptFunction
+	^ self shouldImport: #Function
 ]
 
 { #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportImplementation [
+
 	<generated>
-	^ self shouldImport: FamixTypeScriptImplementation
+	^ self shouldImport: #Implementation
 ]
 
 { #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportIndexedFileAnchor [
+
 	<generated>
-	^ self shouldImport: FamixTypeScriptIndexedFileAnchor
+	^ self shouldImport: #IndexedFileAnchor
 ]
 
 { #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportInheritance [
+
 	<generated>
-	^ self shouldImport: FamixTypeScriptInheritance
+	^ self shouldImport: #Inheritance
 ]
 
 { #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportInterface [
+
 	<generated>
-	^ self shouldImport: FamixTypeScriptInterface
+	^ self shouldImport: #Interface
 ]
 
 { #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportInvocation [
+
 	<generated>
-	^ self shouldImport: FamixTypeScriptInvocation
+	^ self shouldImport: #Invocation
 ]
 
 { #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportMethod [
+
 	<generated>
-	^ self shouldImport: FamixTypeScriptMethod
+	^ self shouldImport: #Method
 ]
 
 { #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportModule [
-	<generated>
-	^ self shouldImport: FamixTypeScriptModule
-]
 
-{ #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportNamedEntity [
 	<generated>
-	^ self shouldImport: FamixTypeScriptNamedEntity
+	^ self shouldImport: #Module
 ]
 
 { #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportNamespace [
+
 	<generated>
-	^ self shouldImport: FamixTypeScriptNamespace
+	^ self shouldImport: #Namespace
 ]
 
 { #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportParameter [
+
 	<generated>
-	^ self shouldImport: FamixTypeScriptParameter
+	^ self shouldImport: #Parameter
 ]
 
 { #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportParameterType [
+
 	<generated>
-	^ self shouldImport: FamixTypeScriptParameterType
+	^ self shouldImport: #ParameterType
 ]
 
 { #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportParameterizableClass [
+
 	<generated>
-	^ self shouldImport: FamixTypeScriptParameterizableClass
+	^ self shouldImport: #ParameterizableClass
 ]
 
 { #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportParameterizedType [
+
 	<generated>
-	^ self shouldImport: FamixTypeScriptParameterizedType
+	^ self shouldImport: #ParameterizedType
 ]
 
 { #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportPrimitiveType [
-	<generated>
-	^ self shouldImport: FamixTypeScriptPrimitiveType
-]
 
-{ #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportSourceAnchor [
 	<generated>
-	^ self shouldImport: FamixTypeScriptSourceAnchor
+	^ self shouldImport: #PrimitiveType
 ]
 
 { #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportSourceLanguage [
+
 	<generated>
-	^ self shouldImport: FamixTypeScriptSourceLanguage
+	^ self shouldImport: #SourceLanguage
 ]
 
 { #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportSourceTextAnchor [
-	<generated>
-	^ self shouldImport: FamixTypeScriptSourceTextAnchor
-]
 
-{ #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportSourcedEntity [
 	<generated>
-	^ self shouldImport: FamixTypeScriptSourcedEntity
+	^ self shouldImport: #SourceTextAnchor
 ]
 
 { #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportStructuralEntity [
+
 	<generated>
-	^ self shouldImport: FamixTypeScriptStructuralEntity
+	^ self shouldImport: #StructuralEntity
 ]
 
 { #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportType [
+
 	<generated>
-	^ self shouldImport: FamixTypeScriptType
+	^ self shouldImport: #Type
 ]
 
 { #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportUnknownSourceLanguage [
+
 	<generated>
-	^ self shouldImport: FamixTypeScriptUnknownSourceLanguage
+	^ self shouldImport: #UnknownSourceLanguage
 ]
 
 { #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportVariable [
+
 	<generated>
-	^ self shouldImport: FamixTypeScriptVariable
+	^ self shouldImport: #Variable
 ]

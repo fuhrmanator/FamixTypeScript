@@ -12,5 +12,13 @@ FamixTypeScriptSourceAnchor class >> annotation [
 	<FMClass: #SourceAnchor super: #FamixTypeScriptEntity>
 	<package: #FamixTypeScript>
 	<generated>
-	^self
+	<abstract>
+	^ self
+]
+
+{ #category : #testing }
+FamixTypeScriptSourceAnchor class >> isAbstract [
+
+	<generated>
+	^ self == FamixTypeScriptSourceAnchor
 ]

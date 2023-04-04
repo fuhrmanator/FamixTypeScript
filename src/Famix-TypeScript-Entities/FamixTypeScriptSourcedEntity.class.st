@@ -12,5 +12,13 @@ FamixTypeScriptSourcedEntity class >> annotation [
 	<FMClass: #SourcedEntity super: #FamixTypeScriptEntity>
 	<package: #FamixTypeScript>
 	<generated>
-	^self
+	<abstract>
+	^ self
+]
+
+{ #category : #testing }
+FamixTypeScriptSourcedEntity class >> isAbstract [
+
+	<generated>
+	^ self == FamixTypeScriptSourcedEntity
 ]
