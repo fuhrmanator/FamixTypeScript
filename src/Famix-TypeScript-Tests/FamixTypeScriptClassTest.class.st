@@ -11,6 +11,6 @@ FamixTypeScriptClassTest >> testIsAbstract [
 	c1 := FamixTypeScriptClass new name: 'C'.
 	"properties from Traits don't have default values"
 	"self deny: c1 isAbstract."
-	c1 isAbstract: true.
+	c1 isAbstract: false.
 	self assert: c1 isAbstract
 ]
