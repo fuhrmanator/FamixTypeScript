@@ -9,11 +9,28 @@ Class {
 
 { #category : #tests }
 FamixTypeScriptParameterizedTypeTest >> setUp [
+	| package class1 class2 type1 type2 type3 paramType1 paramType2 paramType3 parameterizedType1 |
 	super setUp.
 	model := FamixTypeScriptModel new.
+	
+	package:= FamixTypeScriptPackage named: 'PackageA' model: model.
+	class1:= FamixTypeScriptClass  named: 'ClassA' model: model.
+	class2:= FamixTypeScriptParameterizableClass named: 'ParameterizableClassA' model: model.
 
-	model
-		importFromMSEStream:
+	paramType1:= FamixTypeScriptParameterType named:  'A' model: model.
+	paramType2:= FamixTypeScriptParameterType named:  'B' model: model.
+	paramType3:= FamixTypeScriptParameterType named:  'C' model: model.
+	paramType1 typeContainer: class2.
+	paramType2 typeContainer: class2.
+	paramType3 typeContainer: class2.
+	type1:= FamixTypeScriptType named: 'TypeB' model: model.
+	type2:= FamixTypeScriptType named: 'TypeC' model: model.
+	parameterizedType1:= FamixTypeScriptParameterizedType new.
+	parameterizedType1 addArgument: type1.
+	class2 typeContainer: paramType1.
+	
+	"model"
+		"importFromMSEStream:
 			'(
 		(Famix-TypeScript-Entities.Package (id: 1) (name ''PackageA''))
 		(Famix-TypeScript-Entities.Class (id: 2) (name ''ClassA''))
@@ -25,6 +42,7 @@ FamixTypeScriptParameterizedTypeTest >> setUp [
 		
 		(Famix-TypeScript-Entities.Type (id: 4) (name ''TypeB''))
 		(Famix-TypeScript-Entities.Type (id: 5) (name ''TypeC''))		
+				
 		(Famix-TypeScript-Entities.ParameterizedType (id: 6) (parameterizableClass (ref: 3)) (arguments (ref: 4)))
 		(Famix-TypeScript-Entities.ParameterizedType (id: 7) (parameterizableClass (ref: 3)) (arguments (ref: 4) (ref: 5)))
 		
@@ -39,7 +57,7 @@ FamixTypeScriptParameterizedTypeTest >> setUp [
 		
 		(Famix-TypeScript-Entities.LocalVariable (id: 14) (name ''localVariableMtdA1'') (parentBehaviouralEntity (ref: 10)) (declaredType (ref: 6)))
 		(Famix-TypeScript-Entities.LocalVariable (id: 15) (name ''localVariableMtdA2'') (parentBehaviouralEntity (ref: 11)) (declaredType (ref: 7)))
-	)' readStream
+	)' readStream"
 ]
 
 { #category : #tests }
