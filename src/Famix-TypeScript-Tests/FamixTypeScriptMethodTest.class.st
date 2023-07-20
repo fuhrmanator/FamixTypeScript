@@ -23,10 +23,11 @@ FamixTypeScriptMethodTest >> testDefaultIsStub [
 
 { #category : #test }
 FamixTypeScriptMethodTest >> testIsClassSide [ 
-	| meth |
-	meth := FamixTypeScriptClass new. 
-	meth isClassSide: true.
-	self assert: meth isClassSide
+	| clazz |
+	clazz := FamixTypeScriptClass new. 
+	self deny: clazz isClassSide.
+	clazz isClassSide: true.
+	self assert: clazz isClassSide
 
 ]
 
@@ -49,17 +50,9 @@ FamixTypeScriptMethodTest >> testIsGetter [
 { #category : #test }
 FamixTypeScriptMethodTest >> testIsGetterForBooleanAttribute [
 
-	method name: 'isActif'.
-	method declaredType: (FamixTypeScriptPrimitiveType named: 'boolean').
+	method kind: #getter.
 	self assert: method isGetter.
 
-	method name: 'isActif'.
-	method declaredType: (FamixTypeScriptClass named: 'Boolean').
-	self assert: method isGetter.
-
-	method name: 'isActif'.
-	method declaredType: (FamixTypeScriptClass named: 'String').
-	self deny: method isGetter
 ]
 
 { #category : #test }
@@ -91,7 +84,7 @@ FamixTypeScriptMethodTest >> testIsStubWhenParentIsStub [
 ]
 
 { #category : #test }
-FamixTypeScriptMethodTest >> testOverride[ [
+FamixTypeScriptMethodTest >> testOverride [ [
 	| overridenMethod c1 c2 package |
 	package := FamixTypeScriptPackage new.
 	c1 := FamixTypeScriptClass new

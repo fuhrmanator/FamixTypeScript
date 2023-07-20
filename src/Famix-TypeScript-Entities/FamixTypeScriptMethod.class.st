@@ -58,8 +58,3 @@ FamixTypeScriptMethod >> isOverriding [
 		anySatisfy:
 			[ :each | each isInterface not and: [ each understands: self signature ] ]
 ]
-
-{ #category : #accessing }
-FamixTypeScriptMethod >> isStub [
-	^ super isStub or: [ self parentType isNotNil and: [ self parentType isStub ] ]
-]
