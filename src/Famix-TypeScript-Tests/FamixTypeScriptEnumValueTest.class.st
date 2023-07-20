@@ -10,6 +10,7 @@ FamixTypeScriptEnumValueTest >> testParentEnum [
 	enum := FamixTypeScriptEnum new.
 	value := FamixTypeScriptEnumValue new.
 	value parentEnum: enum.
-	self assert: enum values size equals: 1.
+	
+	self assert: enum enumValues size equals: 1.
 	self assert: value parentEnum equals: enum
 ]
