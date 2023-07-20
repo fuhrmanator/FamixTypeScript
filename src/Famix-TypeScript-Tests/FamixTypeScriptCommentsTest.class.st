@@ -14,7 +14,7 @@ FamixTypeScriptCommentsTest >> testClassWithComment [
 ]
 
 { #category : #tests }
-FamixTypeScriptCommentsTest >> testClassWithCommentAndMethodsWithComments [
+FamixTypeScriptCommentsTest >> testClassWithCommentAndMethodsWithComments [ 
 
 	| typeScriptClass |
 	typeScriptClass := FamixTypeScriptClass new.

@@ -44,6 +44,13 @@ FamixTypeScriptImportingContext >> importContainerEntity [
 ]
 
 { #category : #importing }
+FamixTypeScriptImportingContext >> importDecorator [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #Decorator)
+]
+
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importField [
 
 	<generated>
@@ -230,6 +237,13 @@ FamixTypeScriptImportingContext >> shouldImportContainerEntity [
 
 	<generated>
 	^ self shouldImport: #ContainerEntity
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportDecorator [
+
+	<generated>
+	^ self shouldImport: #Decorator
 ]
 
 { #category : #testing }

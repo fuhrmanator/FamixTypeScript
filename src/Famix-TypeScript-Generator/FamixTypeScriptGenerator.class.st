@@ -26,7 +26,8 @@ Class {
 		'interface',
 		'primitiveType',
 		'tWithInterfaces',
-		'implementation'
+		'implementation',
+		'decorator'
 	],
 	#category : #'Famix-TypeScript-Generator'
 }
@@ -81,6 +82,7 @@ FamixTypeScriptGenerator >> commentForTWithInterfaces [
 
 { #category : #definition }
 FamixTypeScriptGenerator >> defineClasses [
+
 	super defineClasses.
 	
 	access := builder newClassNamed: #Access.
@@ -88,6 +90,10 @@ FamixTypeScriptGenerator >> defineClasses [
 	class := builder newClassNamed: #Class comment: 'I represent a TypeScript class.'.
 	class withTesting.
 	containerEntity := builder newClassNamed: #ContainerEntity.
+	
+	"This definition concerns stage 2 decorators: https://www.typescriptlang.org/docs/handbook/decorators.html"
+	decorator:= builder newClassNamed: #Decorator comment: 'I represent a TypeScript Decorator'.
+	
 	field := builder newClassNamed: #Field comment: 'I represent a TypeScript class field.'.
 	file := builder newClassNamed: #File.
 	folder := builder newClassNamed: #Folder.
@@ -109,7 +115,8 @@ FamixTypeScriptGenerator >> defineClasses [
 	structuralEntity := builder newClassNamed: #StructuralEntity.
 	type := builder newClassNamed: #Type comment: 'I represent a TypeScript type.'.
 	variable := builder newClassNamed: #Variable comment: 'I represent a TypeScript variable.'.
-
+	
+	
 	primitiveType withTesting.
 	"self defineComments."
 ]
@@ -142,6 +149,9 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	class --|> #TWithImports.
 	class --|> #TImportable.
 
+	decorator --|>namedEntity.
+	
+	
 	"The following come from #TClass"
 	"class --|> #TWithMethods.
 	class --|> #TWithInheritances.
@@ -244,7 +254,8 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	type --|> containerEntity.
 	type --|> #TType.
 	type --|> #TParameterizedTypeUser.
-	type --|> #TWithMethods
+	type --|> #TWithMethods.
+	
 ]
 
 { #category : #definition }
@@ -260,6 +271,18 @@ FamixTypeScriptGenerator >> defineProperties [
 		comment: 'Method is a getter'.
 	(method property: #isSetter type: #Boolean defaultValue: false) 
 		comment: 'Method is a setter'"
+]
+
+{ #category : #definition }
+FamixTypeScriptGenerator >> defineRelations [
+    super defineRelations.
+    (decorator property: #function) *- (function property:#decorator).
+	(decorator property: #namedEntity) *- (namedEntity  property:#decorator).
+
+	
+	
+
+	
 ]
 
 { #category : #definition }

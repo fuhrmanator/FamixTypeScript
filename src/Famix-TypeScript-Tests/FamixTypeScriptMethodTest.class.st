@@ -22,9 +22,9 @@ FamixTypeScriptMethodTest >> testDefaultIsStub [
 ]
 
 { #category : #test }
-FamixTypeScriptMethodTest >> testIsClassSide [
+FamixTypeScriptMethodTest >> testIsClassSide [ 
 	| meth |
-	meth := FamixTypeScriptMethod  new. 
+	meth := FamixTypeScriptClass new. 
 	meth isClassSide: true.
 	self assert: meth isClassSide
 
@@ -91,7 +91,7 @@ FamixTypeScriptMethodTest >> testIsStubWhenParentIsStub [
 ]
 
 { #category : #test }
-FamixTypeScriptMethodTest >> testOverride [
+FamixTypeScriptMethodTest >> testOverride[ [
 	| overridenMethod c1 c2 package |
 	package := FamixTypeScriptPackage new.
 	c1 := FamixTypeScriptClass new
@@ -117,7 +117,7 @@ FamixTypeScriptMethodTest >> testOverride [
 				subclass: c2;
 				superclass: c1).
 	self assert: method isOverriding.
-	self assert: overridenMethod isOverriden
+	self assert: overridenMethod isOverriden]
 ]
 
 { #category : #test }

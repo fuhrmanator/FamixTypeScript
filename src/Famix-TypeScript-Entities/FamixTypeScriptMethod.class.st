@@ -21,7 +21,7 @@ FamixTypeScriptMethod class >> annotation [
 	^ self
 ]
 
-{ #category : #testing }
+{ #category : #accessing }
 FamixTypeScriptMethod >> isClassSide [
 
 	<FMProperty: #isClassSide type: #Boolean defaultValue: false>
@@ -30,7 +30,7 @@ FamixTypeScriptMethod >> isClassSide [
 	^ isClassSide ifNil: [ isClassSide := false ]
 ]
 
-{ #category : #testing }
+{ #category : #accessing }
 FamixTypeScriptMethod >> isClassSide: anObject [
 	<generated>
 	isClassSide := anObject
@@ -57,4 +57,9 @@ FamixTypeScriptMethod >> isOverriding [
 	^ self parentType directSuperclasses
 		anySatisfy:
 			[ :each | each isInterface not and: [ each understands: self signature ] ]
+]
+
+{ #category : #accessing }
+FamixTypeScriptMethod >> isStub [
+	^ super isStub or: [ self parentType isNotNil and: [ self parentType isStub ] ]
 ]
