@@ -1,6 +1,6 @@
 Class {
 	#name : #FamixTypeScriptNamedEntity,
-	#superclass : #FamixTypeScriptEntity,
+	#superclass : #FamixTypeScriptSourcedEntity,
 	#traits : 'FamixTInvocationsReceiver + FamixTNamedEntity',
 	#classTraits : 'FamixTInvocationsReceiver classTrait + FamixTNamedEntity classTrait',
 	#instVars : [
@@ -12,7 +12,7 @@ Class {
 { #category : #meta }
 FamixTypeScriptNamedEntity class >> annotation [
 
-	<FMClass: #NamedEntity super: #FamixTypeScriptEntity>
+	<FMClass: #NamedEntity super: #FamixTypeScriptSourcedEntity>
 	<package: #FamixTypeScript>
 	<generated>
 	<abstract>

@@ -25,5 +25,10 @@ FamixTypeScriptCommentsTest >> testClassWithCommentAndMethodsWithComments [
 	FamixTypeScriptComment new commentedEntity: (FamixTypeScriptMethod new
 			 parentType: typeScriptClass;
 			 yourself).
-	self assert: typeScriptClass numberOfComments equals: 3 "one in the class, one on each of the 2 methods"
+
+	self assert: typeScriptClass numberOfComments equals: 1.
+	self assert: typeScriptClass methods size equals: 2.
+	typeScriptClass methods do: [ :m |
+		self assert: m numberOfComments equals: 1
+	]
 ]

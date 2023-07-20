@@ -6,19 +6,12 @@ Class {
 
 { #category : #tests }
 FamixTypeScriptSourceLanguageTest >> testIsTypeScript [
-	| model sourceLang class1 class2 |
+	| model |
 	model := FamixTypeScriptModel new.
 
-	"model
+	model
 		importFromMSEStream:
-			'(
-		(Famix-TypeScript-Entities.SourceLanguage)
-		(Famix-TypeScript-Entities.Class (id: 2) (name ''ClassWithoutSourceA''))
-		(Famix-TypeScript-Entities.Class (id: 3) (name ''ClassWithoutSourceB''))
-	)' readStream."
-	sourceLang:= FamixTypeScriptSourceLanguage new 	mooseModel: model.
-	class1 := FamixTypeScriptClass named: 'ClassWithoutSourceA' model: model.
-	class2 := FamixTypeScriptClass named: 'ClassWithoutSourceB' model: model.
+			'((FamixTypeScript.SourceLanguage))' readStream.
 	
 	self assert: model sourceLanguage isTypeScript 
 ]

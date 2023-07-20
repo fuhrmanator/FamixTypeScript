@@ -1,8 +1,8 @@
 Class {
 	#name : #FamixTypeScriptNamespace,
 	#superclass : #FamixTypeScriptContainerEntity,
-	#traits : 'FamixTDefinedInModule + FamixTNamespace + FamixTWithLocalVariables',
-	#classTraits : 'FamixTDefinedInModule classTrait + FamixTNamespace classTrait + FamixTWithLocalVariables classTrait',
+	#traits : 'FamixTDefinedInModule + FamixTNamespace',
+	#classTraits : 'FamixTDefinedInModule classTrait + FamixTNamespace classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 
