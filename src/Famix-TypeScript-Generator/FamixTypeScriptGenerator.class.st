@@ -27,7 +27,9 @@ Class {
 		'primitiveType',
 		'tWithInterfaces',
 		'implementation',
-		'decorator'
+		'decorator',
+		'enum',
+		'enumValue'
 	],
 	#category : #'Famix-TypeScript-Generator'
 }
@@ -93,7 +95,10 @@ FamixTypeScriptGenerator >> defineClasses [
 	
 	"This definition concerns stage 2 decorators: https://www.typescriptlang.org/docs/handbook/decorators.html"
 	decorator:= builder newClassNamed: #Decorator comment: 'I represent a TypeScript Decorator'.
-	
+
+	enum := builder newClassNamed: #Enum comment: 'Typescript enumerated type'.
+	enumValue := builder newClassNamed: #EnumValue comment: 'One value (constant) in a Typescript enumerated type'.
+
 	field := builder newClassNamed: #Field comment: 'I represent a TypeScript class field.'.
 	file := builder newClassNamed: #File.
 	folder := builder newClassNamed: #Folder.
@@ -157,7 +162,15 @@ FamixTypeScriptGenerator >> defineHierarchy [
 
 	decorator --|>namedEntity.
 	
-	"Note: attribute in Java"
+	enum --|> type.
+	enum --|> #TEnum.
+	enum --|> #TWithComments.
+	enum --|> #TImportable.
+
+	enumValue --|> namedEntity.
+	enumValue --|> #TWithComments.
+	enumValue --|> #TEnumValue.
+
 	field --|> structuralEntity.
 	field --|> #TAttribute.
 	field --|> #TCanBeClassSide.
