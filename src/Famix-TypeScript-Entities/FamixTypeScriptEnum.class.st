@@ -1,7 +1,19 @@
+"
+Typescript enumerated type
+"
 Class {
 	#name : #FamixTypeScriptEnum,
 	#superclass : #FamixTypeScriptType,
-	#traits : 'FamixTEnum + FamixTHasVisibility + FamixTImportable + FamixTWithAttributes + FamixTWithComments + FamixTWithImports + FamixTWithInheritances + FamixTWithMethods',
-	#classTraits : 'FamixTEnum classTrait + FamixTHasVisibility classTrait + FamixTImportable classTrait + FamixTWithAttributes classTrait + FamixTWithComments classTrait + FamixTWithImports classTrait + FamixTWithInheritances classTrait + FamixTWithMethods classTrait',
+	#traits : 'FamixTEnum + FamixTImportable + FamixTWithComments',
+	#classTraits : 'FamixTEnum classTrait + FamixTImportable classTrait + FamixTWithComments classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
+
+{ #category : #meta }
+FamixTypeScriptEnum class >> annotation [
+
+	<FMClass: #Enum super: #FamixTypeScriptType>
+	<package: #FamixTypeScript>
+	<generated>
+	^ self
+]

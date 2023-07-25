@@ -4,8 +4,6 @@ I represent a TypeScript Decorator
 Class {
 	#name : #FamixTypeScriptDecorator,
 	#superclass : #FamixTypeScriptNamedEntity,
-	#traits : 'FamixTNamedEntity',
-	#classTraits : 'FamixTNamedEntity classTrait',
 	#instVars : [
 		'#function => FMOne type: #FamixTypeScriptFunction opposite: #decorator',
 		'#namedEntity => FMOne type: #FamixTypeScriptNamedEntity opposite: #decorator'

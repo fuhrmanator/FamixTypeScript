@@ -27,7 +27,9 @@ Class {
 		'primitiveType',
 		'tWithInterfaces',
 		'implementation',
-		'decorator'
+		'decorator',
+		'enum',
+		'enumValue'
 	],
 	#category : #'Famix-TypeScript-Generator'
 }
@@ -93,7 +95,10 @@ FamixTypeScriptGenerator >> defineClasses [
 	
 	"This definition concerns stage 2 decorators: https://www.typescriptlang.org/docs/handbook/decorators.html"
 	decorator:= builder newClassNamed: #Decorator comment: 'I represent a TypeScript Decorator'.
-	
+
+	enum := builder newClassNamed: #Enum comment: 'Typescript enumerated type'.
+	enumValue := builder newClassNamed: #EnumValue comment: 'One value (constant) in a Typescript enumerated type'.
+
 	field := builder newClassNamed: #Field comment: 'I represent a TypeScript class field.'.
 	file := builder newClassNamed: #File.
 	folder := builder newClassNamed: #Folder.
@@ -128,36 +133,59 @@ FamixTypeScriptGenerator >> defineHierarchy [
 
 	access --|> #TAccess.
 
-	"Note: attribute in Java"
-	field --|> structuralEntity.
-	field --|> #TAttribute.
-	field --|> #TCanBeClassSide.
-	field --|> #THasVisibility.
-
 	"behaviouralEntity --|> scopingEntity."
 
 	class --|> type.
 	class --|> #TClass.
 	class --|> #TLCOMMetrics.
 	class --|> #TCanBeAbstract.
-	"class --|> #TCanBeFinal." "not possible in TypeScript?"
 	"class --|> #THasVisibility." "classes in modules/namespaces can't be declared private/public"
 	class --|> #TClassMetrics.
 	class --|> tTypeScriptClassMetrics.
-	"class --|> #TCanBeClassSide."
 	class --|> #TCanImplement.
-	class --|> #TWithImports.
 	class --|> #TImportable.
-
-	decorator --|>namedEntity.
-	
-	
 	"The following come from #TClass"
 	"class --|> #TWithMethods.
 	class --|> #TWithInheritances.
 	class --|> #TWithAttributes.
 	class --|> #TInvocationsReceiver.
 	class --|> #TWithComments."
+
+	"this level of hierarchy to follow Java's metamodel, to accommodate Interfac properly TODO"
+	containerEntity --|> namedEntity.
+	containerEntity --|> #TWithClasses.
+	containerEntity --|> tWithInterfaces.
+	containerEntity --|> #TWithFunctions.
+	containerEntity --|> #TWithAnnotationTypes.
+	containerEntity --|> #TWithLocalVariables.
+	"containerEntity --|> #TWithModules?"
+
+	decorator --|>namedEntity.
+	
+	enum --|> type.
+	enum --|> #TEnum.
+	enum --|> #TWithComments.
+	enum --|> #TImportable.
+
+	enumValue --|> namedEntity.
+	enumValue --|> #TWithComments.
+	enumValue --|> #TEnumValue.
+
+	field --|> structuralEntity.
+	field --|> #TAttribute.
+	field --|> #TCanBeClassSide.
+	field --|> #THasVisibility.
+
+	file --|> namedEntity.
+	file --|> #TFile.
+
+	folder --|> namedEntity.
+	folder --|> #TFolder.
+
+	function --|> containerEntity.
+	function --|> #TFunction.
+	function --|> #TDefinedInModule.
+	function --|> #TInvocable.
 
 	interface --|> type.
 	"interface --|> #TPackageable."
@@ -172,21 +200,6 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	interface --|> #TWithImports.
 	interface --|> #TImportable.
 
-	"this level of hierarchy to follow Java's metamodel, to accommodate Interfac properly TODO"
-	containerEntity --|> namedEntity.
-
-	file --|> namedEntity.
-	file --|> #TFile.
-
-	folder --|> namedEntity.
-	folder --|> #TFolder.
-
-	function --|> containerEntity.
-	function --|> #TFunction.
-	function --|> #TDefinedInModule.
-	function --|> #TInvocable.
-	function --|> #TWithLocalVariables.
-
 	indexedFileAnchor --|> sourceAnchor.
 	indexedFileAnchor --|> #TIndexedFileNavigation.
 
@@ -199,15 +212,12 @@ FamixTypeScriptGenerator >> defineHierarchy [
 
 	implementation --|> #TImplementation.
 
-	variable --|> structuralEntity.
-	variable --|> #TLocalVariable.
-
 	method --|> containerEntity.
 	method --|> #TMethod.
 	method --|> #TCanBeAbstract.
 	method --|> #THasKind.
 	method --|> #THasVisibility.
-	method --|> #TWithLocalVariables.
+	method --|> #TWithComments.
 
 	"Module"
 	module --|> #TWithLocalVariables. "var can have module scope"
@@ -215,13 +225,12 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	namespace --|> containerEntity.
 	namespace --|> #TNamespace. "no use (empty trait)"
 	namespace --|> #TDefinedInModule.
-	namespace --|> #TWithLocalVariables. "var can have namespace scope"
 
 	namedEntity --|> #TInvocationsReceiver.
+	namedEntity --|> sourcedEntity.
 
 	parameter --|> namedEntity.
 	parameter --|> #TParameter.
-	parameter --|> #TCanBeFinal.
 	parameter --|> structuralEntity.
 
 	parameterizableClass --|> class.
@@ -238,24 +247,19 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	primitiveType --|> type.
 	primitiveType --|> #TPrimitiveType.
 
-	containerEntity --|> namedEntity.
-	containerEntity --|> #TWithClasses.
-	containerEntity --|> tWithInterfaces.
-	containerEntity --|> #TWithFunctions.
-	containerEntity --|> #TWithAnnotationTypes.
-	"containerEntity --|> #TWithModules?" "TypeScript has modules?"
+	structuralEntity --|> #TStructuralEntity.
+	structuralEntity --|> sourcedEntity.
 
 	tWithInterfaces --|> #TWithTypes.
-
-	"Not in FamixJava"
-	"structuralEntity --|> #TStructuralEntity.
-	structuralEntity --|> #TWithDereferencedInvocations."
 
 	type --|> containerEntity.
 	type --|> #TType.
 	type --|> #TParameterizedTypeUser.
 	type --|> #TWithMethods.
 	
+	variable --|> structuralEntity.
+	variable --|> #TLocalVariable.
+
 ]
 
 { #category : #definition }

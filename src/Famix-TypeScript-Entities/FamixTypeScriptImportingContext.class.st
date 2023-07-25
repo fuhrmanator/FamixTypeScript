@@ -51,6 +51,20 @@ FamixTypeScriptImportingContext >> importDecorator [
 ]
 
 { #category : #importing }
+FamixTypeScriptImportingContext >> importEnum [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #Enum)
+]
+
+{ #category : #importing }
+FamixTypeScriptImportingContext >> importEnumValue [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #EnumValue)
+]
+
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importField [
 
 	<generated>
@@ -244,6 +258,20 @@ FamixTypeScriptImportingContext >> shouldImportDecorator [
 
 	<generated>
 	^ self shouldImport: #Decorator
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportEnum [
+
+	<generated>
+	^ self shouldImport: #Enum
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportEnumValue [
+
+	<generated>
+	^ self shouldImport: #EnumValue
 ]
 
 { #category : #testing }

@@ -64,6 +64,13 @@ FamixTypeScriptEntity >> isClass [
 ]
 
 { #category : #testing }
+FamixTypeScriptEntity >> isEnumValue [
+
+	<generated>
+	^ false
+]
+
+{ #category : #testing }
 FamixTypeScriptEntity >> isFunction [
 
 	<generated>
