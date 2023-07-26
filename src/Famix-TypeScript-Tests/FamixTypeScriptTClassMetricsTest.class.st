@@ -45,7 +45,6 @@ FamixTypeScriptTClassMetricsTest >> testNumberOfPrivateMethods [
 	c1 := FamixTypeScriptClass named: 'Class1' model: model.
 	m1 := FamixTypeScriptMethod named: 'method1' model: model.
 	m1 parentType: c1.
-
 	m1 isPrivate: true.
 	self assert: c1 numberOfPrivateMethods equals: 1.
 	c1 numberOfPrivateMethods: 100.

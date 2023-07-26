@@ -280,8 +280,8 @@ FamixTypeScriptGenerator >> defineProperties [
 { #category : #definition }
 FamixTypeScriptGenerator >> defineRelations [
     super defineRelations.
-    (decorator property: #function) *- (function property:#decorator).
-	(decorator property: #namedEntity) *- (namedEntity  property:#decorator).
+    (decorator property: #function) *- (function property:#decoratorCallingThisFunction).
+	(decorator property: #namedEntity) *- (namedEntity  property:#DecoratorForThisEntity).
 
 	
 	

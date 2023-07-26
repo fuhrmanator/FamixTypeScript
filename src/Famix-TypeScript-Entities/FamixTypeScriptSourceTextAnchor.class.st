@@ -14,3 +14,8 @@ FamixTypeScriptSourceTextAnchor class >> annotation [
 	<generated>
 	^ self
 ]
+
+{ #category : #testing }
+FamixTypeScriptSourceTextAnchor >> isTypescript [
+	^true
+]

@@ -22,16 +22,6 @@ FamixTypeScriptMethodTest >> testDefaultIsStub [
 ]
 
 { #category : #test }
-FamixTypeScriptMethodTest >> testIsClassSide [ 
-	| clazz |
-	clazz := FamixTypeScriptClass new. 
-	self deny: clazz isClassSide.
-	clazz isClassSide: true.
-	self assert: clazz isClassSide
-
-]
-
-{ #category : #test }
 FamixTypeScriptMethodTest >> testIsConstructor [
 
 	self deny: method isConstructor.

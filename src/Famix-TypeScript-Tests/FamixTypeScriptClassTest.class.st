@@ -4,19 +4,6 @@ Class {
 	#category : #'Famix-TypeScript-Tests-Entities'
 }
 
-{ #category : #tests }
-FamixTypeScriptClassTest >> testInheritanceAnnotationType [
-	| testAnnotation testAnnotationSub inheritance |
-	testAnnotation := FamixTypeScriptAnnotationType new name: 'Test'.
-	testAnnotationSub := FamixTypeScriptAnnotationType new name: 'SubTest'.
-	inheritance := FamixTypeScriptInheritance new subclass: testAnnotationSub; superclass: testAnnotation.
-	self assertCollection: testAnnotation subInheritances hasSameElements: { inheritance } .
-	self assertCollection: testAnnotation superInheritances hasSameElements: {  } .
-	self assertCollection: testAnnotationSub subInheritances hasSameElements: {  } .
-	self assertCollection: testAnnotationSub superInheritances hasSameElements: { inheritance } .
-	self assert: testAnnotationSub superclass equals: testAnnotation.
-]
-
 { #category : #testing }
 FamixTypeScriptClassTest >> testIsAbstract [
 
@@ -26,14 +13,6 @@ FamixTypeScriptClassTest >> testIsAbstract [
 	"self deny: c1 isAbstract."
 	c1 isAbstract: true.
 	self assert: c1 isAbstract
-]
-
-{ #category : #tests }
-FamixTypeScriptClassTest >> testIsClassSide [
-	| famixClass |
-	famixClass := FamixTypeScriptClass new. 
-	famixClass isClassSide: true.
-	self assert: famixClass isClassSide
 ]
 
 { #category : #tests }

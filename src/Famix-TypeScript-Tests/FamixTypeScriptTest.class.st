@@ -16,9 +16,7 @@ FamixTypeScriptTest >> testImportNamespace [
 		(FamixTypeScript.Class (id: 3) (name ''AClass'') (typeContainer (ref: 1)))
 		(FamixTypeScript.Class (id: 5) (name ''AnotherClass'')  (typeContainer (ref: 1)))
 		(FamixTypeScript.Method (id: 2) (name ''aMethod'') (parentType (ref: 3)))
-	)' readStream.
-
-	
+	)' readStream.	
 	self assert: model allNamespaces size equals: 2.
 	self assert: model allNamespaces first name equals: 'ANamespace'.
 	self assert: model allNamespaces second name equals: 'AnotherNamespace'.
