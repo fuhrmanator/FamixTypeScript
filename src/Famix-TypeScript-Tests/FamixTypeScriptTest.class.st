@@ -6,21 +6,25 @@ Class {
 
 { #category : #tests }
 FamixTypeScriptTest >> testImportNamespace [
+
 	| model |
 	model := FamixTypeScriptModel new.
-	model
-		importFromMSEStream:
-			'(		
+	model importFromMSEStream: '(		
 		(FamixTypeScript.Namespace (id: 1) (name ''ANamespace''))
 		(FamixTypeScript.Namespace (id: 10) (name ''AnotherNamespace''))
 		(FamixTypeScript.Class (id: 3) (name ''AClass'') (typeContainer (ref: 1)))
 		(FamixTypeScript.Class (id: 5) (name ''AnotherClass'')  (typeContainer (ref: 1)))
 		(FamixTypeScript.Method (id: 2) (name ''aMethod'') (parentType (ref: 3)))
-	)' readStream.	
+	)' readStream.
 	self assert: model allNamespaces size equals: 2.
-	self assert: model allNamespaces first name equals: 'ANamespace'.
-	self assert: model allNamespaces second name equals: 'AnotherNamespace'.
-	self assert: model allNamespaces first classes size equals: 2
+	self assert: (model allNamespaces anySatisfy: [ :namespace | 
+			 namespace name = 'ANamespace' ]).
+	self assert: (model allNamespaces anySatisfy: [ :namespace | 
+			 namespace name = 'AnotherNamespace' ]).
+	self
+		assert: (model allNamespaces detect: [ :namespace | 
+				 namespace name = 'ANamespace' ]) classes size
+		equals: 2
 ]
 
 { #category : #tests }

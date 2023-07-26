@@ -1,66 +1,49 @@
 Class {
-	#name : #FamixTypeScriptQueryTest,
+	#name : #FamixTypeScriptDecoratorTest,
 	#superclass : #TestCase,
 	#instVars : [
-		'model',
-		'p1',
-		'p2',
-		'c1',
-		'c2',
-		'c3',
-		'm1',
-		'm2',
-		'm3',
-		'm4',
-		'v1',
-		'pr1',
-		'pr2',
-		'at1',
-		'at2',
-		'annotationType1',
-		'annotationInstance1',
-		'annotationInstanceAttribute1'
+		'model'
 	],
 	#category : #'Famix-TypeScript-Tests'
 }
 
 { #category : #tests }
-FamixTypeScriptQueryTest >> model [
+FamixTypeScriptDecoratorTest >> model [
 	^ model
 ]
 
 { #category : #tests }
-FamixTypeScriptQueryTest >> model: anObject [
+FamixTypeScriptDecoratorTest >> model: anObject [
 	model := anObject
 ]
 
 { #category : #tests }
-FamixTypeScriptQueryTest >> setUp [
+FamixTypeScriptDecoratorTest >> setUp [
+	| ns1 ns2 c1 c2 c3 m1 m2 m3 m4 v1 pr1 pr2 at1 at2 decorator1 f1 decorator2 |
 	super setUp.
 
-	p1 := FamixTypeScriptPackage new
+	ns1 := FamixTypeScriptNamespace  new
 		name: 'p1';
 		stub: true;
 		yourself.
-	p2 := FamixTypeScriptPackage new
+	ns2 := FamixTypeScriptNamespace new
 		name: 'p2';
 		stub: true;
 		yourself.
+		
+	f1 := FamixTypeScriptFunction new stub: true; name: 'F1'; yourself.
 
 	c1 := FamixTypeScriptClass new
 		stub: true;
 		name: 'C1';
-		parentPackage: p1;
 		yourself.
 	c2 := FamixTypeScriptClass new
 		stub: true;
 		name: 'C2';
-		parentPackage: p1;
 		yourself.
 	c3 := FamixTypeScriptClass new
 		stub: true;
 		name: 'C3';
-		parentPackage: p2;
 		yourself.
 
 	m1 := FamixTypeScriptMethod new
@@ -92,7 +75,7 @@ FamixTypeScriptQueryTest >> setUp [
 		declaredType: c3;
 		yourself.
 
-	v1 := FamixTypeScriptLocalVariable new
+	v1 := FamixTypeScriptVariable new
 		stub: true;
 		name: 'v1';
 		parentBehaviouralEntity: m2;
@@ -112,46 +95,43 @@ FamixTypeScriptQueryTest >> setUp [
 		declaredType: c3;
 		yourself.
 
-	at1 := FamixTypeScriptAttribute new
+	at1 := FamixTypeScriptField new
 		stub: true;
 		name: 'at1';
 		parentType: c1;
 		declaredType: c3;
 		yourself.
-	at2 := FamixTypeScriptAttribute new
+	at2 := FamixTypeScriptField new
 		stub: true;
 		name: 'at2';
 		parentType: c3;
 		declaredType: c2;
 		yourself.
 
-
-	annotationType1 := FamixTypeScriptAnnotationType new
+	"class decorator"
+	decorator1 := FamixTypeScriptDecorator  new
 		stub: true;
-		name: 'annotationType1';
+		name: 'decorator1';
+		namedEntity: c1;
+		expression: 'F1';
 		yourself.
 
-	annotationInstance1 := FamixTypeScriptAnnotationInstance new
+	"method decorator"
+	decorator2 := FamixTypeScriptDecorator  new
 		stub: true;
-		annotationType: annotationType1;
-		annotatedEntity: at1;
+		name: 'decorator2';
+		namedEntity: m1;
+		expression: 'F1';
 		yourself.
 
-	annotationInstanceAttribute1 := FamixTypeScriptAnnotationInstanceAttribute new
-		stub: true;
-		parentAnnotationInstance: annotationInstance1;
-		value: 'instanceAttribute1Value';
-		yourself.
-
-	self model: (FamixJavaModel withAll: {p1 . p2 . c1 . c2 . c3 . m1 . m2 . m3 . m4 . v1 . at1 . at2 . pr1 . pr2 . annotationType1 . annotationInstance1 . annotationInstanceAttribute1})
+	self model: (FamixTypeScriptModel withAll: {ns1 . ns2 . f1. c1 . c2 . c3 . m1 . m2 . m3 . m4 . v1 . at1 . at2 . pr1 . pr2 . decorator1 . decorator2})
 ]
 
 { #category : #tests }
-FamixTypeScriptQueryTest >> testFamixJavaAnnotationInstanceAttributeCanHaveIncoming [
-	self assert: annotationInstanceAttribute1 incomingMSEProperties isCollection 
-]
-
-{ #category : #tests }
-FamixTypeScriptQueryTest >> testFamixJavaAnnotationInstanceAttributeCanHaveOutgoing [
-	self assert: annotationInstanceAttribute1 outgoingMSEProperties isCollection 
+FamixTypeScriptDecoratorTest >> testDecoratorForMethod [
+	| m1 |
+	m1 := model allMethods detect: [:m | m name = 'm1'].
+	self deny: m1 isNil.
+	self assert: m1 decorators size equals: 1.
+	self assert: m1 decorators anyOne expression equals: 'F1'
 ]

@@ -17,8 +17,3 @@ FamixTypeScriptMethod class >> annotation [
 	<generated>
 	^ self
 ]
-
-{ #category : #testing }
-FamixTypeScriptMethod >> isStub [
-	^ super isStub or: [ self parentType isNotNil and: [ self parentType isStub ] ]
-]

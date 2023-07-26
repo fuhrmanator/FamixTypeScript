@@ -14,18 +14,3 @@ FamixTypeScriptSourceLanguage class >> annotation [
 	<generated>
 	^ self
 ]
-
-{ #category : #testing }
-FamixTypeScriptSourceLanguage >> isTypeScript [
-	^true 
-]
-
-{ #category : #accessing }
-FamixTypeScriptSourceLanguage >> name [
-	
-	<FMProperty: #name type: #String> 
-	<derived>
-	<FMComment: 'The name of the language'>
-	
-	^ 'TypeScript'
-]

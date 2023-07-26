@@ -14,8 +14,3 @@ FamixTypeScriptParameterType class >> annotation [
 	<generated>
 	^ self
 ]
-
-{ #category : #testing }
-FamixTypeScriptParameterType >> isParameterType [
-	^ true
-]
