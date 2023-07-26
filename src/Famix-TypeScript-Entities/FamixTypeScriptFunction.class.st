@@ -17,25 +17,3 @@ FamixTypeScriptFunction class >> annotation [
 	<generated>
 	^ self
 ]
-
-{ #category : #adding }
-FamixTypeScriptFunction >> addDecorator: anObject [
-	<generated>
-	^ self decorator add: anObject
-]
-
-{ #category : #accessing }
-FamixTypeScriptFunction >> decorator [
-	"Relation named: #decorator type: #FamixTypeScriptDecorator opposite: #function"
-
-	<generated>
-	<derived>
-	^ decorator
-]
-
-{ #category : #accessing }
-FamixTypeScriptFunction >> decorator: anObject [
-
-	<generated>
-	decorator value: anObject
-]

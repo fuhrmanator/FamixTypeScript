@@ -267,6 +267,8 @@ FamixTypeScriptGenerator >> defineProperties [
 
 	super defineProperties.
 
+	(decorator property: #expression type: #String)
+		comment: 'Decorators use the form @expression, where expression must evaluate to a function that will be called at runtime with information about the decorated declaration'.
 	"The following are not need because of THasKind (?)"
 
 	"(method property: #isConstructor type: #Boolean defaultValue: false) 
@@ -280,8 +282,7 @@ FamixTypeScriptGenerator >> defineProperties [
 { #category : #definition }
 FamixTypeScriptGenerator >> defineRelations [
     super defineRelations.
-    (decorator property: #function) *- (function property:#decoratorCallingThisFunction).
-	(decorator property: #namedEntity) *- (namedEntity  property:#DecoratorForThisEntity).
+	(decorator property: #namedEntity) *- (namedEntity  property:#decorators).
 
 	
 	
