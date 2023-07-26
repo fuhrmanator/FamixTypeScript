@@ -8,3 +8,8 @@ FamixTypeScriptMethod >> accessedAttributes [
 	
 	^ (self queryOutgoingAccesses opposites withinParentUsing: FamixTClass) asSet select: #isAttribute
 ]
+
+{ #category : #'*Famix-TypeScript-Extensions' }
+FamixTypeScriptMethod >> isStub [
+	^ super isStub or: [ self parentType isNotNil and: [ self parentType isStub ] ]
+]

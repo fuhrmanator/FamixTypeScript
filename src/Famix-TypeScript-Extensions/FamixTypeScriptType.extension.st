@@ -4,3 +4,8 @@ Extension { #name : #FamixTypeScriptType }
 FamixTypeScriptType >> isInterface [
 	^ false
 ]
+
+{ #category : #'*Famix-TypeScript-Extensions' }
+FamixTypeScriptType >> isParameterType [
+	^ false
+]
