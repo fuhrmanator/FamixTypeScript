@@ -14,17 +14,3 @@ FamixTypeScriptParameterizableClass class >> annotation [
 	<generated>
 	^ self
 ]
-
-{ #category : #accessing }
-FamixTypeScriptParameterizableClass >> parameters [
-	<FMProperty: #parameters type: #FamixTypeScriptParameterType> <multivalued> <derived>
-	<FMComment: 'Parameter types of this class.'>
-	
-	^self types select: [:each | each isParameterType]
-]
-
-{ #category : #accessing }
-FamixTypeScriptParameterizableClass >> parameters: aCollection [
-
-	self attributeAt: #parameters put: aCollection
-]
