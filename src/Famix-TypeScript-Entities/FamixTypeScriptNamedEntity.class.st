@@ -4,7 +4,7 @@ Class {
 	#traits : 'FamixTInvocationsReceiver + FamixTNamedEntity',
 	#classTraits : 'FamixTInvocationsReceiver classTrait + FamixTNamedEntity classTrait',
 	#instVars : [
-		'#decorators => FMMany type: #FamixTypeScriptDecorator opposite: #namedEntity'
+		'#decorators => FMMany type: #FamixTypeScriptDecorator opposite: #decoratedEntity'
 	],
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
@@ -34,7 +34,7 @@ FamixTypeScriptNamedEntity >> addDecorator: anObject [
 
 { #category : #accessing }
 FamixTypeScriptNamedEntity >> decorators [
-	"Relation named: #decorators type: #FamixTypeScriptDecorator opposite: #namedEntity"
+	"Relation named: #decorators type: #FamixTypeScriptDecorator opposite: #decoratedEntity"
 
 	<generated>
 	<derived>

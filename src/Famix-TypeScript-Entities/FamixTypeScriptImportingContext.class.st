@@ -225,6 +225,13 @@ FamixTypeScriptImportingContext >> importVariable [
 	^ self importConcreteEntity: (self class fm3ClassNamed: #Variable)
 ]
 
+{ #category : #importing }
+FamixTypeScriptImportingContext >> importimplicitVariable [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #implicitVariable)
+]
+
 { #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportAccess [
 
@@ -433,4 +440,11 @@ FamixTypeScriptImportingContext >> shouldImportVariable [
 
 	<generated>
 	^ self shouldImport: #Variable
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportimplicitVariable [
+
+	<generated>
+	^ self shouldImport: #implicitVariable
 ]

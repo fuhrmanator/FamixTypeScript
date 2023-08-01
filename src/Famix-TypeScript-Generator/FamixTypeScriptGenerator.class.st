@@ -29,7 +29,8 @@ Class {
 		'implementation',
 		'decorator',
 		'enum',
-		'enumValue'
+		'enumValue',
+		'implicitVariable'
 	],
 	#category : #'Famix-TypeScript-Generator'
 }
@@ -103,6 +104,7 @@ FamixTypeScriptGenerator >> defineClasses [
 	file := builder newClassNamed: #File.
 	folder := builder newClassNamed: #Folder.
 	function := builder newClassNamed: #Function comment: 'I represent a TypeScript function.'.
+	implicitVariable:= builder newClassNamed: #implicitVariable comment: 'I represent a TypeScript implicit variable.'.
 	implementation := builder newClassNamed: #Implementation comment: 'I represent a TypeScript element that is an implementation of an interface.'.
 	indexedFileAnchor := builder newClassNamed: #IndexedFileAnchor.
 	inheritance := builder newClassNamed: #Inheritance.
@@ -187,6 +189,8 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	function --|> #TDefinedInModule.
 	function --|> #TInvocable.
 
+	implicitVariable --|>variable.
+	
 	interface --|> type.
 	"interface --|> #TPackageable."
 	interface --|> #TWithMethods.
@@ -282,7 +286,7 @@ FamixTypeScriptGenerator >> defineProperties [
 { #category : #definition }
 FamixTypeScriptGenerator >> defineRelations [
     super defineRelations.
-	(decorator property: #namedEntity) *- (namedEntity  property:#decorators).
+	(decorator property: #decoratedEntity) *- (namedEntity  property:#decorators).
 
 	
 	
