@@ -29,7 +29,15 @@ Class {
 		'implementation',
 		'decorator',
 		'enum',
-		'enumValue'
+		'enumValue',
+		'implicitVariable',
+		'association',
+		'behaviouralEntity',
+		'alias',
+		'scopingEntity',
+		'scriptEntity',
+		'importClause',
+		'reference'
 	],
 	#category : #'Famix-TypeScript-Generator'
 }
@@ -88,7 +96,9 @@ FamixTypeScriptGenerator >> defineClasses [
 	super defineClasses.
 	
 	access := builder newClassNamed: #Access.
-	"behaviouralEntity := builder newClassNamed: #BehaviouralEntity."
+	alias := builder newClassNamed: #Alias.
+	association:= builder newClassNamed: #Association.
+	behaviouralEntity := builder newClassNamed: #BehaviouralEntity.
 	class := builder newClassNamed: #Class comment: 'I represent a TypeScript class.'.
 	class withTesting.
 	containerEntity := builder newClassNamed: #ContainerEntity.
@@ -103,7 +113,9 @@ FamixTypeScriptGenerator >> defineClasses [
 	file := builder newClassNamed: #File.
 	folder := builder newClassNamed: #Folder.
 	function := builder newClassNamed: #Function comment: 'I represent a TypeScript function.'.
+	implicitVariable:= builder newClassNamed: #implicitVariable comment: 'I represent a TypeScript implicit variable.'.
 	implementation := builder newClassNamed: #Implementation comment: 'I represent a TypeScript element that is an implementation of an interface.'.
+	importClause:= builder newClassNamed: #ImportClause.
 	indexedFileAnchor := builder newClassNamed: #IndexedFileAnchor.
 	inheritance := builder newClassNamed: #Inheritance.
 	interface := builder newClassNamed: #Interface comment: 'I represent a TypeScript interface.'.
@@ -117,6 +129,9 @@ FamixTypeScriptGenerator >> defineClasses [
 	parameterizedType := builder newClassNamed: #ParameterizedType.
 	parameterType := builder newClassNamed: #ParameterType.
 	primitiveType := builder newClassNamed: #PrimitiveType comment: 'I represent a TypeScript primitive type (string, number, boolean).'.
+	reference:= builder newClassNamed: #Reference.
+	scriptEntity :=builder newClassNamed: #ScriptEntity.
+	scopingEntity:= builder newClassNamed: #ScopingEntity.
 	structuralEntity := builder newClassNamed: #StructuralEntity.
 	type := builder newClassNamed: #Type comment: 'I represent a TypeScript type.'.
 	variable := builder newClassNamed: #Variable comment: 'I represent a TypeScript variable.'.
@@ -131,9 +146,14 @@ FamixTypeScriptGenerator >> defineHierarchy [
 
 	super defineHierarchy.
 
+	access--|>association.
 	access --|> #TAccess.
-
-	"behaviouralEntity --|> scopingEntity."
+	
+	alias--|> namedEntity.
+	
+	association --|>sourcedEntity.
+	
+	behaviouralEntity --|> containerEntity.
 
 	class --|> type.
 	class --|> #TClass.
@@ -167,7 +187,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	enum --|> #TWithComments.
 	enum --|> #TImportable.
 
-	enumValue --|> namedEntity.
+	enumValue --|> structuralEntity.
 	enumValue --|> #TWithComments.
 	enumValue --|> #TEnumValue.
 
@@ -182,11 +202,18 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	folder --|> namedEntity.
 	folder --|> #TFolder.
 
-	function --|> containerEntity.
+	function --|> behaviouralEntity.
 	function --|> #TFunction.
 	function --|> #TDefinedInModule.
 	function --|> #TInvocable.
 
+	implicitVariable --|>variable.
+	
+	importClause --|>association.
+	
+	indexedFileAnchor --|> sourceAnchor.
+	indexedFileAnchor --|> #TIndexedFileNavigation.
+	
 	interface --|> type.
 	"interface --|> #TPackageable."
 	interface --|> #TWithMethods.
@@ -199,20 +226,22 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	interface --|> #TImplementable.
 	interface --|> #TWithImports.
 	interface --|> #TImportable.
+	interface --|> type.
+	
+	
 
-	indexedFileAnchor --|> sourceAnchor.
-	indexedFileAnchor --|> #TIndexedFileNavigation.
-
+	inheritance --|>association.
 	inheritance --|> #TInheritance.
 
+	invocation --|>association.
 	invocation --|> #TInvocation.
 	invocation --|> #THasSignature.
 
-	interface --|> type.
+	
 
 	implementation --|> #TImplementation.
 
-	method --|> containerEntity.
+	method --|> behaviouralEntity.
 	method --|> #TMethod.
 	method --|> #TCanBeAbstract.
 	method --|> #THasKind.
@@ -220,23 +249,24 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	method --|> #TWithComments.
 
 	"Module"
+	module --|>scriptEntity.
 	module --|> #TWithLocalVariables. "var can have module scope"
 
-	namespace --|> containerEntity.
+	namespace --|> scopingEntity.
 	namespace --|> #TNamespace. "no use (empty trait)"
 	namespace --|> #TDefinedInModule.
 
 	namedEntity --|> #TInvocationsReceiver.
 	namedEntity --|> sourcedEntity.
 
-	parameter --|> namedEntity.
-	parameter --|> #TParameter.
 	parameter --|> structuralEntity.
+	parameter --|> #TParameter.
+	
 
 	parameterizableClass --|> class.
 	parameterizableClass --|> #TWithParameterizedTypes.
 
-	parameterizedType --|> type.
+	parameterizedType --|> class.
 	parameterizedType --|> #TParameterizedType.
 	parameterizedType --|> #TWithParameterizedTypeUsers.
 	parameterizedType --|> #TWithInheritances.
@@ -247,8 +277,13 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	primitiveType --|> type.
 	primitiveType --|> #TPrimitiveType.
 
+	reference --|>association.
+	
+	scopingEntity --|>containerEntity.
+	
+	scriptEntity --|>scopingEntity.
 	structuralEntity --|> #TStructuralEntity.
-	structuralEntity --|> sourcedEntity.
+	structuralEntity --|> namedEntity.
 
 	tWithInterfaces --|> #TWithTypes.
 
@@ -282,7 +317,7 @@ FamixTypeScriptGenerator >> defineProperties [
 { #category : #definition }
 FamixTypeScriptGenerator >> defineRelations [
     super defineRelations.
-	(decorator property: #namedEntity) *- (namedEntity  property:#decorators).
+	(decorator property: #decoratedEntity) *- (namedEntity  property:#decorators).
 
 	
 	

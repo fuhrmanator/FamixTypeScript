@@ -1,6 +1,6 @@
 Class {
 	#name : #FamixTypeScriptNamespace,
-	#superclass : #FamixTypeScriptContainerEntity,
+	#superclass : #FamixTypeScriptScopingEntity,
 	#traits : 'FamixTDefinedInModule + FamixTNamespace',
 	#classTraits : 'FamixTDefinedInModule classTrait + FamixTNamespace classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
@@ -9,7 +9,7 @@ Class {
 { #category : #meta }
 FamixTypeScriptNamespace class >> annotation [
 
-	<FMClass: #Namespace super: #FamixTypeScriptContainerEntity>
+	<FMClass: #Namespace super: #FamixTypeScriptScopingEntity>
 	<package: #FamixTypeScript>
 	<generated>
 	^ self

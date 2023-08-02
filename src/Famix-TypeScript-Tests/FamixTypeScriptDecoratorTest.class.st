@@ -112,7 +112,7 @@ FamixTypeScriptDecoratorTest >> setUp [
 	decorator1 := FamixTypeScriptDecorator  new
 		stub: true;
 		name: 'decorator1';
-		namedEntity: c1;
+		decoratedEntity: c1;
 		expression: 'F1';
 		yourself.
 
@@ -120,7 +120,7 @@ FamixTypeScriptDecoratorTest >> setUp [
 	decorator2 := FamixTypeScriptDecorator  new
 		stub: true;
 		name: 'decorator2';
-		namedEntity: m1;
+		decoratedEntity: m1;
 		expression: 'F1';
 		yourself.
 

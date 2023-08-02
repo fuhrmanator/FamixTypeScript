@@ -23,6 +23,27 @@ FamixTypeScriptImportingContext >> importAccess [
 ]
 
 { #category : #importing }
+FamixTypeScriptImportingContext >> importAlias [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #Alias)
+]
+
+{ #category : #importing }
+FamixTypeScriptImportingContext >> importAssociation [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #Association)
+]
+
+{ #category : #importing }
+FamixTypeScriptImportingContext >> importBehaviouralEntity [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #BehaviouralEntity)
+]
+
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importClass [
 
 	<generated>
@@ -97,6 +118,13 @@ FamixTypeScriptImportingContext >> importImplementation [
 
 	<generated>
 	^ self importAssociation: (self class fm3ClassNamed: #Implementation)
+]
+
+{ #category : #importing }
+FamixTypeScriptImportingContext >> importImportClause [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #ImportClause)
 ]
 
 { #category : #importing }
@@ -184,6 +212,27 @@ FamixTypeScriptImportingContext >> importPrimitiveType [
 ]
 
 { #category : #importing }
+FamixTypeScriptImportingContext >> importReference [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #Reference)
+]
+
+{ #category : #importing }
+FamixTypeScriptImportingContext >> importScopingEntity [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #ScopingEntity)
+]
+
+{ #category : #importing }
+FamixTypeScriptImportingContext >> importScriptEntity [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #ScriptEntity)
+]
+
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importSourceLanguage [
 
 	<generated>
@@ -225,11 +274,39 @@ FamixTypeScriptImportingContext >> importVariable [
 	^ self importConcreteEntity: (self class fm3ClassNamed: #Variable)
 ]
 
+{ #category : #importing }
+FamixTypeScriptImportingContext >> importimplicitVariable [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #implicitVariable)
+]
+
 { #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportAccess [
 
 	<generated>
 	^ self shouldImport: #Access
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportAlias [
+
+	<generated>
+	^ self shouldImport: #Alias
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportAssociation [
+
+	<generated>
+	^ self shouldImport: #Association
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportBehaviouralEntity [
+
+	<generated>
+	^ self shouldImport: #BehaviouralEntity
 ]
 
 { #category : #testing }
@@ -307,6 +384,13 @@ FamixTypeScriptImportingContext >> shouldImportImplementation [
 
 	<generated>
 	^ self shouldImport: #Implementation
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportImportClause [
+
+	<generated>
+	^ self shouldImport: #ImportClause
 ]
 
 { #category : #testing }
@@ -394,6 +478,27 @@ FamixTypeScriptImportingContext >> shouldImportPrimitiveType [
 ]
 
 { #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportReference [
+
+	<generated>
+	^ self shouldImport: #Reference
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportScopingEntity [
+
+	<generated>
+	^ self shouldImport: #ScopingEntity
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportScriptEntity [
+
+	<generated>
+	^ self shouldImport: #ScriptEntity
+]
+
+{ #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportSourceLanguage [
 
 	<generated>
@@ -433,4 +538,11 @@ FamixTypeScriptImportingContext >> shouldImportVariable [
 
 	<generated>
 	^ self shouldImport: #Variable
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportimplicitVariable [
+
+	<generated>
+	^ self shouldImport: #implicitVariable
 ]

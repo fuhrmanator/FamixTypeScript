@@ -3,7 +3,7 @@ One value (constant) in a Typescript enumerated type
 "
 Class {
 	#name : #FamixTypeScriptEnumValue,
-	#superclass : #FamixTypeScriptNamedEntity,
+	#superclass : #FamixTypeScriptStructuralEntity,
 	#traits : 'FamixTEnumValue + FamixTWithComments',
 	#classTraits : 'FamixTEnumValue classTrait + FamixTWithComments classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
@@ -12,7 +12,7 @@ Class {
 { #category : #meta }
 FamixTypeScriptEnumValue class >> annotation [
 
-	<FMClass: #EnumValue super: #FamixTypeScriptNamedEntity>
+	<FMClass: #EnumValue super: #FamixTypeScriptStructuralEntity>
 	<package: #FamixTypeScript>
 	<generated>
 	^ self

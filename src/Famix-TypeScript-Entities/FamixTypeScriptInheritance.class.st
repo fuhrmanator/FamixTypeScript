@@ -1,6 +1,6 @@
 Class {
 	#name : #FamixTypeScriptInheritance,
-	#superclass : #FamixTypeScriptEntity,
+	#superclass : #FamixTypeScriptAssociation,
 	#traits : 'FamixTInheritance',
 	#classTraits : 'FamixTInheritance classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
@@ -9,7 +9,7 @@ Class {
 { #category : #meta }
 FamixTypeScriptInheritance class >> annotation [
 
-	<FMClass: #Inheritance super: #FamixTypeScriptEntity>
+	<FMClass: #Inheritance super: #FamixTypeScriptAssociation>
 	<package: #FamixTypeScript>
 	<generated>
 	^ self

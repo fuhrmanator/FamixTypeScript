@@ -5,8 +5,8 @@ Class {
 	#name : #FamixTypeScriptDecorator,
 	#superclass : #FamixTypeScriptNamedEntity,
 	#instVars : [
-		'#expression => FMProperty',
-		'#namedEntity => FMOne type: #FamixTypeScriptNamedEntity opposite: #decorators'
+		'#decoratedEntity => FMOne type: #FamixTypeScriptNamedEntity opposite: #decorators',
+		'#expression => FMProperty'
 	],
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
@@ -18,6 +18,21 @@ FamixTypeScriptDecorator class >> annotation [
 	<package: #FamixTypeScript>
 	<generated>
 	^ self
+]
+
+{ #category : #accessing }
+FamixTypeScriptDecorator >> decoratedEntity [
+	"Relation named: #decoratedEntity type: #FamixTypeScriptNamedEntity opposite: #decorators"
+
+	<generated>
+	^ decoratedEntity
+]
+
+{ #category : #accessing }
+FamixTypeScriptDecorator >> decoratedEntity: anObject [
+
+	<generated>
+	decoratedEntity := anObject
 ]
 
 { #category : #accessing }
@@ -33,19 +48,4 @@ FamixTypeScriptDecorator >> expression [
 FamixTypeScriptDecorator >> expression: anObject [
 	<generated>
 	expression := anObject
-]
-
-{ #category : #accessing }
-FamixTypeScriptDecorator >> namedEntity [
-	"Relation named: #namedEntity type: #FamixTypeScriptNamedEntity opposite: #decorators"
-
-	<generated>
-	^ namedEntity
-]
-
-{ #category : #accessing }
-FamixTypeScriptDecorator >> namedEntity: anObject [
-
-	<generated>
-	namedEntity := anObject
 ]
