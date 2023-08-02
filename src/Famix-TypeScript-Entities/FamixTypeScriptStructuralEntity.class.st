@@ -1,6 +1,6 @@
 Class {
 	#name : #FamixTypeScriptStructuralEntity,
-	#superclass : #FamixTypeScriptSourcedEntity,
+	#superclass : #FamixTypeScriptNamedEntity,
 	#traits : 'FamixTStructuralEntity',
 	#classTraits : 'FamixTStructuralEntity classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
@@ -9,7 +9,7 @@ Class {
 { #category : #meta }
 FamixTypeScriptStructuralEntity class >> annotation [
 
-	<FMClass: #StructuralEntity super: #FamixTypeScriptSourcedEntity>
+	<FMClass: #StructuralEntity super: #FamixTypeScriptNamedEntity>
 	<package: #FamixTypeScript>
 	<generated>
 	^ self

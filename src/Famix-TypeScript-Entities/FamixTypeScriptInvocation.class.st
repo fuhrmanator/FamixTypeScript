@@ -1,6 +1,6 @@
 Class {
 	#name : #FamixTypeScriptInvocation,
-	#superclass : #FamixTypeScriptEntity,
+	#superclass : #FamixTypeScriptAssociation,
 	#traits : 'FamixTHasSignature + FamixTInvocation',
 	#classTraits : 'FamixTHasSignature classTrait + FamixTInvocation classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
@@ -9,7 +9,7 @@ Class {
 { #category : #meta }
 FamixTypeScriptInvocation class >> annotation [
 
-	<FMClass: #Invocation super: #FamixTypeScriptEntity>
+	<FMClass: #Invocation super: #FamixTypeScriptAssociation>
 	<package: #FamixTypeScript>
 	<generated>
 	^ self

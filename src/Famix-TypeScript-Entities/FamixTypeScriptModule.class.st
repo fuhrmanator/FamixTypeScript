@@ -1,6 +1,6 @@
 Class {
 	#name : #FamixTypeScriptModule,
-	#superclass : #FamixTypeScriptEntity,
+	#superclass : #FamixTypeScriptScriptEntity,
 	#traits : 'FamixTWithLocalVariables',
 	#classTraits : 'FamixTWithLocalVariables classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
@@ -9,7 +9,7 @@ Class {
 { #category : #meta }
 FamixTypeScriptModule class >> annotation [
 
-	<FMClass: #Module super: #FamixTypeScriptEntity>
+	<FMClass: #Module super: #FamixTypeScriptScriptEntity>
 	<package: #FamixTypeScript>
 	<generated>
 	^ self

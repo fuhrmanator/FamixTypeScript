@@ -1,6 +1,6 @@
 Class {
 	#name : #FamixTypeScriptParameterizedType,
-	#superclass : #FamixTypeScriptType,
+	#superclass : #FamixTypeScriptClass,
 	#traits : 'FamixTParameterizedType + FamixTWithInheritances + FamixTWithParameterizedTypeUsers',
 	#classTraits : 'FamixTParameterizedType classTrait + FamixTWithInheritances classTrait + FamixTWithParameterizedTypeUsers classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
@@ -9,7 +9,7 @@ Class {
 { #category : #meta }
 FamixTypeScriptParameterizedType class >> annotation [
 
-	<FMClass: #ParameterizedType super: #FamixTypeScriptType>
+	<FMClass: #ParameterizedType super: #FamixTypeScriptClass>
 	<package: #FamixTypeScript>
 	<generated>
 	^ self

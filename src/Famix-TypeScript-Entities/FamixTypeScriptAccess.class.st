@@ -1,6 +1,6 @@
 Class {
 	#name : #FamixTypeScriptAccess,
-	#superclass : #FamixTypeScriptEntity,
+	#superclass : #FamixTypeScriptAssociation,
 	#traits : 'FamixTAccess',
 	#classTraits : 'FamixTAccess classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
@@ -9,7 +9,7 @@ Class {
 { #category : #meta }
 FamixTypeScriptAccess class >> annotation [
 
-	<FMClass: #Access super: #FamixTypeScriptEntity>
+	<FMClass: #Access super: #FamixTypeScriptAssociation>
 	<package: #FamixTypeScript>
 	<generated>
 	^ self
