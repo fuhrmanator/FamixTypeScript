@@ -29,5 +29,5 @@ FamixTypeScriptTest >> testImportNamespace [
 
 { #category : #tests }
 FamixTypeScriptTest >> testModelImportableFromFile [
-	self assert: FamixTypeScriptModel canBeImportedFromFile
+	self assert: FamixTypeScriptModel canBeImportedFromFile 
 ]

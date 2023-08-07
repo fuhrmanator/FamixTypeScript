@@ -37,7 +37,8 @@ Class {
 		'scopingEntity',
 		'scriptEntity',
 		'importClause',
-		'reference'
+		'reference',
+		'accessor'
 	],
 	#category : #'Famix-TypeScript-Generator'
 }
@@ -96,6 +97,7 @@ FamixTypeScriptGenerator >> defineClasses [
 	super defineClasses.
 	
 	access := builder newClassNamed: #Access.
+	accessor:= builder newClassNamed: #Accessor comment:'I represent a TypeScript Accessor (getter or setter)'.
 	alias := builder newClassNamed: #Alias.
 	association:= builder newClassNamed: #Association.
 	behaviouralEntity := builder newClassNamed: #BehaviouralEntity.
@@ -148,6 +150,8 @@ FamixTypeScriptGenerator >> defineHierarchy [
 
 	access--|>association.
 	access --|> #TAccess.
+	
+	accessor --|> method. 
 	
 	alias--|> namedEntity.
 	
