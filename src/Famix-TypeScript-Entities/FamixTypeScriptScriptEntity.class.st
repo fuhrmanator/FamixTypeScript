@@ -1,6 +1,8 @@
 Class {
 	#name : #FamixTypeScriptScriptEntity,
 	#superclass : #FamixTypeScriptScopingEntity,
+	#traits : 'FamixTWithStatements',
+	#classTraits : 'FamixTWithStatements classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 

@@ -260,8 +260,10 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	namespace --|> #TNamespace. "no use (empty trait)"
 	namespace --|> #TDefinedInModule.
 
-	namedEntity --|> #TInvocationsReceiver.
 	namedEntity --|> sourcedEntity.
+	namedEntity --|> #TInvocationsReceiver.
+	namedEntity --|> #TEntityMetaLevelDependency.
+	
 
 	parameter --|> structuralEntity.
 	parameter --|> #TParameter.
@@ -286,6 +288,8 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	scopingEntity --|>containerEntity.
 	
 	scriptEntity --|>scopingEntity.
+	scriptEntity --|>#TWithStatements.
+	
 	structuralEntity --|> #TStructuralEntity.
 	structuralEntity --|> namedEntity.
 
