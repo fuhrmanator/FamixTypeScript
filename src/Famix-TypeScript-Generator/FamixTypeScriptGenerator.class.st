@@ -286,6 +286,8 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	reference --|>association.
 	
 	scopingEntity --|>containerEntity.
+	scopingEntity --|> #TWithAccesses.
+	scopingEntity --|> #TWithInvocations.
 	
 	scriptEntity --|>scopingEntity.
 	scriptEntity --|>#TWithStatements.
