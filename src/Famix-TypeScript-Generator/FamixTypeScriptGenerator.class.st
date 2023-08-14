@@ -37,7 +37,8 @@ Class {
 		'scopingEntity',
 		'scriptEntity',
 		'importClause',
-		'reference'
+		'reference',
+		'accessor'
 	],
 	#category : #'Famix-TypeScript-Generator'
 }
@@ -96,6 +97,7 @@ FamixTypeScriptGenerator >> defineClasses [
 	super defineClasses.
 	
 	access := builder newClassNamed: #Access.
+	accessor:= builder newClassNamed: #Accessor comment:'I represent a TypeScript Accessor (getter or setter)'.
 	alias := builder newClassNamed: #Alias.
 	association:= builder newClassNamed: #Association.
 	behaviouralEntity := builder newClassNamed: #BehaviouralEntity.
@@ -148,6 +150,8 @@ FamixTypeScriptGenerator >> defineHierarchy [
 
 	access--|>association.
 	access --|> #TAccess.
+	
+	accessor --|> method. 
 	
 	alias--|> namedEntity.
 	
@@ -256,8 +260,10 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	namespace --|> #TNamespace. "no use (empty trait)"
 	namespace --|> #TDefinedInModule.
 
-	namedEntity --|> #TInvocationsReceiver.
 	namedEntity --|> sourcedEntity.
+	namedEntity --|> #TInvocationsReceiver.
+	namedEntity --|> #TEntityMetaLevelDependency.
+	
 
 	parameter --|> structuralEntity.
 	parameter --|> #TParameter.
@@ -280,8 +286,12 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	reference --|>association.
 	
 	scopingEntity --|>containerEntity.
+	scopingEntity --|> #TWithAccesses.
+	scopingEntity --|> #TWithInvocations.
 	
 	scriptEntity --|>scopingEntity.
+	scriptEntity --|>#TWithStatements.
+	
 	structuralEntity --|> #TStructuralEntity.
 	structuralEntity --|> namedEntity.
 

@@ -75,7 +75,7 @@ FamixTypeScriptMethodTest >> testIsStubWhenParentIsStub [
 
 { #category : #test }
 FamixTypeScriptMethodTest >> testOverride [ [
-	| overridenMethod c1 c2 package |
+	| overridenMethod c1 c2  |
 	c1 := FamixTypeScriptClass new
 		yourself.
 	c2 := FamixTypeScriptClass new

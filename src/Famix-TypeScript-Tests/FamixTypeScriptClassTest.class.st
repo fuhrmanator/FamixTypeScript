@@ -18,7 +18,7 @@ FamixTypeScriptClassTest >> testIsAbstract [
 { #category : #tests }
 FamixTypeScriptClassTest >> testNumberOfAccessorMethods [
 
-	| model c1 m1 | 
+	| model c1 m1 |  
 	model := FamixTypeScriptModel new.
 	c1 := FamixTypeScriptClass named: 'Class1' model: model.
 	m1 := FamixTypeScriptMethod named: 'method1' model: model.
@@ -32,7 +32,7 @@ FamixTypeScriptClassTest >> testNumberOfAccessorMethods [
 
 { #category : #tests }
 FamixTypeScriptClassTest >> testNumberOfConstructorMethods [
-
+ 
 	| m1 c1 model | 
 	model := FamixTypeScriptModel new.
 	c1 := FamixTypeScriptClass named: 'Class1' model: model.

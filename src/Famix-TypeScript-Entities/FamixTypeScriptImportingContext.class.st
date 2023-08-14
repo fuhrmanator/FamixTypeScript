@@ -23,6 +23,13 @@ FamixTypeScriptImportingContext >> importAccess [
 ]
 
 { #category : #importing }
+FamixTypeScriptImportingContext >> importAccessor [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #Accessor)
+]
+
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importAlias [
 
 	<generated>
@@ -286,6 +293,13 @@ FamixTypeScriptImportingContext >> shouldImportAccess [
 
 	<generated>
 	^ self shouldImport: #Access
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportAccessor [
+
+	<generated>
+	^ self shouldImport: #Accessor
 ]
 
 { #category : #testing }

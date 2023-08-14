@@ -1,8 +1,8 @@
 Class {
 	#name : #FamixTypeScriptNamedEntity,
 	#superclass : #FamixTypeScriptSourcedEntity,
-	#traits : 'FamixTInvocationsReceiver + FamixTNamedEntity',
-	#classTraits : 'FamixTInvocationsReceiver classTrait + FamixTNamedEntity classTrait',
+	#traits : 'FamixTInvocationsReceiver + FamixTNamedEntity + TEntityMetaLevelDependency',
+	#classTraits : 'FamixTInvocationsReceiver classTrait + FamixTNamedEntity classTrait + TEntityMetaLevelDependency classTrait',
 	#instVars : [
 		'#decorators => FMMany type: #FamixTypeScriptDecorator opposite: #decoratedEntity'
 	],
