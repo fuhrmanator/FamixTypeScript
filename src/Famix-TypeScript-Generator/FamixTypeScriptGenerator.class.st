@@ -22,7 +22,6 @@ Class {
 		'containerEntity',
 		'tTypeScriptClassMetrics',
 		'variable',
-		'field',
 		'interface',
 		'primitiveType',
 		'tWithInterfaces',
@@ -38,7 +37,8 @@ Class {
 		'scriptEntity',
 		'importClause',
 		'reference',
-		'accessor'
+		'accessor',
+		'property'
 	],
 	#category : #'Famix-TypeScript-Generator'
 }
@@ -111,7 +111,7 @@ FamixTypeScriptGenerator >> defineClasses [
 	enum := builder newClassNamed: #Enum comment: 'Typescript enumerated type'.
 	enumValue := builder newClassNamed: #EnumValue comment: 'One value (constant) in a Typescript enumerated type'.
 
-	field := builder newClassNamed: #Field comment: 'I represent a TypeScript class field.'.
+	property := builder newClassNamed: #Property comment: 'I represent a TypeScript class property.'.
 	file := builder newClassNamed: #File.
 	folder := builder newClassNamed: #Folder.
 	function := builder newClassNamed: #Function comment: 'I represent a TypeScript function.'.
@@ -195,10 +195,10 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	enumValue --|> #TWithComments.
 	enumValue --|> #TEnumValue.
 
-	field --|> structuralEntity.
-	field --|> #TAttribute.
-	field --|> #TCanBeClassSide.
-	field --|> #THasVisibility.
+	property --|> structuralEntity.
+	property --|> #TAttribute.
+	property --|> #TCanBeClassSide.
+	property --|> #THasVisibility.
 
 	file --|> namedEntity.
 	file --|> #TFile.

@@ -93,13 +93,6 @@ FamixTypeScriptImportingContext >> importEnumValue [
 ]
 
 { #category : #importing }
-FamixTypeScriptImportingContext >> importField [
-
-	<generated>
-	^ self importConcreteEntity: (self class fm3ClassNamed: #Field)
-]
-
-{ #category : #importing }
 FamixTypeScriptImportingContext >> importFile [
 
 	<generated>
@@ -216,6 +209,13 @@ FamixTypeScriptImportingContext >> importPrimitiveType [
 
 	<generated>
 	^ self importConcreteEntity: (self class fm3ClassNamed: #PrimitiveType)
+]
+
+{ #category : #importing }
+FamixTypeScriptImportingContext >> importProperty [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #Property)
 ]
 
 { #category : #importing }
@@ -366,13 +366,6 @@ FamixTypeScriptImportingContext >> shouldImportEnumValue [
 ]
 
 { #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportField [
-
-	<generated>
-	^ self shouldImport: #Field
-]
-
-{ #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportFile [
 
 	<generated>
@@ -489,6 +482,13 @@ FamixTypeScriptImportingContext >> shouldImportPrimitiveType [
 
 	<generated>
 	^ self shouldImport: #PrimitiveType
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportProperty [
+
+	<generated>
+	^ self shouldImport: #Property
 ]
 
 { #category : #testing }

@@ -28,8 +28,8 @@ FamixTypeScriptParameterizedTypeTest >> setUp [
 		(FamixTypeScript.ParameterizedType (id: 9) (name ''ParameterizableClassA<TypeB>'') (parameterizableClass (ref: 3)) (arguments (ref: 7)))
 		(FamixTypeScript.ParameterizedType (id: 10) (name ''ParameterizableClassA<TypeB,TypeC>'') (parameterizableClass (ref: 3)) (arguments (ref: 7) (ref: 8)))
 
-		(FamixTypeScript.Field (id: 11) (name ''fieldA1'') (parentType (ref: 2)) (declaredType (ref: 9)))
-		(FamixTypeScript.Field (id: 12) (name ''fieldA2'') (parentType (ref: 2)) (declaredType (ref: 10)))
+		(FamixTypeScript.Property (id: 11) (name ''propertyA1'') (parentType (ref: 2)) (declaredType (ref: 9)))
+		(FamixTypeScript.Property (id: 12) (name ''propertyA2'') (parentType (ref: 2)) (declaredType (ref: 10)))
 				
 		(FamixTypeScript.Method (id: 13) (name ''methodA1'') (parentType (ref: 2)) (declaredType (ref: 9)))
 		(FamixTypeScript.Method (id: 14) (name ''methodA2'') (parentType (ref: 2)) (declaredType (ref: 10)))
@@ -50,13 +50,13 @@ FamixTypeScriptParameterizedTypeTest >> testArgumentTypes [
 	parameterizableClassA := (model entities select: [ :each | each name = 'ParameterizableClassA' ]) at: 1.
 	typeB := (model entities select: [ :each | each name = 'TypeB' ]) at: 1.
 	typeC := (model entities select: [ :each | each name = 'TypeC' ]) at: 1.
-	fmxEntity := model allAttributes entityNamed: #'ClassA.fieldA1'.
+	fmxEntity := model allAttributes entityNamed: #'ClassA.propertyA1'.
 	declaredType := fmxEntity declaredType.
 	self assert: declaredType equals: parameterizedTypeA.
 	self assert: declaredType parameterizableClass equals: parameterizableClassA.
 	self assert: declaredType arguments size equals: 1.
 	self assert: (declaredType arguments at: 1) equals: typeB.
-	fmxEntity := model allAttributes entityNamed: #'ClassA.fieldA2'.
+	fmxEntity := model allAttributes entityNamed: #'ClassA.propertyA2'.
 	declaredType := fmxEntity declaredType.
 	self assert: declaredType equals: parameterizedTypeB.
 	self assert: declaredType parameterizableClass equals: parameterizableClassA.
