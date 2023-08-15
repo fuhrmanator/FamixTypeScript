@@ -195,11 +195,6 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	enumValue --|> #TWithComments.
 	enumValue --|> #TEnumValue.
 
-	property --|> structuralEntity.
-	property --|> #TAttribute.
-	property --|> #TCanBeClassSide.
-	property --|> #THasVisibility.
-
 	file --|> namedEntity.
 	file --|> #TFile.
 
@@ -282,6 +277,11 @@ FamixTypeScriptGenerator >> defineHierarchy [
 
 	primitiveType --|> type.
 	primitiveType --|> #TPrimitiveType.
+
+	property --|> structuralEntity.
+	property --|> #TAttribute.
+	property --|> #TCanBeClassSide.
+	property --|> #THasVisibility.
 
 	reference --|>association.
 	

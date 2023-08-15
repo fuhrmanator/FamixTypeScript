@@ -6,22 +6,22 @@ Class {
 
 { #category : #tests }
 FamixTypeScriptPropertyTest >> testPropertyVisibility [
-	| field |
-	field := FamixTypeScriptField new.
-	self assert: field visibility isNil.
+	| property |
+	property := FamixTypeScriptProperty new.
+	self assert: property visibility isNil.
 	"Note: package and protected are not applicable to TypeScript (they're from Java)"
-	field bePackageVisibility.
-	self assert: field isPackageVisibility.
-	field bePrivate.
-	self assert: field isPrivate.
-	self deny: field isPackageVisibility.
-	field bePublic.
-	self assert: field isPublic.
-	self deny: field isPackageVisibility.
-	self deny: field isPrivate.
-	field beProtected.
-	self assert: field isProtected.
-	self deny: field isPackageVisibility.
-	self deny: field isPrivate.
-	self deny: field isPublic.
+	property bePackageVisibility.
+	self assert: property isPackageVisibility.
+	property bePrivate.
+	self assert: property isPrivate.
+	self deny: property isPackageVisibility.
+	property bePublic.
+	self assert: property isPublic.
+	self deny: property isPackageVisibility.
+	self deny: property isPrivate.
+	property beProtected.
+	self assert: property isProtected.
+	self deny: property isPackageVisibility.
+	self deny: property isPrivate.
+	self deny: property isPublic.
 ]

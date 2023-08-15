@@ -129,7 +129,6 @@ FamixTypeScriptParameterizedTypeTest >> testArgumentsConstruction [
 
 { #category : #tests }
 FamixTypeScriptParameterizedTypeTest >> testModelSize [
-
 	self assert: model entities size equals: 17.
 	self assert: model allParameterizedTypes size equals: 2
 ]
