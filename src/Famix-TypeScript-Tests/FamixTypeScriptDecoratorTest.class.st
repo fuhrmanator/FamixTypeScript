@@ -103,13 +103,13 @@ FamixTypeScriptDecoratorTest >> setUp [
 		declaredType: c3;
 		yourself.
 
-	at1 := FamixTypeScriptField new
+	at1 := FamixTypeScriptProperty new
 		stub: true;
 		name: 'at1';
 		parentType: c1;
 		declaredType: c3;
 		yourself.
-	at2 := FamixTypeScriptField new
+	at2 := FamixTypeScriptProperty new
 		stub: true;
 		name: 'at2';
 		parentType: c3;
