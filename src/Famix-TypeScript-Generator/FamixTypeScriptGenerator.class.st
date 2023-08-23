@@ -38,7 +38,9 @@ Class {
 		'importClause',
 		'reference',
 		'accessor',
-		'property'
+		'property',
+		'variableStatement',
+		'jsDoc'
 	],
 	#category : #'Famix-TypeScript-Generator'
 }
@@ -97,7 +99,7 @@ FamixTypeScriptGenerator >> defineClasses [
 	super defineClasses.
 	
 	access := builder newClassNamed: #Access.
-	accessor:= builder newClassNamed: #Accessor comment:'I represent a TypeScript Accessor (getter or setter)'.
+	accessor := builder newClassNamed: #Accessor comment: 'I represent a TypeScript Accessor (getter or setter)'.
 	alias := builder newClassNamed: #Alias.
 	association:= builder newClassNamed: #Association.
 	behaviouralEntity := builder newClassNamed: #BehaviouralEntity.
@@ -123,6 +125,7 @@ FamixTypeScriptGenerator >> defineClasses [
 	interface := builder newClassNamed: #Interface comment: 'I represent a TypeScript interface.'.
 	interface withTesting.
 	invocation := builder newClassNamed: #Invocation.
+	jsDoc := builder newClassNamed: #JSDoc comment: 'I represent a TypeScript (JavaScript) Doc element.'.
 	method := builder newClassNamed: #Method comment: 'I represent a TypeScript method.'.
 	module := builder newClassNamed: #Module.
 	namespace := builder newClassNamed: #Namespace.
@@ -137,7 +140,7 @@ FamixTypeScriptGenerator >> defineClasses [
 	structuralEntity := builder newClassNamed: #StructuralEntity.
 	type := builder newClassNamed: #Type comment: 'I represent a TypeScript type.'.
 	variable := builder newClassNamed: #Variable comment: 'I represent a TypeScript variable.'.
-	
+	variableStatement := builder newClassNamed: #VariableStatement comment: 'I represent a TypeScript variable statement.'.
 	
 	primitiveType withTesting.
 	"self defineComments."
@@ -151,7 +154,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	access--|>association.
 	access --|> #TAccess.
 	
-	accessor --|> method. 
+	accessor --|> method.
 	
 	alias--|> namedEntity.
 	
@@ -239,6 +242,8 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	
 
 	implementation --|> #TImplementation.
+	
+	jsDoc --|> sourcedEntity.
 
 	method --|> behaviouralEntity.
 	method --|> #TMethod.
@@ -305,6 +310,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	variable --|> structuralEntity.
 	variable --|> #TLocalVariable.
 
+	variableStatement --|> type.  "Maël added"
 ]
 
 { #category : #definition }

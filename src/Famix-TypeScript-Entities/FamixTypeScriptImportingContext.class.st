@@ -156,6 +156,13 @@ FamixTypeScriptImportingContext >> importInvocation [
 ]
 
 { #category : #importing }
+FamixTypeScriptImportingContext >> importJSDoc [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #JSDoc)
+]
+
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importMethod [
 
 	<generated>
@@ -279,6 +286,13 @@ FamixTypeScriptImportingContext >> importVariable [
 
 	<generated>
 	^ self importConcreteEntity: (self class fm3ClassNamed: #Variable)
+]
+
+{ #category : #importing }
+FamixTypeScriptImportingContext >> importVariableStatement [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #VariableStatement)
 ]
 
 { #category : #importing }
@@ -429,6 +443,13 @@ FamixTypeScriptImportingContext >> shouldImportInvocation [
 ]
 
 { #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportJSDoc [
+
+	<generated>
+	^ self shouldImport: #JSDoc
+]
+
+{ #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportMethod [
 
 	<generated>
@@ -552,6 +573,13 @@ FamixTypeScriptImportingContext >> shouldImportVariable [
 
 	<generated>
 	^ self shouldImport: #Variable
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportVariableStatement [
+
+	<generated>
+	^ self shouldImport: #VariableStatement
 ]
 
 { #category : #testing }
