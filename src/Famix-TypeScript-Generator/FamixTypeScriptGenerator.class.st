@@ -216,6 +216,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	implicitVariable --|>variable.
 	
 	importClause --|>association.
+	importClause --|> #TImport.
 	
 	indexedFileAnchor --|> sourceAnchor.
 	indexedFileAnchor --|> #TIndexedFileNavigation.
