@@ -1,6 +1,8 @@
 Class {
 	#name : #FamixTypeScriptImportClause,
 	#superclass : #FamixTypeScriptAssociation,
+	#traits : 'FamixTImport',
+	#classTraits : 'FamixTImport classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 

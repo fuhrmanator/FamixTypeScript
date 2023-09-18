@@ -256,6 +256,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	module --|>scriptEntity.
 	module --|> #TWithLocalVariables. "var can have module scope"
 	module --|> #TWithImports.
+	module --|> #TImportable.
 
 	namespace --|> scopingEntity.
 	namespace --|> #TNamespace. "no use (empty trait)"
