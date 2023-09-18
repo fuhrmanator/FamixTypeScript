@@ -4,8 +4,8 @@ I represent a TypeScript variable.
 Class {
 	#name : #FamixTypeScriptVariable,
 	#superclass : #FamixTypeScriptStructuralEntity,
-	#traits : 'FamixTLocalVariable',
-	#classTraits : 'FamixTLocalVariable classTrait',
+	#traits : 'FamixTImportable + FamixTLocalVariable',
+	#classTraits : 'FamixTImportable classTrait + FamixTLocalVariable classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 

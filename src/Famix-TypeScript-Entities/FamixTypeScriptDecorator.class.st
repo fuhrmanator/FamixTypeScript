@@ -4,9 +4,11 @@ I represent a TypeScript Decorator
 Class {
 	#name : #FamixTypeScriptDecorator,
 	#superclass : #FamixTypeScriptNamedEntity,
+	#traits : 'FamixTImportable',
+	#classTraits : 'FamixTImportable classTrait',
 	#instVars : [
-		'#expression => FMProperty',
-		'#decoratedEntity => FMOne type: #FamixTypeScriptNamedEntity opposite: #decorators'
+		'#decoratedEntity => FMOne type: #FamixTypeScriptNamedEntity opposite: #decorators',
+		'#expression => FMProperty'
 	],
 	#category : #'Famix-TypeScript-Entities-Entities'
 }

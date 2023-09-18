@@ -1,6 +1,8 @@
 Class {
 	#name : #FamixTypeScriptAlias,
 	#superclass : #FamixTypeScriptNamedEntity,
+	#traits : 'FamixTImportable',
+	#classTraits : 'FamixTImportable classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 
