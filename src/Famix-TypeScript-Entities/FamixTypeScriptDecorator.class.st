@@ -7,8 +7,8 @@ Class {
 	#traits : 'FamixTImportable',
 	#classTraits : 'FamixTImportable classTrait',
 	#instVars : [
-		'#decoratedEntity => FMOne type: #FamixTypeScriptNamedEntity opposite: #decorators',
-		'#expression => FMProperty'
+		'#expression => FMProperty',
+		'#decoratedEntity => FMOne type: #FamixTypeScriptNamedEntity opposite: #decorators'
 	],
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
