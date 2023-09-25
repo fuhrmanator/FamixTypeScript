@@ -4,8 +4,8 @@ I represent a TypeScript type.
 Class {
 	#name : #FamixTypeScriptType,
 	#superclass : #FamixTypeScriptContainerEntity,
-	#traits : 'FamixTParameterizedTypeUser + FamixTType + FamixTWithMethods',
-	#classTraits : 'FamixTParameterizedTypeUser classTrait + FamixTType classTrait + FamixTWithMethods classTrait',
+	#traits : 'FamixTImportable + FamixTParameterizedTypeUser + FamixTType + FamixTWithMethods',
+	#classTraits : 'FamixTImportable classTrait + FamixTParameterizedTypeUser classTrait + FamixTType classTrait + FamixTWithMethods classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 

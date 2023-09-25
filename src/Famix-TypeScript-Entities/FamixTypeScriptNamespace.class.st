@@ -1,8 +1,8 @@
 Class {
 	#name : #FamixTypeScriptNamespace,
 	#superclass : #FamixTypeScriptScopingEntity,
-	#traits : 'FamixTDefinedInModule + FamixTNamespace',
-	#classTraits : 'FamixTDefinedInModule classTrait + FamixTNamespace classTrait',
+	#traits : 'FamixTDefinedInModule + FamixTImportable + FamixTNamespace',
+	#classTraits : 'FamixTDefinedInModule classTrait + FamixTImportable classTrait + FamixTNamespace classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 

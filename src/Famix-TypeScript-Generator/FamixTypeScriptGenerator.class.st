@@ -151,14 +151,15 @@ FamixTypeScriptGenerator >> defineHierarchy [
 
 	super defineHierarchy.
 
-	access--|>association.
+	access --|> association.
 	access --|> #TAccess.
 	
 	accessor --|> method.
 	
-	alias--|> namedEntity.
+	alias --|> namedEntity.
+	alias --|> #TImportable.
 	
-	association --|>sourcedEntity.
+	association --|> sourcedEntity.
 	
 	behaviouralEntity --|> containerEntity.
 
@@ -189,6 +190,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	"containerEntity --|> #TWithModules?"
 
 	decorator --|>namedEntity.
+	decorator --|> #TImportable.
 	
 	enum --|> type.
 	enum --|> #TEnum.
@@ -209,10 +211,12 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	function --|> #TFunction.
 	function --|> #TDefinedInModule.
 	function --|> #TInvocable.
+	function --|> #TImportable.
 
 	implicitVariable --|>variable.
 	
 	importClause --|>association.
+	importClause --|> #TImport.
 	
 	indexedFileAnchor --|> sourceAnchor.
 	indexedFileAnchor --|> #TIndexedFileNavigation.
@@ -227,11 +231,8 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	"interface --|> #THasVisibility." "classes in modules/namespaces can't be declared private/public"
 	interface --|> #TWithComments.
 	interface --|> #TImplementable.
-	interface --|> #TWithImports.
-	interface --|> #TImportable.
-	interface --|> type.
-	
-	
+	"interface --|> #TWithImports."
+	"interface --|> #TImportable." "Gets it from type?"
 
 	inheritance --|>association.
 	inheritance --|> #TInheritance.
@@ -239,8 +240,6 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	invocation --|>association.
 	invocation --|> #TInvocation.
 	invocation --|> #THasSignature.
-
-	
 
 	implementation --|> #TImplementation.
 	
@@ -256,20 +255,21 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	"Module"
 	module --|>scriptEntity.
 	module --|> #TWithLocalVariables. "var can have module scope"
+	module --|> #TWithImports.
+	module --|> #TImportable.
 
 	namespace --|> scopingEntity.
 	namespace --|> #TNamespace. "no use (empty trait)"
 	namespace --|> #TDefinedInModule.
+	namespace --|> #TImportable.
 
 	namedEntity --|> sourcedEntity.
 	namedEntity --|> #TInvocationsReceiver.
 	namedEntity --|> #TEntityMetaLevelDependency.
-	
 
 	parameter --|> structuralEntity.
 	parameter --|> #TParameter.
 	
-
 	parameterizableClass --|> class.
 	parameterizableClass --|> #TWithParameterizedTypes.
 
@@ -307,9 +307,11 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	type --|> #TType.
 	type --|> #TParameterizedTypeUser.
 	type --|> #TWithMethods.
+	type --|> #TImportable.
 	
 	variable --|> structuralEntity.
 	variable --|> #TLocalVariable.
+	variable --|> #TImportable.
 
 	variableStatement --|> type.  "Maël added"
 ]

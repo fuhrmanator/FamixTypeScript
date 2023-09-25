@@ -4,8 +4,8 @@ I represent a TypeScript function.
 Class {
 	#name : #FamixTypeScriptFunction,
 	#superclass : #FamixTypeScriptBehaviouralEntity,
-	#traits : 'FamixTDefinedInModule + FamixTFunction + FamixTInvocable',
-	#classTraits : 'FamixTDefinedInModule classTrait + FamixTFunction classTrait + FamixTInvocable classTrait',
+	#traits : 'FamixTDefinedInModule + FamixTFunction + FamixTImportable + FamixTInvocable',
+	#classTraits : 'FamixTDefinedInModule classTrait + FamixTFunction classTrait + FamixTImportable classTrait + FamixTInvocable classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 

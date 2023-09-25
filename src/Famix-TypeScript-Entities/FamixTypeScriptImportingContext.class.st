@@ -124,7 +124,7 @@ FamixTypeScriptImportingContext >> importImplementation [
 FamixTypeScriptImportingContext >> importImportClause [
 
 	<generated>
-	^ self importConcreteEntity: (self class fm3ClassNamed: #ImportClause)
+	^ self importAssociation: (self class fm3ClassNamed: #ImportClause)
 ]
 
 { #category : #importing }
