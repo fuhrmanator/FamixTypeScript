@@ -40,7 +40,8 @@ Class {
 		'accessor',
 		'property',
 		'variableStatement',
-		'jsDoc'
+		'jsDoc',
+		'parameterizableInterface'
 	],
 	#category : #'Famix-TypeScript-Generator'
 }
@@ -131,6 +132,7 @@ FamixTypeScriptGenerator >> defineClasses [
 	namespace := builder newClassNamed: #Namespace.
 	parameter := builder newClassNamed: #Parameter.
 	parameterizableClass := builder newClassNamed: #ParameterizableClass.
+	parameterizableInterface := builder newClassNamed: #ParameterizableInterface.
 	parameterizedType := builder newClassNamed: #ParameterizedType.
 	parameterType := builder newClassNamed: #ParameterType.
 	primitiveType := builder newClassNamed: #PrimitiveType comment: 'I represent a TypeScript primitive type (string, number, boolean).'.
@@ -266,6 +268,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	namedEntity --|> sourcedEntity.
 	namedEntity --|> #TInvocationsReceiver.
 	namedEntity --|> #TEntityMetaLevelDependency.
+	namedEntity --|> #TImportable. "Allow us abstract imported entities"
 
 	parameter --|> structuralEntity.
 	parameter --|> #TParameter.
@@ -273,11 +276,16 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	parameterizableClass --|> class.
 	parameterizableClass --|> #TWithParameterizedTypes.
 
-	parameterizedType --|> class.
+	parameterizableInterface --|> interface.
+	parameterizableInterface --|> #TWithParameterizedTypes.
+
+	parameterizedType --|> type.
 	parameterizedType --|> #TParameterizedType.
 	parameterizedType --|> #TWithParameterizedTypeUsers.
 	parameterizedType --|> #TWithInheritances.
-
+	parameterizedType --|> #TCanImplement.
+	parameterizedType --|> #TImplementable.
+	
 	parameterType --|> type.
 	parameterType --|> #TParameterType.
 
@@ -289,14 +297,14 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	property --|> #TCanBeClassSide.
 	property --|> #THasVisibility.
 
-	reference --|>association.
+	reference --|> association.
 	
-	scopingEntity --|>containerEntity.
+	scopingEntity --|> containerEntity.
 	scopingEntity --|> #TWithAccesses.
 	scopingEntity --|> #TWithInvocations.
 	
-	scriptEntity --|>scopingEntity.
-	scriptEntity --|>#TWithStatements.
+	scriptEntity --|> scopingEntity.
+	scriptEntity --|> #TWithStatements.
 	
 	structuralEntity --|> #TStructuralEntity.
 	structuralEntity --|> namedEntity.
