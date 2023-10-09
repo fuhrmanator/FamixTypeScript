@@ -18,7 +18,7 @@ FamixTypeScriptParameterizableClassTest >> testParameterTypes [
 		(FamixTypeScript.ParameterType (id: 6) (name ''B'') (typeContainer (ref: 2)))
 		(FamixTypeScript.ParameterType (id: 7) (name ''C'') (typeContainer (ref: 3)))
 	)' readStream.
-
+	
 	self assert: model entities size equals: 6.
 	self assert: model allParameterizableClasses size equals: 3.
 	aParameterizableClass := model allParameterizableClasses entityNamed: #ParameterizableClassA.

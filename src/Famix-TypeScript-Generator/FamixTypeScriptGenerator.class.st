@@ -272,6 +272,9 @@ FamixTypeScriptGenerator >> defineHierarchy [
 
 	parameter --|> structuralEntity.
 	parameter --|> #TParameter.
+
+	parameterType --|> type.
+	parameterType --|> #TParameterType.
 	
 	parameterizableClass --|> class.
 	parameterizableClass --|> #TWithParameterizedTypes.
@@ -286,9 +289,6 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	parameterizedType --|> #TCanImplement.
 	parameterizedType --|> #TImplementable.
 	
-	parameterType --|> type.
-	parameterType --|> #TParameterType.
-
 	primitiveType --|> type.
 	primitiveType --|> #TPrimitiveType.
 
