@@ -205,6 +205,13 @@ FamixTypeScriptImportingContext >> importParameterizableClass [
 ]
 
 { #category : #importing }
+FamixTypeScriptImportingContext >> importParameterizableInterface [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #ParameterizableInterface)
+]
+
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importParameterizedType [
 
 	<generated>
@@ -489,6 +496,13 @@ FamixTypeScriptImportingContext >> shouldImportParameterizableClass [
 
 	<generated>
 	^ self shouldImport: #ParameterizableClass
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportParameterizableInterface [
+
+	<generated>
+	^ self shouldImport: #ParameterizableInterface
 ]
 
 { #category : #testing }
