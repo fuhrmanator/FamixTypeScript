@@ -174,7 +174,8 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	class --|> tTypeScriptClassMetrics.
 	class --|> #TCanImplement.
 	class --|> #TImportable.
-	class --|> #TWithAccesses. 
+	class --|> #TWithAccesses.
+	class --|> #TWithInvocations.
 	"The following come from #TClass"
 	"class --|> #TWithMethods.
 	class --|> #TWithInheritances.
