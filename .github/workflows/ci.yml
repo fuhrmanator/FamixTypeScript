@@ -30,16 +30,16 @@ jobs:
         shell: bash
         timeout-minutes: 15
         
-      - name: Build meta-model planuml image
+      - name: Generate plantuml representation of meta-model
         run: |
           $SMALLTALK_CI_VM  $SMALLTALK_CI_IMAGE eval "'FamixTypeScript.puml' asFileReference writeStreamDo: [ :stream | stream nextPutAll:  (FamixMMUMLDocumentor new withModel: FamixTypeScriptModel andColor: Color lightBlue ; beWithStub; generatePlantUMLModel)]"
       
-      - name: Generate SVG Diagrams
+      - name: Generate SVG Diagram from PlantUML
         uses: Timmy/plantuml-action@v1
         with:
           args: -v -tsvg FamixTypeScript.puml
           
-      - name: Move artifact
+      - name: Move diagram to doc space
         run: |
           mkdir doc-uml
           mv *.svg doc-uml
