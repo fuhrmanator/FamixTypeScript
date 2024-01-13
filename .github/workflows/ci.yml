@@ -35,7 +35,7 @@ jobs:
           $SMALLTALK_CI_VM  $SMALLTALK_CI_IMAGE eval "'FamixTypeScript.puml' asFileReference writeStreamDo: [ :stream | stream nextPutAll:  (FamixMMUMLDocumentor new withModel: FamixTypeScriptModel andColor: Color lightBlue ; beWithStub; generatePlantUMLModel)]"
       
       - name: Generate SVG Diagrams
-        uses: cloudbees/plantuml-github-action@master
+        uses: Timmy/plantuml-action@v1
         with:
           args: -v -tsvg FamixTypeScript.puml
           
