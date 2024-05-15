@@ -8,8 +8,6 @@ Class {
 		'namespace',
 		'parameter',
 		'parameterType',
-		'parameterizableClass',
-		'parameterizedType',
 		'method',
 		'structuralEntity',
 		'file',
@@ -41,7 +39,10 @@ Class {
 		'property',
 		'variableStatement',
 		'jsDoc',
-		'parameterizableInterface'
+		'parametricClass',
+		'parametricInterface',
+		'concretization',
+		'parameterConcretization'
 	],
 	#category : #'Famix-TypeScript-Generator'
 }
@@ -77,6 +78,73 @@ FamixTypeScriptGenerator class >> translationDictionary [
 ]
 
 { #category : #comments }
+FamixTypeScriptGenerator >> commentForConcretization [
+	"To verify"
+	^ '## Relations
+======================
+
+### Association source
+| Relation | Origin | Opposite | Type | Comment |
+|---|
+| `genericEntity` | `FamixTConcretization` | `concretizations` | `FamixTParametricEntity` | Generic entity linked to in this relationship. from-side of the association|
+
+### Association target
+| Relation | Origin | Opposite | Type | Comment |
+|---|
+| `concreteEntity` | `FamixTConcretization` | `genericization` | `FamixTParametricEntity` | Concrete entity linked to in this relationship. to-side of the association|
+
+### Other
+| Relation | Origin | Opposite | Type | Comment |
+|---|
+| `next` | `FamixTAssociation` | `previous` | `FamixTAssociation` | Next association in an ordered collection of associations. Currently not supported by the Moose importer|
+| `parameterConcretizations` | `FamixTConcretization` | `concretizations` | `FamixTParameterConcretization` | |
+| `previous` | `FamixTAssociation` | `next` | `FamixTAssociation` | Previous association in an ordered collection of associations. Currently not supported by the Moose importer|
+| `sourceAnchor` | `FamixTSourceEntity` | `element` | `FamixTSourceAnchor` | SourceAnchor entity linking to the original source code for this entity|
+
+
+## Properties
+======================
+
+| Name | Type | Default value | Comment |
+|---|
+| `isStub` | `Boolean` | false | Flag true if the entity attributes are incomplete, either because the entity is missing or not imported.|
+'
+]
+
+{ #category : #'as yet unclassified' }
+FamixTypeScriptGenerator >> commentForParameterConcretization [
+	^ '## Relations
+======================
+
+### Association source
+| Relation | Origin | Opposite | Type | Comment |
+|---|
+| `genericParameter` | `FamixTParameterConcretization` | `concretizations` | `FamixTGenericParameterType` | Generic parameter linked to in this relationship. from-side of the association|
+
+### Association target
+| Relation | Origin | Opposite | Type | Comment |
+|---|
+| `concreteParameter` | `FamixTParameterConcretization` | `generics` | `FamixTConcreteParameterType` | Concrete parameter linked to in this relationship. to-side of the association|
+
+### Other
+| Relation | Origin | Opposite | Type | Comment |
+|---|
+| `concretizations` | `FamixTParameterConcretization` | `parameterConcretizations` | `FamixTConcretization` | |
+| `next` | `FamixTAssociation` | `previous` | `FamixTAssociation` | Next association in an ordered collection of associations. Currently not supported by the Moose importer|
+| `previous` | `FamixTAssociation` | `next` | `FamixTAssociation` | Previous association in an ordered collection of associations. Currently not supported by the Moose importer|
+| `sourceAnchor` | `FamixTSourceEntity` | `element` | `FamixTSourceAnchor` | SourceAnchor entity linking to the original source code for this entity|
+
+
+## Properties
+======================
+
+| Name | Type | Default value | Comment |
+|---|
+| `isStub` | `Boolean` | false | Flag true if the entity attributes are incomplete, either because the entity is missing or not imported.|
+'
+]
+
+{ #category : #comments }
 FamixTypeScriptGenerator >> commentForTCanBeInterface [
 	^ 'I allow an entity to be an interface abstraction
 ex:
@@ -106,6 +174,7 @@ FamixTypeScriptGenerator >> defineClasses [
 	behaviouralEntity := builder newClassNamed: #BehaviouralEntity.
 	class := builder newClassNamed: #Class comment: 'I represent a TypeScript class.'.
 	class withTesting.
+	concretization := builder newClassNamed: #Concretization comment: self commentForTConcretization.
 	containerEntity := builder newClassNamed: #ContainerEntity.
 	
 	"This definition concerns stage 2 decorators: https://www.typescriptlang.org/docs/handbook/decorators.html"
@@ -131,9 +200,10 @@ FamixTypeScriptGenerator >> defineClasses [
 	module := builder newClassNamed: #Module.
 	namespace := builder newClassNamed: #Namespace.
 	parameter := builder newClassNamed: #Parameter.
-	parameterizableClass := builder newClassNamed: #ParameterizableClass.
-	parameterizableInterface := builder newClassNamed: #ParameterizableInterface.
-	parameterizedType := builder newClassNamed: #ParameterizedType.
+	parametricClass := builder newClassNamed: #ParametricClass.
+	parameterConcretization := builder newClassNamed: #ParameterConcretization  comment: self commentForParameterConcretization. 
+	parametricInterface := builder newClassNamed: #ParametricInterface.
+	"parameterizedType := builder newClassNamed: #ParameterizedType."
 	parameterType := builder newClassNamed: #ParameterType.
 	primitiveType := builder newClassNamed: #PrimitiveType comment: 'I represent a TypeScript primitive type (string, number, boolean).'.
 	reference:= builder newClassNamed: #Reference.
@@ -275,20 +345,25 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	parameter --|> #TParameter.
 
 	parameterType --|> type.
-	parameterType --|> #TParameterType.
+	"parameterType --|> #TParameterType."
+	parameterType --|> #TGenericParameterType.
 	
-	parameterizableClass --|> class.
-	parameterizableClass --|> #TWithParameterizedTypes.
+	parametricClass --|> class.
+	"parameterizableClass --|> #TWithParameterizedTypes."
+	parametricClass --|> #TParametricEntity.
 
-	parameterizableInterface --|> interface.
-	parameterizableInterface --|> #TWithParameterizedTypes.
+	parametricInterface --|> interface.
+	"parameterizableInterface --|> #TWithParameterizedTypes."
+	parametricInterface --|> #TParametricEntity.
 
-	parameterizedType --|> type.
-	parameterizedType --|> #TParameterizedType.
-	parameterizedType --|> #TWithParameterizedTypeUsers.
-	parameterizedType --|> #TWithInheritances.
-	parameterizedType --|> #TCanImplement.
-	parameterizedType --|> #TImplementable.
+	"fusion avec paraterizableClass"
+	"parameterizedType --|> type."
+	"parameterizedType --|> #TParameterizedType."
+	"parameterizedType --|> #TParametricEntity."
+	"parameterizedType --|> #TWithParameterizedTypeUsers."
+	"parameterizedType --|> #TWithInheritances."
+	"parameterizedType --|> #TCanImplement."
+	"parameterizedType --|> #TImplementable."
 	
 	primitiveType --|> type.
 	primitiveType --|> #TPrimitiveType.
