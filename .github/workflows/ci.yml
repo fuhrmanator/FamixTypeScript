@@ -17,7 +17,7 @@ jobs:
     name: ${{ matrix.smalltalk }}
     steps:
         # checkout the project
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       
         # Prepare the CI - download the correct VM :-) 
       - uses: hpi-swa/setup-smalltalkCI@v1
