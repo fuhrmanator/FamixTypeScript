@@ -4,8 +4,9 @@ name: Run-Tests-and-Generate-Model-Diagram
 # Execute the CI on push on the master branch
 on:
   push:
-    branches: 
-      - master
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
   workflow_dispatch:
 jobs:
   build:
