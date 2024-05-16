@@ -389,7 +389,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 
 	type --|> containerEntity.
 	type --|> #TType.
-	type --|> #TParameterizedTypeUser.
+	"type --|> #TParameterizedTypeUser."
 	type --|> #TWithMethods.
 	type --|> #TImportable.
 	
