@@ -65,6 +65,13 @@ FamixTypeScriptImportingContext >> importComment [
 ]
 
 { #category : #importing }
+FamixTypeScriptImportingContext >> importConcretization [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #Concretization)
+]
+
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importContainerEntity [
 
 	<generated>
@@ -191,6 +198,13 @@ FamixTypeScriptImportingContext >> importParameter [
 ]
 
 { #category : #importing }
+FamixTypeScriptImportingContext >> importParameterConcretization [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #ParameterConcretization)
+]
+
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importParameterType [
 
 	<generated>
@@ -198,24 +212,17 @@ FamixTypeScriptImportingContext >> importParameterType [
 ]
 
 { #category : #importing }
-FamixTypeScriptImportingContext >> importParameterizableClass [
+FamixTypeScriptImportingContext >> importParametricClass [
 
 	<generated>
-	^ self importConcreteEntity: (self class fm3ClassNamed: #ParameterizableClass)
+	^ self importConcreteEntity: (self class fm3ClassNamed: #ParametricClass)
 ]
 
 { #category : #importing }
-FamixTypeScriptImportingContext >> importParameterizableInterface [
+FamixTypeScriptImportingContext >> importParametricInterface [
 
 	<generated>
-	^ self importConcreteEntity: (self class fm3ClassNamed: #ParameterizableInterface)
-]
-
-{ #category : #importing }
-FamixTypeScriptImportingContext >> importParameterizedType [
-
-	<generated>
-	^ self importConcreteEntity: (self class fm3ClassNamed: #ParameterizedType)
+	^ self importConcreteEntity: (self class fm3ClassNamed: #ParametricInterface)
 ]
 
 { #category : #importing }
@@ -279,13 +286,6 @@ FamixTypeScriptImportingContext >> importType [
 
 	<generated>
 	^ self importConcreteEntity: (self class fm3ClassNamed: #Type)
-]
-
-{ #category : #importing }
-FamixTypeScriptImportingContext >> importUnknownSourceLanguage [
-
-	<generated>
-	^ self importConcreteEntity: (self class fm3ClassNamed: #UnknownSourceLanguage)
 ]
 
 { #category : #importing }
@@ -356,6 +356,13 @@ FamixTypeScriptImportingContext >> shouldImportComment [
 
 	<generated>
 	^ self shouldImport: #Comment
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportConcretization [
+
+	<generated>
+	^ self shouldImport: #Concretization
 ]
 
 { #category : #testing }
@@ -485,6 +492,13 @@ FamixTypeScriptImportingContext >> shouldImportParameter [
 ]
 
 { #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportParameterConcretization [
+
+	<generated>
+	^ self shouldImport: #ParameterConcretization
+]
+
+{ #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportParameterType [
 
 	<generated>
@@ -492,24 +506,17 @@ FamixTypeScriptImportingContext >> shouldImportParameterType [
 ]
 
 { #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportParameterizableClass [
+FamixTypeScriptImportingContext >> shouldImportParametricClass [
 
 	<generated>
-	^ self shouldImport: #ParameterizableClass
+	^ self shouldImport: #ParametricClass
 ]
 
 { #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportParameterizableInterface [
+FamixTypeScriptImportingContext >> shouldImportParametricInterface [
 
 	<generated>
-	^ self shouldImport: #ParameterizableInterface
-]
-
-{ #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportParameterizedType [
-
-	<generated>
-	^ self shouldImport: #ParameterizedType
+	^ self shouldImport: #ParametricInterface
 ]
 
 { #category : #testing }
@@ -573,13 +580,6 @@ FamixTypeScriptImportingContext >> shouldImportType [
 
 	<generated>
 	^ self shouldImport: #Type
-]
-
-{ #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportUnknownSourceLanguage [
-
-	<generated>
-	^ self shouldImport: #UnknownSourceLanguage
 ]
 
 { #category : #testing }

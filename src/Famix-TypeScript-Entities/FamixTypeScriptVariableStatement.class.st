@@ -1,5 +1,7 @@
 "
 I represent a TypeScript variable statement.
+
+
 "
 Class {
 	#name : #FamixTypeScriptVariableStatement,

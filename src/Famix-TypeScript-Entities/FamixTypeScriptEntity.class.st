@@ -71,6 +71,13 @@ FamixTypeScriptEntity >> isEnumValue [
 ]
 
 { #category : #testing }
+FamixTypeScriptEntity >> isFileAnchor [
+
+	<generated>
+	^ false
+]
+
+{ #category : #testing }
 FamixTypeScriptEntity >> isFunction [
 
 	<generated>
@@ -120,7 +127,21 @@ FamixTypeScriptEntity >> isNamespace [
 ]
 
 { #category : #testing }
+FamixTypeScriptEntity >> isParametricEntity [
+
+	<generated>
+	^ false
+]
+
+{ #category : #testing }
 FamixTypeScriptEntity >> isPrimitiveType [
+
+	<generated>
+	^ false
+]
+
+{ #category : #testing }
+FamixTypeScriptEntity >> isQueryable [
 
 	<generated>
 	^ false

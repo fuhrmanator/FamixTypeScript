@@ -1,5 +1,7 @@
 "
 I represent a TypeScript (JavaScript) Doc element.
+
+
 "
 Class {
 	#name : #FamixTypeScriptJSDoc,
