@@ -174,7 +174,7 @@ FamixTypeScriptGenerator >> defineClasses [
 	behaviouralEntity := builder newClassNamed: #BehaviouralEntity.
 	class := builder newClassNamed: #Class comment: 'I represent a TypeScript class.'.
 	class withTesting.
-	concretization := builder newClassNamed: #Concretization comment: self commentForTConcretization.
+	concretization := builder newClassNamed: #Concretization comment: self commentForConcretization.
 	containerEntity := builder newClassNamed: #ContainerEntity.
 	
 	"This definition concerns stage 2 decorators: https://www.typescriptlang.org/docs/handbook/decorators.html"
