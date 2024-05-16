@@ -6,9 +6,6 @@ on:
   push:
     branches: 
       - master
-  pull_request:
-    branches:
-      - master
   workflow_dispatch:
 jobs:
   build:
@@ -33,11 +30,6 @@ jobs:
         shell: bash
         timeout-minutes: 15
         
-  update_docs:
-    needs: build
-    runs-on: ubuntu-latest
-    if: github.event_name != 'pull_request'
-    steps:
       - name: Generate plantuml representation of meta-model
         run: |
           $SMALLTALK_CI_VM  $SMALLTALK_CI_IMAGE eval "'FamixTypeScript.puml' asFileReference writeStreamDo: [ :stream | stream nextPutAll:  (FamixMMUMLDocumentor new withModel: FamixTypeScriptModel andColor: Color lightBlue ; beWithStub; generatePlantUMLModel)]"
@@ -73,3 +65,4 @@ jobs:
           # We have to push from the folder where files were generated.
           # Same were the new repo was initialized in the previous step
           directory: ./doc-uml
+  
