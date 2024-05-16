@@ -5,8 +5,6 @@ name: Run-Tests-and-Generate-Model-Diagram
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
   workflow_dispatch:
 jobs:
   build:
