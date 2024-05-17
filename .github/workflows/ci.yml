@@ -44,7 +44,7 @@ jobs:
           
       - name: Move diagram to doc space
         run: |
-          mkdir doc-uml
+          mkdir -p doc-uml
           mv *.svg doc-uml
           
       - name: Push docs to current branch
