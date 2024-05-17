@@ -6,6 +6,9 @@ on:
   push:
     branches: 
       - master
+  pull_request:
+    branches:
+      - master
   workflow_dispatch:
 jobs:
   build:
@@ -43,26 +46,14 @@ jobs:
         run: |
           mkdir doc-uml
           mv *.svg doc-uml
-
-      - name: Init new repo in doc-uml folder and commit generated files
+          
+      - name: Push docs to current branch
+        if: success()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          cd doc-uml/
-          git init
-          git add -A
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git commit -m 'update doc'
-
-      # Careful, this can kill your project
-      - name: Force push to destination branch
-        uses: ad-m/github-push-action@master
-        with:
-          # Token for the repo. Can be passed in using $\{{ secrets.GITHUB_TOKEN }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          force: true
-          # Destination branch to push changes
-          branch: v1/doc
-          # We have to push from the folder where files were generated.
-          # Same were the new repo was initialized in the previous step
-          directory: ./doc-uml
-  
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add doc-uml
+          git commit -m "Update docs for branch ${{ github.ref_name }}"
+          git push origin ${{ github.ref_name }}  
