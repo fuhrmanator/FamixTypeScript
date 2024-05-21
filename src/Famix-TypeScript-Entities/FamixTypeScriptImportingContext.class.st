@@ -68,7 +68,7 @@ FamixTypeScriptImportingContext >> importComment [
 FamixTypeScriptImportingContext >> importConcretization [
 
 	<generated>
-	^ self importConcreteEntity: (self class fm3ClassNamed: #Concretization)
+	^ self importAssociation: (self class fm3ClassNamed: #Concretization)
 ]
 
 { #category : #importing }
@@ -201,7 +201,7 @@ FamixTypeScriptImportingContext >> importParameter [
 FamixTypeScriptImportingContext >> importParameterConcretization [
 
 	<generated>
-	^ self importConcreteEntity: (self class fm3ClassNamed: #ParameterConcretization)
+	^ self importAssociation: (self class fm3ClassNamed: #ParameterConcretization)
 ]
 
 { #category : #importing }

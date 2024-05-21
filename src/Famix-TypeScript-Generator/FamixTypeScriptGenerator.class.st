@@ -367,6 +367,13 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	
 	primitiveType --|> type.
 	primitiveType --|> #TPrimitiveType.
+	
+	type --|> #TConcreteParameterType.
+
+	concretization --|> #TConcretization.
+
+	parameterConcretization --|> #TParameterConcretization.
+
 
 	property --|> structuralEntity.
 	property --|> #TAttribute.
@@ -398,6 +405,8 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	variable --|> #TImportable.
 
 	variableStatement --|> type.  "Maël added"
+	
+	parameterType --|> #TWithInheritances.
 ]
 
 { #category : #definition }

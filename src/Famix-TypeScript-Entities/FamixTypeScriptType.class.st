@@ -17,12 +17,14 @@ I represent a TypeScript type.
 ### Incoming dependencies
 | Relation | Origin | Opposite | Type | Comment |
 |---|
+| `generics` | `FamixTConcreteParameterType` | `concreteParameter` | `FamixTParameterConcretization` | Generic relationships, i.e. known genericParameter of this type.|
 | `incomingImports` | `FamixTImportable` | `importedEntity` | `FamixTImport` | List of imports of this entity|
 | `incomingReferences` | `FamixTReferenceable` | `referredType` | `FamixTReference` | References to this entity by other entities.|
 
 ### Other
 | Relation | Origin | Opposite | Type | Comment |
 |---|
+| `concreteEntities` | `FamixTConcreteParameterType` | `concreteParameters` | `FamixTParametricEntity` | The concrete entities that use me.|
 | `sourceAnchor` | `FamixTSourceEntity` | `element` | `FamixTSourceAnchor` | SourceAnchor entity linking to the original source code for this entity|
 | `typedEntities` | `FamixTType` | `declaredType` | `FamixTTypedEntity` | Entities that have this type as declaredType|
 
@@ -39,8 +41,8 @@ I represent a TypeScript type.
 Class {
 	#name : #FamixTypeScriptType,
 	#superclass : #FamixTypeScriptContainerEntity,
-	#traits : 'FamixTImportable + FamixTType + FamixTWithMethods',
-	#classTraits : 'FamixTImportable classTrait + FamixTType classTrait + FamixTWithMethods classTrait',
+	#traits : 'FamixTConcreteParameterType + FamixTImportable + FamixTType + FamixTWithMethods',
+	#classTraits : 'FamixTConcreteParameterType classTrait + FamixTImportable classTrait + FamixTType classTrait + FamixTWithMethods classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 

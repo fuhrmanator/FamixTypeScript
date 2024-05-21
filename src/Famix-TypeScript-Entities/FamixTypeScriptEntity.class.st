@@ -120,6 +120,13 @@ FamixTypeScriptEntity >> isMethod [
 ]
 
 { #category : #testing }
+FamixTypeScriptEntity >> isNamedEntity [
+
+	<generated>
+	^ false
+]
+
+{ #category : #testing }
 FamixTypeScriptEntity >> isNamespace [
 
 	<generated>
