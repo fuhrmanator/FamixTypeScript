@@ -1,5 +1,7 @@
 "
 I represent a TypeScript implicit variable.
+
+
 "
 Class {
 	#name : #FamixTypeScriptimplicitVariable,

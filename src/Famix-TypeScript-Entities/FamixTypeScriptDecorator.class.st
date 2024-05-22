@@ -1,5 +1,27 @@
 "
 I represent a TypeScript Decorator
+
+## Relations
+======================
+
+### Incoming dependencies
+| Relation | Origin | Opposite | Type | Comment |
+|---|
+| `incomingImports` | `FamixTImportable` | `importedEntity` | `FamixTImport` | List of imports of this entity|
+
+### Other
+| Relation | Origin | Opposite | Type | Comment |
+|---|
+| `decoratedEntity` | `FamixTypeScriptDecorator` | `decorators` | `FamixTypeScriptNamedEntity` | |
+
+
+## Properties
+======================
+
+| Name | Type | Default value | Comment |
+|---|
+| `expression` | `String` | nil | Decorators use the form @expression, where expression must evaluate to a function that will be called at runtime with information about the decorated declaration|
+
 "
 Class {
 	#name : #FamixTypeScriptDecorator,

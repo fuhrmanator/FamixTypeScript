@@ -1,7 +1,7 @@
 
 # FamixNG Metamodel for TypeScript.
 
-[![Smalltalk CI](https://github.com/fuhrmanator/FamixTypeScript/actions/workflows/ci.yml/badge.svg)](https://github.com/fuhrmanator/FamixTypeScript/actions/workflows/ci.yml)
+[![Smalltalk CI](https://github.com/fuhrmanator/FamixTypeScript/actions/workflows/ci.yml/badge.svg?branch=M11-migration)](https://github.com/fuhrmanator/FamixTypeScript/actions/workflows/ci.yml?query=branch:M11-migration)
 
 This project is normally synchronized with [FamixTypeScriptImporter](https://github.com/fuhrmanator/FamixTypeScriptImporter) as it is the FamixNG metamodel it supports.
 
