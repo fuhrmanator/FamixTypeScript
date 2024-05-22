@@ -11,11 +11,13 @@
 | Relation | Origin | Opposite | Type | Comment |
 |---|
 | `concretizations` | `FamixTGenericParameterType` | `genericParameter` | `FamixTParameterConcretization` | Concretization relationships, i.e. known concretizations of this type.|
+| `superInheritances` | `FamixTWithInheritances` | `subclass` | `FamixTInheritance` | Superinheritance relationships, i.e. known superclasses of this type.|
 
 ### Incoming dependencies
 | Relation | Origin | Opposite | Type | Comment |
 |---|
 | `incomingReferences` | `FamixTReferenceable` | `referredType` | `FamixTReference` | References to this entity by other entities.|
+| `subInheritances` | `FamixTWithInheritances` | `superclass` | `FamixTInheritance` | Subinheritance relationships, i.e. known subclasses of this type.|
 
 ### Other
 | Relation | Origin | Opposite | Type | Comment |
@@ -37,8 +39,8 @@
 Class {
 	#name : #FamixTypeScriptParameterType,
 	#superclass : #FamixTypeScriptType,
-	#traits : 'FamixTGenericParameterType',
-	#classTraits : 'FamixTGenericParameterType classTrait',
+	#traits : 'FamixTGenericParameterType + FamixTWithInheritances',
+	#classTraits : 'FamixTGenericParameterType classTrait + FamixTWithInheritances classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 

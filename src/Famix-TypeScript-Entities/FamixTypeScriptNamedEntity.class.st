@@ -71,3 +71,10 @@ FamixTypeScriptNamedEntity >> decorators: anObject [
 	<generated>
 	decorators value: anObject
 ]
+
+{ #category : #testing }
+FamixTypeScriptNamedEntity >> isNamedEntity [
+
+	<generated>
+	^ true
+]
