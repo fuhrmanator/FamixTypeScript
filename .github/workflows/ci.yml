@@ -35,8 +35,8 @@ jobs:
         
       - name: Generate plantuml representation of meta-model
         run: |
-          $SMALLTALK_CI_VM  $SMALLTALK_CI_IMAGE eval "'FamixTypeScript.puml' asFileReference writeStreamDo: [ :stream | stream nextPutAll:  (FamixMMUMLDocumentor new withModel: FamixTypeScriptModel andColor: Color lightBlue ; beWithStub; generatePlantUMLModel)]"
-      
+          $SMALLTALK_CI_VM  $SMALLTALK_CI_IMAGE eval "'FamixTypeScript.puml' asFileReference writeStreamDo: [ :stream | stream nextPutAll:  (FamixUMLDocumentor new model: FamixTypeScriptModel color: Color lightBlue ; beWithStubs ; generate; exportWith: (FamixUMLPlantUMLBackend new))]"
+   
       - name: Generate SVG Diagram from PlantUML
         uses: Timmy/plantuml-action@v1
         with:
@@ -46,6 +46,7 @@ jobs:
         run: |
           mkdir -p doc-uml
           mv *.svg doc-uml
+          mv *.puml doc-uml
           
       - name: Push docs to current branch
         if: success()
