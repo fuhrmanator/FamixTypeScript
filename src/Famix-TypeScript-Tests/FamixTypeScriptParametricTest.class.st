@@ -35,7 +35,7 @@ FamixTypeScriptParametricTest >> test2 [
 	"genericMethod<T extends Building>(t: T): void{}"
 
 	| m p return |
-	m := FamixTypeScriptMethod new name: 'genericMethod'.
+	m := FamixTypeScriptParametricMethod new name: 'genericMethod'.
 	p := FamixTypeScriptParameter new name: 't'.
 	p declaredType: (FamixTypeScriptParameterType named: 'T').
 	m addParameter: p.
@@ -67,8 +67,16 @@ FamixTypeScriptParametricTest >> test3 [
 		genericEntity: classA.
 
 	FamixTypeScriptParameterConcretization new
-		concreteParameter: (string := FamixJavaClass new name: 'string');
+		concreteParameter: (string := FamixTypeScriptClass new name: 'string');
 		genericParameter: k.
+		
+	(FamixTypeScriptParametricMethod named: 'method')
+		parameters: {
+				((FamixTypeScriptParameter named: 'num') declaredType:
+						 (FamixTypeScriptClass named: 'Integer')).
+				((FamixTypeScriptParameter named: 's') declaredType: string).
+				((FamixTypeScriptParameter named: 'v') declaredType: v) };
+		addGenericParameter: v
 ]
 
 { #category : #tests }
