@@ -17,7 +17,7 @@ FamixTypeScriptParametricTest >> setUp [
 
 { #category : #tests }
 FamixTypeScriptParametricTest >> test1 [
-	"List<Object> testMethod(List<Object> list)"
+	"testMethod(list: Array<any>): Array<any>{}"
 
 	| method parametre list |
 	method := FamixTypeScriptMethod new name: 'testMethod'.
@@ -32,7 +32,7 @@ FamixTypeScriptParametricTest >> test1 [
 
 { #category : #tests }
 FamixTypeScriptParametricTest >> test2 [
-	"public <T extends Building> genericMethod(T t)"
+	"genericMethod<T extends Building>(t: T): void{}"
 
 	| m p return |
 	m := FamixTypeScriptMethod new name: 'genericMethod'.
@@ -49,9 +49,12 @@ FamixTypeScriptParametricTest >> test2 [
 { #category : #tests }
 FamixTypeScriptParametricTest >> test3 [
 	"class ClassA<K, V> {}
-	class ClassB extends ClassA<String, V> {
-		private void method(Integer num, String s, V v) {}
-	}"
+
+	 class ClassB<V> extends ClassA<string, V> {
+   		private method(num: number, s: string, v: V): void {
+   		}
+	 }
+	"
 
 	| classA k v string |
 	(classA := FamixTypeScriptParametricClass new name: 'ClassA')
@@ -70,7 +73,9 @@ FamixTypeScriptParametricTest >> test3 [
 
 { #category : #tests }
 FamixTypeScriptParametricTest >> testConcreteAndGenericParameter [
-	"classA<V> --> classB extends classA<String>"
+	"class ClassA<V> {}
+
+	class ClassB extends ClassA<string>"
 
 	| parameter1 parameter2 |
 	parameter1 := FamixTypeScriptType new name: 'String'.
@@ -88,7 +93,8 @@ FamixTypeScriptParametricTest >> testConcreteAndGenericParameter [
 
 { #category : #tests }
 FamixTypeScriptParametricTest >> testConcretizationEntity [
-	"List<T> --> classB extends List<String>"
+	"class List<T>
+	class ClassB extends List<string>"
 
 	| listT listString |
 	listT := FamixTypeScriptParametricClass new name: 'ListT'.
@@ -103,7 +109,9 @@ FamixTypeScriptParametricTest >> testConcretizationEntity [
 
 { #category : #tests }
 FamixTypeScriptParametricTest >> testConcretizationParameter [
-	"classA<parametric> --> classB extends classA<Generic>"
+	"class ClassA<T>
+	
+	class ClassB extends ClassA<Generic>"
 
 	| parameterConcrete parameterGeneric |
 	parameterConcrete := FamixTypeScriptType new name: 'parametric'.
@@ -141,7 +149,9 @@ FamixTypeScriptParametricTest >> testInheritanceClass [
 
 { #category : #tests }
 FamixTypeScriptParametricTest >> testInheritanceParameter [
-	"<subConcrete extends subGenerique> <subGeneric extends supGeneric>"
+	"class ClassA<subGeneric extends supGeneric> {
+	}
+	"
 
 	| supGeneric subGeneric subConcrete |
 	supGeneric := FamixTypeScriptParameterType new name: 'supGeneric'.
