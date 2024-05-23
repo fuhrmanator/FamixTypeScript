@@ -20,7 +20,7 @@ FamixTypeScriptParametricTest >> test1 [
 	"testMethod(list: Array<any>): Array<any>{}"
 
 	| method parametre list |
-	method := FamixTypeScriptMethod new name: 'testMethod'.
+	method := FamixTypeScriptParametricMethod new name: 'testMethod'.
 	parametre := FamixTypeScriptParameter new name: 'list'.
 	list := FamixTypeScriptParametricClass new name: 'List'.
 	list addConcreteParameter: (FamixTypeScriptType new name: 'Object').
