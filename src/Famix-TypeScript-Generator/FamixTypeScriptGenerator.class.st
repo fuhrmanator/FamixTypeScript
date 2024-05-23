@@ -9,6 +9,7 @@ Class {
 		'parameter',
 		'parameterType',
 		'method',
+		'parametricMethod',
 		'structuralEntity',
 		'file',
 		'folder',
@@ -197,6 +198,7 @@ FamixTypeScriptGenerator >> defineClasses [
 	invocation := builder newClassNamed: #Invocation.
 	jsDoc := builder newClassNamed: #JSDoc comment: 'I represent a TypeScript (JavaScript) Doc element.'.
 	method := builder newClassNamed: #Method comment: 'I represent a TypeScript method.'.
+	parametricMethod := builder newClassNamed: #ParametricMethod comment: 'I represent a TypeScript parametric Method.'. .
 	module := builder newClassNamed: #Module.
 	namespace := builder newClassNamed: #Namespace.
 	parameter := builder newClassNamed: #Parameter.
@@ -324,6 +326,9 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	method --|> #THasKind.
 	method --|> #THasVisibility.
 	method --|> #TWithComments.
+	
+	parametricMethod --|> method.
+	parametricMethod --|> #TParametricEntity.
 
 	"Module"
 	module --|>scriptEntity.

@@ -285,6 +285,13 @@ FamixTypeScriptTEntityCreator >> newParametricInterface [
 ]
 
 { #category : #'entity creation' }
+FamixTypeScriptTEntityCreator >> newParametricMethod [
+
+	<generated>
+	^ self add: FamixTypeScriptParametricMethod new
+]
+
+{ #category : #'entity creation' }
 FamixTypeScriptTEntityCreator >> newPrimitiveType [
 
 	<generated>

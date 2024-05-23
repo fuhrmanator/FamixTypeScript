@@ -226,6 +226,13 @@ FamixTypeScriptImportingContext >> importParametricInterface [
 ]
 
 { #category : #importing }
+FamixTypeScriptImportingContext >> importParametricMethod [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #ParametricMethod)
+]
+
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importPrimitiveType [
 
 	<generated>
@@ -517,6 +524,13 @@ FamixTypeScriptImportingContext >> shouldImportParametricInterface [
 
 	<generated>
 	^ self shouldImport: #ParametricInterface
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportParametricMethod [
+
+	<generated>
+	^ self shouldImport: #ParametricMethod
 ]
 
 { #category : #testing }
