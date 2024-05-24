@@ -278,6 +278,13 @@ FamixTypeScriptTEntityCreator >> newParametricClass [
 ]
 
 { #category : #'entity creation' }
+FamixTypeScriptTEntityCreator >> newParametricFunction [
+
+	<generated>
+	^ self add: FamixTypeScriptParametricFunction new
+]
+
+{ #category : #'entity creation' }
 FamixTypeScriptTEntityCreator >> newParametricInterface [
 
 	<generated>

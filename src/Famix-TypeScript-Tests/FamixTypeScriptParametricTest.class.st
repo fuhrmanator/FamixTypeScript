@@ -19,14 +19,18 @@ FamixTypeScriptParametricTest >> setUp [
 FamixTypeScriptParametricTest >> test1 [
 	"testMethod(list: Array<any>): Array<any>{}"
 
-	| method parametre list |
+	| method parametre list function |
 	method := FamixTypeScriptParametricMethod new name: 'testMethod'.
+	function := FamixTypeScriptParametricFunction new name: 'testFunction'.
 	parametre := FamixTypeScriptParameter new name: 'list'.
 	list := FamixTypeScriptParametricClass new name: 'List'.
 	list addConcreteParameter: (FamixTypeScriptType new name: 'Object').
 	parametre declaredType: list.
 	method addParameter: parametre.
 	method declaredType: list.
+	function addParameter: parametre.
+	function declaredType: list.
+	
 	
 ]
 
@@ -34,16 +38,19 @@ FamixTypeScriptParametricTest >> test1 [
 FamixTypeScriptParametricTest >> test2 [
 	"genericMethod<T extends Building>(t: T): void{}"
 
-	| m p return |
+	| m p return f |
 	m := FamixTypeScriptParametricMethod new name: 'genericMethod'.
+	f := FamixTypeScriptParametricFunction new name: 'testFunction'.
 	p := FamixTypeScriptParameter new name: 't'.
 	p declaredType: (FamixTypeScriptParameterType named: 'T').
 	m addParameter: p.
+	f addParameter: p.
 	return := FamixTypeScriptParameterType named: 'T'.
 	FamixTypeScriptInheritance new
 		subclass: return;
 		superclass: (FamixTypeScriptClass new name: 'Building').
-	m declaredType: return
+	m declaredType: return.
+	f declaredType: return.	
 ]
 
 { #category : #tests }
@@ -71,6 +78,14 @@ FamixTypeScriptParametricTest >> test3 [
 		genericParameter: k.
 		
 	(FamixTypeScriptParametricMethod named: 'method')
+		parameters: {
+				((FamixTypeScriptParameter named: 'num') declaredType:
+						 (FamixTypeScriptClass named: 'Integer')).
+				((FamixTypeScriptParameter named: 's') declaredType: string).
+				((FamixTypeScriptParameter named: 'v') declaredType: v) };
+		addGenericParameter: v.
+		
+	(FamixTypeScriptParametricFunction named: 'function')
 		parameters: {
 				((FamixTypeScriptParameter named: 'num') declaredType:
 						 (FamixTypeScriptClass named: 'Integer')).

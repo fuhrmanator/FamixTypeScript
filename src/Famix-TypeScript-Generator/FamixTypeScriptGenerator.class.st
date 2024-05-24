@@ -16,6 +16,7 @@ Class {
 		'indexedFileAnchor',
 		'invocation',
 		'function',
+		'parametricFunction',
 		'inheritance',
 		'module',
 		'containerEntity',
@@ -188,6 +189,7 @@ FamixTypeScriptGenerator >> defineClasses [
 	file := builder newClassNamed: #File.
 	folder := builder newClassNamed: #Folder.
 	function := builder newClassNamed: #Function comment: 'I represent a TypeScript function.'.
+	parametricFunction := builder newClassNamed: #ParametricFunction comment: 'I represent a TypeScript parametric function.' .
 	implicitVariable:= builder newClassNamed: #implicitVariable comment: 'I represent a TypeScript implicit variable.'.
 	implementation := builder newClassNamed: #Implementation comment: 'I represent a TypeScript element that is an implementation of an interface.'.
 	importClause:= builder newClassNamed: #ImportClause.
@@ -287,6 +289,9 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	function --|> #TDefinedInModule.
 	function --|> #TInvocable.
 	function --|> #TImportable.
+	
+	parametricFunction --|> function.
+	parametricFunction --|> #TParametricEntity. 
 
 	implicitVariable --|>variable.
 	
