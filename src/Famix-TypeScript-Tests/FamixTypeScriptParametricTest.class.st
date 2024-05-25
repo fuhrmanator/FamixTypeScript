@@ -19,16 +19,16 @@ FamixTypeScriptParametricTest >> setUp [
 FamixTypeScriptParametricTest >> test1 [
 	"testMethod(list: Array<any>): Array<any>{}"
 
-	| method parametre list function |
+	| method parameter list function |
 	method := FamixTypeScriptParametricMethod new name: 'testMethod'.
 	function := FamixTypeScriptParametricFunction new name: 'testFunction'.
-	parametre := FamixTypeScriptParameter new name: 'list'.
+	parameter := FamixTypeScriptParameter new name: 'list'.
 	list := FamixTypeScriptParametricClass new name: 'List'.
 	list addConcreteParameter: (FamixTypeScriptType new name: 'Object').
-	parametre declaredType: list.
-	method addParameter: parametre.
+	parameter declaredType: list.
+	method addParameter: parameter.
 	method declaredType: list.
-	function addParameter: parametre.
+	function addParameter: parameter.
 	function declaredType: list.
 	
 	
@@ -36,7 +36,8 @@ FamixTypeScriptParametricTest >> test1 [
 
 { #category : #tests }
 FamixTypeScriptParametricTest >> test2 [
-	"genericMethod<T extends Building>(t: T): void{}"
+	"genericMethod<T extends Building>(t: T): T"
+	"function genericFunction<T extends Building>(t: T): T"
 
 	| m p return f |
 	m := FamixTypeScriptParametricMethod new name: 'genericMethod'.
