@@ -30,7 +30,6 @@ Class {
 		'enum',
 		'enumValue',
 		'implicitVariable',
-		'association',
 		'behaviouralEntity',
 		'alias',
 		'scopingEntity',
@@ -172,7 +171,6 @@ FamixTypeScriptGenerator >> defineClasses [
 	access := builder newClassNamed: #Access.
 	accessor := builder newClassNamed: #Accessor comment: 'I represent a TypeScript Accessor (getter or setter)'.
 	alias := builder newClassNamed: #Alias.
-	association:= builder newClassNamed: #Association.
 	behaviouralEntity := builder newClassNamed: #BehaviouralEntity.
 	class := builder newClassNamed: #Class comment: 'I represent a TypeScript class.'.
 	class withTesting.
@@ -227,15 +225,12 @@ FamixTypeScriptGenerator >> defineHierarchy [
 
 	super defineHierarchy.
 
-	access --|> association.
 	access --|> #TAccess.
 	
 	accessor --|> method.
 	
 	alias --|> namedEntity.
 	alias --|> #TImportable.
-	
-	association --|> sourcedEntity.
 	
 	behaviouralEntity --|> containerEntity.
 
@@ -295,7 +290,6 @@ FamixTypeScriptGenerator >> defineHierarchy [
 
 	implicitVariable --|>variable.
 	
-	importClause --|>association.
 	importClause --|> #TImport.
 	
 	indexedFileAnchor --|> sourceAnchor.
@@ -314,10 +308,8 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	"interface --|> #TWithImports."
 	"interface --|> #TImportable." "Gets it from type?"
 
-	inheritance --|>association.
 	inheritance --|> #TInheritance.
 
-	invocation --|>association.
 	invocation --|> #TInvocation.
 	invocation --|> #THasSignature.
 
@@ -389,8 +381,6 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	property --|> #TAttribute.
 	property --|> #TCanBeClassSide.
 	property --|> #THasVisibility.
-
-	reference --|> association.
 	
 	scopingEntity --|> containerEntity.
 	scopingEntity --|> #TWithAccesses.

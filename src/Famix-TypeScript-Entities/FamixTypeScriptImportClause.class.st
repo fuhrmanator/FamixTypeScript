@@ -30,7 +30,7 @@
 "
 Class {
 	#name : #FamixTypeScriptImportClause,
-	#superclass : #FamixTypeScriptAssociation,
+	#superclass : #FamixTypeScriptEntity,
 	#traits : 'FamixTImport',
 	#classTraits : 'FamixTImport classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
@@ -39,7 +39,7 @@ Class {
 { #category : #meta }
 FamixTypeScriptImportClause class >> annotation [
 
-	<FMClass: #ImportClause super: #FamixTypeScriptAssociation>
+	<FMClass: #ImportClause super: #FamixTypeScriptEntity>
 	<package: #FamixTypeScript>
 	<generated>
 	^ self

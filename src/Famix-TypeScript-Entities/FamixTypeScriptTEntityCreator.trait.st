@@ -40,13 +40,6 @@ FamixTypeScriptTEntityCreator >> newAlias [
 ]
 
 { #category : #'entity creation' }
-FamixTypeScriptTEntityCreator >> newAssociation [
-
-	<generated>
-	^ self add: FamixTypeScriptAssociation new
-]
-
-{ #category : #'entity creation' }
 FamixTypeScriptTEntityCreator >> newBehaviouralEntity [
 
 	<generated>

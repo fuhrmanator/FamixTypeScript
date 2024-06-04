@@ -37,13 +37,6 @@ FamixTypeScriptImportingContext >> importAlias [
 ]
 
 { #category : #importing }
-FamixTypeScriptImportingContext >> importAssociation [
-
-	<generated>
-	^ self importConcreteEntity: (self class fm3ClassNamed: #Association)
-]
-
-{ #category : #importing }
 FamixTypeScriptImportingContext >> importBehaviouralEntity [
 
 	<generated>
@@ -342,13 +335,6 @@ FamixTypeScriptImportingContext >> shouldImportAlias [
 
 	<generated>
 	^ self shouldImport: #Alias
-]
-
-{ #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportAssociation [
-
-	<generated>
-	^ self shouldImport: #Association
 ]
 
 { #category : #testing }
