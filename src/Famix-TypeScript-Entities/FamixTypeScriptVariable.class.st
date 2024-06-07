@@ -33,7 +33,7 @@ I represent a TypeScript variable.
 "
 Class {
 	#name : #FamixTypeScriptVariable,
-	#superclass : #FamixTypeScriptStructuralEntity,
+	#superclass : #FamixTypeScriptNamedEntity,
 	#traits : 'FamixTImportable + FamixTLocalVariable',
 	#classTraits : 'FamixTImportable classTrait + FamixTLocalVariable classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
@@ -42,7 +42,7 @@ Class {
 { #category : #meta }
 FamixTypeScriptVariable class >> annotation [
 
-	<FMClass: #Variable super: #FamixTypeScriptStructuralEntity>
+	<FMClass: #Variable super: #FamixTypeScriptNamedEntity>
 	<package: #FamixTypeScript>
 	<generated>
 	^ self

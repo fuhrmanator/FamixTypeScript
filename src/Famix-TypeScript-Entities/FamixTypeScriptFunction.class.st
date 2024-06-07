@@ -48,7 +48,7 @@ I represent a TypeScript function.
 "
 Class {
 	#name : #FamixTypeScriptFunction,
-	#superclass : #FamixTypeScriptBehaviouralEntity,
+	#superclass : #FamixTypeScriptContainerEntity,
 	#traits : 'FamixTDefinedInModule + FamixTFunction + FamixTImportable + FamixTInvocable',
 	#classTraits : 'FamixTDefinedInModule classTrait + FamixTFunction classTrait + FamixTImportable classTrait + FamixTInvocable classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
@@ -57,7 +57,7 @@ Class {
 { #category : #meta }
 FamixTypeScriptFunction class >> annotation [
 
-	<FMClass: #Function super: #FamixTypeScriptBehaviouralEntity>
+	<FMClass: #Function super: #FamixTypeScriptContainerEntity>
 	<package: #FamixTypeScript>
 	<generated>
 	^ self

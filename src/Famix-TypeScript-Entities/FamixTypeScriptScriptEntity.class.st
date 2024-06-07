@@ -25,7 +25,7 @@
 "
 Class {
 	#name : #FamixTypeScriptScriptEntity,
-	#superclass : #FamixTypeScriptScopingEntity,
+	#superclass : #FamixTypeScriptContainerEntity,
 	#traits : 'FamixTWithStatements',
 	#classTraits : 'FamixTWithStatements classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
@@ -34,7 +34,7 @@ Class {
 { #category : #meta }
 FamixTypeScriptScriptEntity class >> annotation [
 
-	<FMClass: #ScriptEntity super: #FamixTypeScriptScopingEntity>
+	<FMClass: #ScriptEntity super: #FamixTypeScriptContainerEntity>
 	<package: #FamixTypeScript>
 	<generated>
 	^ self

@@ -10,7 +10,6 @@ Class {
 		'parameterType',
 		'method',
 		'parametricMethod',
-		'structuralEntity',
 		'file',
 		'folder',
 		'indexedFileAnchor',
@@ -30,9 +29,7 @@ Class {
 		'enum',
 		'enumValue',
 		'implicitVariable',
-		'behaviouralEntity',
 		'alias',
-		'scopingEntity',
 		'scriptEntity',
 		'importClause',
 		'reference',
@@ -171,7 +168,6 @@ FamixTypeScriptGenerator >> defineClasses [
 	access := builder newClassNamed: #Access.
 	accessor := builder newClassNamed: #Accessor comment: 'I represent a TypeScript Accessor (getter or setter)'.
 	alias := builder newClassNamed: #Alias.
-	behaviouralEntity := builder newClassNamed: #BehaviouralEntity.
 	class := builder newClassNamed: #Class comment: 'I represent a TypeScript class.'.
 	class withTesting.
 	concretization := builder newClassNamed: #Concretization comment: self commentForConcretization.
@@ -190,7 +186,7 @@ FamixTypeScriptGenerator >> defineClasses [
 	parametricFunction := builder newClassNamed: #ParametricFunction comment: 'I represent a TypeScript parametric function.' .
 	implicitVariable:= builder newClassNamed: #implicitVariable comment: 'I represent a TypeScript implicit variable.'.
 	implementation := builder newClassNamed: #Implementation comment: 'I represent a TypeScript element that is an implementation of an interface.'.
-	importClause:= builder newClassNamed: #ImportClause.
+	importClause:= builder newClassNamed: #Import.
 	indexedFileAnchor := builder newClassNamed: #IndexedFileAnchor.
 	inheritance := builder newClassNamed: #Inheritance.
 	interface := builder newClassNamed: #Interface comment: 'I represent a TypeScript interface.'.
@@ -210,8 +206,6 @@ FamixTypeScriptGenerator >> defineClasses [
 	primitiveType := builder newClassNamed: #PrimitiveType comment: 'I represent a TypeScript primitive type (string, number, boolean).'.
 	reference:= builder newClassNamed: #Reference.
 	scriptEntity :=builder newClassNamed: #ScriptEntity.
-	scopingEntity:= builder newClassNamed: #ScopingEntity.
-	structuralEntity := builder newClassNamed: #StructuralEntity.
 	type := builder newClassNamed: #Type comment: 'I represent a TypeScript type.'.
 	variable := builder newClassNamed: #Variable comment: 'I represent a TypeScript variable.'.
 	variableStatement := builder newClassNamed: #VariableStatement comment: 'I represent a TypeScript variable statement.'.
@@ -232,8 +226,6 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	alias --|> namedEntity.
 	alias --|> #TImportable.
 	
-	behaviouralEntity --|> containerEntity.
-
 	class --|> type.
 	class --|> #TClass.
 	class --|> #TLCOMMetrics.
@@ -269,7 +261,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	enum --|> #TWithComments.
 	enum --|> #TImportable.
 
-	enumValue --|> structuralEntity.
+	enumValue --|> namedEntity.
 	enumValue --|> #TWithComments.
 	enumValue --|> #TEnumValue.
 
@@ -279,7 +271,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	folder --|> namedEntity.
 	folder --|> #TFolder.
 
-	function --|> behaviouralEntity.
+	function --|> containerEntity.
 	function --|> #TFunction.
 	function --|> #TDefinedInModule.
 	function --|> #TInvocable.
@@ -317,7 +309,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	
 	jsDoc --|> sourcedEntity.
 
-	method --|> behaviouralEntity.
+	method --|> containerEntity.
 	method --|> #TMethod.
 	method --|> #TCanBeAbstract.
 	method --|> #THasKind.
@@ -333,7 +325,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	module --|> #TWithImports.
 	module --|> #TImportable.
 
-	namespace --|> scopingEntity.
+	namespace --|> containerEntity.
 	namespace --|> #TNamespace. "no use (empty trait)"
 	namespace --|> #TDefinedInModule.
 	namespace --|> #TImportable.
@@ -343,7 +335,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	namedEntity --|> #TEntityMetaLevelDependency.
 	namedEntity --|> #TImportable. "Allow us abstract imported entities"
 
-	parameter --|> structuralEntity.
+	parameter --|> namedEntity.
 	parameter --|> #TParameter.
 
 	parameterType --|> type.
@@ -377,21 +369,14 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	parameterConcretization --|> #TParameterConcretization.
 
 
-	property --|> structuralEntity.
+	property --|> namedEntity.
 	property --|> #TAttribute.
 	property --|> #TCanBeClassSide.
 	property --|> #THasVisibility.
 	
-	scopingEntity --|> containerEntity.
-	scopingEntity --|> #TWithAccesses.
-	scopingEntity --|> #TWithInvocations.
-	
-	scriptEntity --|> scopingEntity.
+	scriptEntity --|> containerEntity.
 	scriptEntity --|> #TWithStatements.
 	
-	structuralEntity --|> #TStructuralEntity.
-	structuralEntity --|> namedEntity.
-
 	tWithInterfaces --|> #TWithTypes.
 
 	type --|> containerEntity.
@@ -400,7 +385,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	type --|> #TWithMethods.
 	type --|> #TImportable.
 	
-	variable --|> structuralEntity.
+	variable --|> namedEntity.
 	variable --|> #TLocalVariable.
 	variable --|> #TImportable.
 

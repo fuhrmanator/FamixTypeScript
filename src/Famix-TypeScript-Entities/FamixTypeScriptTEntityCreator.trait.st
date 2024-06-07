@@ -40,13 +40,6 @@ FamixTypeScriptTEntityCreator >> newAlias [
 ]
 
 { #category : #'entity creation' }
-FamixTypeScriptTEntityCreator >> newBehaviouralEntity [
-
-	<generated>
-	^ self add: FamixTypeScriptBehaviouralEntity new
-]
-
-{ #category : #'entity creation' }
 FamixTypeScriptTEntityCreator >> newClass [
 
 	<generated>
@@ -152,10 +145,10 @@ FamixTypeScriptTEntityCreator >> newImplementation [
 ]
 
 { #category : #'entity creation' }
-FamixTypeScriptTEntityCreator >> newImportClause [
+FamixTypeScriptTEntityCreator >> newImport [
 
 	<generated>
-	^ self add: FamixTypeScriptImportClause new
+	^ self add: FamixTypeScriptImport new
 ]
 
 { #category : #'entity creation' }
@@ -327,13 +320,6 @@ FamixTypeScriptTEntityCreator >> newReference [
 ]
 
 { #category : #'entity creation' }
-FamixTypeScriptTEntityCreator >> newScopingEntity [
-
-	<generated>
-	^ self add: FamixTypeScriptScopingEntity new
-]
-
-{ #category : #'entity creation' }
 FamixTypeScriptTEntityCreator >> newScriptEntity [
 
 	<generated>
@@ -352,20 +338,6 @@ FamixTypeScriptTEntityCreator >> newSourceTextAnchor [
 
 	<generated>
 	^ self add: FamixTypeScriptSourceTextAnchor new
-]
-
-{ #category : #'entity creation' }
-FamixTypeScriptTEntityCreator >> newStructuralEntity [
-
-	<generated>
-	^ self add: FamixTypeScriptStructuralEntity new
-]
-
-{ #category : #'entity creation' }
-FamixTypeScriptTEntityCreator >> newStructuralEntityNamed: aName [
-
-	<generated>
-	^ self add: (FamixTypeScriptStructuralEntity named: aName)
 ]
 
 { #category : #'entity creation' }

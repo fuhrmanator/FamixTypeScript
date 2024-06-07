@@ -34,7 +34,7 @@ I represent a TypeScript class property.
 "
 Class {
 	#name : #FamixTypeScriptProperty,
-	#superclass : #FamixTypeScriptStructuralEntity,
+	#superclass : #FamixTypeScriptNamedEntity,
 	#traits : 'FamixTAttribute + FamixTCanBeClassSide + FamixTHasVisibility',
 	#classTraits : 'FamixTAttribute classTrait + FamixTCanBeClassSide classTrait + FamixTHasVisibility classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
@@ -43,7 +43,7 @@ Class {
 { #category : #meta }
 FamixTypeScriptProperty class >> annotation [
 
-	<FMClass: #Property super: #FamixTypeScriptStructuralEntity>
+	<FMClass: #Property super: #FamixTypeScriptNamedEntity>
 	<package: #FamixTypeScript>
 	<generated>
 	^ self

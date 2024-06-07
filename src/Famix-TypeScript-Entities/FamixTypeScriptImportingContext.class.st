@@ -37,13 +37,6 @@ FamixTypeScriptImportingContext >> importAlias [
 ]
 
 { #category : #importing }
-FamixTypeScriptImportingContext >> importBehaviouralEntity [
-
-	<generated>
-	^ self importConcreteEntity: (self class fm3ClassNamed: #BehaviouralEntity)
-]
-
-{ #category : #importing }
 FamixTypeScriptImportingContext >> importClass [
 
 	<generated>
@@ -121,10 +114,10 @@ FamixTypeScriptImportingContext >> importImplementation [
 ]
 
 { #category : #importing }
-FamixTypeScriptImportingContext >> importImportClause [
+FamixTypeScriptImportingContext >> importImport [
 
 	<generated>
-	^ self importAssociation: (self class fm3ClassNamed: #ImportClause)
+	^ self importAssociation: (self class fm3ClassNamed: #Import)
 ]
 
 { #category : #importing }
@@ -254,13 +247,6 @@ FamixTypeScriptImportingContext >> importReference [
 ]
 
 { #category : #importing }
-FamixTypeScriptImportingContext >> importScopingEntity [
-
-	<generated>
-	^ self importConcreteEntity: (self class fm3ClassNamed: #ScopingEntity)
-]
-
-{ #category : #importing }
 FamixTypeScriptImportingContext >> importScriptEntity [
 
 	<generated>
@@ -279,13 +265,6 @@ FamixTypeScriptImportingContext >> importSourceTextAnchor [
 
 	<generated>
 	^ self importConcreteEntity: (self class fm3ClassNamed: #SourceTextAnchor)
-]
-
-{ #category : #importing }
-FamixTypeScriptImportingContext >> importStructuralEntity [
-
-	<generated>
-	^ self importConcreteEntity: (self class fm3ClassNamed: #StructuralEntity)
 ]
 
 { #category : #importing }
@@ -335,13 +314,6 @@ FamixTypeScriptImportingContext >> shouldImportAlias [
 
 	<generated>
 	^ self shouldImport: #Alias
-]
-
-{ #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportBehaviouralEntity [
-
-	<generated>
-	^ self shouldImport: #BehaviouralEntity
 ]
 
 { #category : #testing }
@@ -422,10 +394,10 @@ FamixTypeScriptImportingContext >> shouldImportImplementation [
 ]
 
 { #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportImportClause [
+FamixTypeScriptImportingContext >> shouldImportImport [
 
 	<generated>
-	^ self shouldImport: #ImportClause
+	^ self shouldImport: #Import
 ]
 
 { #category : #testing }
@@ -555,13 +527,6 @@ FamixTypeScriptImportingContext >> shouldImportReference [
 ]
 
 { #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportScopingEntity [
-
-	<generated>
-	^ self shouldImport: #ScopingEntity
-]
-
-{ #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportScriptEntity [
 
 	<generated>
@@ -580,13 +545,6 @@ FamixTypeScriptImportingContext >> shouldImportSourceTextAnchor [
 
 	<generated>
 	^ self shouldImport: #SourceTextAnchor
-]
-
-{ #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportStructuralEntity [
-
-	<generated>
-	^ self shouldImport: #StructuralEntity
 ]
 
 { #category : #testing }
