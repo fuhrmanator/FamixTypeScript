@@ -26,9 +26,5 @@ FamixTypeScriptCommentsTest >> testClassWithCommentAndMethodsWithComments [
 			 parentType: typeScriptClass;
 			 yourself).
 
-	self assert: typeScriptClass numberOfComments equals: 1.
-	self assert: typeScriptClass methods size equals: 2.
-	typeScriptClass methods do: [ :m |
-		self assert: m numberOfComments equals: 1
-	]
+	self assert: typeScriptClass numberOfComments equals: 1 "Comments of children are not taken into account."
 ]

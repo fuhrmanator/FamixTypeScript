@@ -65,3 +65,11 @@ FamixTypeScriptMethod class >> annotation [
 	<generated>
 	^ self
 ]
+
+{ #category : #accessing }
+FamixTypeScriptMethod >> overriddenMethod [
+
+	^ (self parentType superclass ifNotNil: [ :superclass |
+		   superclass lookUp: self signature ]) ifNil: [
+		  self parentType lookUpInInterfaces: self signature ]
+]

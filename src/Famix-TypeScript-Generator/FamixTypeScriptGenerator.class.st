@@ -237,6 +237,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	class --|> #TImportable.
 	class --|> #TWithAccesses.
 	class --|> #TWithInvocations.
+	class --|> #TCanBeClassSide.
 	"The following come from #TClass"
 	"class --|> #TWithMethods.
 	class --|> #TWithInheritances.

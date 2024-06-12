@@ -72,3 +72,13 @@ FamixTypeScriptClass >> isClass [
 	<generated>
 	^ true
 ]
+
+{ #category : #adding }
+FamixTypeScriptClass >> lookUpInInterfaces: aMethodSignature [
+
+	self allImplementedInterfacesHierarchyDo: [ :interface |
+		(interface lookUp: aMethodSignature) ifNotNil: [ :method | ^ method ] ].
+
+	^ self superclass ifNotNil: [ :superclass |
+		  superclass lookUpInInterfaces: aMethodSignature ]
+]
