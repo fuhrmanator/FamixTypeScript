@@ -42,6 +42,7 @@ I represent a TypeScript method.
 | Name | Type | Default value | Comment |
 |---|
 | `isAbstract` | `Boolean` | false | Entity can be declared abstract|
+| `isClassSide` | `Boolean` | false | Entity can be declared class side i.e. static|
 | `isStub` | `Boolean` | false | Flag true if the entity attributes are incomplete, either because the entity is missing or not imported.|
 | `kind` | `String` | nil | Tag indicating a setter, getter, constant, constructor method|
 | `name` | `String` | nil | Basic name of the entity, not full reference.|
@@ -52,8 +53,8 @@ I represent a TypeScript method.
 Class {
 	#name : #FamixTypeScriptMethod,
 	#superclass : #FamixTypeScriptContainerEntity,
-	#traits : 'FamixTCanBeAbstract + FamixTHasKind + FamixTHasVisibility + FamixTMethod + FamixTWithComments',
-	#classTraits : 'FamixTCanBeAbstract classTrait + FamixTHasKind classTrait + FamixTHasVisibility classTrait + FamixTMethod classTrait + FamixTWithComments classTrait',
+	#traits : 'FamixTCanBeAbstract + FamixTCanBeClassSide + FamixTHasKind + FamixTHasVisibility + FamixTMethod + FamixTWithComments',
+	#classTraits : 'FamixTCanBeAbstract classTrait + FamixTCanBeClassSide classTrait + FamixTHasKind classTrait + FamixTHasVisibility classTrait + FamixTMethod classTrait + FamixTWithComments classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 
@@ -66,7 +67,7 @@ FamixTypeScriptMethod class >> annotation [
 	^ self
 ]
 
-{ #category : #accessing }
+{ #category : #private }
 FamixTypeScriptMethod >> overriddenMethod [
 
 	^ (self parentType superclass ifNotNil: [ :superclass |

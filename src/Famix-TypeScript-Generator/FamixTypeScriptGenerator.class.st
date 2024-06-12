@@ -237,7 +237,6 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	class --|> #TImportable.
 	class --|> #TWithAccesses.
 	class --|> #TWithInvocations.
-	class --|> #TCanBeClassSide.
 	"The following come from #TClass"
 	"class --|> #TWithMethods.
 	class --|> #TWithInheritances.
@@ -316,6 +315,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	method --|> #THasKind.
 	method --|> #THasVisibility.
 	method --|> #TWithComments.
+	method --|> #TCanBeClassSide.
 	
 	parametricMethod --|> method.
 	parametricMethod --|> #TParametricEntity.
