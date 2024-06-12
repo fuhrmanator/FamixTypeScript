@@ -2,6 +2,7 @@ Class {
 	#name : #FamixTypeScriptGenerator,
 	#superclass : #FamixBasicInfrastructureGenerator,
 	#instVars : [
+		'attribute',
 		'access',
 		'class',
 		'type',
@@ -168,6 +169,7 @@ FamixTypeScriptGenerator >> defineClasses [
 	access := builder newClassNamed: #Access.
 	accessor := builder newClassNamed: #Accessor comment: 'I represent a TypeScript Accessor (getter or setter)'.
 	alias := builder newClassNamed: #Alias.
+	attribute := builder newClassNamed: #Attribute.
 	class := builder newClassNamed: #Class comment: 'I represent a TypeScript class.'.
 	class withTesting.
 	concretization := builder newClassNamed: #Concretization comment: self commentForConcretization.
@@ -393,6 +395,14 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	variableStatement --|> type.  "Maël added"
 	
 	parameterType --|> #TWithInheritances.
+	
+	attribute --|> namedEntity.
+	attribute --|> #TAttribute.
+	attribute --|> #TCanBeFinal.
+	attribute --|> #THasVisibility.
+	attribute --|> #TInvocationsReceiver.
+	attribute --|> #TWithComments.
+	attribute --|> #TCanBeClassSide.
 ]
 
 { #category : #definition }

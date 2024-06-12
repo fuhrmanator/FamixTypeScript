@@ -37,6 +37,13 @@ FamixTypeScriptImportingContext >> importAlias [
 ]
 
 { #category : #importing }
+FamixTypeScriptImportingContext >> importAttribute [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #Attribute)
+]
+
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importClass [
 
 	<generated>
@@ -314,6 +321,13 @@ FamixTypeScriptImportingContext >> shouldImportAlias [
 
 	<generated>
 	^ self shouldImport: #Alias
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportAttribute [
+
+	<generated>
+	^ self shouldImport: #Attribute
 ]
 
 { #category : #testing }
