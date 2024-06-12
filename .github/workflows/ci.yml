@@ -54,7 +54,8 @@ jobs:
           mv *.puml doc-uml
           
       - name: Push docs to current branch
-        if: success()
+        # do not try if it's a PR, since GitHub Actions checks out the code in a detached state
+        if: github.event_name == 'push'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
