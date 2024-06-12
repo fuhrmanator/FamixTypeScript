@@ -72,3 +72,11 @@ FamixTypeScriptMethod >> isSetter [
 FamixTypeScriptMethod >> isStub [
 	^ super isStub or: [ self parentType isNotNil and: [ self parentType isStub ] ]
 ]
+
+{ #category : #'*Famix-TypeScript-Extensions' }
+FamixTypeScriptMethod >> overriddenMethod [
+
+	^ (self parentType superclass ifNotNil: [ :superclass |
+		   superclass lookUp: self signature ]) ifNil: [
+		  self parentType lookUpInInterfaces: self signature ]
+]
