@@ -18,19 +18,20 @@ FamixTypeScriptParametricTest >> setUp [
 { #category : #tests }
 FamixTypeScriptParametricTest >> test1 [
 	"testMethod(list: Array<any>): Array<any>{}"
+	"testFunction(list: Array<any>): Array<any>{}"
 
-	| method parameter list function |
+	| method parameter list function parameterConcretisation |
 	method := FamixTypeScriptParametricMethod new name: 'testMethod'.
 	function := FamixTypeScriptParametricFunction new name: 'testFunction'.
 	parameter := FamixTypeScriptParameter new name: 'list'.
-	list := FamixTypeScriptParametricClass new name: 'List'.
-	list addConcreteParameter: (FamixTypeScriptType new name: 'Object').
+	list := FamixTypeScriptParametricClass new name: 'Array'.
+	parameterConcretisation := FamixTypeScriptType new name: 'any'.
+	list addConcreteParameter: parameterConcretisation.
 	parameter declaredType: list.
 	method addParameter: parameter.
 	method declaredType: list.
 	function addParameter: parameter.
-	function declaredType: list.
-	
+	function declaredType: list.	
 	
 ]
 
@@ -39,19 +40,20 @@ FamixTypeScriptParametricTest >> test2 [
 	"genericMethod<T extends Building>(t: T): T"
 	"function genericFunction<T extends Building>(t: T): T"
 
-	| m p return f |
+	| m p return f parameterType |
 	m := FamixTypeScriptParametricMethod new name: 'genericMethod'.
-	f := FamixTypeScriptParametricFunction new name: 'testFunction'.
+	f := FamixTypeScriptParametricFunction new name: 'genericFunction'.
 	p := FamixTypeScriptParameter new name: 't'.
-	p declaredType: (FamixTypeScriptParameterType named: 'T').
+	parameterType := FamixTypeScriptParameterType named: 'T'.
+	p declaredType: parameterType.
 	m addParameter: p.
 	f addParameter: p.
-	return := FamixTypeScriptParameterType named: 'T'.
+	return := parameterType.
 	FamixTypeScriptInheritance new
 		subclass: return;
 		superclass: (FamixTypeScriptClass new name: 'Building').
 	m declaredType: return.
-	f declaredType: return.	
+	f declaredType: return.
 ]
 
 { #category : #tests }
