@@ -174,7 +174,7 @@ FamixTypeScriptGenerator >> defineClasses [
 	accessor := builder newClassNamed: #Accessor comment: 'I represent a TypeScript Accessor (getter or setter)'.
 	alias := builder newClassNamed: #Alias.
 	attribute := builder newClassNamed: #Attribute.
-	behaviouralEntity := builder newClassNamed: #BehaviouralEntity.
+	behaviouralEntity := builder newClassNamed: #BehaviouralEntity comment: 'I represent an abstraction of various entities that have behavior.'.
 	class := builder newClassNamed: #Class comment: 'I represent a TypeScript class.'.
 	class withTesting.
 	concretization := builder newClassNamed: #Concretization comment: self commentForConcretization.
@@ -183,8 +183,8 @@ FamixTypeScriptGenerator >> defineClasses [
 	"This definition concerns stage 2 decorators: https://www.typescriptlang.org/docs/handbook/decorators.html"
 	decorator:= builder newClassNamed: #Decorator comment: 'I represent a TypeScript Decorator'.
 
-	enum := builder newClassNamed: #Enum comment: 'Typescript enumerated type'.
-	enumValue := builder newClassNamed: #EnumValue comment: 'One value (constant) in a Typescript enumerated type'.
+	enum := builder newClassNamed: #Enum comment: 'I represent a Typescript enumerated type'.
+	enumValue := builder newClassNamed: #EnumValue comment: 'I represent One value (constant) in a Typescript enumerated type'.
 
 	property := builder newClassNamed: #Property comment: 'I represent a TypeScript class property.'.
 	file := builder newClassNamed: #File.
@@ -203,14 +203,13 @@ FamixTypeScriptGenerator >> defineClasses [
 	invocation := builder newClassNamed: #Invocation.
 	jsDoc := builder newClassNamed: #JSDoc comment: 'I represent a TypeScript (JavaScript) Doc element.'.
 	method := builder newClassNamed: #Method comment: 'I represent a TypeScript method.'.
-	parametricMethod := builder newClassNamed: #ParametricMethod comment: 'I represent a TypeScript parametric Method.'. .
+	parametricMethod := builder newClassNamed: #ParametricMethod comment: 'I represent a TypeScript parametric Method.'.
 	module := builder newClassNamed: #Module.
 	namespace := builder newClassNamed: #Namespace.
 	parameter := builder newClassNamed: #Parameter.
 	parametricClass := builder newClassNamed: #ParametricClass.
 	parameterConcretization := builder newClassNamed: #ParameterConcretization  comment: self commentForParameterConcretization. 
 	parametricInterface := builder newClassNamed: #ParametricInterface.
-	"parameterizedType := builder newClassNamed: #ParameterizedType."
 	parameterType := builder newClassNamed: #ParameterType.
 	primitiveType := builder newClassNamed: #PrimitiveType comment: 'I represent a TypeScript primitive type (string, number, boolean).'.
 	reference:= builder newClassNamed: #Reference.
@@ -237,8 +236,6 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	alias --|> #TImportable.
 	
 	behaviouralEntity --|> containerEntity.
-	behaviouralEntity --|> #TWithParameters.
-	behaviouralEntity --|> #TTypedEntity.
 
 	class --|> type.
 	class --|> #TClass.
@@ -303,7 +300,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	parametricArrowFunction --|> arrowFunction.
 	parametricArrowFunction  --|> #TParametricEntity. 
 
-	implicitVariable --|>variable.
+	implicitVariable --|> variable.
 	
 	importClause --|> #TImport.
 	
@@ -311,12 +308,10 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	indexedFileAnchor --|> #TIndexedFileNavigation.
 	
 	interface --|> type.
-	"interface --|> #TPackageable."
 	interface --|> #TWithMethods.
 	interface --|> #TWithInheritances.
 	interface --|> #TWithAttributes.
 	interface --|> #TInvocationsReceiver.
-	"interface --|> #TCanBeFinal."
 	"interface --|> #THasVisibility." "classes in modules/namespaces can't be declared private/public"
 	interface --|> #TWithComments.
 	interface --|> #TImplementable.
@@ -344,7 +339,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	parametricMethod --|> #TParametricEntity.
 
 	"Module"
-	module --|>scriptEntity.
+	module --|> scriptEntity.
 	module --|> #TWithLocalVariables. "var can have module scope"
 	module --|> #TWithImports.
 	module --|> #TImportable.
@@ -363,7 +358,6 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	parameter --|> #TParameter.
 
 	parameterType --|> type.
-	"parameterType --|> #TParameterType."
 	parameterType --|> #TGenericParameterType.
 	
 	parametricClass --|> class.
@@ -391,7 +385,6 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	concretization --|> #TConcretization.
 
 	parameterConcretization --|> #TParameterConcretization.
-
 
 	property --|> structuralEntity.
 	property --|> #TAttribute.

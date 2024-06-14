@@ -1,5 +1,5 @@
 "
-One value (constant) in a Typescript enumerated type
+I represent One value (constant) in a Typescript enumerated type
 
 ## Relations
 ======================

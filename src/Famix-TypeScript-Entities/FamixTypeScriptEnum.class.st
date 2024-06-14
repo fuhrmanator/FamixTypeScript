@@ -1,5 +1,5 @@
 "
-Typescript enumerated type
+I represent a Typescript enumerated type
 
 ## Relations
 ======================
