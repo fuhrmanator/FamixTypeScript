@@ -237,6 +237,8 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	alias --|> #TImportable.
 	
 	behaviouralEntity --|> containerEntity.
+	behaviouralEntity --|> #TWithParameters.
+	behaviouralEntity --|> #TTypedEntity.
 
 	class --|> type.
 	class --|> #TClass.
