@@ -29,7 +29,7 @@
 
 "
 Class {
-	#name : #FamixTypeScriptImport,
+	#name : #FamixTypeScriptImportClause,
 	#superclass : #FamixTypeScriptEntity,
 	#traits : 'FamixTImport',
 	#classTraits : 'FamixTImport classTrait',
@@ -37,9 +37,9 @@ Class {
 }
 
 { #category : #meta }
-FamixTypeScriptImport class >> annotation [
+FamixTypeScriptImportClause class >> annotation [
 
-	<FMClass: #Import super: #FamixTypeScriptEntity>
+	<FMClass: #ImportClause super: #FamixTypeScriptEntity>
 	<package: #FamixTypeScript>
 	<generated>
 	^ self

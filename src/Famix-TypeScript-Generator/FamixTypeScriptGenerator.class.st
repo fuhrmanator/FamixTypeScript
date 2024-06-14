@@ -2,8 +2,8 @@ Class {
 	#name : #FamixTypeScriptGenerator,
 	#superclass : #FamixBasicInfrastructureGenerator,
 	#instVars : [
-		'attribute',
 		'access',
+		'attribute',
 		'class',
 		'type',
 		'namespace',
@@ -11,12 +11,15 @@ Class {
 		'parameterType',
 		'method',
 		'parametricMethod',
+		'structuralEntity',
 		'file',
 		'folder',
 		'indexedFileAnchor',
 		'invocation',
 		'function',
 		'parametricFunction',
+		'arrowFunction',
+		'parametricArrowFunction',
 		'inheritance',
 		'module',
 		'containerEntity',
@@ -30,13 +33,14 @@ Class {
 		'enum',
 		'enumValue',
 		'implicitVariable',
+		'behaviouralEntity',
 		'alias',
+		'scopingEntity',
 		'scriptEntity',
 		'importClause',
 		'reference',
 		'accessor',
 		'property',
-		'variableStatement',
 		'jsDoc',
 		'parametricClass',
 		'parametricInterface',
@@ -170,6 +174,7 @@ FamixTypeScriptGenerator >> defineClasses [
 	accessor := builder newClassNamed: #Accessor comment: 'I represent a TypeScript Accessor (getter or setter)'.
 	alias := builder newClassNamed: #Alias.
 	attribute := builder newClassNamed: #Attribute.
+	behaviouralEntity := builder newClassNamed: #BehaviouralEntity.
 	class := builder newClassNamed: #Class comment: 'I represent a TypeScript class.'.
 	class withTesting.
 	concretization := builder newClassNamed: #Concretization comment: self commentForConcretization.
@@ -186,9 +191,11 @@ FamixTypeScriptGenerator >> defineClasses [
 	folder := builder newClassNamed: #Folder.
 	function := builder newClassNamed: #Function comment: 'I represent a TypeScript function.'.
 	parametricFunction := builder newClassNamed: #ParametricFunction comment: 'I represent a TypeScript parametric function.' .
+	arrowFunction := builder newClassNamed: #ArrowFunction comment: 'I represent a TypeScript arrow function.'. 
+	parametricArrowFunction := builder newClassNamed: #ParametricArrowFunction comment: 'I represent a TypeScript parametric arrow function.' .
 	implicitVariable:= builder newClassNamed: #implicitVariable comment: 'I represent a TypeScript implicit variable.'.
 	implementation := builder newClassNamed: #Implementation comment: 'I represent a TypeScript element that is an implementation of an interface.'.
-	importClause:= builder newClassNamed: #Import.
+	importClause:= builder newClassNamed: #ImportClause.
 	indexedFileAnchor := builder newClassNamed: #IndexedFileAnchor.
 	inheritance := builder newClassNamed: #Inheritance.
 	interface := builder newClassNamed: #Interface comment: 'I represent a TypeScript interface.'.
@@ -208,9 +215,10 @@ FamixTypeScriptGenerator >> defineClasses [
 	primitiveType := builder newClassNamed: #PrimitiveType comment: 'I represent a TypeScript primitive type (string, number, boolean).'.
 	reference:= builder newClassNamed: #Reference.
 	scriptEntity :=builder newClassNamed: #ScriptEntity.
+	scopingEntity:= builder newClassNamed: #ScopingEntity.
+	structuralEntity := builder newClassNamed: #StructuralEntity.
 	type := builder newClassNamed: #Type comment: 'I represent a TypeScript type.'.
 	variable := builder newClassNamed: #Variable comment: 'I represent a TypeScript variable.'.
-	variableStatement := builder newClassNamed: #VariableStatement comment: 'I represent a TypeScript variable statement.'.
 	
 	primitiveType withTesting.
 	"self defineComments."
@@ -228,6 +236,8 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	alias --|> namedEntity.
 	alias --|> #TImportable.
 	
+	behaviouralEntity --|> containerEntity.
+
 	class --|> type.
 	class --|> #TClass.
 	class --|> #TLCOMMetrics.
@@ -263,7 +273,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	enum --|> #TWithComments.
 	enum --|> #TImportable.
 
-	enumValue --|> namedEntity.
+	enumValue --|> structuralEntity.
 	enumValue --|> #TWithComments.
 	enumValue --|> #TEnumValue.
 
@@ -273,7 +283,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	folder --|> namedEntity.
 	folder --|> #TFolder.
 
-	function --|> containerEntity.
+	function --|> behaviouralEntity.
 	function --|> #TFunction.
 	function --|> #TDefinedInModule.
 	function --|> #TInvocable.
@@ -281,6 +291,15 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	
 	parametricFunction --|> function.
 	parametricFunction --|> #TParametricEntity. 
+	
+	arrowFunction --|> behaviouralEntity.
+	arrowFunction --|> #TFunction.
+	arrowFunction --|> #TDefinedInModule.
+	arrowFunction --|> #TInvocable.
+	arrowFunction --|> #TImportable.
+	
+	parametricArrowFunction --|> arrowFunction.
+	parametricArrowFunction  --|> #TParametricEntity. 
 
 	implicitVariable --|>variable.
 	
@@ -311,7 +330,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	
 	jsDoc --|> sourcedEntity.
 
-	method --|> containerEntity.
+	method --|> behaviouralEntity.
 	method --|> #TMethod.
 	method --|> #TCanBeAbstract.
 	method --|> #THasKind.
@@ -328,7 +347,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	module --|> #TWithImports.
 	module --|> #TImportable.
 
-	namespace --|> containerEntity.
+	namespace --|> scopingEntity.
 	namespace --|> #TNamespace. "no use (empty trait)"
 	namespace --|> #TDefinedInModule.
 	namespace --|> #TImportable.
@@ -338,7 +357,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	namedEntity --|> #TEntityMetaLevelDependency.
 	namedEntity --|> #TImportable. "Allow us abstract imported entities"
 
-	parameter --|> namedEntity.
+	parameter --|> structuralEntity.
 	parameter --|> #TParameter.
 
 	parameterType --|> type.
@@ -372,14 +391,21 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	parameterConcretization --|> #TParameterConcretization.
 
 
-	property --|> namedEntity.
+	property --|> structuralEntity.
 	property --|> #TAttribute.
 	property --|> #TCanBeClassSide.
 	property --|> #THasVisibility.
 	
-	scriptEntity --|> containerEntity.
+	scopingEntity --|> containerEntity.
+	scopingEntity --|> #TWithAccesses.
+	scopingEntity --|> #TWithInvocations.
+	
+	scriptEntity --|> scopingEntity.
 	scriptEntity --|> #TWithStatements.
 	
+	structuralEntity --|> #TStructuralEntity.
+	structuralEntity --|> namedEntity.
+
 	tWithInterfaces --|> #TWithTypes.
 
 	type --|> containerEntity.
@@ -388,12 +414,10 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	type --|> #TWithMethods.
 	type --|> #TImportable.
 	
-	variable --|> namedEntity.
+	variable --|> structuralEntity.
 	variable --|> #TLocalVariable.
 	variable --|> #TImportable.
 
-	variableStatement --|> type.  "Maël added"
-	
 	parameterType --|> #TWithInheritances.
 	
 	attribute --|> namedEntity.

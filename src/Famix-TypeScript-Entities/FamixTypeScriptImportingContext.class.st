@@ -37,10 +37,24 @@ FamixTypeScriptImportingContext >> importAlias [
 ]
 
 { #category : #importing }
+FamixTypeScriptImportingContext >> importArrowFunction [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #ArrowFunction)
+]
+
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importAttribute [
 
 	<generated>
 	^ self importConcreteEntity: (self class fm3ClassNamed: #Attribute)
+]
+
+{ #category : #importing }
+FamixTypeScriptImportingContext >> importBehaviouralEntity [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #BehaviouralEntity)
 ]
 
 { #category : #importing }
@@ -121,10 +135,10 @@ FamixTypeScriptImportingContext >> importImplementation [
 ]
 
 { #category : #importing }
-FamixTypeScriptImportingContext >> importImport [
+FamixTypeScriptImportingContext >> importImportClause [
 
 	<generated>
-	^ self importAssociation: (self class fm3ClassNamed: #Import)
+	^ self importAssociation: (self class fm3ClassNamed: #ImportClause)
 ]
 
 { #category : #importing }
@@ -205,6 +219,13 @@ FamixTypeScriptImportingContext >> importParameterType [
 ]
 
 { #category : #importing }
+FamixTypeScriptImportingContext >> importParametricArrowFunction [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #ParametricArrowFunction)
+]
+
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importParametricClass [
 
 	<generated>
@@ -254,6 +275,13 @@ FamixTypeScriptImportingContext >> importReference [
 ]
 
 { #category : #importing }
+FamixTypeScriptImportingContext >> importScopingEntity [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #ScopingEntity)
+]
+
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importScriptEntity [
 
 	<generated>
@@ -275,6 +303,13 @@ FamixTypeScriptImportingContext >> importSourceTextAnchor [
 ]
 
 { #category : #importing }
+FamixTypeScriptImportingContext >> importStructuralEntity [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #StructuralEntity)
+]
+
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importType [
 
 	<generated>
@@ -286,13 +321,6 @@ FamixTypeScriptImportingContext >> importVariable [
 
 	<generated>
 	^ self importConcreteEntity: (self class fm3ClassNamed: #Variable)
-]
-
-{ #category : #importing }
-FamixTypeScriptImportingContext >> importVariableStatement [
-
-	<generated>
-	^ self importConcreteEntity: (self class fm3ClassNamed: #VariableStatement)
 ]
 
 { #category : #importing }
@@ -324,10 +352,24 @@ FamixTypeScriptImportingContext >> shouldImportAlias [
 ]
 
 { #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportArrowFunction [
+
+	<generated>
+	^ self shouldImport: #ArrowFunction
+]
+
+{ #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportAttribute [
 
 	<generated>
 	^ self shouldImport: #Attribute
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportBehaviouralEntity [
+
+	<generated>
+	^ self shouldImport: #BehaviouralEntity
 ]
 
 { #category : #testing }
@@ -408,10 +450,10 @@ FamixTypeScriptImportingContext >> shouldImportImplementation [
 ]
 
 { #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportImport [
+FamixTypeScriptImportingContext >> shouldImportImportClause [
 
 	<generated>
-	^ self shouldImport: #Import
+	^ self shouldImport: #ImportClause
 ]
 
 { #category : #testing }
@@ -492,6 +534,13 @@ FamixTypeScriptImportingContext >> shouldImportParameterType [
 ]
 
 { #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportParametricArrowFunction [
+
+	<generated>
+	^ self shouldImport: #ParametricArrowFunction
+]
+
+{ #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportParametricClass [
 
 	<generated>
@@ -541,6 +590,13 @@ FamixTypeScriptImportingContext >> shouldImportReference [
 ]
 
 { #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportScopingEntity [
+
+	<generated>
+	^ self shouldImport: #ScopingEntity
+]
+
+{ #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportScriptEntity [
 
 	<generated>
@@ -562,6 +618,13 @@ FamixTypeScriptImportingContext >> shouldImportSourceTextAnchor [
 ]
 
 { #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportStructuralEntity [
+
+	<generated>
+	^ self shouldImport: #StructuralEntity
+]
+
+{ #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportType [
 
 	<generated>
@@ -573,13 +636,6 @@ FamixTypeScriptImportingContext >> shouldImportVariable [
 
 	<generated>
 	^ self shouldImport: #Variable
-]
-
-{ #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportVariableStatement [
-
-	<generated>
-	^ self shouldImport: #VariableStatement
 ]
 
 { #category : #testing }

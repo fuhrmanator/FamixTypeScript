@@ -40,6 +40,20 @@ FamixTypeScriptTEntityCreator >> newAlias [
 ]
 
 { #category : #'entity creation' }
+FamixTypeScriptTEntityCreator >> newArrowFunction [
+
+	<generated>
+	^ self add: FamixTypeScriptArrowFunction new
+]
+
+{ #category : #'entity creation' }
+FamixTypeScriptTEntityCreator >> newArrowFunctionNamed: aName [
+
+	<generated>
+	^ self add: (FamixTypeScriptArrowFunction named: aName)
+]
+
+{ #category : #'entity creation' }
 FamixTypeScriptTEntityCreator >> newAttribute [
 
 	<generated>
@@ -51,6 +65,13 @@ FamixTypeScriptTEntityCreator >> newAttributeNamed: aName [
 
 	<generated>
 	^ self add: (FamixTypeScriptAttribute named: aName)
+]
+
+{ #category : #'entity creation' }
+FamixTypeScriptTEntityCreator >> newBehaviouralEntity [
+
+	<generated>
+	^ self add: FamixTypeScriptBehaviouralEntity new
 ]
 
 { #category : #'entity creation' }
@@ -159,10 +180,10 @@ FamixTypeScriptTEntityCreator >> newImplementation [
 ]
 
 { #category : #'entity creation' }
-FamixTypeScriptTEntityCreator >> newImport [
+FamixTypeScriptTEntityCreator >> newImportClause [
 
 	<generated>
-	^ self add: FamixTypeScriptImport new
+	^ self add: FamixTypeScriptImportClause new
 ]
 
 { #category : #'entity creation' }
@@ -271,6 +292,13 @@ FamixTypeScriptTEntityCreator >> newParameterTypeNamed: aName [
 ]
 
 { #category : #'entity creation' }
+FamixTypeScriptTEntityCreator >> newParametricArrowFunction [
+
+	<generated>
+	^ self add: FamixTypeScriptParametricArrowFunction new
+]
+
+{ #category : #'entity creation' }
 FamixTypeScriptTEntityCreator >> newParametricClass [
 
 	<generated>
@@ -334,6 +362,13 @@ FamixTypeScriptTEntityCreator >> newReference [
 ]
 
 { #category : #'entity creation' }
+FamixTypeScriptTEntityCreator >> newScopingEntity [
+
+	<generated>
+	^ self add: FamixTypeScriptScopingEntity new
+]
+
+{ #category : #'entity creation' }
 FamixTypeScriptTEntityCreator >> newScriptEntity [
 
 	<generated>
@@ -352,6 +387,20 @@ FamixTypeScriptTEntityCreator >> newSourceTextAnchor [
 
 	<generated>
 	^ self add: FamixTypeScriptSourceTextAnchor new
+]
+
+{ #category : #'entity creation' }
+FamixTypeScriptTEntityCreator >> newStructuralEntity [
+
+	<generated>
+	^ self add: FamixTypeScriptStructuralEntity new
+]
+
+{ #category : #'entity creation' }
+FamixTypeScriptTEntityCreator >> newStructuralEntityNamed: aName [
+
+	<generated>
+	^ self add: (FamixTypeScriptStructuralEntity named: aName)
 ]
 
 { #category : #'entity creation' }
@@ -380,13 +429,6 @@ FamixTypeScriptTEntityCreator >> newVariableNamed: aName [
 
 	<generated>
 	^ self add: (FamixTypeScriptVariable named: aName)
-]
-
-{ #category : #'entity creation' }
-FamixTypeScriptTEntityCreator >> newVariableStatement [
-
-	<generated>
-	^ self add: FamixTypeScriptVariableStatement new
 ]
 
 { #category : #'entity creation' }

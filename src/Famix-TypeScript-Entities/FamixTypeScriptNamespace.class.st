@@ -29,7 +29,7 @@
 "
 Class {
 	#name : #FamixTypeScriptNamespace,
-	#superclass : #FamixTypeScriptContainerEntity,
+	#superclass : #FamixTypeScriptScopingEntity,
 	#traits : 'FamixTDefinedInModule + FamixTImportable + FamixTNamespace',
 	#classTraits : 'FamixTDefinedInModule classTrait + FamixTImportable classTrait + FamixTNamespace classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
@@ -38,7 +38,7 @@ Class {
 { #category : #meta }
 FamixTypeScriptNamespace class >> annotation [
 
-	<FMClass: #Namespace super: #FamixTypeScriptContainerEntity>
+	<FMClass: #Namespace super: #FamixTypeScriptScopingEntity>
 	<package: #FamixTypeScript>
 	<generated>
 	^ self

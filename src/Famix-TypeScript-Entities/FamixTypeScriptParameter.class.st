@@ -30,7 +30,7 @@
 "
 Class {
 	#name : #FamixTypeScriptParameter,
-	#superclass : #FamixTypeScriptNamedEntity,
+	#superclass : #FamixTypeScriptStructuralEntity,
 	#traits : 'FamixTParameter',
 	#classTraits : 'FamixTParameter classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
@@ -39,7 +39,7 @@ Class {
 { #category : #meta }
 FamixTypeScriptParameter class >> annotation [
 
-	<FMClass: #Parameter super: #FamixTypeScriptNamedEntity>
+	<FMClass: #Parameter super: #FamixTypeScriptStructuralEntity>
 	<package: #FamixTypeScript>
 	<generated>
 	^ self
