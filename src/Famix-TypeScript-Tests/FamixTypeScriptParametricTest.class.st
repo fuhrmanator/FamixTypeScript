@@ -40,23 +40,27 @@ FamixTypeScriptParametricTest >> test1 [
 
 { #category : #tests }
 FamixTypeScriptParametricTest >> test2 [
-	"genericMethod<T extends Building>(t: T): T"
-	"function genericFunction<T extends Building>(t: T): T"
+	"genericMethod<T extends Building>(t: T): T {}"
+	"function genericFunction<T extends Building>(t: T): T {}"
+	"const genericArrowFunction = <T extends Building>(t: T): T => {}"
 
-	| m p return f parameterType |
+	| m p return f parameterType af |
 	m := FamixTypeScriptParametricMethod new name: 'genericMethod'.
 	f := FamixTypeScriptParametricFunction new name: 'genericFunction'.
+	af := FamixTypeScriptParametricArrowFunction new name: 'genericArrowFunction'.
 	p := FamixTypeScriptParameter new name: 't'.
 	parameterType := FamixTypeScriptParameterType named: 'T'.
 	p declaredType: parameterType.
 	m addParameter: p.
 	f addParameter: p.
+	af addParameter: p.
 	return := parameterType.
 	FamixTypeScriptInheritance new
 		subclass: return;
 		superclass: (FamixTypeScriptClass new name: 'Building').
 	m declaredType: return.
 	f declaredType: return.
+	af declaredType: return.
 ]
 
 { #category : #tests }
