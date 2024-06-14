@@ -19,10 +19,12 @@ FamixTypeScriptParametricTest >> setUp [
 FamixTypeScriptParametricTest >> test1 [
 	"testMethod(list: Array<any>): Array<any>{}"
 	"testFunction(list: Array<any>): Array<any>{}"
+	"const testArrowFunction = (list: Array<any>): Array<any> => {}"
 
-	| method parameter list function parameterConcretisation |
+	| method parameter list function parameterConcretisation parametricArrowFunction |
 	method := FamixTypeScriptParametricMethod new name: 'testMethod'.
 	function := FamixTypeScriptParametricFunction new name: 'testFunction'.
+	parametricArrowFunction := FamixTypeScriptParametricArrowFunction new name: 'testArrowFunction'.
 	parameter := FamixTypeScriptParameter new name: 'list'.
 	list := FamixTypeScriptParametricClass new name: 'Array'.
 	parameterConcretisation := FamixTypeScriptType new name: 'any'.
@@ -31,8 +33,9 @@ FamixTypeScriptParametricTest >> test1 [
 	method addParameter: parameter.
 	method declaredType: list.
 	function addParameter: parameter.
-	function declaredType: list.	
-	
+	function declaredType: list.
+	parametricArrowFunction addParameter: parameter.
+	parametricArrowFunction declaredType: list.	
 ]
 
 { #category : #tests }
