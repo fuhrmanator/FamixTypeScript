@@ -11,6 +11,13 @@ FamixTypeScriptClass >> accessedAttributes [
 ]
 
 { #category : #'*Famix-TypeScript-Extensions' }
+FamixTypeScriptClass >> allImplementedInterfacesHierarchyDo: aBlock [
+
+	self directImplementedInterfaces do: [ :directInterface |
+		directInterface withSuperclassesDo: aBlock ]
+]
+
+{ #category : #'*Famix-TypeScript-Extensions' }
 FamixTypeScriptClass >> isInterface [
 
 	<FMProperty: #isInterface type: #Boolean>
@@ -24,6 +31,16 @@ FamixTypeScriptClass >> isInterface: aBoolean [
 	self halt. "Code copied from FamixJavaClass - but not clear to me."
 	"Why is the following line not using aBoolean?"
 	^ self attributeAt: #isInterface put: true
+]
+
+{ #category : #'*Famix-TypeScript-Extensions' }
+FamixTypeScriptClass >> lookUpInInterfaces: aMethodSignature [
+
+	self allImplementedInterfacesHierarchyDo: [ :interface |
+		(interface lookUp: aMethodSignature) ifNotNil: [ :method | ^ method ] ].
+
+	^ self superclass ifNotNil: [ :superclass |
+		  superclass lookUpInInterfaces: aMethodSignature ]
 ]
 
 { #category : #'*Famix-TypeScript-Extensions' }

@@ -1,0 +1,66 @@
+# Name of the project in the GitHub action panel
+name: Run-Tests-and-Generate-Model-Diagram
+
+# Execute the CI on push or pull request on any branch
+on:
+  push:
+    branches:
+      - '*'  # Allow the workflow to trigger on any branch
+  pull_request:
+    branches:
+      - '*'  # Allow the workflow to trigger on any branch
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # List of images at https://github.com/hpi-swa/smalltalkCI#images
+        # Use Moose64-11 that includes our visualization tool
+        smalltalk: [ Moose64-11]
+    name: ${{ matrix.smalltalk }}
+    steps:
+      # Checkout the code from the branch that triggered the workflow
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}  # Checkout the branch that triggered the workflow
+      
+      # Prepare the CI - download the correct VM
+      - uses: hpi-swa/setup-smalltalkCI@v1
+        with:
+          smalltalk-image: ${{ matrix.smalltalk }}
+      
+      # Run the tests
+      - run: smalltalkci -s ${{ matrix.smalltalk }}
+        shell: bash
+        timeout-minutes: 15
+        
+      - name: Generate plantuml representation of meta-model
+        run: |
+          $SMALLTALK_CI_VM $SMALLTALK_CI_IMAGE eval "'FamixTypeScript-traits.puml' asFileReference writeStreamDo: [ :stream | stream nextPutAll: (FamixUMLDocumentor new model: FamixTypeScriptModel color: Color lightBlue ; beWithStubs ; generate; exportWith: (FamixUMLPlantUMLBackend new))]"
+          $SMALLTALK_CI_VM $SMALLTALK_CI_IMAGE eval "'FamixTypeScript.puml' asFileReference writeStreamDo: [ :stream | stream nextPutAll: (FamixUMLDocumentor new model: FamixTypeScriptModel color: Color lightBlue ; generate; exportWith: (FamixUMLPlantUMLBackend new))]"
+
+      - name: Generate SVG Diagram from PlantUML
+        uses: Timmy/plantuml-action@v1
+        with:
+          args: -v -tsvg FamixTypeScript-traits.puml FamixTypeScript.puml
+          
+      - name: Move diagram to doc space
+        run: |
+          mkdir -p doc-uml
+          mv *.svg doc-uml
+          mv *.puml doc-uml
+          
+      - name: Push docs to current branch
+        # do not try if it's a PR, since GitHub Actions checks out the code in a detached state
+        if: github.event_name == 'push'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add doc-uml
+          git commit -m "Update docs for branch ${{ github.ref_name }}"
+          git push origin HEAD:refs/heads/${{ github.ref_name }}  # Push to the branch that triggered the workflow

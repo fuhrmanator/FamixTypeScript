@@ -1,0 +1,13 @@
+# .github/workflows/pr.yml
+name: PR CI
+
+on:
+  pull_request:
+    branches:
+      - '*'  # Trigger on any branch pull request
+
+jobs:
+  build:
+    uses: ./.github/workflows/common.yml
+    with:
+      run_docs: false

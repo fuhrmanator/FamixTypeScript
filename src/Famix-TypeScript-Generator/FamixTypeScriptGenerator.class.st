@@ -3,20 +3,23 @@ Class {
 	#superclass : #FamixBasicInfrastructureGenerator,
 	#instVars : [
 		'access',
+		'attribute',
 		'class',
 		'type',
 		'namespace',
 		'parameter',
 		'parameterType',
-		'parameterizableClass',
-		'parameterizedType',
 		'method',
+		'parametricMethod',
 		'structuralEntity',
 		'file',
 		'folder',
 		'indexedFileAnchor',
 		'invocation',
 		'function',
+		'parametricFunction',
+		'arrowFunction',
+		'parametricArrowFunction',
 		'inheritance',
 		'module',
 		'containerEntity',
@@ -30,7 +33,6 @@ Class {
 		'enum',
 		'enumValue',
 		'implicitVariable',
-		'association',
 		'behaviouralEntity',
 		'alias',
 		'scopingEntity',
@@ -39,9 +41,11 @@ Class {
 		'reference',
 		'accessor',
 		'property',
-		'variableStatement',
 		'jsDoc',
-		'parameterizableInterface'
+		'parametricClass',
+		'parametricInterface',
+		'concretization',
+		'parameterConcretization'
 	],
 	#category : #'Famix-TypeScript-Generator'
 }
@@ -77,6 +81,73 @@ FamixTypeScriptGenerator class >> translationDictionary [
 ]
 
 { #category : #comments }
+FamixTypeScriptGenerator >> commentForConcretization [
+	"To verify"
+	^ '## Relations
+======================
+
+### Association source
+| Relation | Origin | Opposite | Type | Comment |
+|---|
+| `genericEntity` | `FamixTConcretization` | `concretizations` | `FamixTParametricEntity` | Generic entity linked to in this relationship. from-side of the association|
+
+### Association target
+| Relation | Origin | Opposite | Type | Comment |
+|---|
+| `concreteEntity` | `FamixTConcretization` | `genericization` | `FamixTParametricEntity` | Concrete entity linked to in this relationship. to-side of the association|
+
+### Other
+| Relation | Origin | Opposite | Type | Comment |
+|---|
+| `next` | `FamixTAssociation` | `previous` | `FamixTAssociation` | Next association in an ordered collection of associations. Currently not supported by the Moose importer|
+| `parameterConcretizations` | `FamixTConcretization` | `concretizations` | `FamixTParameterConcretization` | |
+| `previous` | `FamixTAssociation` | `next` | `FamixTAssociation` | Previous association in an ordered collection of associations. Currently not supported by the Moose importer|
+| `sourceAnchor` | `FamixTSourceEntity` | `element` | `FamixTSourceAnchor` | SourceAnchor entity linking to the original source code for this entity|
+
+
+## Properties
+======================
+
+| Name | Type | Default value | Comment |
+|---|
+| `isStub` | `Boolean` | false | Flag true if the entity attributes are incomplete, either because the entity is missing or not imported.|
+'
+]
+
+{ #category : #'as yet unclassified' }
+FamixTypeScriptGenerator >> commentForParameterConcretization [
+	^ '## Relations
+======================
+
+### Association source
+| Relation | Origin | Opposite | Type | Comment |
+|---|
+| `genericParameter` | `FamixTParameterConcretization` | `concretizations` | `FamixTGenericParameterType` | Generic parameter linked to in this relationship. from-side of the association|
+
+### Association target
+| Relation | Origin | Opposite | Type | Comment |
+|---|
+| `concreteParameter` | `FamixTParameterConcretization` | `generics` | `FamixTConcreteParameterType` | Concrete parameter linked to in this relationship. to-side of the association|
+
+### Other
+| Relation | Origin | Opposite | Type | Comment |
+|---|
+| `concretizations` | `FamixTParameterConcretization` | `parameterConcretizations` | `FamixTConcretization` | |
+| `next` | `FamixTAssociation` | `previous` | `FamixTAssociation` | Next association in an ordered collection of associations. Currently not supported by the Moose importer|
+| `previous` | `FamixTAssociation` | `next` | `FamixTAssociation` | Previous association in an ordered collection of associations. Currently not supported by the Moose importer|
+| `sourceAnchor` | `FamixTSourceEntity` | `element` | `FamixTSourceAnchor` | SourceAnchor entity linking to the original source code for this entity|
+
+
+## Properties
+======================
+
+| Name | Type | Default value | Comment |
+|---|
+| `isStub` | `Boolean` | false | Flag true if the entity attributes are incomplete, either because the entity is missing or not imported.|
+'
+]
+
+{ #category : #comments }
 FamixTypeScriptGenerator >> commentForTCanBeInterface [
 	^ 'I allow an entity to be an interface abstraction
 ex:
@@ -102,22 +173,26 @@ FamixTypeScriptGenerator >> defineClasses [
 	access := builder newClassNamed: #Access.
 	accessor := builder newClassNamed: #Accessor comment: 'I represent a TypeScript Accessor (getter or setter)'.
 	alias := builder newClassNamed: #Alias.
-	association:= builder newClassNamed: #Association.
-	behaviouralEntity := builder newClassNamed: #BehaviouralEntity.
+	attribute := builder newClassNamed: #Attribute.
+	behaviouralEntity := builder newClassNamed: #BehaviouralEntity comment: 'I represent an abstraction of various entities that have behavior.'.
 	class := builder newClassNamed: #Class comment: 'I represent a TypeScript class.'.
 	class withTesting.
+	concretization := builder newClassNamed: #Concretization comment: self commentForConcretization.
 	containerEntity := builder newClassNamed: #ContainerEntity.
 	
 	"This definition concerns stage 2 decorators: https://www.typescriptlang.org/docs/handbook/decorators.html"
 	decorator:= builder newClassNamed: #Decorator comment: 'I represent a TypeScript Decorator'.
 
-	enum := builder newClassNamed: #Enum comment: 'Typescript enumerated type'.
-	enumValue := builder newClassNamed: #EnumValue comment: 'One value (constant) in a Typescript enumerated type'.
+	enum := builder newClassNamed: #Enum comment: 'I represent a Typescript enumerated type'.
+	enumValue := builder newClassNamed: #EnumValue comment: 'I represent One value (constant) in a Typescript enumerated type'.
 
 	property := builder newClassNamed: #Property comment: 'I represent a TypeScript class property.'.
 	file := builder newClassNamed: #File.
 	folder := builder newClassNamed: #Folder.
 	function := builder newClassNamed: #Function comment: 'I represent a TypeScript function.'.
+	parametricFunction := builder newClassNamed: #ParametricFunction comment: 'I represent a TypeScript parametric function.' .
+	arrowFunction := builder newClassNamed: #ArrowFunction comment: 'I represent a TypeScript arrow function.'. 
+	parametricArrowFunction := builder newClassNamed: #ParametricArrowFunction comment: 'I represent a TypeScript parametric arrow function.' .
 	implicitVariable:= builder newClassNamed: #implicitVariable comment: 'I represent a TypeScript implicit variable.'.
 	implementation := builder newClassNamed: #Implementation comment: 'I represent a TypeScript element that is an implementation of an interface.'.
 	importClause:= builder newClassNamed: #ImportClause.
@@ -128,12 +203,13 @@ FamixTypeScriptGenerator >> defineClasses [
 	invocation := builder newClassNamed: #Invocation.
 	jsDoc := builder newClassNamed: #JSDoc comment: 'I represent a TypeScript (JavaScript) Doc element.'.
 	method := builder newClassNamed: #Method comment: 'I represent a TypeScript method.'.
+	parametricMethod := builder newClassNamed: #ParametricMethod comment: 'I represent a TypeScript parametric Method.'.
 	module := builder newClassNamed: #Module.
 	namespace := builder newClassNamed: #Namespace.
 	parameter := builder newClassNamed: #Parameter.
-	parameterizableClass := builder newClassNamed: #ParameterizableClass.
-	parameterizableInterface := builder newClassNamed: #ParameterizableInterface.
-	parameterizedType := builder newClassNamed: #ParameterizedType.
+	parametricClass := builder newClassNamed: #ParametricClass.
+	parameterConcretization := builder newClassNamed: #ParameterConcretization  comment: self commentForParameterConcretization. 
+	parametricInterface := builder newClassNamed: #ParametricInterface.
 	parameterType := builder newClassNamed: #ParameterType.
 	primitiveType := builder newClassNamed: #PrimitiveType comment: 'I represent a TypeScript primitive type (string, number, boolean).'.
 	reference:= builder newClassNamed: #Reference.
@@ -142,7 +218,6 @@ FamixTypeScriptGenerator >> defineClasses [
 	structuralEntity := builder newClassNamed: #StructuralEntity.
 	type := builder newClassNamed: #Type comment: 'I represent a TypeScript type.'.
 	variable := builder newClassNamed: #Variable comment: 'I represent a TypeScript variable.'.
-	variableStatement := builder newClassNamed: #VariableStatement comment: 'I represent a TypeScript variable statement.'.
 	
 	primitiveType withTesting.
 	"self defineComments."
@@ -153,15 +228,12 @@ FamixTypeScriptGenerator >> defineHierarchy [
 
 	super defineHierarchy.
 
-	access --|> association.
 	access --|> #TAccess.
 	
 	accessor --|> method.
 	
 	alias --|> namedEntity.
 	alias --|> #TImportable.
-	
-	association --|> sourcedEntity.
 	
 	behaviouralEntity --|> containerEntity.
 
@@ -215,32 +287,39 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	function --|> #TDefinedInModule.
 	function --|> #TInvocable.
 	function --|> #TImportable.
-
-	implicitVariable --|>variable.
 	
-	importClause --|>association.
+	parametricFunction --|> function.
+	parametricFunction --|> #TParametricEntity. 
+	
+	arrowFunction --|> behaviouralEntity.
+	arrowFunction --|> #TFunction.
+	arrowFunction --|> #TDefinedInModule.
+	arrowFunction --|> #TInvocable.
+	arrowFunction --|> #TImportable.
+	
+	parametricArrowFunction --|> arrowFunction.
+	parametricArrowFunction  --|> #TParametricEntity. 
+
+	implicitVariable --|> variable.
+	
 	importClause --|> #TImport.
 	
 	indexedFileAnchor --|> sourceAnchor.
 	indexedFileAnchor --|> #TIndexedFileNavigation.
 	
 	interface --|> type.
-	"interface --|> #TPackageable."
 	interface --|> #TWithMethods.
 	interface --|> #TWithInheritances.
 	interface --|> #TWithAttributes.
 	interface --|> #TInvocationsReceiver.
-	"interface --|> #TCanBeFinal."
 	"interface --|> #THasVisibility." "classes in modules/namespaces can't be declared private/public"
 	interface --|> #TWithComments.
 	interface --|> #TImplementable.
 	"interface --|> #TWithImports."
 	"interface --|> #TImportable." "Gets it from type?"
 
-	inheritance --|>association.
 	inheritance --|> #TInheritance.
 
-	invocation --|>association.
 	invocation --|> #TInvocation.
 	invocation --|> #THasSignature.
 
@@ -254,9 +333,13 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	method --|> #THasKind.
 	method --|> #THasVisibility.
 	method --|> #TWithComments.
+	method --|> #TCanBeClassSide.
+	
+	parametricMethod --|> method.
+	parametricMethod --|> #TParametricEntity.
 
 	"Module"
-	module --|>scriptEntity.
+	module --|> scriptEntity.
 	module --|> #TWithLocalVariables. "var can have module scope"
 	module --|> #TWithImports.
 	module --|> #TImportable.
@@ -275,30 +358,38 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	parameter --|> #TParameter.
 
 	parameterType --|> type.
-	parameterType --|> #TParameterType.
+	parameterType --|> #TGenericParameterType.
 	
-	parameterizableClass --|> class.
-	parameterizableClass --|> #TWithParameterizedTypes.
+	parametricClass --|> class.
+	"parameterizableClass --|> #TWithParameterizedTypes."
+	parametricClass --|> #TParametricEntity.
 
-	parameterizableInterface --|> interface.
-	parameterizableInterface --|> #TWithParameterizedTypes.
+	parametricInterface --|> interface.
+	"parameterizableInterface --|> #TWithParameterizedTypes."
+	parametricInterface --|> #TParametricEntity.
 
-	parameterizedType --|> type.
-	parameterizedType --|> #TParameterizedType.
-	parameterizedType --|> #TWithParameterizedTypeUsers.
-	parameterizedType --|> #TWithInheritances.
-	parameterizedType --|> #TCanImplement.
-	parameterizedType --|> #TImplementable.
+	"fusion avec paraterizableClass"
+	"parameterizedType --|> type."
+	"parameterizedType --|> #TParameterizedType."
+	"parameterizedType --|> #TParametricEntity."
+	"parameterizedType --|> #TWithParameterizedTypeUsers."
+	"parameterizedType --|> #TWithInheritances."
+	"parameterizedType --|> #TCanImplement."
+	"parameterizedType --|> #TImplementable."
 	
 	primitiveType --|> type.
 	primitiveType --|> #TPrimitiveType.
+	
+	type --|> #TConcreteParameterType.
+
+	concretization --|> #TConcretization.
+
+	parameterConcretization --|> #TParameterConcretization.
 
 	property --|> structuralEntity.
 	property --|> #TAttribute.
 	property --|> #TCanBeClassSide.
 	property --|> #THasVisibility.
-
-	reference --|> association.
 	
 	scopingEntity --|> containerEntity.
 	scopingEntity --|> #TWithAccesses.
@@ -314,7 +405,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 
 	type --|> containerEntity.
 	type --|> #TType.
-	type --|> #TParameterizedTypeUser.
+	"type --|> #TParameterizedTypeUser."
 	type --|> #TWithMethods.
 	type --|> #TImportable.
 	
@@ -322,7 +413,15 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	variable --|> #TLocalVariable.
 	variable --|> #TImportable.
 
-	variableStatement --|> type.  "Maël added"
+	parameterType --|> #TWithInheritances.
+	
+	attribute --|> namedEntity.
+	attribute --|> #TAttribute.
+	attribute --|> #TCanBeFinal.
+	attribute --|> #THasVisibility.
+	attribute --|> #TInvocationsReceiver.
+	attribute --|> #TWithComments.
+	attribute --|> #TCanBeClassSide.
 ]
 
 { #category : #definition }

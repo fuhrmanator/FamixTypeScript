@@ -1,3 +1,8 @@
+"
+I represent an abstraction of various entities that have behavior.
+
+
+"
 Class {
 	#name : #FamixTypeScriptBehaviouralEntity,
 	#superclass : #FamixTypeScriptContainerEntity,

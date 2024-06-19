@@ -1,5 +1,7 @@
 "
 I represent a TypeScript Accessor (getter or setter)
+
+
 "
 Class {
 	#name : #FamixTypeScriptAccessor,

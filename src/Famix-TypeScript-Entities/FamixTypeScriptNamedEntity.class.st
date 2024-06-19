@@ -1,3 +1,27 @@
+"
+## Relations
+======================
+
+### Incoming dependencies
+| Relation | Origin | Opposite | Type | Comment |
+|---|
+| `incomingImports` | `FamixTImportable` | `importedEntity` | `FamixTImport` | List of imports of this entity|
+
+### Other
+| Relation | Origin | Opposite | Type | Comment |
+|---|
+| `decorators` | `FamixTypeScriptNamedEntity` | `decoratedEntity` | `FamixTypeScriptDecorator` | |
+| `receivingInvocations` | `FamixTInvocationsReceiver` | `receiver` | `FamixTInvocation` | List of invocations performed on this entity (considered as the receiver)|
+
+
+## Properties
+======================
+
+| Name | Type | Default value | Comment |
+|---|
+| `name` | `String` | nil | Basic name of the entity, not full reference.|
+
+"
 Class {
 	#name : #FamixTypeScriptNamedEntity,
 	#superclass : #FamixTypeScriptSourcedEntity,
@@ -46,4 +70,11 @@ FamixTypeScriptNamedEntity >> decorators: anObject [
 
 	<generated>
 	decorators value: anObject
+]
+
+{ #category : #testing }
+FamixTypeScriptNamedEntity >> isNamedEntity [
+
+	<generated>
+	^ true
 ]

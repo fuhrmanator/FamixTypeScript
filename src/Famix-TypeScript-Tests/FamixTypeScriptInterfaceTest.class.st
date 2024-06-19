@@ -11,27 +11,20 @@ FamixTypeScriptInterfaceTest >> testClassContainInterface [
 	interface := FamixTypeScriptInterface new.
 	class := FamixTypeScriptClass new.
 	class addInterface: interface. 
-
-
 	self
 		assertCollection: class interfaces
 		hasSameElements: { interface }.
-
 ]
 
 { #category : #tests }
 FamixTypeScriptInterfaceTest >> testImplementation [
 
-
-	
 	| interface class impl |
 	interface := FamixJavaInterface new.
 	class := FamixTypeScriptClass new.
 	impl := FamixTypeScriptImplementation new.
 	impl interface: interface.
-	impl implementingClass: class.
-
-	
+	impl implementingClass: class.	
 	self assertCollection: interface implementations hasSameElements: { impl }.
 	self assertCollection: class interfaceImplementations hasSameElements: { impl }.
 	
@@ -44,8 +37,6 @@ FamixTypeScriptInterfaceTest >> testInterfaceContainInterface [
 	interface := FamixTypeScriptInterface new.
 	int2 := FamixTypeScriptInterface new.
 	int2 addInterface: interface. 
-
-
 	self
 		assertCollection: int2 interfaces
 		hasSameElements: { interface }.
@@ -65,7 +56,5 @@ FamixTypeScriptInterfaceTest >> testMultipleInheritance [
 	inh2 := FamixTypeScriptInheritance new.
 	inh2 subclass: interface.
 	inh2 superclass: supInt2.
-	
 	self assertCollection: interface superInheritances hasSameElements: { inh1. inh2 }
-	
 ]

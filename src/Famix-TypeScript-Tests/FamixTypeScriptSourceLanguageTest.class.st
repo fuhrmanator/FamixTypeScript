@@ -8,14 +8,12 @@ Class {
 FamixTypeScriptSourceLanguageTest >> testIsTypeScript [
 	| model |
 	model := FamixTypeScriptModel new.
-
 	model
 		importFromMSEStream:
 			'(
 			(FamixTypeScript.SourceLanguage)
 			(FamixTypeScript.Class (id: 2) (name ''ClassA''))
 			)' readStream.
-	
 	self assert: model sourceLanguage isTypeScript 
 ]
 
