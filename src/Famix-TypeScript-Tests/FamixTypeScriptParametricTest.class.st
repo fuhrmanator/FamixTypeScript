@@ -68,12 +68,30 @@ FamixTypeScriptParametricTest >> test3 [
 	"class ClassA<K, V> {}
 
 	 class ClassB<V> extends ClassA<string, V> {
-   		private method(num: number, s: string, v: V): void {
+	   // not parametric because V (when it is concretized) will be the same in this method
+   		method(num: number, s: string, v: V): void { }
+		
+	   // Parametric because T (when it is concretized) will be different depending on how this method is called
+   		parametricMethod(num: number, s: string, t: T): T {
+		    return t;
    		}
+		
+	   // not parametric because V (when it is concretized) will be the same in this method
+	  	cArrow = (a: number, v: V): void => { };
+
+	   // Parametric because T (when it is concretized) will be different depending on how this method is called
+	  	cParametricArrow = (t: T, v: V): T => {
+			return t;
+		};
 	 }
 	"
 
-	| classA k v string |
+	| classA k v t string number void |
+	number := FamixTypeScriptPrimitiveType named: 'number'.
+	string := FamixTypeScriptPrimitiveType named: 'string'.
+	void := FamixTypeScriptPrimitiveType named: 'void'.
+	t := FamixTypeScriptParameterType named: 'T'.
+
 	(classA := FamixTypeScriptParametricClass new name: 'ClassA')
 		genericParameters: {
 				(k := FamixTypeScriptParameterType new name: 'K').
@@ -84,24 +102,38 @@ FamixTypeScriptParametricTest >> test3 [
 		genericEntity: classA.
 
 	FamixTypeScriptParameterConcretization new
-		concreteParameter: (string := FamixTypeScriptClass new name: 'string');
+		concreteParameter: string;
 		genericParameter: k.
 		
-	(FamixTypeScriptParametricMethod named: 'method')
+	(FamixTypeScriptMethod named: 'method')
 		parameters: {
 				((FamixTypeScriptParameter named: 'num') declaredType:
-						 (FamixTypeScriptClass named: 'Integer')).
+						 (number := FamixTypeScriptPrimitiveType named: 'number')).
 				((FamixTypeScriptParameter named: 's') declaredType: string).
 				((FamixTypeScriptParameter named: 'v') declaredType: v) };
-		addGenericParameter: v.
+		declaredType: void.
 		
-	(FamixTypeScriptParametricFunction named: 'function')
+	(FamixTypeScriptParametricMethod named: 'parametricMethod')
 		parameters: {
-				((FamixTypeScriptParameter named: 'num') declaredType:
-						 (FamixTypeScriptClass named: 'Integer')).
+				((FamixTypeScriptParameter named: 'num') declaredType: number).
 				((FamixTypeScriptParameter named: 's') declaredType: string).
+				((FamixTypeScriptParameter named: 't') declaredType: t) };
+		addGenericParameter: t;
+		declaredType: number.
+
+	(FamixTypeScriptArrowFunction named: 'cArrow')
+		parameters: {
+				((FamixTypeScriptParameter named: 'a') declaredType: number).
 				((FamixTypeScriptParameter named: 'v') declaredType: v) };
-		addGenericParameter: v
+		declaredType: void.
+				
+	(FamixTypeScriptParametricArrowFunction named: 'cParametricArrow')
+		parameters: {
+				((FamixTypeScriptParameter named: 't') declaredType: t).
+				((FamixTypeScriptParameter named: 'v') declaredType: v) };
+		addGenericParameter: t;
+		declaredType: t.
+	
 ]
 
 { #category : #tests }
