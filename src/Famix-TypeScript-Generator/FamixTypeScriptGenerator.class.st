@@ -3,7 +3,6 @@ Class {
 	#superclass : #FamixBasicInfrastructureGenerator,
 	#instVars : [
 		'access',
-		'attribute',
 		'class',
 		'type',
 		'namespace',
@@ -173,7 +172,6 @@ FamixTypeScriptGenerator >> defineClasses [
 	access := builder newClassNamed: #Access.
 	accessor := builder newClassNamed: #Accessor comment: 'I represent a TypeScript Accessor (getter or setter)'.
 	alias := builder newClassNamed: #Alias.
-	attribute := builder newClassNamed: #Attribute.
 	behaviouralEntity := builder newClassNamed: #BehaviouralEntity comment: 'I represent an abstraction of various entities that have behavior.'.
 	class := builder newClassNamed: #Class comment: 'I represent a TypeScript class.'.
 	class withTesting.
@@ -414,14 +412,6 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	variable --|> #TImportable.
 
 	parameterType --|> #TWithInheritances.
-	
-	attribute --|> namedEntity.
-	attribute --|> #TAttribute.
-	attribute --|> #TCanBeFinal.
-	attribute --|> #THasVisibility.
-	attribute --|> #TInvocationsReceiver.
-	attribute --|> #TWithComments.
-	attribute --|> #TCanBeClassSide.
 ]
 
 { #category : #definition }

@@ -44,13 +44,6 @@ FamixTypeScriptImportingContext >> importArrowFunction [
 ]
 
 { #category : #importing }
-FamixTypeScriptImportingContext >> importAttribute [
-
-	<generated>
-	^ self importConcreteEntity: (self class fm3ClassNamed: #Attribute)
-]
-
-{ #category : #importing }
 FamixTypeScriptImportingContext >> importBehaviouralEntity [
 
 	<generated>
@@ -356,13 +349,6 @@ FamixTypeScriptImportingContext >> shouldImportArrowFunction [
 
 	<generated>
 	^ self shouldImport: #ArrowFunction
-]
-
-{ #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportAttribute [
-
-	<generated>
-	^ self shouldImport: #Attribute
 ]
 
 { #category : #testing }

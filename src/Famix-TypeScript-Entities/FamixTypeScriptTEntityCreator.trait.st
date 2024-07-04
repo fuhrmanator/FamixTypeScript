@@ -54,20 +54,6 @@ FamixTypeScriptTEntityCreator >> newArrowFunctionNamed: aName [
 ]
 
 { #category : #'entity creation' }
-FamixTypeScriptTEntityCreator >> newAttribute [
-
-	<generated>
-	^ self add: FamixTypeScriptAttribute new
-]
-
-{ #category : #'entity creation' }
-FamixTypeScriptTEntityCreator >> newAttributeNamed: aName [
-
-	<generated>
-	^ self add: (FamixTypeScriptAttribute named: aName)
-]
-
-{ #category : #'entity creation' }
 FamixTypeScriptTEntityCreator >> newBehaviouralEntity [
 
 	<generated>
