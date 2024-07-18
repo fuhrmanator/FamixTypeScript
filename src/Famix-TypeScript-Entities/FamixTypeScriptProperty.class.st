@@ -29,6 +29,7 @@ I represent a TypeScript class property.
 | `isClassSide` | `Boolean` | false | Entity can be declared class side i.e. static|
 | `isStub` | `Boolean` | false | Flag true if the entity attributes are incomplete, either because the entity is missing or not imported.|
 | `name` | `String` | nil | Basic name of the entity, not full reference.|
+| `readOnly` | `Boolean` | false | Properties may be prefixed with the readonly modifier. This prevents assignments to the field outside of the constructor.|
 | `visibility` | `String` | nil | Visibility of the entity|
 
 "
@@ -37,6 +38,9 @@ Class {
 	#superclass : #FamixTypeScriptStructuralEntity,
 	#traits : 'FamixTAttribute + FamixTCanBeClassSide + FamixTHasVisibility',
 	#classTraits : 'FamixTAttribute classTrait + FamixTCanBeClassSide classTrait + FamixTHasVisibility classTrait',
+	#instVars : [
+		'#readOnly => FMProperty defaultValue: false'
+	],
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 
@@ -47,4 +51,19 @@ FamixTypeScriptProperty class >> annotation [
 	<package: #FamixTypeScript>
 	<generated>
 	^ self
+]
+
+{ #category : #accessing }
+FamixTypeScriptProperty >> readOnly [
+
+	<FMProperty: #readOnly type: #Boolean defaultValue: false>
+	<generated>
+	<FMComment: 'Properties may be prefixed with the readonly modifier. This prevents assignments to the field outside of the constructor.'>
+	^ readOnly ifNil: [ readOnly := false ]
+]
+
+{ #category : #accessing }
+FamixTypeScriptProperty >> readOnly: anObject [
+	<generated>
+	readOnly := anObject
 ]

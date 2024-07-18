@@ -421,6 +421,8 @@ FamixTypeScriptGenerator >> defineProperties [
 
 	(decorator property: #expression type: #String)
 		comment: 'Decorators use the form @expression, where expression must evaluate to a function that will be called at runtime with information about the decorated declaration'.
+	(property property: #readOnly type: #Boolean defaultValue: false)
+		comment: 'Properties may be prefixed with the readonly modifier. This prevents assignments to the field outside of the constructor.'
 	"The following are not need because of THasKind (?)"
 
 	"(method property: #isConstructor type: #Boolean defaultValue: false) 

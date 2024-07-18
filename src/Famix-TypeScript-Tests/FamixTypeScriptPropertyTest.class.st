@@ -5,6 +5,16 @@ Class {
 }
 
 { #category : #tests }
+FamixTypeScriptPropertyTest >> testPropertyReadonly [
+	| property |
+	property := FamixTypeScriptProperty new.
+	self deny: property readOnly.
+	property readOnly: true.
+	self assert: property readOnly.
+
+]
+
+{ #category : #tests }
 FamixTypeScriptPropertyTest >> testPropertyVisibility [
 	| property |
 	property := FamixTypeScriptProperty new.
