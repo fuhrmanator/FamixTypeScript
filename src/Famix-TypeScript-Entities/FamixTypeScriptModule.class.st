@@ -25,6 +25,11 @@ Class {
 	#superclass : #FamixTypeScriptScriptEntity,
 	#traits : 'FamixTImportable + FamixTWithImports + FamixTWithLocalVariables',
 	#classTraits : 'FamixTImportable classTrait + FamixTWithImports classTrait + FamixTWithLocalVariables classTrait',
+	#instVars : [
+		'#isModule',
+		'#isNamespace',
+		'#isAmbient'
+	],
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 
