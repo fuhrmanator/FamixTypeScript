@@ -17,6 +17,7 @@ FamixTypeScriptParametricTest >> setUp [
 
 { #category : #tests }
 FamixTypeScriptParametricTest >> test1 [
+	"TODO: These comments are not examples of Parametric Methods or Functions"
 	"testMethod(list: Array<any>): Array<any>{}"
 	"testFunction(list: Array<any>): Array<any>{}"
 	"const testArrowFunction = (list: Array<any>): Array<any> => {}"
