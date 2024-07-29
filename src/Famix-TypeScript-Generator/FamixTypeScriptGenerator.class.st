@@ -255,14 +255,14 @@ FamixTypeScriptGenerator >> defineHierarchy [
 
 	"this level of hierarchy to follow Java's metamodel, to accommodate Interfac properly TODO"
 	containerEntity --|> namedEntity.
-	containerEntity --|> #TWithClasses.
 	containerEntity --|> tWithInterfaces.
+	containerEntity --|> #TWithClasses.
 	containerEntity --|> #TWithFunctions.
-	containerEntity --|> #TWithAnnotationTypes.
+	"containerEntity --|> #TWithAnnotationTypes."
 	containerEntity --|> #TWithLocalVariables.
 	"containerEntity --|> #TWithModules?"
 
-	decorator --|>namedEntity.
+	decorator --|> namedEntity.
 	decorator --|> #TImportable.
 	
 	enum --|> type.
@@ -332,6 +332,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	method --|> #THasVisibility.
 	method --|> #TWithComments.
 	method --|> #TCanBeClassSide.
+	method --|> #TImportable.
 	
 	parametricMethod --|> method.
 	parametricMethod --|> #TParametricEntity.
@@ -357,6 +358,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 
 	parameterType --|> type.
 	parameterType --|> #TGenericParameterType.
+	parameterType --|> #TTypedEntity.
 	
 	parametricClass --|> class.
 	"parameterizableClass --|> #TWithParameterizedTypes."
