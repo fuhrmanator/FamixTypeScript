@@ -340,7 +340,9 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	"Module"
 	module --|> scriptEntity.
 	module --|> #TWithLocalVariables. "var can have module scope"
+	module --|> #TWithComments.
 	module --|> #TWithImports.
+	"module --|> #TWithNamespaces."  "define this Trait for TypeScript namespaces"
 	module --|> #TImportable.
 
 	namespace --|> scopingEntity.
@@ -348,13 +350,14 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	namespace --|> #TDefinedInModule.
 	namespace --|> #TImportable.
 
-	namedEntity --|> sourcedEntity.
 	namedEntity --|> #TInvocationsReceiver.
 	namedEntity --|> #TEntityMetaLevelDependency.
 	namedEntity --|> #TImportable. "Allow us abstract imported entities"
+	namedEntity --|> sourcedEntity.
 
 	parameter --|> structuralEntity.
 	parameter --|> #TParameter.
+	parameter --|> #TWithComments.
 
 	parameterType --|> type.
 	parameterType --|> #TGenericParameterType.
@@ -438,12 +441,7 @@ FamixTypeScriptGenerator >> defineProperties [
 { #category : #definition }
 FamixTypeScriptGenerator >> defineRelations [
     super defineRelations.
-	(decorator property: #decoratedEntity) *- (namedEntity  property:#decorators).
-
-	
-	
-
-	
+	(decorator property: #decoratedEntity) *- (namedEntity  property: #decorators).
 ]
 
 { #category : #definition }
