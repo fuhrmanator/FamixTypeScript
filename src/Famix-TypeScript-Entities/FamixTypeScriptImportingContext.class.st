@@ -37,10 +37,10 @@ FamixTypeScriptImportingContext >> importAlias [
 ]
 
 { #category : #importing }
-FamixTypeScriptImportingContext >> importAssociation [
+FamixTypeScriptImportingContext >> importArrowFunction [
 
 	<generated>
-	^ self importConcreteEntity: (self class fm3ClassNamed: #Association)
+	^ self importConcreteEntity: (self class fm3ClassNamed: #ArrowFunction)
 ]
 
 { #category : #importing }
@@ -62,6 +62,13 @@ FamixTypeScriptImportingContext >> importComment [
 
 	<generated>
 	^ self importConcreteEntity: (self class fm3ClassNamed: #Comment)
+]
+
+{ #category : #importing }
+FamixTypeScriptImportingContext >> importConcretization [
+
+	<generated>
+	^ self importAssociation: (self class fm3ClassNamed: #Concretization)
 ]
 
 { #category : #importing }
@@ -191,6 +198,13 @@ FamixTypeScriptImportingContext >> importParameter [
 ]
 
 { #category : #importing }
+FamixTypeScriptImportingContext >> importParameterConcretization [
+
+	<generated>
+	^ self importAssociation: (self class fm3ClassNamed: #ParameterConcretization)
+]
+
+{ #category : #importing }
 FamixTypeScriptImportingContext >> importParameterType [
 
 	<generated>
@@ -198,24 +212,38 @@ FamixTypeScriptImportingContext >> importParameterType [
 ]
 
 { #category : #importing }
-FamixTypeScriptImportingContext >> importParameterizableClass [
+FamixTypeScriptImportingContext >> importParametricArrowFunction [
 
 	<generated>
-	^ self importConcreteEntity: (self class fm3ClassNamed: #ParameterizableClass)
+	^ self importConcreteEntity: (self class fm3ClassNamed: #ParametricArrowFunction)
 ]
 
 { #category : #importing }
-FamixTypeScriptImportingContext >> importParameterizableInterface [
+FamixTypeScriptImportingContext >> importParametricClass [
 
 	<generated>
-	^ self importConcreteEntity: (self class fm3ClassNamed: #ParameterizableInterface)
+	^ self importConcreteEntity: (self class fm3ClassNamed: #ParametricClass)
 ]
 
 { #category : #importing }
-FamixTypeScriptImportingContext >> importParameterizedType [
+FamixTypeScriptImportingContext >> importParametricFunction [
 
 	<generated>
-	^ self importConcreteEntity: (self class fm3ClassNamed: #ParameterizedType)
+	^ self importConcreteEntity: (self class fm3ClassNamed: #ParametricFunction)
+]
+
+{ #category : #importing }
+FamixTypeScriptImportingContext >> importParametricInterface [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #ParametricInterface)
+]
+
+{ #category : #importing }
+FamixTypeScriptImportingContext >> importParametricMethod [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #ParametricMethod)
 ]
 
 { #category : #importing }
@@ -282,24 +310,10 @@ FamixTypeScriptImportingContext >> importType [
 ]
 
 { #category : #importing }
-FamixTypeScriptImportingContext >> importUnknownSourceLanguage [
-
-	<generated>
-	^ self importConcreteEntity: (self class fm3ClassNamed: #UnknownSourceLanguage)
-]
-
-{ #category : #importing }
 FamixTypeScriptImportingContext >> importVariable [
 
 	<generated>
 	^ self importConcreteEntity: (self class fm3ClassNamed: #Variable)
-]
-
-{ #category : #importing }
-FamixTypeScriptImportingContext >> importVariableStatement [
-
-	<generated>
-	^ self importConcreteEntity: (self class fm3ClassNamed: #VariableStatement)
 ]
 
 { #category : #importing }
@@ -331,10 +345,10 @@ FamixTypeScriptImportingContext >> shouldImportAlias [
 ]
 
 { #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportAssociation [
+FamixTypeScriptImportingContext >> shouldImportArrowFunction [
 
 	<generated>
-	^ self shouldImport: #Association
+	^ self shouldImport: #ArrowFunction
 ]
 
 { #category : #testing }
@@ -356,6 +370,13 @@ FamixTypeScriptImportingContext >> shouldImportComment [
 
 	<generated>
 	^ self shouldImport: #Comment
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportConcretization [
+
+	<generated>
+	^ self shouldImport: #Concretization
 ]
 
 { #category : #testing }
@@ -485,6 +506,13 @@ FamixTypeScriptImportingContext >> shouldImportParameter [
 ]
 
 { #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportParameterConcretization [
+
+	<generated>
+	^ self shouldImport: #ParameterConcretization
+]
+
+{ #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportParameterType [
 
 	<generated>
@@ -492,24 +520,38 @@ FamixTypeScriptImportingContext >> shouldImportParameterType [
 ]
 
 { #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportParameterizableClass [
+FamixTypeScriptImportingContext >> shouldImportParametricArrowFunction [
 
 	<generated>
-	^ self shouldImport: #ParameterizableClass
+	^ self shouldImport: #ParametricArrowFunction
 ]
 
 { #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportParameterizableInterface [
+FamixTypeScriptImportingContext >> shouldImportParametricClass [
 
 	<generated>
-	^ self shouldImport: #ParameterizableInterface
+	^ self shouldImport: #ParametricClass
 ]
 
 { #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportParameterizedType [
+FamixTypeScriptImportingContext >> shouldImportParametricFunction [
 
 	<generated>
-	^ self shouldImport: #ParameterizedType
+	^ self shouldImport: #ParametricFunction
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportParametricInterface [
+
+	<generated>
+	^ self shouldImport: #ParametricInterface
+]
+
+{ #category : #testing }
+FamixTypeScriptImportingContext >> shouldImportParametricMethod [
+
+	<generated>
+	^ self shouldImport: #ParametricMethod
 ]
 
 { #category : #testing }
@@ -576,24 +618,10 @@ FamixTypeScriptImportingContext >> shouldImportType [
 ]
 
 { #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportUnknownSourceLanguage [
-
-	<generated>
-	^ self shouldImport: #UnknownSourceLanguage
-]
-
-{ #category : #testing }
 FamixTypeScriptImportingContext >> shouldImportVariable [
 
 	<generated>
 	^ self shouldImport: #Variable
-]
-
-{ #category : #testing }
-FamixTypeScriptImportingContext >> shouldImportVariableStatement [
-
-	<generated>
-	^ self shouldImport: #VariableStatement
 ]
 
 { #category : #testing }

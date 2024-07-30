@@ -1,6 +1,8 @@
 Class {
 	#name : #FamixTypeScriptModel,
 	#superclass : #MooseModel,
+	#traits : 'FamixTypeScriptTEntityCreator',
+	#classTraits : 'FamixTypeScriptTEntityCreator classTrait',
 	#category : #'Famix-TypeScript-Entities-Model'
 }
 
