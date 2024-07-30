@@ -425,6 +425,12 @@ FamixTypeScriptGenerator >> defineProperties [
 		comment: 'Decorators use the form @expression, where expression must evaluate to a function that will be called at runtime with information about the decorated declaration'.
 	(property property: #readOnly type: #Boolean defaultValue: false)
 		comment: 'Properties may be prefixed with the readonly modifier. This prevents assignments to the field outside of the constructor.'.
+	(property property: #isDefinitelyAssigned type: #Boolean defaultValue: false)
+		comment: 'Properties may be postfixed with a definitely assigned modifier.'.
+	(property property: #isOptional type: #Boolean defaultValue: false)
+		comment: 'Properties may be postfixed with an optional modifier.'.
+	(property property: #isJavaScriptPrivate type: #Boolean defaultValue: false)
+		comment: 'Properties may be postfixed with a private modifier that makes the property private even in JavaScript.'.
 	(comment property: #isJSDoc type: #Boolean defaultValue: false)
 		comment: 'Comments can have the form of JSDoc.'.
 		
