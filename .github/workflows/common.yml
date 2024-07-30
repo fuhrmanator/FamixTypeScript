@@ -47,14 +47,14 @@ jobs:
         run: echo "run_docs is ${{ inputs.run_docs }}"
 
       - name: Move diagram to doc space
-        if: ${{ inputs.run_docs == 'true' }}
+        if: ${{ inputs.run_docs == true }}
         run: |
           mkdir -p doc-uml
           mv *.svg doc-uml
           mv *.puml doc-uml
 
       - name: Push docs to current branch
-        if: inputs.run_docs == 'true'
+        if: ${{ inputs.run_docs == true }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
