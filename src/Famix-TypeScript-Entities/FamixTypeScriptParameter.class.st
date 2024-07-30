@@ -7,6 +7,11 @@
 |---|
 | `parentBehaviouralEntity` | `FamixTParameter` | `parameters` | `FamixTWithParameters` | Behavioural entity containing this parameter. belongsTo implementation|
 
+### Children
+| Relation | Origin | Opposite | Type | Comment |
+|---|
+| `comments` | `FamixTWithComments` | `commentedEntity` | `FamixTComment` | List of comments for the entity|
+
 ### Incoming dependencies
 | Relation | Origin | Opposite | Type | Comment |
 |---|
@@ -31,8 +36,8 @@
 Class {
 	#name : #FamixTypeScriptParameter,
 	#superclass : #FamixTypeScriptStructuralEntity,
-	#traits : 'FamixTParameter',
-	#classTraits : 'FamixTParameter classTrait',
+	#traits : 'FamixTParameter + FamixTWithComments',
+	#classTraits : 'FamixTParameter classTrait + FamixTWithComments classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 
