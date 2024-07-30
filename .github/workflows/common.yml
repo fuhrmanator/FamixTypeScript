@@ -43,8 +43,11 @@ jobs:
         with:
           args: -v -tsvg FamixTypeScript-traits.puml FamixTypeScript.puml
 
+      - name: Debug run_docs value
+        run: echo "run_docs is ${{ inputs.run_docs }}"
+
       - name: Move diagram to doc space
-        if: inputs.run_docs == 'true'
+        if: ${{ inputs.run_docs == 'true' }}
         run: |
           mkdir -p doc-uml
           mv *.svg doc-uml
