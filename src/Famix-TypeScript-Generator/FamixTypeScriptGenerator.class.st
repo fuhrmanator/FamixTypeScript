@@ -267,11 +267,9 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	
 	enum --|> type.
 	enum --|> #TEnum.
-	enum --|> #TWithComments.
 	enum --|> #TImportable.
 
 	enumValue --|> structuralEntity.
-	enumValue --|> #TWithComments.
 	enumValue --|> #TEnumValue.
 
 	file --|> namedEntity.
@@ -311,7 +309,6 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	interface --|> #TWithAttributes.
 	interface --|> #TInvocationsReceiver.
 	"interface --|> #THasVisibility." "classes in modules/namespaces can't be declared private/public"
-	interface --|> #TWithComments.
 	interface --|> #TImplementable.
 	"interface --|> #TWithImports."
 	"interface --|> #TImportable." "Gets it from type?"
@@ -330,7 +327,6 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	method --|> #TCanBeAbstract.
 	method --|> #THasKind.
 	method --|> #THasVisibility.
-	method --|> #TWithComments.
 	method --|> #TCanBeClassSide.
 	method --|> #TImportable.
 	
@@ -340,7 +336,6 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	"Module"
 	module --|> scriptEntity.
 	module --|> #TWithLocalVariables. "var can have module scope"
-	module --|> #TWithComments.
 	module --|> #TWithImports.
 	"module --|> #TWithNamespaces."  "define this Trait for TypeScript namespaces"
 	module --|> #TImportable.
@@ -357,7 +352,6 @@ FamixTypeScriptGenerator >> defineHierarchy [
 
 	parameter --|> structuralEntity.
 	parameter --|> #TParameter.
-	parameter --|> #TWithComments.
 
 	parameterType --|> type.
 	parameterType --|> #TGenericParameterType.
@@ -383,7 +377,10 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	primitiveType --|> type.
 	primitiveType --|> #TPrimitiveType.
 	
+	sourcedEntity --|> #TWithComments.
+	
 	type --|> #TConcreteParameterType.
+	type --|> containerEntity.
 
 	concretization --|> #TConcretization.
 
@@ -427,7 +424,10 @@ FamixTypeScriptGenerator >> defineProperties [
 	(decorator property: #expression type: #String)
 		comment: 'Decorators use the form @expression, where expression must evaluate to a function that will be called at runtime with information about the decorated declaration'.
 	(property property: #readOnly type: #Boolean defaultValue: false)
-		comment: 'Properties may be prefixed with the readonly modifier. This prevents assignments to the field outside of the constructor.'
+		comment: 'Properties may be prefixed with the readonly modifier. This prevents assignments to the field outside of the constructor.'.
+	(comment property: #isJSDoc type: #Boolean defaultValue: false)
+		comment: 'Comments can have the form of JSDoc.'.
+		
 	"The following are not need because of THasKind (?)"
 
 	"(method property: #isConstructor type: #Boolean defaultValue: false) 
