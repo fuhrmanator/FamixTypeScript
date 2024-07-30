@@ -5,7 +5,6 @@
 ### Children
 | Relation | Origin | Opposite | Type | Comment |
 |---|
-| `comments` | `FamixTWithComments` | `commentedEntity` | `FamixTComment` | List of comments for the entity|
 | `localVariables` | `FamixTWithLocalVariables` | `parentBehaviouralEntity` | `FamixTLocalVariable` | Variables locally defined by this behaviour.|
 
 ### Outgoing dependencies
@@ -24,8 +23,8 @@
 Class {
 	#name : #FamixTypeScriptModule,
 	#superclass : #FamixTypeScriptScriptEntity,
-	#traits : 'FamixTImportable + FamixTWithComments + FamixTWithImports + FamixTWithLocalVariables',
-	#classTraits : 'FamixTImportable classTrait + FamixTWithComments classTrait + FamixTWithImports classTrait + FamixTWithLocalVariables classTrait',
+	#traits : 'FamixTImportable + FamixTWithImports + FamixTWithLocalVariables',
+	#classTraits : 'FamixTImportable classTrait + FamixTWithImports classTrait + FamixTWithLocalVariables classTrait',
 	#instVars : [
 		'#isAmbient',
 		'#isModule',

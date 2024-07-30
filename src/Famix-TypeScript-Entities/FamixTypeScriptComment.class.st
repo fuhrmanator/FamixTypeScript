@@ -14,6 +14,7 @@
 | Name | Type | Default value | Comment |
 |---|
 | `content` | `String` | nil | Content of the comment as a String|
+| `isJSDoc` | `Boolean` | false | Comments can have the form of JSDoc.|
 
 "
 Class {
@@ -21,6 +22,9 @@ Class {
 	#superclass : #FamixTypeScriptSourcedEntity,
 	#traits : 'FamixTComment',
 	#classTraits : 'FamixTComment classTrait',
+	#instVars : [
+		'#isJSDoc => FMProperty defaultValue: false'
+	],
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 
@@ -31,4 +35,19 @@ FamixTypeScriptComment class >> annotation [
 	<package: #FamixTypeScript>
 	<generated>
 	^ self
+]
+
+{ #category : #accessing }
+FamixTypeScriptComment >> isJSDoc [
+
+	<FMProperty: #isJSDoc type: #Boolean defaultValue: false>
+	<generated>
+	<FMComment: 'Comments can have the form of JSDoc.'>
+	^ isJSDoc ifNil: [ isJSDoc := false ]
+]
+
+{ #category : #accessing }
+FamixTypeScriptComment >> isJSDoc: anObject [
+	<generated>
+	isJSDoc := anObject
 ]

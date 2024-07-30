@@ -12,7 +12,6 @@ I represent a Typescript enumerated type
 ### Children
 | Relation | Origin | Opposite | Type | Comment |
 |---|
-| `comments` | `FamixTWithComments` | `commentedEntity` | `FamixTComment` | List of comments for the entity|
 | `enumValues` | `FamixTWithEnumValues` | `parentEnum` | `FamixTEnumValue` | |
 
 ### Incoming dependencies
@@ -40,8 +39,8 @@ I represent a Typescript enumerated type
 Class {
 	#name : #FamixTypeScriptEnum,
 	#superclass : #FamixTypeScriptType,
-	#traits : 'FamixTEnum + FamixTImportable + FamixTWithComments',
-	#classTraits : 'FamixTEnum classTrait + FamixTImportable classTrait + FamixTWithComments classTrait',
+	#traits : 'FamixTEnum + FamixTImportable',
+	#classTraits : 'FamixTEnum classTrait + FamixTImportable classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 

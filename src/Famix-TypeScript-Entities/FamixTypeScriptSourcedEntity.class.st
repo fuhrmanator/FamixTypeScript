@@ -2,6 +2,11 @@
 ## Relations
 ======================
 
+### Children
+| Relation | Origin | Opposite | Type | Comment |
+|---|
+| `comments` | `FamixTWithComments` | `commentedEntity` | `FamixTComment` | List of comments for the entity|
+
 ### Other
 | Relation | Origin | Opposite | Type | Comment |
 |---|
@@ -19,8 +24,8 @@
 Class {
 	#name : #FamixTypeScriptSourcedEntity,
 	#superclass : #FamixTypeScriptEntity,
-	#traits : 'FamixTSourceEntity',
-	#classTraits : 'FamixTSourceEntity classTrait',
+	#traits : 'FamixTSourceEntity + FamixTWithComments',
+	#classTraits : 'FamixTSourceEntity classTrait + FamixTWithComments classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 

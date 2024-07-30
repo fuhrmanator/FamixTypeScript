@@ -8,7 +8,6 @@ I represent a TypeScript interface.
 | Relation | Origin | Opposite | Type | Comment |
 |---|
 | `attributes` | `FamixTWithAttributes` | `parentType` | `FamixTAttribute` | List of attributes declared by this type.|
-| `comments` | `FamixTWithComments` | `commentedEntity` | `FamixTComment` | List of comments for the entity|
 | `methods` | `FamixTWithMethods` | `parentType` | `FamixTMethod` | Methods declared by this type.|
 
 ### Outgoing dependencies
@@ -33,8 +32,8 @@ I represent a TypeScript interface.
 Class {
 	#name : #FamixTypeScriptInterface,
 	#superclass : #FamixTypeScriptType,
-	#traits : 'FamixTImplementable + FamixTInvocationsReceiver + FamixTWithAttributes + FamixTWithComments + FamixTWithInheritances + FamixTWithMethods',
-	#classTraits : 'FamixTImplementable classTrait + FamixTInvocationsReceiver classTrait + FamixTWithAttributes classTrait + FamixTWithComments classTrait + FamixTWithInheritances classTrait + FamixTWithMethods classTrait',
+	#traits : 'FamixTImplementable + FamixTInvocationsReceiver + FamixTWithAttributes + FamixTWithInheritances + FamixTWithMethods',
+	#classTraits : 'FamixTImplementable classTrait + FamixTInvocationsReceiver classTrait + FamixTWithAttributes classTrait + FamixTWithInheritances classTrait + FamixTWithMethods classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 

@@ -9,11 +9,6 @@ I represent One value (constant) in a Typescript enumerated type
 |---|
 | `parentEnum` | `FamixTEnumValue` | `enumValues` | `FamixTWithEnumValues` | The Enum declaring this value. It offers the implementation of belongsTo|
 
-### Children
-| Relation | Origin | Opposite | Type | Comment |
-|---|
-| `comments` | `FamixTWithComments` | `commentedEntity` | `FamixTComment` | List of comments for the entity|
-
 ### Incoming dependencies
 | Relation | Origin | Opposite | Type | Comment |
 |---|
@@ -38,8 +33,8 @@ I represent One value (constant) in a Typescript enumerated type
 Class {
 	#name : #FamixTypeScriptEnumValue,
 	#superclass : #FamixTypeScriptStructuralEntity,
-	#traits : 'FamixTEnumValue + FamixTWithComments',
-	#classTraits : 'FamixTEnumValue classTrait + FamixTWithComments classTrait',
+	#traits : 'FamixTEnumValue',
+	#classTraits : 'FamixTEnumValue classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 
