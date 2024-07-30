@@ -22,6 +22,7 @@
 ### Other
 | Relation | Origin | Opposite | Type | Comment |
 |---|
+| `declaredType` | `FamixTTypedEntity` | `typedEntities` | `FamixTType` | Type of the entity, if any|
 | `genericEntities` | `FamixTGenericParameterType` | `genericParameters` | `FamixTParametricEntity` | The generic entities that use me.|
 | `sourceAnchor` | `FamixTSourceEntity` | `element` | `FamixTSourceAnchor` | SourceAnchor entity linking to the original source code for this entity|
 | `typedEntities` | `FamixTType` | `declaredType` | `FamixTTypedEntity` | Entities that have this type as declaredType|
@@ -39,8 +40,8 @@
 Class {
 	#name : #FamixTypeScriptParameterType,
 	#superclass : #FamixTypeScriptType,
-	#traits : 'FamixTGenericParameterType + FamixTWithInheritances',
-	#classTraits : 'FamixTGenericParameterType classTrait + FamixTWithInheritances classTrait',
+	#traits : 'FamixTGenericParameterType + FamixTTypedEntity + FamixTWithInheritances',
+	#classTraits : 'FamixTGenericParameterType classTrait + FamixTTypedEntity classTrait + FamixTWithInheritances classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 

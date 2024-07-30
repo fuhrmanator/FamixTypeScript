@@ -27,6 +27,7 @@ I represent a TypeScript method.
 ### Incoming dependencies
 | Relation | Origin | Opposite | Type | Comment |
 |---|
+| `incomingImports` | `FamixTImportable` | `importedEntity` | `FamixTImport` | List of imports of this entity|
 | `incomingInvocations` | `FamixTInvocable` | `candidates` | `FamixTInvocation` | Incoming invocations from other behaviours computed by the candidate operator.|
 
 ### Other
@@ -53,8 +54,8 @@ I represent a TypeScript method.
 Class {
 	#name : #FamixTypeScriptMethod,
 	#superclass : #FamixTypeScriptBehaviouralEntity,
-	#traits : 'FamixTCanBeAbstract + FamixTCanBeClassSide + FamixTHasKind + FamixTHasVisibility + FamixTMethod + FamixTWithComments',
-	#classTraits : 'FamixTCanBeAbstract classTrait + FamixTCanBeClassSide classTrait + FamixTHasKind classTrait + FamixTHasVisibility classTrait + FamixTMethod classTrait + FamixTWithComments classTrait',
+	#traits : 'FamixTCanBeAbstract + FamixTCanBeClassSide + FamixTHasKind + FamixTHasVisibility + FamixTImportable + FamixTMethod + FamixTWithComments',
+	#classTraits : 'FamixTCanBeAbstract classTrait + FamixTCanBeClassSide classTrait + FamixTHasKind classTrait + FamixTHasVisibility classTrait + FamixTImportable classTrait + FamixTMethod classTrait + FamixTWithComments classTrait',
 	#category : #'Famix-TypeScript-Entities-Entities'
 }
 
