@@ -155,6 +155,13 @@ FamixTypeScriptEntity >> isQueryable [
 ]
 
 { #category : #testing }
+FamixTypeScriptEntity >> isReference [
+
+	<generated>
+	^ false
+]
+
+{ #category : #testing }
 FamixTypeScriptEntity >> isStructuralEntity [
 
 	<generated>

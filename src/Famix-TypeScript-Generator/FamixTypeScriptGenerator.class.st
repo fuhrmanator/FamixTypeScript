@@ -376,6 +376,8 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	
 	primitiveType --|> type.
 	primitiveType --|> #TPrimitiveType.
+
+	reference --|> #TReference.
 	
 	sourcedEntity --|> #TWithComments.
 	
