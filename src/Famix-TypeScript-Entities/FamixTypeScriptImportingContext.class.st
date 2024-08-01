@@ -264,7 +264,7 @@ FamixTypeScriptImportingContext >> importProperty [
 FamixTypeScriptImportingContext >> importReference [
 
 	<generated>
-	^ self importConcreteEntity: (self class fm3ClassNamed: #Reference)
+	^ self importAssociation: (self class fm3ClassNamed: #Reference)
 ]
 
 { #category : #importing }
