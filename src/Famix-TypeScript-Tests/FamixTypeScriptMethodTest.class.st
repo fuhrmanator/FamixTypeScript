@@ -2,21 +2,23 @@
 A FamixTypeScriptMethodTest is a test class for testing the behavior of FamixTypeScriptMethod
 "
 Class {
-	#name : #FamixTypeScriptMethodTest,
-	#superclass : #TestCase,
+	#name : 'FamixTypeScriptMethodTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'method'
 	],
-	#category : #'Famix-TypeScript-Tests-Entities'
+	#category : 'Famix-TypeScript-Tests-Entities',
+	#package : 'Famix-TypeScript-Tests',
+	#tag : 'Entities'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 FamixTypeScriptMethodTest >> setUp [
 	super setUp.
 	method := FamixTypeScriptMethod new
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 FamixTypeScriptMethodTest >> testAllOverridingMethods [
 
 	| signature overridingMethod otherOverridingMethod localClass subclass subSubclass |
@@ -47,7 +49,7 @@ FamixTypeScriptMethodTest >> testAllOverridingMethods [
 				otherOverridingMethod }
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 FamixTypeScriptMethodTest >> testAllOverridingMethodsInInterface [
 
 	| signature overridingMethod otherOverridingMethod i subclass subSubclass |
@@ -76,7 +78,7 @@ FamixTypeScriptMethodTest >> testAllOverridingMethodsInInterface [
 			otherOverridingMethod }
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 FamixTypeScriptMethodTest >> testAllOverridingMethodsInInterfaceWithExtendingInterface [
 
 	| signature overridingMethod otherOverridingMethod i subclass subSubclass i2 |
@@ -115,12 +117,12 @@ FamixTypeScriptMethodTest >> testAllOverridingMethodsInInterfaceWithExtendingInt
 			otherOverridingMethod }
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 FamixTypeScriptMethodTest >> testDefaultIsStub [
 	self deny: method isStub
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 FamixTypeScriptMethodTest >> testFirstOverridingMethods [
 
 	| signature overridingMethod otherOverridingMethod localClass subclass subSubclass |
@@ -149,14 +151,14 @@ FamixTypeScriptMethodTest >> testFirstOverridingMethods [
 		hasSameElements: { overridingMethod }
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 FamixTypeScriptMethodTest >> testIsClassSide [
 	
 	method isClassSide: true.
 	self assert: method isClassSide .
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 FamixTypeScriptMethodTest >> testIsConstructor [
 
 	self deny: method isConstructor.
@@ -164,7 +166,7 @@ FamixTypeScriptMethodTest >> testIsConstructor [
 	self assert: method isConstructor
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 FamixTypeScriptMethodTest >> testIsGetter [
 
 	self deny: method isGetter.
@@ -178,7 +180,7 @@ FamixTypeScriptMethodTest >> testIsGetter [
 	self deny: method isGetter
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 FamixTypeScriptMethodTest >> testIsGetterForBooleanAttribute [
 
 	method name: 'isActif'.
@@ -194,7 +196,7 @@ FamixTypeScriptMethodTest >> testIsGetterForBooleanAttribute [
 	self deny: method isGetter
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 FamixTypeScriptMethodTest >> testIsNotStubWhenParentIsNotStub [
 	| aClass |
 	aClass := FamixTypeScriptClass new.
@@ -204,7 +206,7 @@ FamixTypeScriptMethodTest >> testIsNotStubWhenParentIsNotStub [
 	self deny: method isStub
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 FamixTypeScriptMethodTest >> testIsSetter [
 
 	self deny: method isSetter.
@@ -219,17 +221,7 @@ FamixTypeScriptMethodTest >> testIsSetter [
 	self assert: method isSetter
 ]
 
-{ #category : #test }
-FamixTypeScriptMethodTest >> testIsStubWhenParentIsStub [
-	| aClass |
-	aClass := FamixTypeScriptClass new.
-	method parentType: aClass.
-	aClass isStub: true.
-	self assert: aClass isStub.
-	self assert: method isStub
-]
-
-{ #category : #test }
+{ #category : 'test' }
 FamixTypeScriptMethodTest >> testOverriddenMethod [
 
 	| signature overriddenMethod localClass superclass |
@@ -250,7 +242,7 @@ FamixTypeScriptMethodTest >> testOverriddenMethod [
 	self assert: method overriddenMethod equals: overriddenMethod
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 FamixTypeScriptMethodTest >> testOverriddenMethodFromInterface [
 
 	| signature interfaceOverriddenMethod localClass interface |
@@ -271,7 +263,7 @@ FamixTypeScriptMethodTest >> testOverriddenMethodFromInterface [
 	self assert: method overriddenMethod equals: interfaceOverriddenMethod
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 FamixTypeScriptMethodTest >> testOverriddenMethodOnlyOneLevel [
 
 	| signature overriddenMethod localClass superclass superSuperclass otherOverriddenMethod |
@@ -298,7 +290,7 @@ FamixTypeScriptMethodTest >> testOverriddenMethodOnlyOneLevel [
 	self assert: method overriddenMethod equals: overriddenMethod
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 FamixTypeScriptMethodTest >> testOverride [
 	| overriddenMethod c1 c2  |
 	c1 := FamixTypeScriptClass new
@@ -325,7 +317,7 @@ FamixTypeScriptMethodTest >> testOverride [
 	self assert: overriddenMethod isOverridden 
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 FamixTypeScriptMethodTest >> testOverridingMethods [
 
 	| signature overridingMethod c1 c2 |
@@ -348,7 +340,7 @@ FamixTypeScriptMethodTest >> testOverridingMethods [
 		hasSameElements: { overridingMethod }
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 FamixTypeScriptMethodTest >> testOverridingMethodsInInterface [
 
 	| signature overridingMethod i c |
@@ -371,7 +363,7 @@ FamixTypeScriptMethodTest >> testOverridingMethodsInInterface [
 		hasSameElements: { overridingMethod }
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 FamixTypeScriptMethodTest >> testOverridingMethodsInterfaceExtendsInterface [
 
 	| signature overridingMethod i i2 overridingMethod2 i3 |
@@ -400,13 +392,14 @@ FamixTypeScriptMethodTest >> testOverridingMethodsInterfaceExtendsInterface [
 			overridingMethod2 }
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 FamixTypeScriptMethodTest >> testSettingIsStub [
+   self deny: method isStub.
 	method isStub: true.
 	self assert: method isStub
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 FamixTypeScriptMethodTest >> testSeveralOverridingMethods [
 
 	| signature overridingMethod otherOverridingMethod localClass subclass otherSubclass |

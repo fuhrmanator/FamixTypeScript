@@ -1,10 +1,12 @@
 Class {
-	#name : #FamixTypeScriptClassTest,
-	#superclass : #TestCase,
-	#category : #'Famix-TypeScript-Tests-Entities'
+	#name : 'FamixTypeScriptClassTest',
+	#superclass : 'TestCase',
+	#category : 'Famix-TypeScript-Tests-Entities',
+	#package : 'Famix-TypeScript-Tests',
+	#tag : 'Entities'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 FamixTypeScriptClassTest >> testIsAbstract [
 
 	| c1 |
@@ -15,7 +17,7 @@ FamixTypeScriptClassTest >> testIsAbstract [
 	self assert: c1 isAbstract
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptClassTest >> testNumberOfAccessorMethods [
 
 	| model c1 m1 |  
@@ -30,7 +32,7 @@ FamixTypeScriptClassTest >> testNumberOfAccessorMethods [
 	self assert: c1 numberOfAccessorMethods equals: 100
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptClassTest >> testNumberOfConstructorMethods [
  
 	| m1 c1 model | 

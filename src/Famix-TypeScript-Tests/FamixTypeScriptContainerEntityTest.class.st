@@ -2,12 +2,14 @@
 A FamixTypeScriptContainerEntityTest is a test class for testing the behavior of FamixTypeScriptContainerEntity
 "
 Class {
-	#name : #FamixTypeScriptContainerEntityTest,
-	#superclass : #TestCase,
-	#category : #'Famix-TypeScript-Tests-Entities'
+	#name : 'FamixTypeScriptContainerEntityTest',
+	#superclass : 'TestCase',
+	#category : 'Famix-TypeScript-Tests-Entities',
+	#package : 'Famix-TypeScript-Tests',
+	#tag : 'Entities'
 }
 
-{ #category : #test }
+{ #category : 'test' }
 FamixTypeScriptContainerEntityTest >> testAddInterface [
 
 	| interface container |

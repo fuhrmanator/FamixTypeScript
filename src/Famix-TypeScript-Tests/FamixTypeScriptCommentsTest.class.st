@@ -1,10 +1,11 @@
 Class {
-	#name : #FamixTypeScriptCommentsTest,
-	#superclass : #TestCase,
-	#category : #'Famix-TypeScript-Tests'
+	#name : 'FamixTypeScriptCommentsTest',
+	#superclass : 'TestCase',
+	#category : 'Famix-TypeScript-Tests',
+	#package : 'Famix-TypeScript-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptCommentsTest >> testClassWithComment [
 
 	| typeScriptClass |
@@ -13,7 +14,7 @@ FamixTypeScriptCommentsTest >> testClassWithComment [
 	self assert: typeScriptClass numberOfComments equals: 1
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptCommentsTest >> testClassWithCommentAndMethodsWithComments [ 
 
 	| typeScriptClass |

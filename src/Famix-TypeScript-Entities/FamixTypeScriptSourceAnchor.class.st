@@ -11,14 +11,16 @@
 
 "
 Class {
-	#name : #FamixTypeScriptSourceAnchor,
-	#superclass : #FamixTypeScriptEntity,
+	#name : 'FamixTypeScriptSourceAnchor',
+	#superclass : 'FamixTypeScriptEntity',
 	#traits : 'FamixTSourceAnchor',
 	#classTraits : 'FamixTSourceAnchor classTrait',
-	#category : #'Famix-TypeScript-Entities-Entities'
+	#category : 'Famix-TypeScript-Entities-Entities',
+	#package : 'Famix-TypeScript-Entities',
+	#tag : 'Entities'
 }
 
-{ #category : #meta }
+{ #category : 'meta' }
 FamixTypeScriptSourceAnchor class >> annotation [
 
 	<FMClass: #SourceAnchor super: #FamixTypeScriptEntity>
@@ -28,7 +30,7 @@ FamixTypeScriptSourceAnchor class >> annotation [
 	^ self
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 FamixTypeScriptSourceAnchor class >> isAbstract [
 
 	<generated>

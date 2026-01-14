@@ -16,7 +16,7 @@
 ### Incoming dependencies
 | Relation | Origin | Opposite | Type | Comment |
 |---|
-| `incomingReferences` | `FamixTReferenceable` | `referredType` | `FamixTReference` | References to this entity by other entities.|
+| `incomingReferences` | `FamixTReferenceable` | `referredEntity` | `FamixTReference` | References to this entity by other entities.|
 | `subInheritances` | `FamixTWithInheritances` | `superclass` | `FamixTInheritance` | Subinheritance relationships, i.e. known subclasses of this type.|
 
 ### Other
@@ -38,14 +38,16 @@
 
 "
 Class {
-	#name : #FamixTypeScriptParameterType,
-	#superclass : #FamixTypeScriptType,
+	#name : 'FamixTypeScriptParameterType',
+	#superclass : 'FamixTypeScriptType',
 	#traits : 'FamixTGenericParameterType + FamixTTypedEntity + FamixTWithInheritances',
 	#classTraits : 'FamixTGenericParameterType classTrait + FamixTTypedEntity classTrait + FamixTWithInheritances classTrait',
-	#category : #'Famix-TypeScript-Entities-Entities'
+	#category : 'Famix-TypeScript-Entities-Entities',
+	#package : 'Famix-TypeScript-Entities',
+	#tag : 'Entities'
 }
 
-{ #category : #meta }
+{ #category : 'meta' }
 FamixTypeScriptParameterType class >> annotation [
 
 	<FMClass: #ParameterType super: #FamixTypeScriptType>

@@ -1,6 +1,6 @@
-Extension { #name : #FamixTHasKind }
+Extension { #name : 'FamixTHasKind' }
 
-{ #category : #'*Famix-TypeScript-Extensions' }
+{ #category : '*Famix-TypeScript-Extensions' }
 FamixTHasKind >> isGetter: aBoolean [
 
 	aBoolean
@@ -8,7 +8,7 @@ FamixTHasKind >> isGetter: aBoolean [
 		ifFalse: [ self isGetter ifTrue: [ self kind: nil ] ]
 ]
 
-{ #category : #'*Famix-TypeScript-Extensions' }
+{ #category : '*Famix-TypeScript-Extensions' }
 FamixTHasKind >> isSetter: aBoolean [
 
 	aBoolean

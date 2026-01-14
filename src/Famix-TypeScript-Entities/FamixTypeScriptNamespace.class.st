@@ -28,14 +28,16 @@
 
 "
 Class {
-	#name : #FamixTypeScriptNamespace,
-	#superclass : #FamixTypeScriptScopingEntity,
+	#name : 'FamixTypeScriptNamespace',
+	#superclass : 'FamixTypeScriptScopingEntity',
 	#traits : 'FamixTDefinedInModule + FamixTImportable + FamixTNamespace',
 	#classTraits : 'FamixTDefinedInModule classTrait + FamixTImportable classTrait + FamixTNamespace classTrait',
-	#category : #'Famix-TypeScript-Entities-Entities'
+	#category : 'Famix-TypeScript-Entities-Entities',
+	#package : 'Famix-TypeScript-Entities',
+	#tag : 'Entities'
 }
 
-{ #category : #meta }
+{ #category : 'meta' }
 FamixTypeScriptNamespace class >> annotation [
 
 	<FMClass: #Namespace super: #FamixTypeScriptScopingEntity>

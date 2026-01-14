@@ -13,17 +13,25 @@
 | `childrenFileSystemEntities` | `FamixTFolder` | `parentFolder` | `FamixTFileSystemEntity` | List of entities contained in this folder.|
 
 
+## Properties
+======================
+
+| Name | Type | Default value | Comment |
+|---|
+| `name` | `String` | nil | Basic name of the entity, not full reference.|
 
 "
 Class {
-	#name : #FamixTypeScriptFolder,
-	#superclass : #FamixTypeScriptNamedEntity,
+	#name : 'FamixTypeScriptFolder',
+	#superclass : 'FamixTypeScriptNamedEntity',
 	#traits : 'FamixTFolder',
 	#classTraits : 'FamixTFolder classTrait',
-	#category : #'Famix-TypeScript-Entities-Entities'
+	#category : 'Famix-TypeScript-Entities-Entities',
+	#package : 'Famix-TypeScript-Entities',
+	#tag : 'Entities'
 }
 
-{ #category : #meta }
+{ #category : 'meta' }
 FamixTypeScriptFolder class >> annotation [
 
 	<FMClass: #Folder super: #FamixTypeScriptNamedEntity>

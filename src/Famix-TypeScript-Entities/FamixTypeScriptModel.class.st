@@ -1,31 +1,33 @@
 Class {
-	#name : #FamixTypeScriptModel,
-	#superclass : #MooseModel,
+	#name : 'FamixTypeScriptModel',
+	#superclass : 'MooseModel',
 	#traits : 'FamixTypeScriptTEntityCreator',
 	#classTraits : 'FamixTypeScriptTEntityCreator classTrait',
-	#category : #'Famix-TypeScript-Entities-Model'
+	#category : 'Famix-TypeScript-Entities-Model',
+	#package : 'Famix-TypeScript-Entities',
+	#tag : 'Model'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 FamixTypeScriptModel class >> allSubmetamodelsPackagesNames [
 	<generated>
 	^ #(#'Moose-Query' #'Famix-Traits')
 ]
 
-{ #category : #meta }
+{ #category : 'meta' }
 FamixTypeScriptModel class >> annotation [
 	<FMClass: #FamixTypeScriptModel super: #MooseModel>
 	<package: #FamixTypeScript>
 	<generated>
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 FamixTypeScriptModel class >> canBeImportedFromFile [
 	<generated>
 	^true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 FamixTypeScriptModel class >> importingContextClass [
 
 	<generated>

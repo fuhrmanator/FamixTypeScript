@@ -1,6 +1,6 @@
-Extension { #name : #FamixTypeScriptModule }
+Extension { #name : 'FamixTypeScriptModule' }
 
-{ #category : #'*Famix-TypeScript-Extensions' }
+{ #category : '*Famix-TypeScript-Extensions' }
 FamixTypeScriptModule >> isAmbient [
 
 	<FMProperty: #isAmbient type: #Boolean defaultValue: false>
@@ -8,13 +8,13 @@ FamixTypeScriptModule >> isAmbient [
 	^ isAmbient ifNil: [ isAmbient := false ]
 ]
 
-{ #category : #'*Famix-TypeScript-Extensions' }
+{ #category : '*Famix-TypeScript-Extensions' }
 FamixTypeScriptModule >> isAmbient: anObject [
 
 	isAmbient := anObject
 ]
 
-{ #category : #'*Famix-TypeScript-Extensions' }
+{ #category : '*Famix-TypeScript-Extensions' }
 FamixTypeScriptModule >> isModule [
 
 	<FMProperty: #isModule type: #Boolean defaultValue: false>
@@ -22,13 +22,13 @@ FamixTypeScriptModule >> isModule [
 	^ isModule ifNil: [ isModule := false ]
 ]
 
-{ #category : #'*Famix-TypeScript-Extensions' }
+{ #category : '*Famix-TypeScript-Extensions' }
 FamixTypeScriptModule >> isModule: anObject [
 
 	isModule := anObject
 ]
 
-{ #category : #'*Famix-TypeScript-Extensions' }
+{ #category : '*Famix-TypeScript-Extensions' }
 FamixTypeScriptModule >> isNamespace [
 
 	<FMProperty: #isNamespace type: #Boolean defaultValue: false>
@@ -36,7 +36,7 @@ FamixTypeScriptModule >> isNamespace [
 	^ isNamespace ifNil: [ isNamespace := false ]
 ]
 
-{ #category : #'*Famix-TypeScript-Extensions' }
+{ #category : '*Famix-TypeScript-Extensions' }
 FamixTypeScriptModule >> isNamespace: anObject [
 
 	isNamespace := anObject

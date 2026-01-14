@@ -1,6 +1,6 @@
-Extension { #name : #FamixTypeScriptInterface }
+Extension { #name : 'FamixTypeScriptInterface' }
 
-{ #category : #'*Famix-TypeScript-Extensions' }
+{ #category : '*Famix-TypeScript-Extensions' }
 FamixTypeScriptInterface >> addMethodOverriding: aMethod in: aCollection [
 
 	self implementations do: [ :implementation |

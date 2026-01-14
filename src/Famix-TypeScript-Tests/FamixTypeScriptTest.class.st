@@ -1,10 +1,11 @@
 Class {
-	#name : #FamixTypeScriptTest,
-	#superclass : #TestCase,
-	#category : #'Famix-TypeScript-Tests'
+	#name : 'FamixTypeScriptTest',
+	#superclass : 'TestCase',
+	#category : 'Famix-TypeScript-Tests',
+	#package : 'Famix-TypeScript-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptTest >> testImportNamespace [
 
 	| model |
@@ -27,7 +28,7 @@ FamixTypeScriptTest >> testImportNamespace [
 		equals: 2
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptTest >> testModelImportableFromFile [
 	self assert: FamixTypeScriptModel canBeImportedFromFile 
 ]

@@ -23,17 +23,19 @@
 
 "
 Class {
-	#name : #FamixTypeScriptNamedEntity,
-	#superclass : #FamixTypeScriptSourcedEntity,
+	#name : 'FamixTypeScriptNamedEntity',
+	#superclass : 'FamixTypeScriptSourcedEntity',
 	#traits : 'FamixTImportable + FamixTInvocationsReceiver + FamixTNamedEntity + TEntityMetaLevelDependency',
 	#classTraits : 'FamixTImportable classTrait + FamixTInvocationsReceiver classTrait + FamixTNamedEntity classTrait + TEntityMetaLevelDependency classTrait',
 	#instVars : [
 		'#decorators => FMMany type: #FamixTypeScriptDecorator opposite: #decoratedEntity'
 	],
-	#category : #'Famix-TypeScript-Entities-Entities'
+	#category : 'Famix-TypeScript-Entities-Entities',
+	#package : 'Famix-TypeScript-Entities',
+	#tag : 'Entities'
 }
 
-{ #category : #meta }
+{ #category : 'meta' }
 FamixTypeScriptNamedEntity class >> annotation [
 
 	<FMClass: #NamedEntity super: #FamixTypeScriptSourcedEntity>
@@ -43,20 +45,20 @@ FamixTypeScriptNamedEntity class >> annotation [
 	^ self
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 FamixTypeScriptNamedEntity class >> isAbstract [
 
 	<generated>
 	^ self == FamixTypeScriptNamedEntity
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 FamixTypeScriptNamedEntity >> addDecorator: anObject [
 	<generated>
 	^ self decorators add: anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 FamixTypeScriptNamedEntity >> decorators [
 	"Relation named: #decorators type: #FamixTypeScriptDecorator opposite: #decoratedEntity"
 
@@ -65,14 +67,14 @@ FamixTypeScriptNamedEntity >> decorators [
 	^ decorators
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 FamixTypeScriptNamedEntity >> decorators: anObject [
 
 	<generated>
 	decorators value: anObject
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 FamixTypeScriptNamedEntity >> isNamedEntity [
 
 	<generated>

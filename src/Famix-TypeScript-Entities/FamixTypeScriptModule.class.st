@@ -10,7 +10,7 @@
 ### Outgoing dependencies
 | Relation | Origin | Opposite | Type | Comment |
 |---|
-| `outgoingImports` | `FamixTWithImports` | `importingEntity` | `FamixTImport` | |
+| `imports` | `FamixTWithImports` | `importingEntity` | `FamixTImport` | |
 
 ### Incoming dependencies
 | Relation | Origin | Opposite | Type | Comment |
@@ -21,19 +21,16 @@
 
 "
 Class {
-	#name : #FamixTypeScriptModule,
-	#superclass : #FamixTypeScriptScriptEntity,
+	#name : 'FamixTypeScriptModule',
+	#superclass : 'FamixTypeScriptScriptEntity',
 	#traits : 'FamixTImportable + FamixTWithImports + FamixTWithLocalVariables',
 	#classTraits : 'FamixTImportable classTrait + FamixTWithImports classTrait + FamixTWithLocalVariables classTrait',
-	#instVars : [
-		'#isAmbient',
-		'#isModule',
-		'#isNamespace'
-	],
-	#category : #'Famix-TypeScript-Entities-Entities'
+	#category : 'Famix-TypeScript-Entities-Entities',
+	#package : 'Famix-TypeScript-Entities',
+	#tag : 'Entities'
 }
 
-{ #category : #meta }
+{ #category : 'meta' }
 FamixTypeScriptModule class >> annotation [
 
 	<FMClass: #Module super: #FamixTypeScriptScriptEntity>

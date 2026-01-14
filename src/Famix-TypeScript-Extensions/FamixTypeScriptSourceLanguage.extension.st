@@ -1,11 +1,11 @@
-Extension { #name : #FamixTypeScriptSourceLanguage }
+Extension { #name : 'FamixTypeScriptSourceLanguage' }
 
-{ #category : #'*Famix-TypeScript-Extensions' }
+{ #category : '*Famix-TypeScript-Extensions' }
 FamixTypeScriptSourceLanguage >> isTypeScript [
 	^ true
 ]
 
-{ #category : #'*Famix-TypeScript-Extensions' }
+{ #category : '*Famix-TypeScript-Extensions' }
 FamixTypeScriptSourceLanguage >> name [
 	
 	<FMProperty: #name type: #String> 

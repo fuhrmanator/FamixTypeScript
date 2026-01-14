@@ -1,6 +1,6 @@
-Extension { #name : #FamixTypeScriptClass }
+Extension { #name : 'FamixTypeScriptClass' }
 
-{ #category : #'*Famix-TypeScript-Extensions' }
+{ #category : '*Famix-TypeScript-Extensions' }
 FamixTypeScriptClass >> accessedAttributes [
 	
 	"Returns my attributes accessed by my methods. If the same attribute is accessed 
@@ -10,14 +10,14 @@ FamixTypeScriptClass >> accessedAttributes [
 	^ self methodsWithoutSutbsAndConstructors asOrderedCollection flatCollect: [ :method | method accessedAttributes ]
 ]
 
-{ #category : #'*Famix-TypeScript-Extensions' }
+{ #category : '*Famix-TypeScript-Extensions' }
 FamixTypeScriptClass >> allImplementedInterfacesHierarchyDo: aBlock [
 
 	self directImplementedInterfaces do: [ :directInterface |
 		directInterface withSuperclassesDo: aBlock ]
 ]
 
-{ #category : #'*Famix-TypeScript-Extensions' }
+{ #category : '*Famix-TypeScript-Extensions' }
 FamixTypeScriptClass >> isInterface [
 
 	<FMProperty: #isInterface type: #Boolean>
@@ -26,14 +26,14 @@ FamixTypeScriptClass >> isInterface [
 	^ self attributeAt: #isInterface ifAbsent: [ false ]
 ]
 
-{ #category : #'*Famix-TypeScript-Extensions' }
+{ #category : '*Famix-TypeScript-Extensions' }
 FamixTypeScriptClass >> isInterface: aBoolean [
 	self halt. "Code copied from FamixJavaClass - but not clear to me."
 	"Why is the following line not using aBoolean?"
 	^ self attributeAt: #isInterface put: true
 ]
 
-{ #category : #'*Famix-TypeScript-Extensions' }
+{ #category : '*Famix-TypeScript-Extensions' }
 FamixTypeScriptClass >> lookUpInInterfaces: aMethodSignature [
 
 	self allImplementedInterfacesHierarchyDo: [ :interface |
@@ -43,7 +43,7 @@ FamixTypeScriptClass >> lookUpInInterfaces: aMethodSignature [
 		  superclass lookUpInInterfaces: aMethodSignature ]
 ]
 
-{ #category : #'*Famix-TypeScript-Extensions' }
+{ #category : '*Famix-TypeScript-Extensions' }
 FamixTypeScriptClass >> methodsWithoutSutbsAndConstructors [
 
 	"Removing stub and contructor methods. Used to support the calculation of LCOM."

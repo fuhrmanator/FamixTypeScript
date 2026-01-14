@@ -51,23 +51,19 @@
 | `sourceAnchor` | `FamixTSourceEntity` | `element` | `FamixTSourceAnchor` | SourceAnchor entity linking to the original source code for this entity|
 
 
-## Properties
-======================
-
-| Name | Type | Default value | Comment |
-|---|
-| `isStub` | `Boolean` | false | Flag true if the entity attributes are incomplete, either because the entity is missing or not imported.|
 
 "
 Class {
-	#name : #FamixTypeScriptParameterConcretization,
-	#superclass : #FamixTypeScriptEntity,
+	#name : 'FamixTypeScriptParameterConcretization',
+	#superclass : 'FamixTypeScriptEntity',
 	#traits : 'FamixTParameterConcretization',
 	#classTraits : 'FamixTParameterConcretization classTrait',
-	#category : #'Famix-TypeScript-Entities-Entities'
+	#category : 'Famix-TypeScript-Entities-Entities',
+	#package : 'Famix-TypeScript-Entities',
+	#tag : 'Entities'
 }
 
-{ #category : #meta }
+{ #category : 'meta' }
 FamixTypeScriptParameterConcretization class >> annotation [
 
 	<FMClass: #ParameterConcretization super: #FamixTypeScriptEntity>

@@ -1,10 +1,12 @@
 Class {
-	#name : #FamixTypeScriptInterfaceTest,
-	#superclass : #TestCase,
-	#category : #'Famix-TypeScript-Tests-Entities'
+	#name : 'FamixTypeScriptInterfaceTest',
+	#superclass : 'TestCase',
+	#category : 'Famix-TypeScript-Tests-Entities',
+	#package : 'Famix-TypeScript-Tests',
+	#tag : 'Entities'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptInterfaceTest >> testClassContainInterface [
 
 	| interface class |
@@ -16,7 +18,7 @@ FamixTypeScriptInterfaceTest >> testClassContainInterface [
 		hasSameElements: { interface }.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptInterfaceTest >> testImplementation [
 
 	| interface class impl |
@@ -30,7 +32,7 @@ FamixTypeScriptInterfaceTest >> testImplementation [
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptInterfaceTest >> testInterfaceContainInterface [
 
 	| interface int2 |
@@ -42,7 +44,7 @@ FamixTypeScriptInterfaceTest >> testInterfaceContainInterface [
 		hasSameElements: { interface }.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptInterfaceTest >> testMultipleInheritance [
 
 	| interface supInt1 supInt2 inh1 inh2 |

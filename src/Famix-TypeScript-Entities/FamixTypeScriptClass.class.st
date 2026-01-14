@@ -28,7 +28,7 @@ I represent a TypeScript class.
 | Relation | Origin | Opposite | Type | Comment |
 |---|
 | `incomingImports` | `FamixTImportable` | `importedEntity` | `FamixTImport` | List of imports of this entity|
-| `incomingReferences` | `FamixTReferenceable` | `referredType` | `FamixTReference` | References to this entity by other entities.|
+| `incomingReferences` | `FamixTReferenceable` | `referredEntity` | `FamixTReference` | References to this entity by other entities.|
 | `subInheritances` | `FamixTWithInheritances` | `superclass` | `FamixTInheritance` | Subinheritance relationships, i.e. known subclasses of this type.|
 
 ### Other
@@ -50,14 +50,16 @@ I represent a TypeScript class.
 
 "
 Class {
-	#name : #FamixTypeScriptClass,
-	#superclass : #FamixTypeScriptType,
+	#name : 'FamixTypeScriptClass',
+	#superclass : 'FamixTypeScriptType',
 	#traits : 'FamixTCanBeAbstract + FamixTCanImplement + FamixTClass + FamixTClassMetrics + FamixTImportable + FamixTLCOMMetrics + FamixTWithAccesses + FamixTWithInvocations + FamixTypeScriptTClassMetrics',
 	#classTraits : 'FamixTCanBeAbstract classTrait + FamixTCanImplement classTrait + FamixTClass classTrait + FamixTClassMetrics classTrait + FamixTImportable classTrait + FamixTLCOMMetrics classTrait + FamixTWithAccesses classTrait + FamixTWithInvocations classTrait + FamixTypeScriptTClassMetrics classTrait',
-	#category : #'Famix-TypeScript-Entities-Entities'
+	#category : 'Famix-TypeScript-Entities-Entities',
+	#package : 'Famix-TypeScript-Entities',
+	#tag : 'Entities'
 }
 
-{ #category : #meta }
+{ #category : 'meta' }
 FamixTypeScriptClass class >> annotation [
 
 	<FMClass: #Class super: #FamixTypeScriptType>
@@ -66,7 +68,7 @@ FamixTypeScriptClass class >> annotation [
 	^ self
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 FamixTypeScriptClass >> isClass [
 
 	<generated>

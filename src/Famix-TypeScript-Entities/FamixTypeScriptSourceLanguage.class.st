@@ -11,14 +11,16 @@
 
 "
 Class {
-	#name : #FamixTypeScriptSourceLanguage,
-	#superclass : #FamixTypeScriptEntity,
+	#name : 'FamixTypeScriptSourceLanguage',
+	#superclass : 'FamixTypeScriptEntity',
 	#traits : 'FamixTSourceLanguage',
 	#classTraits : 'FamixTSourceLanguage classTrait',
-	#category : #'Famix-TypeScript-Entities-Entities'
+	#category : 'Famix-TypeScript-Entities-Entities',
+	#package : 'Famix-TypeScript-Entities',
+	#tag : 'Entities'
 }
 
-{ #category : #meta }
+{ #category : 'meta' }
 FamixTypeScriptSourceLanguage class >> annotation [
 
 	<FMClass: #SourceLanguage super: #FamixTypeScriptEntity>
