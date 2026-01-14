@@ -25,19 +25,20 @@
 
 | Name | Type | Default value | Comment |
 |---|
-| `isStub` | `Boolean` | false | Flag true if the entity attributes are incomplete, either because the entity is missing or not imported.|
 | `isWrite` | `Boolean` | false | Write access|
 
 "
 Class {
-	#name : #FamixTypeScriptAccess,
-	#superclass : #FamixTypeScriptEntity,
+	#name : 'FamixTypeScriptAccess',
+	#superclass : 'FamixTypeScriptEntity',
 	#traits : 'FamixTAccess',
 	#classTraits : 'FamixTAccess classTrait',
-	#category : #'Famix-TypeScript-Entities-Entities'
+	#category : 'Famix-TypeScript-Entities-Entities',
+	#package : 'Famix-TypeScript-Entities',
+	#tag : 'Entities'
 }
 
-{ #category : #meta }
+{ #category : 'meta' }
 FamixTypeScriptAccess class >> annotation [
 
 	<FMClass: #Access super: #FamixTypeScriptEntity>

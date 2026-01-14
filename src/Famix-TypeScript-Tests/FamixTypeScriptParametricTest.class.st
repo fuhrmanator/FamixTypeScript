@@ -1,13 +1,14 @@
 Class {
-	#name : #FamixTypeScriptParametricTest,
-	#superclass : #TestCase,
+	#name : 'FamixTypeScriptParametricTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'parametricClass'
 	],
-	#category : #'Famix-TypeScript-Tests'
+	#category : 'Famix-TypeScript-Tests',
+	#package : 'Famix-TypeScript-Tests'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 FamixTypeScriptParametricTest >> setUp [
 
 	super setUp.
@@ -15,7 +16,7 @@ FamixTypeScriptParametricTest >> setUp [
 	parametricClass := FamixJavaParametricClass new name: 'ParametricClass'
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptParametricTest >> test1 [
 	"TODO: These comments are not examples of Parametric Methods or Functions"
 	"testMethod(list: Array<any>): Array<any>{}"
@@ -39,7 +40,7 @@ FamixTypeScriptParametricTest >> test1 [
 	parametricArrowFunction declaredType: list.	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptParametricTest >> test2 [
 	"genericMethod<T extends Building>(t: T): T {}"
 	"function genericFunction<T extends Building>(t: T): T {}"
@@ -64,7 +65,7 @@ FamixTypeScriptParametricTest >> test2 [
 	af declaredType: return.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptParametricTest >> test3 [
 	"class ClassA<K, V> {}
 
@@ -137,7 +138,7 @@ FamixTypeScriptParametricTest >> test3 [
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptParametricTest >> testConcreteAndGenericParameter [
 	"class ClassA<V> {}
 
@@ -157,7 +158,7 @@ FamixTypeScriptParametricTest >> testConcreteAndGenericParameter [
 		hasSameElements: { parameter2 }
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptParametricTest >> testConcretizationEntity [
 	"class List<T>
 	class ClassB extends List<string>"
@@ -173,7 +174,7 @@ FamixTypeScriptParametricTest >> testConcretizationEntity [
 		hasSameElements: { listString }
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptParametricTest >> testConcretizationParameter [
 	"class ClassA<T>
 	
@@ -191,7 +192,7 @@ FamixTypeScriptParametricTest >> testConcretizationParameter [
 		hasSameElements: { parameterConcrete }
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptParametricTest >> testInheritanceClass [
 
 	| class1 class2 |
@@ -213,7 +214,7 @@ FamixTypeScriptParametricTest >> testInheritanceClass [
 				class2 }
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptParametricTest >> testInheritanceParameter [
 	"class ClassA<subGeneric extends supGeneric> {
 	}
@@ -240,7 +241,7 @@ FamixTypeScriptParametricTest >> testInheritanceParameter [
 				subConcrete }
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptParametricTest >> testIsConcreteEntity [
 
 	self assert: parametricClass isGenericEntity.
@@ -251,7 +252,7 @@ FamixTypeScriptParametricTest >> testIsConcreteEntity [
 	self deny: parametricClass isGenericEntity
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptParametricTest >> testUsesGenerics [
 
 	| parameter1 parameter2 |

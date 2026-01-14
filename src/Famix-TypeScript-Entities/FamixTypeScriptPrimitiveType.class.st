@@ -12,7 +12,7 @@ I represent a TypeScript primitive type (string, number, boolean).
 ### Incoming dependencies
 | Relation | Origin | Opposite | Type | Comment |
 |---|
-| `incomingReferences` | `FamixTReferenceable` | `referredType` | `FamixTReference` | References to this entity by other entities.|
+| `incomingReferences` | `FamixTReferenceable` | `referredEntity` | `FamixTReference` | References to this entity by other entities.|
 
 ### Other
 | Relation | Origin | Opposite | Type | Comment |
@@ -31,14 +31,16 @@ I represent a TypeScript primitive type (string, number, boolean).
 
 "
 Class {
-	#name : #FamixTypeScriptPrimitiveType,
-	#superclass : #FamixTypeScriptType,
+	#name : 'FamixTypeScriptPrimitiveType',
+	#superclass : 'FamixTypeScriptType',
 	#traits : 'FamixTPrimitiveType',
 	#classTraits : 'FamixTPrimitiveType classTrait',
-	#category : #'Famix-TypeScript-Entities-Entities'
+	#category : 'Famix-TypeScript-Entities-Entities',
+	#package : 'Famix-TypeScript-Entities',
+	#tag : 'Entities'
 }
 
-{ #category : #meta }
+{ #category : 'meta' }
 FamixTypeScriptPrimitiveType class >> annotation [
 
 	<FMClass: #PrimitiveType super: #FamixTypeScriptType>
@@ -47,7 +49,7 @@ FamixTypeScriptPrimitiveType class >> annotation [
 	^ self
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 FamixTypeScriptPrimitiveType >> isPrimitiveType [
 
 	<generated>

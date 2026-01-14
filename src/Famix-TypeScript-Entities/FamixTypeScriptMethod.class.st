@@ -51,14 +51,16 @@ I represent a TypeScript method.
 
 "
 Class {
-	#name : #FamixTypeScriptMethod,
-	#superclass : #FamixTypeScriptBehaviouralEntity,
+	#name : 'FamixTypeScriptMethod',
+	#superclass : 'FamixTypeScriptBehaviouralEntity',
 	#traits : 'FamixTCanBeAbstract + FamixTCanBeClassSide + FamixTHasKind + FamixTHasVisibility + FamixTImportable + FamixTMethod',
 	#classTraits : 'FamixTCanBeAbstract classTrait + FamixTCanBeClassSide classTrait + FamixTHasKind classTrait + FamixTHasVisibility classTrait + FamixTImportable classTrait + FamixTMethod classTrait',
-	#category : #'Famix-TypeScript-Entities-Entities'
+	#category : 'Famix-TypeScript-Entities-Entities',
+	#package : 'Famix-TypeScript-Entities',
+	#tag : 'Entities'
 }
 
-{ #category : #meta }
+{ #category : 'meta' }
 FamixTypeScriptMethod class >> annotation [
 
 	<FMClass: #Method super: #FamixTypeScriptBehaviouralEntity>

@@ -24,14 +24,16 @@
 
 "
 Class {
-	#name : #FamixTypeScriptStructuralEntity,
-	#superclass : #FamixTypeScriptNamedEntity,
+	#name : 'FamixTypeScriptStructuralEntity',
+	#superclass : 'FamixTypeScriptNamedEntity',
 	#traits : 'FamixTStructuralEntity',
 	#classTraits : 'FamixTStructuralEntity classTrait',
-	#category : #'Famix-TypeScript-Entities-Entities'
+	#category : 'Famix-TypeScript-Entities-Entities',
+	#package : 'Famix-TypeScript-Entities',
+	#tag : 'Entities'
 }
 
-{ #category : #meta }
+{ #category : 'meta' }
 FamixTypeScriptStructuralEntity class >> annotation [
 
 	<FMClass: #StructuralEntity super: #FamixTypeScriptNamedEntity>

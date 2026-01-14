@@ -47,14 +47,16 @@ I represent a TypeScript arrow function.
 
 "
 Class {
-	#name : #FamixTypeScriptArrowFunction,
-	#superclass : #FamixTypeScriptBehaviouralEntity,
+	#name : 'FamixTypeScriptArrowFunction',
+	#superclass : 'FamixTypeScriptBehaviouralEntity',
 	#traits : 'FamixTDefinedInModule + FamixTFunction + FamixTImportable + FamixTInvocable',
 	#classTraits : 'FamixTDefinedInModule classTrait + FamixTFunction classTrait + FamixTImportable classTrait + FamixTInvocable classTrait',
-	#category : #'Famix-TypeScript-Entities-Entities'
+	#category : 'Famix-TypeScript-Entities-Entities',
+	#package : 'Famix-TypeScript-Entities',
+	#tag : 'Entities'
 }
 
-{ #category : #meta }
+{ #category : 'meta' }
 FamixTypeScriptArrowFunction class >> annotation [
 
 	<FMClass: #ArrowFunction super: #FamixTypeScriptBehaviouralEntity>

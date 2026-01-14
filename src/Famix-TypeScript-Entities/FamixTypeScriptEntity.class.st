@@ -1,10 +1,12 @@
 Class {
-	#name : #FamixTypeScriptEntity,
-	#superclass : #MooseEntity,
-	#category : #'Famix-TypeScript-Entities-Entities'
+	#name : 'FamixTypeScriptEntity',
+	#superclass : 'MooseEntity',
+	#category : 'Famix-TypeScript-Entities-Entities',
+	#package : 'Famix-TypeScript-Entities',
+	#tag : 'Entities'
 }
 
-{ #category : #meta }
+{ #category : 'meta' }
 FamixTypeScriptEntity class >> annotation [
 
 	<FMClass: #Entity super: #MooseEntity>
@@ -14,154 +16,161 @@ FamixTypeScriptEntity class >> annotation [
 	^ self
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 FamixTypeScriptEntity class >> isAbstract [
 
 	<generated>
 	^ self == FamixTypeScriptEntity
 ]
 
-{ #category : #meta }
+{ #category : 'meta' }
 FamixTypeScriptEntity class >> metamodel [
 
 	<generated>
 	^ FamixTypeScriptModel metamodel
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 FamixTypeScriptEntity >> isAccess [
 
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 FamixTypeScriptEntity >> isAssociation [
 
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 FamixTypeScriptEntity >> isAttribute [
 
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 FamixTypeScriptEntity >> isBehavioural [
 
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 FamixTypeScriptEntity >> isClass [
 
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
+FamixTypeScriptEntity >> isComment [
+
+	<generated>
+	^ false
+]
+
+{ #category : 'testing' }
 FamixTypeScriptEntity >> isEnumValue [
 
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 FamixTypeScriptEntity >> isFileAnchor [
 
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 FamixTypeScriptEntity >> isFunction [
 
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 FamixTypeScriptEntity >> isInheritance [
 
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 FamixTypeScriptEntity >> isInterface [
 
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 FamixTypeScriptEntity >> isInvocation [
 
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 FamixTypeScriptEntity >> isLocalVariable [
 
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 FamixTypeScriptEntity >> isMethod [
 
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 FamixTypeScriptEntity >> isNamedEntity [
 
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 FamixTypeScriptEntity >> isNamespace [
 
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 FamixTypeScriptEntity >> isParametricEntity [
 
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 FamixTypeScriptEntity >> isPrimitiveType [
 
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 FamixTypeScriptEntity >> isQueryable [
 
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 FamixTypeScriptEntity >> isStructuralEntity [
 
 	<generated>
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 FamixTypeScriptEntity >> isType [
 
 	<generated>

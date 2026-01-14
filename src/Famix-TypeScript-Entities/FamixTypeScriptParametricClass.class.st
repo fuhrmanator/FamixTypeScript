@@ -22,14 +22,16 @@
 
 "
 Class {
-	#name : #FamixTypeScriptParametricClass,
-	#superclass : #FamixTypeScriptClass,
+	#name : 'FamixTypeScriptParametricClass',
+	#superclass : 'FamixTypeScriptClass',
 	#traits : 'FamixTParametricEntity',
 	#classTraits : 'FamixTParametricEntity classTrait',
-	#category : #'Famix-TypeScript-Entities-Entities'
+	#category : 'Famix-TypeScript-Entities-Entities',
+	#package : 'Famix-TypeScript-Entities',
+	#tag : 'Entities'
 }
 
-{ #category : #meta }
+{ #category : 'meta' }
 FamixTypeScriptParametricClass class >> annotation [
 
 	<FMClass: #ParametricClass super: #FamixTypeScriptClass>

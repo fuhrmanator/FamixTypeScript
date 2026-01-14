@@ -1,26 +1,27 @@
 Class {
-	#name : #FamixTypeScriptDecoratorTest,
-	#superclass : #TestCase,
+	#name : 'FamixTypeScriptDecoratorTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'model',
 		'accessor1',
 		'decorator3',
 		'decorator4'
 	],
-	#category : #'Famix-TypeScript-Tests'
+	#category : 'Famix-TypeScript-Tests',
+	#package : 'Famix-TypeScript-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptDecoratorTest >> model [
 	^ model
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptDecoratorTest >> model: anObject [
 	model := anObject
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptDecoratorTest >> setUp [
 	| ns1 ns2 c1 c2 c3 m1 m2 m3 m4 v1 pr1 pr2 at1 at2 decorator1 f1 decorator2 accessor2  decorator5 |
 	super setUp.
@@ -158,7 +159,7 @@ FamixTypeScriptDecoratorTest >> setUp [
 	self model: (FamixTypeScriptModel withAll: {ns1 . ns2 . f1. c1 . c2 . c3 . m1 . m2 . m3 . m4 . v1 . at1 . at2 . pr1 . pr2 . decorator1 . decorator2 . accessor2 })
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptDecoratorTest >> testDecoratorForAccessor [
 	| acc1 |
 	acc1 := model allMethods detect: [:acc | acc name = 'accessor2']. "peut être il faut créer allAccessors mais j'ai utilisé allMethods pour le moment parce qu'on a supposé que l'accesseur hérite de la méthode"
@@ -167,7 +168,7 @@ FamixTypeScriptDecoratorTest >> testDecoratorForAccessor [
 	self assert: acc1 decorators anyOne expression equals: 'F3'
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptDecoratorTest >> testDecoratorForClass [
 	| c1|
 	c1 := model allClasses detect: [:c| c name = 'C1'].
@@ -176,7 +177,7 @@ FamixTypeScriptDecoratorTest >> testDecoratorForClass [
 	self assert: c1 decorators anyOne expression equals: 'F1'
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptDecoratorTest >> testDecoratorForMethod [
 	| m1 |
 	m1 := model allMethods detect: [:m | m name = 'm1'].
@@ -185,7 +186,7 @@ FamixTypeScriptDecoratorTest >> testDecoratorForMethod [
 	self assert: m1 decorators anyOne expression equals: 'F2'
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptDecoratorTest >> testDecoratorForParameter [
 	| pr1|
 	pr1 := model allParameters detect: [:p| p name = 'pr1'].
@@ -194,7 +195,7 @@ FamixTypeScriptDecoratorTest >> testDecoratorForParameter [
 	self assert: pr1 decorators anyOne expression equals: 'F4'
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptDecoratorTest >> testDecoratorForProperty [ 
 	| at1|
 	at1 := model allAttributes  detect: [:at| at name = 'at1'].

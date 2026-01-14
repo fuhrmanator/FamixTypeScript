@@ -1,10 +1,11 @@
 Class {
-	#name : #FamixTypeScriptEnumTest,
-	#superclass : #TestCase,
-	#category : #'Famix-TypeScript-Tests'
+	#name : 'FamixTypeScriptEnumTest',
+	#superclass : 'TestCase',
+	#category : 'Famix-TypeScript-Tests',
+	#package : 'Famix-TypeScript-Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 FamixTypeScriptEnumTest >> testValues [
 	| enum value |
 	enum := FamixTypeScriptEnum new.

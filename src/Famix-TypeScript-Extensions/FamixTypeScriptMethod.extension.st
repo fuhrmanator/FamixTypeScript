@@ -1,6 +1,6 @@
-Extension { #name : #FamixTypeScriptMethod }
+Extension { #name : 'FamixTypeScriptMethod' }
 
-{ #category : #'*Famix-TypeScript-Extensions' }
+{ #category : '*Famix-TypeScript-Extensions' }
 FamixTypeScriptMethod >> accessedAttributes [
 	
 	"Returns the set of attributes of my class accessed by me (method). 
@@ -9,7 +9,7 @@ FamixTypeScriptMethod >> accessedAttributes [
 	^ (self queryOutgoingAccesses opposites withinParentUsing: FamixTClass) asSet select: #isAttribute
 ]
 
-{ #category : #'*Famix-TypeScript-Extensions' }
+{ #category : '*Famix-TypeScript-Extensions' }
 FamixTypeScriptMethod >> isGetter [
 	"No parameter AND
 		Has a declared type (not void) AND
@@ -29,7 +29,7 @@ FamixTypeScriptMethod >> isGetter [
 										  'boolean' ] ] ] ] ] ] ] ]
 ]
 
-{ #category : #'*Famix-TypeScript-Extensions' }
+{ #category : '*Famix-TypeScript-Extensions' }
 FamixTypeScriptMethod >> isOverridden [
 	"If we have a stub and we don't have the container, we can't have the information"
 
@@ -42,7 +42,7 @@ FamixTypeScriptMethod >> isOverridden [
 		anySatisfy: [ :each | each hasMethodWithSignature: self signature ]
 ]
 
-{ #category : #'*Famix-TypeScript-Extensions' }
+{ #category : '*Famix-TypeScript-Extensions' }
 FamixTypeScriptMethod >> isOverriding [
 	<FMProperty: #isOverriding type: #Boolean>
 	<derived>
@@ -52,7 +52,7 @@ FamixTypeScriptMethod >> isOverriding [
 			[ :each | each isInterface not and: [ each understands: self signature ] ]
 ]
 
-{ #category : #'*Famix-TypeScript-Extensions' }
+{ #category : '*Famix-TypeScript-Extensions' }
 FamixTypeScriptMethod >> isSetter [
 	"Name begins with set AND
 		Has 1 parameter AND
@@ -68,12 +68,7 @@ FamixTypeScriptMethod >> isSetter [
 							  self outgoingInvocations isEmpty ] ] ] ] ] ]
 ]
 
-{ #category : #'*Famix-TypeScript-Extensions' }
-FamixTypeScriptMethod >> isStub [
-	^ super isStub or: [ self parentType isNotNil and: [ self parentType isStub ] ]
-]
-
-{ #category : #'*Famix-TypeScript-Extensions' }
+{ #category : '*Famix-TypeScript-Extensions' }
 FamixTypeScriptMethod >> overriddenMethod [
 
 	^ (self parentType superclass ifNotNil: [ :superclass |

@@ -37,20 +37,22 @@ I represent a TypeScript class property.
 
 "
 Class {
-	#name : #FamixTypeScriptProperty,
-	#superclass : #FamixTypeScriptStructuralEntity,
+	#name : 'FamixTypeScriptProperty',
+	#superclass : 'FamixTypeScriptStructuralEntity',
 	#traits : 'FamixTAttribute + FamixTCanBeClassSide + FamixTHasVisibility',
 	#classTraits : 'FamixTAttribute classTrait + FamixTCanBeClassSide classTrait + FamixTHasVisibility classTrait',
 	#instVars : [
+		'#readOnly => FMProperty defaultValue: false',
 		'#isDefinitelyAssigned => FMProperty defaultValue: false',
-		'#isJavaScriptPrivate => FMProperty defaultValue: false',
 		'#isOptional => FMProperty defaultValue: false',
-		'#readOnly => FMProperty defaultValue: false'
+		'#isJavaScriptPrivate => FMProperty defaultValue: false'
 	],
-	#category : #'Famix-TypeScript-Entities-Entities'
+	#category : 'Famix-TypeScript-Entities-Entities',
+	#package : 'Famix-TypeScript-Entities',
+	#tag : 'Entities'
 }
 
-{ #category : #meta }
+{ #category : 'meta' }
 FamixTypeScriptProperty class >> annotation [
 
 	<FMClass: #Property super: #FamixTypeScriptStructuralEntity>
@@ -59,7 +61,7 @@ FamixTypeScriptProperty class >> annotation [
 	^ self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 FamixTypeScriptProperty >> isDefinitelyAssigned [
 
 	<FMProperty: #isDefinitelyAssigned type: #Boolean defaultValue: false>
@@ -68,13 +70,13 @@ FamixTypeScriptProperty >> isDefinitelyAssigned [
 	^ isDefinitelyAssigned ifNil: [ isDefinitelyAssigned := false ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 FamixTypeScriptProperty >> isDefinitelyAssigned: anObject [
 	<generated>
 	isDefinitelyAssigned := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 FamixTypeScriptProperty >> isJavaScriptPrivate [
 
 	<FMProperty: #isJavaScriptPrivate type: #Boolean defaultValue: false>
@@ -83,13 +85,13 @@ FamixTypeScriptProperty >> isJavaScriptPrivate [
 	^ isJavaScriptPrivate ifNil: [ isJavaScriptPrivate := false ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 FamixTypeScriptProperty >> isJavaScriptPrivate: anObject [
 	<generated>
 	isJavaScriptPrivate := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 FamixTypeScriptProperty >> isOptional [
 
 	<FMProperty: #isOptional type: #Boolean defaultValue: false>
@@ -98,13 +100,13 @@ FamixTypeScriptProperty >> isOptional [
 	^ isOptional ifNil: [ isOptional := false ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 FamixTypeScriptProperty >> isOptional: anObject [
 	<generated>
 	isOptional := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 FamixTypeScriptProperty >> readOnly [
 
 	<FMProperty: #readOnly type: #Boolean defaultValue: false>
@@ -113,7 +115,7 @@ FamixTypeScriptProperty >> readOnly [
 	^ readOnly ifNil: [ readOnly := false ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 FamixTypeScriptProperty >> readOnly: anObject [
 	<generated>
 	readOnly := anObject

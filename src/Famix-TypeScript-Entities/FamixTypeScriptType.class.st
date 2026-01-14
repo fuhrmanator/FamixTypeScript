@@ -19,7 +19,7 @@ I represent a TypeScript type.
 |---|
 | `generics` | `FamixTConcreteParameterType` | `concreteParameter` | `FamixTParameterConcretization` | Generic relationships, i.e. known genericParameter of this type.|
 | `incomingImports` | `FamixTImportable` | `importedEntity` | `FamixTImport` | List of imports of this entity|
-| `incomingReferences` | `FamixTReferenceable` | `referredType` | `FamixTReference` | References to this entity by other entities.|
+| `incomingReferences` | `FamixTReferenceable` | `referredEntity` | `FamixTReference` | References to this entity by other entities.|
 
 ### Other
 | Relation | Origin | Opposite | Type | Comment |
@@ -39,14 +39,16 @@ I represent a TypeScript type.
 
 "
 Class {
-	#name : #FamixTypeScriptType,
-	#superclass : #FamixTypeScriptContainerEntity,
+	#name : 'FamixTypeScriptType',
+	#superclass : 'FamixTypeScriptContainerEntity',
 	#traits : 'FamixTConcreteParameterType + FamixTImportable + FamixTType + FamixTWithMethods',
 	#classTraits : 'FamixTConcreteParameterType classTrait + FamixTImportable classTrait + FamixTType classTrait + FamixTWithMethods classTrait',
-	#category : #'Famix-TypeScript-Entities-Entities'
+	#category : 'Famix-TypeScript-Entities-Entities',
+	#package : 'Famix-TypeScript-Entities',
+	#tag : 'Entities'
 }
 
-{ #category : #meta }
+{ #category : 'meta' }
 FamixTypeScriptType class >> annotation [
 
 	<FMClass: #Type super: #FamixTypeScriptContainerEntity>

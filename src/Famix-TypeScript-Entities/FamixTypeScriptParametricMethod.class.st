@@ -24,14 +24,16 @@ I represent a TypeScript parametric Method.
 
 "
 Class {
-	#name : #FamixTypeScriptParametricMethod,
-	#superclass : #FamixTypeScriptMethod,
+	#name : 'FamixTypeScriptParametricMethod',
+	#superclass : 'FamixTypeScriptMethod',
 	#traits : 'FamixTParametricEntity',
 	#classTraits : 'FamixTParametricEntity classTrait',
-	#category : #'Famix-TypeScript-Entities-Entities'
+	#category : 'Famix-TypeScript-Entities-Entities',
+	#package : 'Famix-TypeScript-Entities',
+	#tag : 'Entities'
 }
 
-{ #category : #meta }
+{ #category : 'meta' }
 FamixTypeScriptParametricMethod class >> annotation [
 
 	<FMClass: #ParametricMethod super: #FamixTypeScriptMethod>

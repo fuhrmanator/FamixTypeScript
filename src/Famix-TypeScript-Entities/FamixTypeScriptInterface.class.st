@@ -30,14 +30,16 @@ I represent a TypeScript interface.
 
 "
 Class {
-	#name : #FamixTypeScriptInterface,
-	#superclass : #FamixTypeScriptType,
+	#name : 'FamixTypeScriptInterface',
+	#superclass : 'FamixTypeScriptType',
 	#traits : 'FamixTImplementable + FamixTInvocationsReceiver + FamixTWithAttributes + FamixTWithInheritances + FamixTWithMethods',
 	#classTraits : 'FamixTImplementable classTrait + FamixTInvocationsReceiver classTrait + FamixTWithAttributes classTrait + FamixTWithInheritances classTrait + FamixTWithMethods classTrait',
-	#category : #'Famix-TypeScript-Entities-Entities'
+	#category : 'Famix-TypeScript-Entities-Entities',
+	#package : 'Famix-TypeScript-Entities',
+	#tag : 'Entities'
 }
 
-{ #category : #meta }
+{ #category : 'meta' }
 FamixTypeScriptInterface class >> annotation [
 
 	<FMClass: #Interface super: #FamixTypeScriptType>
@@ -46,7 +48,7 @@ FamixTypeScriptInterface class >> annotation [
 	^ self
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 FamixTypeScriptInterface >> isInterface [
 
 	<generated>

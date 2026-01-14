@@ -1,10 +1,11 @@
 Class {
-	#name : #FamixTypeScriptSourceLanguageTest,
-	#superclass : #TestCase,
-	#category : #'Famix-TypeScript-Tests'
+	#name : 'FamixTypeScriptSourceLanguageTest',
+	#superclass : 'TestCase',
+	#category : 'Famix-TypeScript-Tests',
+	#package : 'Famix-TypeScript-Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptSourceLanguageTest >> testIsTypeScript [
 	| model |
 	model := FamixTypeScriptModel new.
@@ -17,12 +18,12 @@ FamixTypeScriptSourceLanguageTest >> testIsTypeScript [
 	self assert: model sourceLanguage isTypeScript 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptSourceLanguageTest >> testIsUnknown [
 	self deny: FamixTypeScriptSourceLanguage new isUnknown
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptSourceLanguageTest >> testName [
 	self assert: FamixTypeScriptSourceLanguage new name equals: 'TypeScript'
 ]

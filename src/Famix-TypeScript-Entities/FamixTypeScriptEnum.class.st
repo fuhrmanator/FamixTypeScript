@@ -18,7 +18,7 @@ I represent a Typescript enumerated type
 | Relation | Origin | Opposite | Type | Comment |
 |---|
 | `incomingImports` | `FamixTImportable` | `importedEntity` | `FamixTImport` | List of imports of this entity|
-| `incomingReferences` | `FamixTReferenceable` | `referredType` | `FamixTReference` | References to this entity by other entities.|
+| `incomingReferences` | `FamixTReferenceable` | `referredEntity` | `FamixTReference` | References to this entity by other entities.|
 
 ### Other
 | Relation | Origin | Opposite | Type | Comment |
@@ -37,14 +37,16 @@ I represent a Typescript enumerated type
 
 "
 Class {
-	#name : #FamixTypeScriptEnum,
-	#superclass : #FamixTypeScriptType,
+	#name : 'FamixTypeScriptEnum',
+	#superclass : 'FamixTypeScriptType',
 	#traits : 'FamixTEnum + FamixTImportable',
 	#classTraits : 'FamixTEnum classTrait + FamixTImportable classTrait',
-	#category : #'Famix-TypeScript-Entities-Entities'
+	#category : 'Famix-TypeScript-Entities-Entities',
+	#package : 'Famix-TypeScript-Entities',
+	#tag : 'Entities'
 }
 
-{ #category : #meta }
+{ #category : 'meta' }
 FamixTypeScriptEnum class >> annotation [
 
 	<FMClass: #Enum super: #FamixTypeScriptType>

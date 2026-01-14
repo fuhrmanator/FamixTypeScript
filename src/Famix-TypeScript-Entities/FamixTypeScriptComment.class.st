@@ -7,28 +7,34 @@
 |---|
 | `commentedEntity` | `FamixTComment` | `comments` | `FamixTWithComments` | Source code commented by the comment|
 
+### Other
+| Relation | Origin | Opposite | Type | Comment |
+|---|
+| `sourceAnchor` | `FamixTSourceEntity` | `element` | `FamixTSourceAnchor` | SourceAnchor entity linking to the original source code for this entity|
+
 
 ## Properties
 ======================
 
 | Name | Type | Default value | Comment |
 |---|
-| `content` | `String` | nil | Content of the comment as a String|
 | `isJSDoc` | `Boolean` | false | Comments can have the form of JSDoc.|
 
 "
 Class {
-	#name : #FamixTypeScriptComment,
-	#superclass : #FamixTypeScriptSourcedEntity,
+	#name : 'FamixTypeScriptComment',
+	#superclass : 'FamixTypeScriptSourcedEntity',
 	#traits : 'FamixTComment',
 	#classTraits : 'FamixTComment classTrait',
 	#instVars : [
 		'#isJSDoc => FMProperty defaultValue: false'
 	],
-	#category : #'Famix-TypeScript-Entities-Entities'
+	#category : 'Famix-TypeScript-Entities-Entities',
+	#package : 'Famix-TypeScript-Entities',
+	#tag : 'Entities'
 }
 
-{ #category : #meta }
+{ #category : 'meta' }
 FamixTypeScriptComment class >> annotation [
 
 	<FMClass: #Comment super: #FamixTypeScriptSourcedEntity>
@@ -37,7 +43,7 @@ FamixTypeScriptComment class >> annotation [
 	^ self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 FamixTypeScriptComment >> isJSDoc [
 
 	<FMProperty: #isJSDoc type: #Boolean defaultValue: false>
@@ -46,7 +52,7 @@ FamixTypeScriptComment >> isJSDoc [
 	^ isJSDoc ifNil: [ isJSDoc := false ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 FamixTypeScriptComment >> isJSDoc: anObject [
 	<generated>
 	isJSDoc := anObject

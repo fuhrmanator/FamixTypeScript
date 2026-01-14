@@ -1,10 +1,12 @@
 Class {
-	#name : #FamixTypeScriptReference,
-	#superclass : #FamixTypeScriptEntity,
-	#category : #'Famix-TypeScript-Entities-Entities'
+	#name : 'FamixTypeScriptReference',
+	#superclass : 'FamixTypeScriptEntity',
+	#category : 'Famix-TypeScript-Entities-Entities',
+	#package : 'Famix-TypeScript-Entities',
+	#tag : 'Entities'
 }
 
-{ #category : #meta }
+{ #category : 'meta' }
 FamixTypeScriptReference class >> annotation [
 
 	<FMClass: #Reference super: #FamixTypeScriptEntity>

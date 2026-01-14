@@ -2,12 +2,14 @@
 A FamixTypeScriptTClassMetricsTest is a test class for testing the behavior of FamixTypeScriptTClassMetrics
 "
 Class {
-	#name : #FamixTypeScriptTClassMetricsTest,
-	#superclass : #TestCase,
-	#category : #'Famix-TypeScript-Tests-Entities'
+	#name : 'FamixTypeScriptTClassMetricsTest',
+	#superclass : 'TestCase',
+	#category : 'Famix-TypeScript-Tests-Entities',
+	#package : 'Famix-TypeScript-Tests',
+	#tag : 'Entities'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptTClassMetricsTest >> testNumberOfAccessorMethods [
 
 	| model c1 m1 |
@@ -22,7 +24,7 @@ FamixTypeScriptTClassMetricsTest >> testNumberOfAccessorMethods [
 	self assert: c1 numberOfAccessorMethods equals: 100
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptTClassMetricsTest >> testNumberOfConstructorMethods [
 
 	| m1 c1 model |
@@ -37,7 +39,7 @@ FamixTypeScriptTClassMetricsTest >> testNumberOfConstructorMethods [
 	self assert: c1 numberOfConstructorMethods equals: 100
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 FamixTypeScriptTClassMetricsTest >> testNumberOfPrivateMethods [
 
 	| m1 c1 model |
@@ -51,7 +53,7 @@ FamixTypeScriptTClassMetricsTest >> testNumberOfPrivateMethods [
 	self assert: c1 numberOfPrivateMethods equals: 100
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 FamixTypeScriptTClassMetricsTest >> testNumberOfPublicMethods [
 
 	| m1 c1 model |

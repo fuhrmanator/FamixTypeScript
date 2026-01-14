@@ -1,9 +1,11 @@
 Trait {
-	#name : #FamixTypeScriptTClassMetrics,
-	#category : #'Famix-TypeScript-Entities-Traits'
+	#name : 'FamixTypeScriptTClassMetrics',
+	#category : 'Famix-TypeScript-Entities-Traits',
+	#package : 'Famix-TypeScript-Entities',
+	#tag : 'Traits'
 }
 
-{ #category : #meta }
+{ #category : 'meta' }
 FamixTypeScriptTClassMetrics classSide >> annotation [
 
 	<FMClass: #TClassMetrics super: #Object>

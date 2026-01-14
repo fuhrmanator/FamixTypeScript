@@ -1,6 +1,6 @@
-Extension { #name : #FamixTypeScriptContainerEntity }
+Extension { #name : 'FamixTypeScriptContainerEntity' }
 
-{ #category : #'*Famix-TypeScript-Extensions' }
+{ #category : '*Famix-TypeScript-Extensions' }
 FamixTypeScriptContainerEntity >> addInterface: anInterface [
 	
 	types add: anInterface

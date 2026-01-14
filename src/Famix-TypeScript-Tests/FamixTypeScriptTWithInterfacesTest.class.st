@@ -2,12 +2,14 @@
 A FamixTypeScriptTWithInterfacesTest is a test class for testing the behavior of FamixTypeScriptTWithInterfaces
 "
 Class {
-	#name : #FamixTypeScriptTWithInterfacesTest,
-	#superclass : #TestCase,
-	#category : #'Famix-TypeScript-Tests-Traits'
+	#name : 'FamixTypeScriptTWithInterfacesTest',
+	#superclass : 'TestCase',
+	#category : 'Famix-TypeScript-Tests-Traits',
+	#package : 'Famix-TypeScript-Tests',
+	#tag : 'Traits'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 FamixTypeScriptTWithInterfacesTest >> testInterfaces [
 
 	| class interface |

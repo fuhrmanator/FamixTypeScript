@@ -4,12 +4,14 @@ I represent an abstraction of various entities that have behavior.
 
 "
 Class {
-	#name : #FamixTypeScriptBehaviouralEntity,
-	#superclass : #FamixTypeScriptContainerEntity,
-	#category : #'Famix-TypeScript-Entities-Entities'
+	#name : 'FamixTypeScriptBehaviouralEntity',
+	#superclass : 'FamixTypeScriptContainerEntity',
+	#category : 'Famix-TypeScript-Entities-Entities',
+	#package : 'Famix-TypeScript-Entities',
+	#tag : 'Entities'
 }
 
-{ #category : #meta }
+{ #category : 'meta' }
 FamixTypeScriptBehaviouralEntity class >> annotation [
 
 	<FMClass: #BehaviouralEntity super: #FamixTypeScriptContainerEntity>

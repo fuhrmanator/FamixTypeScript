@@ -26,19 +26,20 @@
 
 | Name | Type | Default value | Comment |
 |---|
-| `isStub` | `Boolean` | false | Flag true if the entity attributes are incomplete, either because the entity is missing or not imported.|
 | `signature` | `String` | nil | Signature of the message being sent|
 
 "
 Class {
-	#name : #FamixTypeScriptInvocation,
-	#superclass : #FamixTypeScriptEntity,
+	#name : 'FamixTypeScriptInvocation',
+	#superclass : 'FamixTypeScriptEntity',
 	#traits : 'FamixTHasSignature + FamixTInvocation',
 	#classTraits : 'FamixTHasSignature classTrait + FamixTInvocation classTrait',
-	#category : #'Famix-TypeScript-Entities-Entities'
+	#category : 'Famix-TypeScript-Entities-Entities',
+	#package : 'Famix-TypeScript-Entities',
+	#tag : 'Entities'
 }
 
-{ #category : #meta }
+{ #category : 'meta' }
 FamixTypeScriptInvocation class >> annotation [
 
 	<FMClass: #Invocation super: #FamixTypeScriptEntity>

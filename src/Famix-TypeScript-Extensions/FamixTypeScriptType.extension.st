@@ -1,23 +1,23 @@
-Extension { #name : #FamixTypeScriptType }
+Extension { #name : 'FamixTypeScriptType' }
 
-{ #category : #'*Famix-TypeScript-Extensions' }
+{ #category : '*Famix-TypeScript-Extensions' }
 FamixTypeScriptType >> hasMethodWithSignature: aStringOrSymbol [
 	| symbol |
 	symbol := aStringOrSymbol asSymbol.
 	^self methods anySatisfy: [:each | each signature asSymbol = symbol]
 ]
 
-{ #category : #'*Famix-TypeScript-Extensions' }
+{ #category : '*Famix-TypeScript-Extensions' }
 FamixTypeScriptType >> isInterface [
 	^ false
 ]
 
-{ #category : #'*Famix-TypeScript-Extensions' }
+{ #category : '*Famix-TypeScript-Extensions' }
 FamixTypeScriptType >> isParameterType [
 	^ false
 ]
 
-{ #category : #'*Famix-TypeScript-Extensions' }
+{ #category : '*Famix-TypeScript-Extensions' }
 FamixTypeScriptType >> lookUp: aMethodSignature [
 	"Returns the first method that has as signature #aMethodSignature. 
 	The search starts from the receiver's methods and traveses the inherited methods from the receiver's superclasses heirarchy.

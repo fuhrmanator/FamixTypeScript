@@ -1,10 +1,12 @@
 Class {
-	#name : #FamixTypeScriptPropertyTest,
-	#superclass : #TestCase,
-	#category : #'Famix-TypeScript-Tests-Entities'
+	#name : 'FamixTypeScriptPropertyTest',
+	#superclass : 'TestCase',
+	#category : 'Famix-TypeScript-Tests-Entities',
+	#package : 'Famix-TypeScript-Tests',
+	#tag : 'Entities'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptPropertyTest >> testPropertyReadonly [
 	| property |
 	property := FamixTypeScriptProperty new.
@@ -14,7 +16,7 @@ FamixTypeScriptPropertyTest >> testPropertyReadonly [
 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 FamixTypeScriptPropertyTest >> testPropertyVisibility [
 	| property |
 	property := FamixTypeScriptProperty new.
