@@ -49,8 +49,8 @@ I represent a TypeScript function.
 Class {
 	#name : 'FamixTypeScriptFunction',
 	#superclass : 'FamixTypeScriptBehaviouralEntity',
-	#traits : 'FamixTDefinedInModule + FamixTFunction + FamixTImportable + FamixTInvocable',
-	#classTraits : 'FamixTDefinedInModule classTrait + FamixTFunction classTrait + FamixTImportable classTrait + FamixTInvocable classTrait',
+	#traits : 'FamixTDefinedInModule + FamixTFunction + FamixTImportable + FamixTInvocable + FamixTypeScriptTFunctionMetrics',
+	#classTraits : 'FamixTDefinedInModule classTrait + FamixTFunction classTrait + FamixTImportable classTrait + FamixTInvocable classTrait + FamixTypeScriptTFunctionMetrics classTrait',
 	#category : 'Famix-TypeScript-Entities-Entities',
 	#package : 'Famix-TypeScript-Entities',
 	#tag : 'Entities'
