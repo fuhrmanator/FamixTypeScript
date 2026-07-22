@@ -41,6 +41,7 @@ I represent a TypeScript function.
 
 | Name | Type | Default value | Comment |
 |---|
+| `cyclomaticComplexity` | `Number` | false | Cyclomatic Complexity Property for Functions.|
 | `isStub` | `Boolean` | false | Flag true if the entity attributes are incomplete, either because the entity is missing or not imported.|
 | `name` | `String` | nil | Basic name of the entity, not full reference.|
 | `signature` | `String` | nil | Signature of the message being sent|
@@ -49,8 +50,8 @@ I represent a TypeScript function.
 Class {
 	#name : 'FamixTypeScriptFunction',
 	#superclass : 'FamixTypeScriptBehaviouralEntity',
-	#traits : 'FamixTDefinedInModule + FamixTFunction + FamixTImportable + FamixTInvocable',
-	#classTraits : 'FamixTDefinedInModule classTrait + FamixTFunction classTrait + FamixTImportable classTrait + FamixTInvocable classTrait',
+	#traits : 'FamixTDefinedInModule + FamixTFunction + FamixTImportable + FamixTInvocable + FamixTypeScriptTFunctionMetrics',
+	#classTraits : 'FamixTDefinedInModule classTrait + FamixTFunction classTrait + FamixTImportable classTrait + FamixTInvocable classTrait + FamixTypeScriptTFunctionMetrics classTrait',
 	#category : 'Famix-TypeScript-Entities-Entities',
 	#package : 'Famix-TypeScript-Entities',
 	#tag : 'Entities'

@@ -1,1 +1,1 @@
-Package { #name : #'Famix-TypeScript-Generator' }
+Package { #name : 'Famix-TypeScript-Generator' }
