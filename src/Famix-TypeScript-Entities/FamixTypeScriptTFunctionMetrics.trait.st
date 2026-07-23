@@ -4,13 +4,13 @@
 
 | Name | Type | Default value | Comment |
 |---|
-| `cyclomaticComplexity` | `Number` | false | Cyclomatic Complexity Property for Functions.|
+| `cyclomaticComplexity` | `Number` | 0 | Cyclomatic Complexity Property for Functions.|
 
 "
 Trait {
 	#name : 'FamixTypeScriptTFunctionMetrics',
 	#instVars : [
-		'#cyclomaticComplexity => FMProperty defaultValue: false'
+		'#cyclomaticComplexity => FMProperty defaultValue: 0'
 	],
 	#category : 'Famix-TypeScript-Entities-Traits',
 	#package : 'Famix-TypeScript-Entities',
@@ -29,10 +29,10 @@ FamixTypeScriptTFunctionMetrics classSide >> annotation [
 { #category : 'accessing' }
 FamixTypeScriptTFunctionMetrics >> cyclomaticComplexity [
 
-	<FMProperty: #cyclomaticComplexity type: #Number defaultValue: false>
+	<FMProperty: #cyclomaticComplexity type: #Number defaultValue: 0>
 	<generated>
 	<FMComment: 'Cyclomatic Complexity Property for Functions.'>
-	^ cyclomaticComplexity ifNil: [ cyclomaticComplexity := false ]
+	^ cyclomaticComplexity ifNil: [ cyclomaticComplexity := 0 ]
 ]
 
 { #category : 'accessing' }

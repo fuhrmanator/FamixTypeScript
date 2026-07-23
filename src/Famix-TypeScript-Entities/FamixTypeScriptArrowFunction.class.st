@@ -41,7 +41,7 @@ I represent a TypeScript arrow function.
 
 | Name | Type | Default value | Comment |
 |---|
-| `cyclomaticComplexity` | `Number` | false | Cyclomatic Complexity Property for Functions.|
+| `cyclomaticComplexity` | `Number` | 0 | Cyclomatic Complexity Property for Functions.|
 | `isStub` | `Boolean` | false | Flag true if the entity attributes are incomplete, either because the entity is missing or not imported.|
 | `name` | `String` | nil | Basic name of the entity, not full reference.|
 | `signature` | `String` | nil | Signature of the message being sent|

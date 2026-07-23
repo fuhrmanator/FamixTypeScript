@@ -18,6 +18,14 @@
 | `incomingImports` | `FamixTImportable` | `importedEntity` | `FamixTImport` | List of imports of this entity|
 
 
+## Properties
+======================
+
+| Name | Type | Default value | Comment |
+|---|
+| `isAmbient` | `Boolean` | false | |
+| `isModule` | `Boolean` | false | |
+| `isNamespace` | `Boolean` | false | |
 
 "
 Class {
@@ -25,6 +33,11 @@ Class {
 	#superclass : 'FamixTypeScriptScriptEntity',
 	#traits : 'FamixTImportable + FamixTWithImports + FamixTWithLocalVariables',
 	#classTraits : 'FamixTImportable classTrait + FamixTWithImports classTrait + FamixTWithLocalVariables classTrait',
+	#instVars : [
+		'#isAmbient => FMProperty defaultValue: false',
+		'#isModule => FMProperty defaultValue: false',
+		'#isNamespace => FMProperty defaultValue: false'
+	],
 	#category : 'Famix-TypeScript-Entities-Entities',
 	#package : 'Famix-TypeScript-Entities',
 	#tag : 'Entities'

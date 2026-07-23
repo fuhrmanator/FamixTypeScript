@@ -438,9 +438,14 @@ FamixTypeScriptGenerator >> defineProperties [
 	(comment property: #isJSDoc type: #Boolean defaultValue: false)
 		comment: 'Comments can have the form of JSDoc.'.
 
+	"Trait Properties can be exported into another function"
 	"Adding the following for cyclomatic complexity property for TFunctionMetrics"
-	(tTypeScriptFunctionMetrics property: #cyclomaticComplexity type: #Number defaultValue: false)
+	(tTypeScriptFunctionMetrics property: #cyclomaticComplexity type: #Number defaultValue: 0)
 		comment: 'Cyclomatic Complexity Property for Functions.'.
+		
+	(module property: #isAmbient type: #Boolean defaultValue: false).
+	(module property: #isModule type: #Boolean defaultValue: false).
+	(module property: #isNamespace type: #Boolean defaultValue: false).		
 
 	"The following are not need because of THasKind (?)"
 
