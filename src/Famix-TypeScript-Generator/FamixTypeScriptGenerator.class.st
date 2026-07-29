@@ -208,7 +208,6 @@ FamixTypeScriptGenerator >> defineClasses [
 	namespace := builder newClassNamed: #Namespace.
 	parameter := builder newClassNamed: #Parameter.
 	parametricClass := builder newClassNamed: #ParametricClass.
-	parameterConcretization := builder newClassNamed: #ParameterConcretization  comment: self commentForParameterConcretization. 
 	parametricInterface := builder newClassNamed: #ParametricInterface.
 	parameterType := builder newClassNamed: #ParameterType.
 	primitiveType := builder newClassNamed: #PrimitiveType comment: 'I represent a TypeScript primitive type (string, number, boolean).'.
@@ -358,8 +357,8 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	parameter --|> #TParameter.
 
 	parameterType --|> type.
-	parameterType --|> #TGenericParameterType.
-	parameterType --|> #TTypedEntity.
+	parameterType --|> #TTypeParameter.
+	parameterType --|> #TTypeArgument.
 	
 	parametricClass --|> class.
 	"parameterizableClass --|> #TWithParameterizedTypes."
@@ -382,13 +381,8 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	primitiveType --|> #TPrimitiveType.
 	
 	sourcedEntity --|> #TWithComments.
-	
-	type --|> #TConcreteParameterType.
-	type --|> containerEntity.
 
 	concretization --|> #TConcretization.
-
-	parameterConcretization --|> #TParameterConcretization.
 
 	property --|> structuralEntity.
 	property --|> #TAttribute.
@@ -408,6 +402,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	tWithInterfaces --|> #TWithTypes.
 
 	type --|> containerEntity.
+	type --|> #TTypeArgument.
 	type --|> #TType.
 	"type --|> #TParameterizedTypeUser."
 	type --|> #TWithMethods.
