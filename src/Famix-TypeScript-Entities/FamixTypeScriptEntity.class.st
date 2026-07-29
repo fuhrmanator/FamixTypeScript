@@ -10,10 +10,9 @@ Class {
 FamixTypeScriptEntity class >> annotation [
 
 	<FMClass: #Entity super: #MooseEntity>
-	<package: #FamixTypeScript>
+	<package: #'Famix-TypeScript-Entities'>
 	<generated>
 	<abstract>
-	^ self
 ]
 
 { #category : 'testing' }
@@ -28,6 +27,20 @@ FamixTypeScriptEntity class >> metamodel [
 
 	<generated>
 	^ FamixTypeScriptModel metamodel
+]
+
+{ #category : 'testing' }
+FamixTypeScriptEntity >> canBeStub [
+
+	<generated>
+	^ false
+]
+
+{ #category : 'testing' }
+FamixTypeScriptEntity >> hasImmediateSource [
+
+	<generated>
+	^ false
 ]
 
 { #category : 'testing' }

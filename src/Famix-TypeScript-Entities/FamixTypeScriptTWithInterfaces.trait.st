@@ -25,7 +25,6 @@ Trait {
 FamixTypeScriptTWithInterfaces classSide >> annotation [
 
 	<FMClass: #TWithInterfaces super: #Object>
-	<package: #FamixTypeScript>
+	<package: #'Famix-TypeScript-Entities'>
 	<generated>
-	^ self
 ]

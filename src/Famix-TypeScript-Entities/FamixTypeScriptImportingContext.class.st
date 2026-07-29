@@ -1,6 +1,8 @@
 "
 This class is used to choose the entities to be imported when loading a model from file.
 It is used by `MiImportingContextPresenter` in a `MiImportModelFromFileDialog` to import a FamixTypeScriptModel.
+
+
 "
 Class {
 	#name : 'FamixTypeScriptImportingContext',
@@ -197,13 +199,6 @@ FamixTypeScriptImportingContext >> importParameter [
 
 	<generated>
 	^ self importConcreteEntity: (self class fm3ClassNamed: #Parameter)
-]
-
-{ #category : 'importing' }
-FamixTypeScriptImportingContext >> importParameterConcretization [
-
-	<generated>
-	^ self importAssociation: (self class fm3ClassNamed: #ParameterConcretization)
 ]
 
 { #category : 'importing' }
@@ -505,13 +500,6 @@ FamixTypeScriptImportingContext >> shouldImportParameter [
 
 	<generated>
 	^ self shouldImport: #Parameter
-]
-
-{ #category : 'testing' }
-FamixTypeScriptImportingContext >> shouldImportParameterConcretization [
-
-	<generated>
-	^ self shouldImport: #ParameterConcretization
 ]
 
 { #category : 'testing' }

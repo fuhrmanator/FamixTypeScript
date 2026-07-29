@@ -9,15 +9,19 @@ I represent a TypeScript class property.
 |---|
 | `parentType` | `FamixTAttribute` | `attributes` | `FamixTWithAttributes` | Type declaring the attribute. belongsTo implementation|
 
+### Outgoing dependencies
+| Relation | Origin | Opposite | Type | Comment |
+|---|
+| `typing` | `FamixTTypedEntity` | `typedEntity` | `FamixTEntityTyping` | Association linking this entity to its declared type.|
+
 ### Incoming dependencies
 | Relation | Origin | Opposite | Type | Comment |
 |---|
-| `incomingAccesses` | `FamixTAccessible` | `variable` | `FamixTAccess` | All Famix accesses pointing to this structural entity|
+| `incomingAccesses` | `FamixTAccessible` | `candidates` | `FamixTAccess` | All Famix accesses pointing to this structural entity|
 
 ### Other
 | Relation | Origin | Opposite | Type | Comment |
 |---|
-| `declaredType` | `FamixTTypedEntity` | `typedEntities` | `FamixTType` | Type of the entity, if any|
 | `sourceAnchor` | `FamixTSourceEntity` | `element` | `FamixTSourceAnchor` | SourceAnchor entity linking to the original source code for this entity|
 
 
@@ -42,10 +46,10 @@ Class {
 	#traits : 'FamixTAttribute + FamixTCanBeClassSide + FamixTHasVisibility',
 	#classTraits : 'FamixTAttribute classTrait + FamixTCanBeClassSide classTrait + FamixTHasVisibility classTrait',
 	#instVars : [
-		'#readOnly => FMProperty defaultValue: false',
 		'#isDefinitelyAssigned => FMProperty defaultValue: false',
+		'#isJavaScriptPrivate => FMProperty defaultValue: false',
 		'#isOptional => FMProperty defaultValue: false',
-		'#isJavaScriptPrivate => FMProperty defaultValue: false'
+		'#readOnly => FMProperty defaultValue: false'
 	],
 	#category : 'Famix-TypeScript-Entities-Entities',
 	#package : 'Famix-TypeScript-Entities',
@@ -56,9 +60,8 @@ Class {
 FamixTypeScriptProperty class >> annotation [
 
 	<FMClass: #Property super: #FamixTypeScriptStructuralEntity>
-	<package: #FamixTypeScript>
+	<package: #'Famix-TypeScript-Entities'>
 	<generated>
-	^ self
 ]
 
 { #category : 'accessing' }

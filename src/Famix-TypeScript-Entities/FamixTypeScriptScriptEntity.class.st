@@ -37,7 +37,6 @@ Class {
 FamixTypeScriptScriptEntity class >> annotation [
 
 	<FMClass: #ScriptEntity super: #FamixTypeScriptScopingEntity>
-	<package: #FamixTypeScript>
+	<package: #'Famix-TypeScript-Entities'>
 	<generated>
-	^ self
 ]

@@ -15,9 +15,8 @@ Trait {
 FamixTypeScriptTEntityCreator classSide >> annotation [
 
 	<FMClass: #TEntityCreator super: #Object>
-	<package: #FamixTypeScript>
+	<package: #'Famix-TypeScript-Entities'>
 	<generated>
-	^ self
 ]
 
 { #category : 'entity creation' }
@@ -35,10 +34,24 @@ FamixTypeScriptTEntityCreator >> newAccessor [
 ]
 
 { #category : 'entity creation' }
+FamixTypeScriptTEntityCreator >> newAccessorNamed: aName [
+
+	<generated>
+	^ self add: (FamixTypeScriptAccessor named: aName)
+]
+
+{ #category : 'entity creation' }
 FamixTypeScriptTEntityCreator >> newAlias [
 
 	<generated>
 	^ self add: FamixTypeScriptAlias new
+]
+
+{ #category : 'entity creation' }
+FamixTypeScriptTEntityCreator >> newAliasNamed: aName [
+
+	<generated>
+	^ self add: (FamixTypeScriptAlias named: aName)
 ]
 
 { #category : 'entity creation' }
@@ -60,6 +73,13 @@ FamixTypeScriptTEntityCreator >> newBehaviouralEntity [
 
 	<generated>
 	^ self add: FamixTypeScriptBehaviouralEntity new
+]
+
+{ #category : 'entity creation' }
+FamixTypeScriptTEntityCreator >> newBehaviouralEntityNamed: aName [
+
+	<generated>
+	^ self add: (FamixTypeScriptBehaviouralEntity named: aName)
 ]
 
 { #category : 'entity creation' }
@@ -98,10 +118,24 @@ FamixTypeScriptTEntityCreator >> newContainerEntity [
 ]
 
 { #category : 'entity creation' }
+FamixTypeScriptTEntityCreator >> newContainerEntityNamed: aName [
+
+	<generated>
+	^ self add: (FamixTypeScriptContainerEntity named: aName)
+]
+
+{ #category : 'entity creation' }
 FamixTypeScriptTEntityCreator >> newDecorator [
 
 	<generated>
 	^ self add: FamixTypeScriptDecorator new
+]
+
+{ #category : 'entity creation' }
+FamixTypeScriptTEntityCreator >> newDecoratorNamed: aName [
+
+	<generated>
+	^ self add: (FamixTypeScriptDecorator named: aName)
 ]
 
 { #category : 'entity creation' }
@@ -210,6 +244,13 @@ FamixTypeScriptTEntityCreator >> newInterface [
 ]
 
 { #category : 'entity creation' }
+FamixTypeScriptTEntityCreator >> newInterfaceNamed: aName [
+
+	<generated>
+	^ self add: (FamixTypeScriptInterface named: aName)
+]
+
+{ #category : 'entity creation' }
 FamixTypeScriptTEntityCreator >> newInvocation [
 
 	<generated>
@@ -245,6 +286,13 @@ FamixTypeScriptTEntityCreator >> newModule [
 ]
 
 { #category : 'entity creation' }
+FamixTypeScriptTEntityCreator >> newModuleNamed: aName [
+
+	<generated>
+	^ self add: (FamixTypeScriptModule named: aName)
+]
+
+{ #category : 'entity creation' }
 FamixTypeScriptTEntityCreator >> newNamespace [
 
 	<generated>
@@ -263,13 +311,6 @@ FamixTypeScriptTEntityCreator >> newParameter [
 
 	<generated>
 	^ self add: FamixTypeScriptParameter new
-]
-
-{ #category : 'entity creation' }
-FamixTypeScriptTEntityCreator >> newParameterConcretization [
-
-	<generated>
-	^ self add: FamixTypeScriptParameterConcretization new
 ]
 
 { #category : 'entity creation' }
@@ -301,10 +342,24 @@ FamixTypeScriptTEntityCreator >> newParametricArrowFunction [
 ]
 
 { #category : 'entity creation' }
+FamixTypeScriptTEntityCreator >> newParametricArrowFunctionNamed: aName [
+
+	<generated>
+	^ self add: (FamixTypeScriptParametricArrowFunction named: aName)
+]
+
+{ #category : 'entity creation' }
 FamixTypeScriptTEntityCreator >> newParametricClass [
 
 	<generated>
 	^ self add: FamixTypeScriptParametricClass new
+]
+
+{ #category : 'entity creation' }
+FamixTypeScriptTEntityCreator >> newParametricClassNamed: aName [
+
+	<generated>
+	^ self add: (FamixTypeScriptParametricClass named: aName)
 ]
 
 { #category : 'entity creation' }
@@ -315,6 +370,13 @@ FamixTypeScriptTEntityCreator >> newParametricFunction [
 ]
 
 { #category : 'entity creation' }
+FamixTypeScriptTEntityCreator >> newParametricFunctionNamed: aName [
+
+	<generated>
+	^ self add: (FamixTypeScriptParametricFunction named: aName)
+]
+
+{ #category : 'entity creation' }
 FamixTypeScriptTEntityCreator >> newParametricInterface [
 
 	<generated>
@@ -322,10 +384,24 @@ FamixTypeScriptTEntityCreator >> newParametricInterface [
 ]
 
 { #category : 'entity creation' }
+FamixTypeScriptTEntityCreator >> newParametricInterfaceNamed: aName [
+
+	<generated>
+	^ self add: (FamixTypeScriptParametricInterface named: aName)
+]
+
+{ #category : 'entity creation' }
 FamixTypeScriptTEntityCreator >> newParametricMethod [
 
 	<generated>
 	^ self add: FamixTypeScriptParametricMethod new
+]
+
+{ #category : 'entity creation' }
+FamixTypeScriptTEntityCreator >> newParametricMethodNamed: aName [
+
+	<generated>
+	^ self add: (FamixTypeScriptParametricMethod named: aName)
 ]
 
 { #category : 'entity creation' }
@@ -371,10 +447,24 @@ FamixTypeScriptTEntityCreator >> newScopingEntity [
 ]
 
 { #category : 'entity creation' }
+FamixTypeScriptTEntityCreator >> newScopingEntityNamed: aName [
+
+	<generated>
+	^ self add: (FamixTypeScriptScopingEntity named: aName)
+]
+
+{ #category : 'entity creation' }
 FamixTypeScriptTEntityCreator >> newScriptEntity [
 
 	<generated>
 	^ self add: FamixTypeScriptScriptEntity new
+]
+
+{ #category : 'entity creation' }
+FamixTypeScriptTEntityCreator >> newScriptEntityNamed: aName [
+
+	<generated>
+	^ self add: (FamixTypeScriptScriptEntity named: aName)
 ]
 
 { #category : 'entity creation' }
@@ -438,4 +528,11 @@ FamixTypeScriptTEntityCreator >> newimplicitVariable [
 
 	<generated>
 	^ self add: FamixTypeScriptimplicitVariable new
+]
+
+{ #category : 'entity creation' }
+FamixTypeScriptTEntityCreator >> newimplicitVariableNamed: aName [
+
+	<generated>
+	^ self add: (FamixTypeScriptimplicitVariable named: aName)
 ]

@@ -24,7 +24,6 @@ Class {
 FamixTypeScriptAlias class >> annotation [
 
 	<FMClass: #Alias super: #FamixTypeScriptNamedEntity>
-	<package: #FamixTypeScript>
+	<package: #'Famix-TypeScript-Entities'>
 	<generated>
-	^ self
 ]

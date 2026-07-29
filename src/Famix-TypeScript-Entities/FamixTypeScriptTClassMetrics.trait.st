@@ -9,7 +9,6 @@ Trait {
 FamixTypeScriptTClassMetrics classSide >> annotation [
 
 	<FMClass: #TClassMetrics super: #Object>
-	<package: #FamixTypeScript>
+	<package: #'Famix-TypeScript-Entities'>
 	<generated>
-	^ self
 ]

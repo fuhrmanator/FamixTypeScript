@@ -38,9 +38,8 @@ Class {
 FamixTypeScriptComment class >> annotation [
 
 	<FMClass: #Comment super: #FamixTypeScriptSourcedEntity>
-	<package: #FamixTypeScript>
+	<package: #'Famix-TypeScript-Entities'>
 	<generated>
-	^ self
 ]
 
 { #category : 'accessing' }

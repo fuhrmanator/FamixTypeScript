@@ -43,7 +43,6 @@ Class {
 FamixTypeScriptInvocation class >> annotation [
 
 	<FMClass: #Invocation super: #FamixTypeScriptEntity>
-	<package: #FamixTypeScript>
+	<package: #'Famix-TypeScript-Entities'>
 	<generated>
-	^ self
 ]

@@ -10,7 +10,6 @@ Class {
 FamixTypeScriptReference class >> annotation [
 
 	<FMClass: #Reference super: #FamixTypeScriptEntity>
-	<package: #FamixTypeScript>
+	<package: #'Famix-TypeScript-Entities'>
 	<generated>
-	^ self
 ]

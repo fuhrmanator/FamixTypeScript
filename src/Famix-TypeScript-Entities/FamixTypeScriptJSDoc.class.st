@@ -15,7 +15,6 @@ Class {
 FamixTypeScriptJSDoc class >> annotation [
 
 	<FMClass: #JSDoc super: #FamixTypeScriptSourcedEntity>
-	<package: #FamixTypeScript>
+	<package: #'Famix-TypeScript-Entities'>
 	<generated>
-	^ self
 ]

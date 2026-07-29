@@ -47,7 +47,48 @@ Class {
 FamixTypeScriptModule class >> annotation [
 
 	<FMClass: #Module super: #FamixTypeScriptScriptEntity>
-	<package: #FamixTypeScript>
+	<package: #'Famix-TypeScript-Entities'>
 	<generated>
-	^ self
+]
+
+{ #category : 'accessing' }
+FamixTypeScriptModule >> isAmbient [
+
+	<FMProperty: #isAmbient type: #Boolean defaultValue: false>
+	<generated>
+	^ isAmbient ifNil: [ isAmbient := false ]
+]
+
+{ #category : 'accessing' }
+FamixTypeScriptModule >> isAmbient: anObject [
+	<generated>
+	isAmbient := anObject
+]
+
+{ #category : 'accessing' }
+FamixTypeScriptModule >> isModule [
+
+	<FMProperty: #isModule type: #Boolean defaultValue: false>
+	<generated>
+	^ isModule ifNil: [ isModule := false ]
+]
+
+{ #category : 'accessing' }
+FamixTypeScriptModule >> isModule: anObject [
+	<generated>
+	isModule := anObject
+]
+
+{ #category : 'accessing' }
+FamixTypeScriptModule >> isNamespace [
+
+	<FMProperty: #isNamespace type: #Boolean defaultValue: false>
+	<generated>
+	^ isNamespace ifNil: [ isNamespace := false ]
+]
+
+{ #category : 'accessing' }
+FamixTypeScriptModule >> isNamespace: anObject [
+	<generated>
+	isNamespace := anObject
 ]

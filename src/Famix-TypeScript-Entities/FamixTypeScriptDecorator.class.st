@@ -29,8 +29,8 @@ Class {
 	#traits : 'FamixTImportable',
 	#classTraits : 'FamixTImportable classTrait',
 	#instVars : [
-		'#expression => FMProperty',
-		'#decoratedEntity => FMOne type: #FamixTypeScriptNamedEntity opposite: #decorators'
+		'#decoratedEntity => FMOne type: #FamixTypeScriptNamedEntity opposite: #decorators',
+		'#expression => FMProperty'
 	],
 	#category : 'Famix-TypeScript-Entities-Entities',
 	#package : 'Famix-TypeScript-Entities',
@@ -41,9 +41,8 @@ Class {
 FamixTypeScriptDecorator class >> annotation [
 
 	<FMClass: #Decorator super: #FamixTypeScriptNamedEntity>
-	<package: #FamixTypeScript>
+	<package: #'Famix-TypeScript-Entities'>
 	<generated>
-	^ self
 ]
 
 { #category : 'accessing' }

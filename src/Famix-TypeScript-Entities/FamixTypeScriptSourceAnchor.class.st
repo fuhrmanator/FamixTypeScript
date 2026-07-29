@@ -24,10 +24,9 @@ Class {
 FamixTypeScriptSourceAnchor class >> annotation [
 
 	<FMClass: #SourceAnchor super: #FamixTypeScriptEntity>
-	<package: #FamixTypeScript>
+	<package: #'Famix-TypeScript-Entities'>
 	<generated>
 	<abstract>
-	^ self
 ]
 
 { #category : 'testing' }

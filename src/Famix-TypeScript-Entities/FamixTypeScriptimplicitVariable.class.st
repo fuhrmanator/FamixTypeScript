@@ -15,7 +15,6 @@ Class {
 FamixTypeScriptimplicitVariable class >> annotation [
 
 	<FMClass: #implicitVariable super: #FamixTypeScriptVariable>
-	<package: #FamixTypeScript>
+	<package: #'Famix-TypeScript-Entities'>
 	<generated>
-	^ self
 ]

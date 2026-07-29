@@ -43,9 +43,8 @@ Class {
 FamixTypeScriptInterface class >> annotation [
 
 	<FMClass: #Interface super: #FamixTypeScriptType>
-	<package: #FamixTypeScript>
+	<package: #'Famix-TypeScript-Entities'>
 	<generated>
-	^ self
 ]
 
 { #category : 'testing' }

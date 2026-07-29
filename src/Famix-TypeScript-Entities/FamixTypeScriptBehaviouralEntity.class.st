@@ -15,7 +15,6 @@ Class {
 FamixTypeScriptBehaviouralEntity class >> annotation [
 
 	<FMClass: #BehaviouralEntity super: #FamixTypeScriptContainerEntity>
-	<package: #FamixTypeScript>
+	<package: #'Famix-TypeScript-Entities'>
 	<generated>
-	^ self
 ]

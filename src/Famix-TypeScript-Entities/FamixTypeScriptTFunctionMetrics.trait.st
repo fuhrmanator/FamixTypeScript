@@ -21,9 +21,8 @@ Trait {
 FamixTypeScriptTFunctionMetrics classSide >> annotation [
 
 	<FMClass: #TFunctionMetrics super: #Object>
-	<package: #FamixTypeScript>
+	<package: #'Famix-TypeScript-Entities'>
 	<generated>
-	^ self
 ]
 
 { #category : 'accessing' }
