@@ -5,7 +5,8 @@ Class {
 	#name : 'FamixTypeScriptMethodTest',
 	#superclass : 'TestCase',
 	#instVars : [
-		'method'
+		'method',
+		'constructor'
 	],
 	#category : 'Famix-TypeScript-Tests-Entities',
 	#package : 'Famix-TypeScript-Tests',
@@ -15,7 +16,8 @@ Class {
 { #category : 'running' }
 FamixTypeScriptMethodTest >> setUp [
 	super setUp.
-	method := FamixTypeScriptMethod new
+	method := FamixTypeScriptMethod new.
+	constructor := FamixTypeScriptMethod named: 'constructor'.
 ]
 
 { #category : 'test' }
@@ -161,9 +163,9 @@ FamixTypeScriptMethodTest >> testIsClassSide [
 { #category : 'test' }
 FamixTypeScriptMethodTest >> testIsConstructor [
 
+	self assert: constructor isConstructor.
+	
 	self deny: method isConstructor.
-	method beConstructor.
-	self assert: method isConstructor
 ]
 
 { #category : 'test' }
