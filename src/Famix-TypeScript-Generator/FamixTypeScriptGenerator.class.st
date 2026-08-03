@@ -47,7 +47,8 @@ Class {
 		'parameterConcretization',
 		'tTypeScriptFunctionMetrics',
 		'entityTyping',
-		'parametricEntityTyping'
+		'parametricEntityTyping',
+		'typeParameter'
 	],
 	#category : 'Famix-TypeScript-Generator',
 	#package : 'Famix-TypeScript-Generator'
