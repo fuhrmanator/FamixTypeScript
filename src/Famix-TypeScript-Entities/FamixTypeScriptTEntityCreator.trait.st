@@ -139,6 +139,13 @@ FamixTypeScriptTEntityCreator >> newDecoratorNamed: aName [
 ]
 
 { #category : 'entity creation' }
+FamixTypeScriptTEntityCreator >> newEntityTyping [
+
+	<generated>
+	^ self add: FamixTypeScriptEntityTyping new
+]
+
+{ #category : 'entity creation' }
 FamixTypeScriptTEntityCreator >> newEnum [
 
 	<generated>
@@ -360,6 +367,13 @@ FamixTypeScriptTEntityCreator >> newParametricClassNamed: aName [
 
 	<generated>
 	^ self add: (FamixTypeScriptParametricClass named: aName)
+]
+
+{ #category : 'entity creation' }
+FamixTypeScriptTEntityCreator >> newParametricEntityTyping [
+
+	<generated>
+	^ self add: FamixTypeScriptParametricEntityTyping new
 ]
 
 { #category : 'entity creation' }

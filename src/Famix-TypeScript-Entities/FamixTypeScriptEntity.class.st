@@ -156,6 +156,13 @@ FamixTypeScriptEntity >> isNamespace [
 ]
 
 { #category : 'testing' }
+FamixTypeScriptEntity >> isParametricAssociation [
+
+	<generated>
+	^ false
+]
+
+{ #category : 'testing' }
 FamixTypeScriptEntity >> isParametricEntity [
 
 	<generated>

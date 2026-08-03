@@ -27,16 +27,21 @@ FamixTypeScriptTClassMetricsTest >> testNumberOfAccessorMethods [
 { #category : 'tests' }
 FamixTypeScriptTClassMetricsTest >> testNumberOfConstructorMethods [
 
-	| m1 c1 model |
+	| m1 constructor c1 model |
 	model := FamixTypeScriptModel new.
 	c1 := FamixTypeScriptClass named: 'Class1' model: model.
+	
+	self assert: c1 numberOfConstructorMethods equals: 0.
+	
 	m1 := FamixTypeScriptMethod named: 'method1' model: model.
 	m1 parentType: c1.
-
-	m1 isConstructor: true.
+	
+	self assert: c1 numberOfConstructorMethods equals: 0.
+	
+	constructor := FamixTypeScriptMethod named: 'constructor' model: model.
+	constructor parentType: c1.
+	
 	self assert: c1 numberOfConstructorMethods equals: 1.
-	c1 numberOfConstructorMethods: 100.
-	self assert: c1 numberOfConstructorMethods equals: 100
 ]
 
 { #category : 'test' }

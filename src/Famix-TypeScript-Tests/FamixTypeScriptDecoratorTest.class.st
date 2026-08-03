@@ -60,61 +60,61 @@ FamixTypeScriptDecoratorTest >> setUp [
 		name: 'm1';
 		signature: 'm1()';
 		parentType: c1;
-		declaredType: c2;
+		typing: (FamixTypeScriptEntityTyping new declaredType: c2);
 		yourself.
 	m2 := FamixTypeScriptMethod new
 		stub: true;
 		name: 'm2';
 		signature: 'm2()';
 		parentType: c2;
-		declaredType: c3;
+		typing: (FamixTypeScriptEntityTyping new declaredType: c3);
 		yourself.
 	m3 := FamixTypeScriptMethod new
 		stub: true;
 		name: 'm3';
 		signature: 'm3(C2,C3)';
 		parentType: c2;
-		declaredType: c1;
+		typing: (FamixTypeScriptEntityTyping new declaredType: c1);
 		yourself.
 	m4 := FamixTypeScriptMethod new
 		stub: true;
 		name: 'm4';
 		signature: 'm4()';
 		parentType: c3;
-		declaredType: c3;
+		typing: (FamixTypeScriptEntityTyping new declaredType: c3);
 		yourself.
 
 	v1 := FamixTypeScriptVariable new
 		stub: true;
 		name: 'v1';
 		parentBehaviouralEntity: m2;
-		declaredType: c1;
+		typing: (FamixTypeScriptEntityTyping new declaredType: c1);
 		yourself.
 
 	pr1 := FamixTypeScriptParameter new
 		stub: true;
 		name: 'pr1';
 		parentBehaviouralEntity: m3;
-		declaredType: c2;
+		typing: (FamixTypeScriptEntityTyping new declaredType: c2);
 		yourself.
 	pr2 := FamixTypeScriptParameter new
 		stub: true;
 		name: 'pr2';
 		parentBehaviouralEntity: m3;
-		declaredType: c3;
+		typing: (FamixTypeScriptEntityTyping new declaredType: c3);
 		yourself.
 
 	at1 := FamixTypeScriptProperty new
 		stub: true;
 		name: 'at1';
 		parentType: c1;
-		declaredType: c3;
+		typing: (FamixTypeScriptEntityTyping new declaredType: c3);
 		yourself.
 	at2 := FamixTypeScriptProperty new
 		stub: true;
 		name: 'at2';
 		parentType: c3;
-		declaredType: c2;
+		typing: (FamixTypeScriptEntityTyping new declaredType: c2);
 		yourself.
 
 	"class decorator"

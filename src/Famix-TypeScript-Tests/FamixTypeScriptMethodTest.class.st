@@ -174,27 +174,32 @@ FamixTypeScriptMethodTest >> testIsGetter [
 	self deny: method isGetter.
 
 	method name: 'getLogin'.
-	method declaredType: (FamixTypeScriptClass named: 'String').
+	method typing: (FamixTypeScriptEntityTyping new 
+		declaredType: (FamixTypeScriptClass named: 'String')).
 	self assert: method isGetter.
 
 	method name: 'getLogin'.
-	method declaredType: (FamixTypeScriptPrimitiveType named: 'void').
+	method typing: (FamixTypeScriptEntityTyping new declaredType:
+			 (FamixTypeScriptPrimitiveType named: 'void')).
 	self deny: method isGetter
 ]
 
 { #category : 'test' }
 FamixTypeScriptMethodTest >> testIsGetterForBooleanAttribute [
-
+	
 	method name: 'isActif'.
-	method declaredType: (FamixTypeScriptPrimitiveType named: 'boolean').
+	method typing: (FamixTypeScriptEntityTyping new declaredType:
+			 (FamixTypeScriptPrimitiveType named: 'boolean')).
 	self assert: method isGetter.
 
 	method name: 'isActif'.
-	method declaredType: (FamixTypeScriptClass named: 'Boolean').
+	method typing: (FamixTypeScriptEntityTyping new declaredType:
+			 (FamixTypeScriptClass named: 'Boolean')).
 	self assert: method isGetter.
 
 	method name: 'isActif'.
-	method declaredType: (FamixTypeScriptClass named: 'String').
+	method typing: (FamixTypeScriptEntityTyping new declaredType:
+			 (FamixTypeScriptClass named: 'String')).
 	self deny: method isGetter
 ]
 
@@ -210,7 +215,7 @@ FamixTypeScriptMethodTest >> testIsNotStubWhenParentIsNotStub [
 
 { #category : 'test' }
 FamixTypeScriptMethodTest >> testIsSetter [
-
+	
 	self deny: method isSetter.
 
 	method name: 'setLogin'.
@@ -219,7 +224,8 @@ FamixTypeScriptMethodTest >> testIsSetter [
 	method parameters: { FamixTypeScriptParameter new }.
 	self deny: method isSetter.
 
-	method declaredType: (FamixTypeScriptPrimitiveType named: 'void').
+	method typing: (FamixTypeScriptEntityTyping new declaredType:
+			 (FamixTypeScriptPrimitiveType named: 'void')).
 	self assert: method isSetter
 ]
 
@@ -303,13 +309,13 @@ FamixTypeScriptMethodTest >> testOverride [
 		name: 'method';
 		signature: 'method()';
 		parentType: c1;
-		declaredType: c1;
+		typing: (FamixTypeScriptEntityTyping new declaredType: c1);
 		yourself.
 	method
 		name: 'method';
 		signature: 'method()';
 		parentType: c2;
-		declaredType: c2.
+		typing: (FamixTypeScriptEntityTyping new declaredType: c2).
 	c2
 		addSuperInheritance:
 			(FamixTypeScriptInheritance new

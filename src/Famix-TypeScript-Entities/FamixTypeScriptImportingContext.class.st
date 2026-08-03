@@ -90,6 +90,13 @@ FamixTypeScriptImportingContext >> importDecorator [
 ]
 
 { #category : 'importing' }
+FamixTypeScriptImportingContext >> importEntityTyping [
+
+	<generated>
+	^ self importAssociation: (self class fm3ClassNamed: #EntityTyping)
+]
+
+{ #category : 'importing' }
 FamixTypeScriptImportingContext >> importEnum [
 
 	<generated>
@@ -220,6 +227,13 @@ FamixTypeScriptImportingContext >> importParametricClass [
 
 	<generated>
 	^ self importConcreteEntity: (self class fm3ClassNamed: #ParametricClass)
+]
+
+{ #category : 'importing' }
+FamixTypeScriptImportingContext >> importParametricEntityTyping [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #ParametricEntityTyping)
 ]
 
 { #category : 'importing' }
@@ -391,6 +405,13 @@ FamixTypeScriptImportingContext >> shouldImportDecorator [
 ]
 
 { #category : 'testing' }
+FamixTypeScriptImportingContext >> shouldImportEntityTyping [
+
+	<generated>
+	^ self shouldImport: #EntityTyping
+]
+
+{ #category : 'testing' }
 FamixTypeScriptImportingContext >> shouldImportEnum [
 
 	<generated>
@@ -521,6 +542,13 @@ FamixTypeScriptImportingContext >> shouldImportParametricClass [
 
 	<generated>
 	^ self shouldImport: #ParametricClass
+]
+
+{ #category : 'testing' }
+FamixTypeScriptImportingContext >> shouldImportParametricEntityTyping [
+
+	<generated>
+	^ self shouldImport: #ParametricEntityTyping
 ]
 
 { #category : 'testing' }
