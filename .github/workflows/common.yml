@@ -15,8 +15,8 @@ jobs:
     strategy:
       matrix:
         # List of images at https://github.com/hpi-swa/smalltalkCI#images
-        # Use Moose64-11 that includes our visualization tool
-        smalltalk: [Moose64-11]
+        # Use Moose64-13 that includes our visualization tool
+        smalltalk: [Moose64-13]
     name: ${{ matrix.smalltalk }}
     steps:
       - name: Checkout code
