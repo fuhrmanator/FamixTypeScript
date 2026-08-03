@@ -1,6 +1,6 @@
 Class {
-	#name : #FamixTypeScriptGenerator,
-	#superclass : #FamixBasicInfrastructureGenerator,
+	#name : 'FamixTypeScriptGenerator',
+	#superclass : 'FamixBasicInfrastructureGenerator',
 	#instVars : [
 		'access',
 		'class',
@@ -44,30 +44,32 @@ Class {
 		'parametricClass',
 		'parametricInterface',
 		'concretization',
-		'parameterConcretization'
+		'parameterConcretization',
+		'tTypeScriptFunctionMetrics'
 	],
-	#category : #'Famix-TypeScript-Generator'
+	#category : 'Famix-TypeScript-Generator',
+	#package : 'Famix-TypeScript-Generator'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 FamixTypeScriptGenerator class >> packageName [
 
 		^ #'Famix-TypeScript-Entities'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 FamixTypeScriptGenerator class >> packageNameForAnnotations [
 
 	^ #'FamixTypeScript'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 FamixTypeScriptGenerator class >> prefix [
 
 	^ #'FamixTypeScript'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 FamixTypeScriptGenerator class >> translationDictionary [
 
 	| classNames associations |
@@ -79,7 +81,7 @@ FamixTypeScriptGenerator class >> translationDictionary [
 	^ Dictionary newFrom: associations.	
 ]
 
-{ #category : #comments }
+{ #category : 'comments' }
 FamixTypeScriptGenerator >> commentForConcretization [
 	"To verify"
 	^ '## Relations
@@ -113,7 +115,7 @@ FamixTypeScriptGenerator >> commentForConcretization [
 '
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 FamixTypeScriptGenerator >> commentForParameterConcretization [
 	^ '## Relations
 ======================
@@ -146,7 +148,7 @@ FamixTypeScriptGenerator >> commentForParameterConcretization [
 '
 ]
 
-{ #category : #comments }
+{ #category : 'comments' }
 FamixTypeScriptGenerator >> commentForTCanBeInterface [
 	^ 'I allow an entity to be an interface abstraction
 ex:
@@ -158,13 +160,13 @@ public interface Flyable {
 ```'
 ]
 
-{ #category : #definition }
+{ #category : 'definition' }
 FamixTypeScriptGenerator >> commentForTWithInterfaces [
 
 ^ 'I can contain interfaces (Packages, Methods, Classes...)'
 ]
 
-{ #category : #definition }
+{ #category : 'definition' }
 FamixTypeScriptGenerator >> defineClasses [
 
 	super defineClasses.
@@ -221,7 +223,7 @@ FamixTypeScriptGenerator >> defineClasses [
 	"self defineComments."
 ]
 
-{ #category : #definition }
+{ #category : 'definition' }
 FamixTypeScriptGenerator >> defineHierarchy [
 
 	super defineHierarchy.
@@ -283,6 +285,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	function --|> #TDefinedInModule.
 	function --|> #TInvocable.
 	function --|> #TImportable.
+	function --|> #TFunctionMetrics.
 	
 	parametricFunction --|> function.
 	parametricFunction --|> #TParametricEntity. 
@@ -292,6 +295,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	arrowFunction --|> #TDefinedInModule.
 	arrowFunction --|> #TInvocable.
 	arrowFunction --|> #TImportable.
+	arrowFunction --|> #TFunctionMetrics. "Dublicate code for adding cyclomatic complexity"
 	
 	parametricArrowFunction --|> arrowFunction.
 	parametricArrowFunction  --|> #TParametricEntity. 
@@ -416,7 +420,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	parameterType --|> #TWithInheritances.
 ]
 
-{ #category : #definition }
+{ #category : 'definition' }
 FamixTypeScriptGenerator >> defineProperties [
 
 	super defineProperties.
@@ -433,7 +437,16 @@ FamixTypeScriptGenerator >> defineProperties [
 		comment: 'Properties may be postfixed with a private modifier that makes the property private even in JavaScript.'.
 	(comment property: #isJSDoc type: #Boolean defaultValue: false)
 		comment: 'Comments can have the form of JSDoc.'.
+
+	"Trait Properties can be exported into another function"
+	"Adding the following for cyclomatic complexity property for TFunctionMetrics"
+	(tTypeScriptFunctionMetrics property: #cyclomaticComplexity type: #Number defaultValue: 0)
+		comment: 'Cyclomatic Complexity Property for Functions.'.
 		
+	(module property: #isAmbient type: #Boolean defaultValue: false).
+	(module property: #isModule type: #Boolean defaultValue: false).
+	(module property: #isNamespace type: #Boolean defaultValue: false).		
+
 	"The following are not need because of THasKind (?)"
 
 	"(method property: #isConstructor type: #Boolean defaultValue: false) 
@@ -442,15 +455,17 @@ FamixTypeScriptGenerator >> defineProperties [
 		comment: 'Method is a getter'.
 	(method property: #isSetter type: #Boolean defaultValue: false) 
 		comment: 'Method is a setter'"
+		
+
 ]
 
-{ #category : #definition }
+{ #category : 'definition' }
 FamixTypeScriptGenerator >> defineRelations [
     super defineRelations.
 	(decorator property: #decoratedEntity) *- (namedEntity  property: #decorators).
 ]
 
-{ #category : #definition }
+{ #category : 'definition' }
 FamixTypeScriptGenerator >> defineTraits [ 
 
 	super defineTraits.
@@ -458,9 +473,10 @@ FamixTypeScriptGenerator >> defineTraits [
 	tWithInterfaces comment: self commentForTWithInterfaces.
 
 	tTypeScriptClassMetrics := builder newTraitNamed: #TClassMetrics.
+	tTypeScriptFunctionMetrics := builder newTraitNamed: #TFunctionMetrics.
 ]
 
-{ #category : #definition }
+{ #category : 'definition' }
 FamixTypeScriptGenerator >> newBuilder [
 
 	^ super newBuilder
