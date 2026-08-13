@@ -320,7 +320,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	"interface --|> #THasVisibility." "classes in modules/namespaces can't be declared private/public"
 	interface --|> #TImplementable.
 	"interface --|> #TWithImports."
-	"interface --|> #TImportable." "Gets it from type?"
+	"interface --|> #TImportable."
 
 	inheritance --|> #TInheritance.
 
