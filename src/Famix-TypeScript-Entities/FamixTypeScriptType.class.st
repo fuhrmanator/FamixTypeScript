@@ -14,19 +14,22 @@ I represent a TypeScript type.
 |---|
 | `methods` | `FamixTWithMethods` | `parentType` | `FamixTMethod` | Methods declared by this type.|
 
+### Outgoing dependencies
+| Relation | Origin | Opposite | Type | Comment |
+|---|
+| `outgoingConcretizations` | `FamixTTypeArgument` | `typeArgument` | `FamixTConcretization` | Concretizations where this type is the type argument.|
+
 ### Incoming dependencies
 | Relation | Origin | Opposite | Type | Comment |
 |---|
-| `generics` | `FamixTConcreteParameterType` | `concreteParameter` | `FamixTParameterConcretization` | Generic relationships, i.e. known genericParameter of this type.|
 | `incomingImports` | `FamixTImportable` | `importedEntity` | `FamixTImport` | List of imports of this entity|
 | `incomingReferences` | `FamixTReferenceable` | `referredEntity` | `FamixTReference` | References to this entity by other entities.|
+| `incomingTypings` | `FamixTType` | `declaredType` | `FamixTEntityTyping` | Relations to the entities that have this as type.|
 
 ### Other
 | Relation | Origin | Opposite | Type | Comment |
 |---|
-| `concreteEntities` | `FamixTConcreteParameterType` | `concreteParameters` | `FamixTParametricEntity` | The concrete entities that use me.|
 | `sourceAnchor` | `FamixTSourceEntity` | `element` | `FamixTSourceAnchor` | SourceAnchor entity linking to the original source code for this entity|
-| `typedEntities` | `FamixTType` | `declaredType` | `FamixTTypedEntity` | Entities that have this type as declaredType|
 
 
 ## Properties
@@ -41,8 +44,8 @@ I represent a TypeScript type.
 Class {
 	#name : 'FamixTypeScriptType',
 	#superclass : 'FamixTypeScriptContainerEntity',
-	#traits : 'FamixTConcreteParameterType + FamixTImportable + FamixTType + FamixTWithMethods',
-	#classTraits : 'FamixTConcreteParameterType classTrait + FamixTImportable classTrait + FamixTType classTrait + FamixTWithMethods classTrait',
+	#traits : 'FamixTImportable + FamixTType + FamixTTypeArgument + FamixTWithMethods',
+	#classTraits : 'FamixTImportable classTrait + FamixTType classTrait + FamixTTypeArgument classTrait + FamixTWithMethods classTrait',
 	#category : 'Famix-TypeScript-Entities-Entities',
 	#package : 'Famix-TypeScript-Entities',
 	#tag : 'Entities'
@@ -52,7 +55,6 @@ Class {
 FamixTypeScriptType class >> annotation [
 
 	<FMClass: #Type super: #FamixTypeScriptContainerEntity>
-	<package: #FamixTypeScript>
+	<package: #'Famix-TypeScript-Entities'>
 	<generated>
-	^ self
 ]

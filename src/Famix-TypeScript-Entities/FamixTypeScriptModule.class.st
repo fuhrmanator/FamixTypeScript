@@ -47,7 +47,6 @@ Class {
 FamixTypeScriptModule class >> annotation [
 
 	<FMClass: #Module super: #FamixTypeScriptScriptEntity>
-	<package: #FamixTypeScript>
+	<package: #'Famix-TypeScript-Entities'>
 	<generated>
-	^ self
 ]

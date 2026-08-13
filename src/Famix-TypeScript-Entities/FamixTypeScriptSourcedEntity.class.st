@@ -29,10 +29,9 @@ Class {
 FamixTypeScriptSourcedEntity class >> annotation [
 
 	<FMClass: #SourcedEntity super: #FamixTypeScriptEntity>
-	<package: #FamixTypeScript>
+	<package: #'Famix-TypeScript-Entities'>
 	<generated>
 	<abstract>
-	^ self
 ]
 
 { #category : 'testing' }

@@ -22,6 +22,7 @@ I represent a TypeScript arrow function.
 | `accesses` | `FamixTWithAccesses` | `accessor` | `FamixTAccess` | Accesses to variables made by this behaviour.|
 | `outgoingInvocations` | `FamixTWithInvocations` | `sender` | `FamixTInvocation` | Outgoing invocations sent by this behaviour.|
 | `outgoingReferences` | `FamixTWithReferences` | `referencer` | `FamixTReference` | References from this entity to other entities.|
+| `typing` | `FamixTTypedEntity` | `typedEntity` | `FamixTEntityTyping` | Association linking this entity to its declared type.|
 
 ### Incoming dependencies
 | Relation | Origin | Opposite | Type | Comment |
@@ -32,7 +33,6 @@ I represent a TypeScript arrow function.
 ### Other
 | Relation | Origin | Opposite | Type | Comment |
 |---|
-| `declaredType` | `FamixTTypedEntity` | `typedEntities` | `FamixTType` | Type of the entity, if any|
 | `sourceAnchor` | `FamixTSourceEntity` | `element` | `FamixTSourceAnchor` | SourceAnchor entity linking to the original source code for this entity|
 
 
@@ -61,7 +61,6 @@ Class {
 FamixTypeScriptArrowFunction class >> annotation [
 
 	<FMClass: #ArrowFunction super: #FamixTypeScriptBehaviouralEntity>
-	<package: #FamixTypeScript>
+	<package: #'Famix-TypeScript-Entities'>
 	<generated>
-	^ self
 ]

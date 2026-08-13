@@ -13,6 +13,7 @@ I represent a TypeScript Decorator
 | Relation | Origin | Opposite | Type | Comment |
 |---|
 | `decoratedEntity` | `FamixTypeScriptDecorator` | `decorators` | `FamixTypeScriptNamedEntity` | |
+| `sourceAnchor` | `FamixTSourceEntity` | `element` | `FamixTSourceAnchor` | SourceAnchor entity linking to the original source code for this entity|
 
 
 ## Properties
@@ -21,16 +22,17 @@ I represent a TypeScript Decorator
 | Name | Type | Default value | Comment |
 |---|
 | `expression` | `String` | nil | Decorators use the form @expression, where expression must evaluate to a function that will be called at runtime with information about the decorated declaration|
+| `isStub` | `Boolean` | false | Flag true if the entity attributes are incomplete, either because the entity is missing or not imported.|
 
 "
 Class {
 	#name : 'FamixTypeScriptDecorator',
 	#superclass : 'FamixTypeScriptNamedEntity',
-	#traits : 'FamixTImportable',
-	#classTraits : 'FamixTImportable classTrait',
+	#traits : 'FamixTCanBeStub + FamixTImportable',
+	#classTraits : 'FamixTCanBeStub classTrait + FamixTImportable classTrait',
 	#instVars : [
-		'#expression => FMProperty',
-		'#decoratedEntity => FMOne type: #FamixTypeScriptNamedEntity opposite: #decorators'
+		'#decoratedEntity => FMOne type: #FamixTypeScriptNamedEntity opposite: #decorators',
+		'#expression => FMProperty'
 	],
 	#category : 'Famix-TypeScript-Entities-Entities',
 	#package : 'Famix-TypeScript-Entities',
@@ -41,9 +43,8 @@ Class {
 FamixTypeScriptDecorator class >> annotation [
 
 	<FMClass: #Decorator super: #FamixTypeScriptNamedEntity>
-	<package: #FamixTypeScript>
+	<package: #'Famix-TypeScript-Entities'>
 	<generated>
-	^ self
 ]
 
 { #category : 'accessing' }

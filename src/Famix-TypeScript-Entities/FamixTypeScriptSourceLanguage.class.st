@@ -24,7 +24,6 @@ Class {
 FamixTypeScriptSourceLanguage class >> annotation [
 
 	<FMClass: #SourceLanguage super: #FamixTypeScriptEntity>
-	<package: #FamixTypeScript>
+	<package: #'Famix-TypeScript-Entities'>
 	<generated>
-	^ self
 ]

@@ -1,6 +1,8 @@
 "
 This class is used to choose the entities to be imported when loading a model from file.
 It is used by `MiImportingContextPresenter` in a `MiImportModelFromFileDialog` to import a FamixTypeScriptModel.
+
+
 "
 Class {
 	#name : 'FamixTypeScriptImportingContext',
@@ -85,6 +87,13 @@ FamixTypeScriptImportingContext >> importDecorator [
 
 	<generated>
 	^ self importConcreteEntity: (self class fm3ClassNamed: #Decorator)
+]
+
+{ #category : 'importing' }
+FamixTypeScriptImportingContext >> importEntityTyping [
+
+	<generated>
+	^ self importAssociation: (self class fm3ClassNamed: #EntityTyping)
 ]
 
 { #category : 'importing' }
@@ -200,13 +209,6 @@ FamixTypeScriptImportingContext >> importParameter [
 ]
 
 { #category : 'importing' }
-FamixTypeScriptImportingContext >> importParameterConcretization [
-
-	<generated>
-	^ self importAssociation: (self class fm3ClassNamed: #ParameterConcretization)
-]
-
-{ #category : 'importing' }
 FamixTypeScriptImportingContext >> importParameterType [
 
 	<generated>
@@ -225,6 +227,13 @@ FamixTypeScriptImportingContext >> importParametricClass [
 
 	<generated>
 	^ self importConcreteEntity: (self class fm3ClassNamed: #ParametricClass)
+]
+
+{ #category : 'importing' }
+FamixTypeScriptImportingContext >> importParametricEntityTyping [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #ParametricEntityTyping)
 ]
 
 { #category : 'importing' }
@@ -396,6 +405,13 @@ FamixTypeScriptImportingContext >> shouldImportDecorator [
 ]
 
 { #category : 'testing' }
+FamixTypeScriptImportingContext >> shouldImportEntityTyping [
+
+	<generated>
+	^ self shouldImport: #EntityTyping
+]
+
+{ #category : 'testing' }
 FamixTypeScriptImportingContext >> shouldImportEnum [
 
 	<generated>
@@ -508,13 +524,6 @@ FamixTypeScriptImportingContext >> shouldImportParameter [
 ]
 
 { #category : 'testing' }
-FamixTypeScriptImportingContext >> shouldImportParameterConcretization [
-
-	<generated>
-	^ self shouldImport: #ParameterConcretization
-]
-
-{ #category : 'testing' }
 FamixTypeScriptImportingContext >> shouldImportParameterType [
 
 	<generated>
@@ -533,6 +542,13 @@ FamixTypeScriptImportingContext >> shouldImportParametricClass [
 
 	<generated>
 	^ self shouldImport: #ParametricClass
+]
+
+{ #category : 'testing' }
+FamixTypeScriptImportingContext >> shouldImportParametricEntityTyping [
+
+	<generated>
+	^ self shouldImport: #ParametricEntityTyping
 ]
 
 { #category : 'testing' }

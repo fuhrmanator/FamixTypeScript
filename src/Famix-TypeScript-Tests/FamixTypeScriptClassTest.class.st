@@ -38,12 +38,12 @@ FamixTypeScriptClassTest >> testNumberOfConstructorMethods [
 	| m1 c1 model | 
 	model := FamixTypeScriptModel new.
 	c1 := FamixTypeScriptClass named: 'Class1' model: model.
-	m1 := FamixTypeScriptMethod named: 'method1' model: model.
-	m1 parentType: c1.
 	
-	m1 isConstructor: true.
+	self assert: c1 numberOfConstructorMethods equals: 0.
+	
+	m1 := FamixTypeScriptMethod named: 'constructor' model: model.
+	m1 parentType: c1.
+
 	self assert: c1 numberOfConstructorMethods equals: 1.
-	c1 numberOfConstructorMethods: 100.
-	self assert: c1 numberOfConstructorMethods equals: 100.
 
 ]

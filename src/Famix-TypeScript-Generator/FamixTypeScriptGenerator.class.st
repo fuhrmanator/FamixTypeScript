@@ -45,7 +45,10 @@ Class {
 		'parametricInterface',
 		'concretization',
 		'parameterConcretization',
-		'tTypeScriptFunctionMetrics'
+		'tTypeScriptFunctionMetrics',
+		'entityTyping',
+		'parametricEntityTyping',
+		'typeParameter'
 	],
 	#category : 'Famix-TypeScript-Generator',
 	#package : 'Famix-TypeScript-Generator'
@@ -208,15 +211,16 @@ FamixTypeScriptGenerator >> defineClasses [
 	namespace := builder newClassNamed: #Namespace.
 	parameter := builder newClassNamed: #Parameter.
 	parametricClass := builder newClassNamed: #ParametricClass.
-	parameterConcretization := builder newClassNamed: #ParameterConcretization  comment: self commentForParameterConcretization. 
 	parametricInterface := builder newClassNamed: #ParametricInterface.
 	parameterType := builder newClassNamed: #ParameterType.
+	parametricEntityTyping := builder newClassNamed: #ParametricEntityTyping.
 	primitiveType := builder newClassNamed: #PrimitiveType comment: 'I represent a TypeScript primitive type (string, number, boolean).'.
 	reference:= builder newClassNamed: #Reference.
 	scriptEntity :=builder newClassNamed: #ScriptEntity.
 	scopingEntity:= builder newClassNamed: #ScopingEntity.
 	structuralEntity := builder newClassNamed: #StructuralEntity.
 	type := builder newClassNamed: #Type comment: 'I represent a TypeScript type.'.
+	entityTyping := builder newClassNamed: #EntityTyping.
 	variable := builder newClassNamed: #Variable comment: 'I represent a TypeScript variable.'.
 	
 	primitiveType withTesting.
@@ -266,6 +270,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 
 	decorator --|> namedEntity.
 	decorator --|> #TImportable.
+	decorator --|> #TCanBeStub.
 	
 	enum --|> type.
 	enum --|> #TEnum.
@@ -315,7 +320,7 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	"interface --|> #THasVisibility." "classes in modules/namespaces can't be declared private/public"
 	interface --|> #TImplementable.
 	"interface --|> #TWithImports."
-	"interface --|> #TImportable." "Gets it from type?"
+	"interface --|> #TImportable."
 
 	inheritance --|> #TInheritance.
 
@@ -358,8 +363,8 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	parameter --|> #TParameter.
 
 	parameterType --|> type.
-	parameterType --|> #TGenericParameterType.
-	parameterType --|> #TTypedEntity.
+	parameterType --|> #TTypeParameter.
+	parameterType --|> #TTypeArgument.
 	
 	parametricClass --|> class.
 	"parameterizableClass --|> #TWithParameterizedTypes."
@@ -382,13 +387,8 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	primitiveType --|> #TPrimitiveType.
 	
 	sourcedEntity --|> #TWithComments.
-	
-	type --|> #TConcreteParameterType.
-	type --|> containerEntity.
 
 	concretization --|> #TConcretization.
-
-	parameterConcretization --|> #TParameterConcretization.
 
 	property --|> structuralEntity.
 	property --|> #TAttribute.
@@ -408,10 +408,16 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	tWithInterfaces --|> #TWithTypes.
 
 	type --|> containerEntity.
+	type --|> #TTypeArgument.
 	type --|> #TType.
 	"type --|> #TParameterizedTypeUser."
 	type --|> #TWithMethods.
 	type --|> #TImportable.
+	
+	entityTyping --|> #TEntityTyping.
+	
+	parametricEntityTyping --|> entityTyping.
+	parametricEntityTyping --|> #TParametricAssociation.
 	
 	variable --|> structuralEntity.
 	variable --|> #TLocalVariable.

@@ -10,6 +10,15 @@ FamixTypeScriptMethod >> accessedAttributes [
 ]
 
 { #category : '*Famix-TypeScript-Extensions' }
+FamixTypeScriptMethod >> isConstructor [
+
+	<FMProperty: #isConstructor type: #Boolean>
+	<FMComment: 'Is the method a constructor for its class?'>
+	<derived>
+	^ self name = 'constructor'
+]
+
+{ #category : '*Famix-TypeScript-Extensions' }
 FamixTypeScriptMethod >> isGetter [
 	"No parameter AND
 		Has a declared type (not void) AND

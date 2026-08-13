@@ -2,46 +2,31 @@
 ## Relations
 ======================
 
-### Parents
-| Relation | Origin | Opposite | Type | Comment |
-|---|
-| `typeContainer` | `FamixTType` | `types` | `FamixTWithTypes` | Container entity to which this type belongs. Container is a namespace, not a package (Smalltalk).|
-
 ### Outgoing dependencies
 | Relation | Origin | Opposite | Type | Comment |
 |---|
-| `concretizations` | `FamixTGenericParameterType` | `genericParameter` | `FamixTParameterConcretization` | Concretization relationships, i.e. known concretizations of this type.|
+| `outgoingConcretizations` | `FamixTTypeArgument` | `typeArgument` | `FamixTConcretization` | Concretizations where this type is the type argument.|
 | `superInheritances` | `FamixTWithInheritances` | `subclass` | `FamixTInheritance` | Superinheritance relationships, i.e. known superclasses of this type.|
 
 ### Incoming dependencies
 | Relation | Origin | Opposite | Type | Comment |
 |---|
-| `incomingReferences` | `FamixTReferenceable` | `referredEntity` | `FamixTReference` | References to this entity by other entities.|
+| `concretizations` | `FamixTTypeParameter` | `typeParameter` | `FamixTConcretization` | Known concretizations of this type parameter.|
 | `subInheritances` | `FamixTWithInheritances` | `superclass` | `FamixTInheritance` | Subinheritance relationships, i.e. known subclasses of this type.|
 
 ### Other
 | Relation | Origin | Opposite | Type | Comment |
 |---|
-| `declaredType` | `FamixTTypedEntity` | `typedEntities` | `FamixTType` | Type of the entity, if any|
-| `genericEntities` | `FamixTGenericParameterType` | `genericParameters` | `FamixTParametricEntity` | The generic entities that use me.|
-| `sourceAnchor` | `FamixTSourceEntity` | `element` | `FamixTSourceAnchor` | SourceAnchor entity linking to the original source code for this entity|
-| `typedEntities` | `FamixTType` | `declaredType` | `FamixTTypedEntity` | Entities that have this type as declaredType|
+| `genericEntity` | `FamixTTypeParameter` | `typeParameters` | `FamixTParametricEntity` | Generic entity that declares this type parameter.|
 
 
-## Properties
-======================
-
-| Name | Type | Default value | Comment |
-|---|
-| `isStub` | `Boolean` | false | Flag true if the entity attributes are incomplete, either because the entity is missing or not imported.|
-| `name` | `String` | nil | Basic name of the entity, not full reference.|
 
 "
 Class {
 	#name : 'FamixTypeScriptParameterType',
 	#superclass : 'FamixTypeScriptType',
-	#traits : 'FamixTGenericParameterType + FamixTTypedEntity + FamixTWithInheritances',
-	#classTraits : 'FamixTGenericParameterType classTrait + FamixTTypedEntity classTrait + FamixTWithInheritances classTrait',
+	#traits : 'FamixTTypeArgument + FamixTTypeParameter + FamixTWithInheritances',
+	#classTraits : 'FamixTTypeArgument classTrait + FamixTTypeParameter classTrait + FamixTWithInheritances classTrait',
 	#category : 'Famix-TypeScript-Entities-Entities',
 	#package : 'Famix-TypeScript-Entities',
 	#tag : 'Entities'
@@ -51,7 +36,6 @@ Class {
 FamixTypeScriptParameterType class >> annotation [
 
 	<FMClass: #ParameterType super: #FamixTypeScriptType>
-	<package: #FamixTypeScript>
+	<package: #'Famix-TypeScript-Entities'>
 	<generated>
-	^ self
 ]

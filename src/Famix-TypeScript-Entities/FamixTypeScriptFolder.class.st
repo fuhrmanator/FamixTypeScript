@@ -35,7 +35,6 @@ Class {
 FamixTypeScriptFolder class >> annotation [
 
 	<FMClass: #Folder super: #FamixTypeScriptNamedEntity>
-	<package: #FamixTypeScript>
+	<package: #'Famix-TypeScript-Entities'>
 	<generated>
-	^ self
 ]

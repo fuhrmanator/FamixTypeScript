@@ -25,7 +25,6 @@ Class {
 FamixTypeScriptScopingEntity class >> annotation [
 
 	<FMClass: #ScopingEntity super: #FamixTypeScriptContainerEntity>
-	<package: #FamixTypeScript>
+	<package: #'Famix-TypeScript-Entities'>
 	<generated>
-	^ self
 ]

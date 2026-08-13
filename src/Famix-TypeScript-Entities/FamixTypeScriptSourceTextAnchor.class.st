@@ -30,7 +30,6 @@ Class {
 FamixTypeScriptSourceTextAnchor class >> annotation [
 
 	<FMClass: #SourceTextAnchor super: #FamixTypeScriptSourceAnchor>
-	<package: #FamixTypeScript>
+	<package: #'Famix-TypeScript-Entities'>
 	<generated>
-	^ self
 ]

@@ -5,12 +5,12 @@
 ### Association source
 | Relation | Origin | Opposite | Type | Comment |
 |---|
-| `importingEntity` | `FamixTImport` | `imports` | `FamixTWithImports` | Importing entity|
+| `typedEntity` | `FamixTEntityTyping` | `typing` | `FamixTTypedEntity` | Entity deckaring the type.|
 
 ### Association target
 | Relation | Origin | Opposite | Type | Comment |
 |---|
-| `importedEntity` | `FamixTImport` | `incomingImports` | `FamixTImportable` | Imported entity|
+| `declaredType` | `FamixTEntityTyping` | `incomingTypings` | `FamixTType` | Type of the entity.|
 
 ### Other
 | Relation | Origin | Opposite | Type | Comment |
@@ -23,19 +23,19 @@
 
 "
 Class {
-	#name : 'FamixTypeScriptImportClause',
+	#name : 'FamixTypeScriptEntityTyping',
 	#superclass : 'FamixTypeScriptEntity',
-	#traits : 'FamixTImport',
-	#classTraits : 'FamixTImport classTrait',
+	#traits : 'FamixTEntityTyping',
+	#classTraits : 'FamixTEntityTyping classTrait',
 	#category : 'Famix-TypeScript-Entities-Entities',
 	#package : 'Famix-TypeScript-Entities',
 	#tag : 'Entities'
 }
 
 { #category : 'meta' }
-FamixTypeScriptImportClause class >> annotation [
+FamixTypeScriptEntityTyping class >> annotation [
 
-	<FMClass: #ImportClause super: #FamixTypeScriptEntity>
+	<FMClass: #EntityTyping super: #FamixTypeScriptEntity>
 	<package: #'Famix-TypeScript-Entities'>
 	<generated>
 ]

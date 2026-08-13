@@ -36,7 +36,6 @@ Class {
 FamixTypeScriptInheritance class >> annotation [
 
 	<FMClass: #Inheritance super: #FamixTypeScriptEntity>
-	<package: #FamixTypeScript>
+	<package: #'Famix-TypeScript-Entities'>
 	<generated>
-	^ self
 ]

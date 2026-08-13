@@ -11,11 +11,11 @@ FamixTypeScriptTest >> testImportNamespace [
 	| model |
 	model := FamixTypeScriptModel new.
 	model importFromMSEStream: '(		
-		(FamixTypeScript.Namespace (id: 1) (name ''ANamespace''))
-		(FamixTypeScript.Namespace (id: 10) (name ''AnotherNamespace''))
-		(FamixTypeScript.Class (id: 3) (name ''AClass'') (typeContainer (ref: 1)))
-		(FamixTypeScript.Class (id: 5) (name ''AnotherClass'')  (typeContainer (ref: 1)))
-		(FamixTypeScript.Method (id: 2) (name ''aMethod'') (parentType (ref: 3)))
+		(Famix-TypeScript-Entities.Namespace (id: 1) (name ''ANamespace''))
+		(Famix-TypeScript-Entities.Namespace (id: 10) (name ''AnotherNamespace''))
+		(Famix-TypeScript-Entities.Class (id: 3) (name ''AClass'') (typeContainer (ref: 1)))
+		(Famix-TypeScript-Entities.Class (id: 5) (name ''AnotherClass'')  (typeContainer (ref: 1)))
+		(Famix-TypeScript-Entities.Method (id: 2) (name ''aMethod'') (parentType (ref: 3)))
 	)' readStream.
 	self assert: model allNamespaces size equals: 2.
 	self assert: (model allNamespaces anySatisfy: [ :namespace | 

@@ -16,8 +16,9 @@ FamixTypeScriptModel class >> allSubmetamodelsPackagesNames [
 
 { #category : 'meta' }
 FamixTypeScriptModel class >> annotation [
-	<FMClass: #FamixTypeScriptModel super: #MooseModel>
-	<package: #FamixTypeScript>
+
+	<FMClass: #Model super: #MooseModel>
+	<package: #'Famix-TypeScript-Entities'>
 	<generated>
 ]
 

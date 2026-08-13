@@ -41,7 +41,6 @@ Class {
 FamixTypeScriptNamespace class >> annotation [
 
 	<FMClass: #Namespace super: #FamixTypeScriptScopingEntity>
-	<package: #FamixTypeScript>
+	<package: #'Famix-TypeScript-Entities'>
 	<generated>
-	^ self
 ]

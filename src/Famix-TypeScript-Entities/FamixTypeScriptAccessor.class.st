@@ -15,7 +15,6 @@ Class {
 FamixTypeScriptAccessor class >> annotation [
 
 	<FMClass: #Accessor super: #FamixTypeScriptMethod>
-	<package: #FamixTypeScript>
+	<package: #'Famix-TypeScript-Entities'>
 	<generated>
-	^ self
 ]
