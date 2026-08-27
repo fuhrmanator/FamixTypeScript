@@ -328,20 +328,6 @@ FamixTypeScriptTEntityCreator >> newParameterNamed: aName [
 ]
 
 { #category : 'entity creation' }
-FamixTypeScriptTEntityCreator >> newParameterType [
-
-	<generated>
-	^ self add: FamixTypeScriptParameterType new
-]
-
-{ #category : 'entity creation' }
-FamixTypeScriptTEntityCreator >> newParameterTypeNamed: aName [
-
-	<generated>
-	^ self add: (FamixTypeScriptParameterType named: aName)
-]
-
-{ #category : 'entity creation' }
 FamixTypeScriptTEntityCreator >> newParametricArrowFunction [
 
 	<generated>
@@ -549,6 +535,20 @@ FamixTypeScriptTEntityCreator >> newTypeNamed: aName [
 
 	<generated>
 	^ self add: (FamixTypeScriptType named: aName)
+]
+
+{ #category : 'entity creation' }
+FamixTypeScriptTEntityCreator >> newTypeParameter [
+
+	<generated>
+	^ self add: FamixTypeScriptTypeParameter new
+]
+
+{ #category : 'entity creation' }
+FamixTypeScriptTEntityCreator >> newTypeParameterNamed: aName [
+
+	<generated>
+	^ self add: (FamixTypeScriptTypeParameter named: aName)
 ]
 
 { #category : 'entity creation' }

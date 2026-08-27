@@ -16,7 +16,7 @@ Class {
 FamixTypeScriptParametricTest >> setUp [
 
 	super setUp.
-	self skip.
+	"self skip."
 
 	parametricClass := FamixTypeScriptParametricClass new name: 'ParametricClass'.
 	
@@ -24,7 +24,7 @@ FamixTypeScriptParametricTest >> setUp [
 
 	stringClass := model newClassNamed: 'String'.
 
-	listTypeParameter := model newParameterType
+	listTypeParameter := model newTypeParameter
 		                     name: 'E';
 		                     yourself.
 	genericListClass := model newParametricClass
@@ -67,7 +67,7 @@ FamixTypeScriptParametricTest >> test2 [
 	f := FamixTypeScriptParametricFunction new name: 'genericFunction'.
 	af := FamixTypeScriptParametricArrowFunction new name: 'genericArrowFunction'.
 	p := FamixTypeScriptParameter new name: 't'.
-	parameterType := FamixTypeScriptParameterType named: 'T'.
+	parameterType := FamixTypeScriptTypeParameter named: 'T'.
 	p typing: (FamixTypeScriptEntityTyping new declaredType: parameterType).
 	m addParameter: p.
 	f addParameter: p.
@@ -109,10 +109,10 @@ FamixTypeScriptParametricTest >> test3 [
 	classA := model newParametricClass
 		          name: 'ClassA';
 		          yourself.
-	k := model newParameterType
+	k := model newTypeParameter
 		     name: 'K';
 		     yourself.
-	vFromClassA := model newParameterType
+	vFromClassA := model newTypeParameter
 		               yourself.
 	classA typeParameters: {
 			k.
@@ -122,7 +122,7 @@ FamixTypeScriptParametricTest >> test3 [
 	classB := model newParametricClass
 		          name: 'ClassB';
 		          yourself.
-	vFromClassB := model newParameterType
+	vFromClassB := model newTypeParameter
 		               name: 'V';
 		               yourself.
 	classB addTypeParameter: vFromClassB.
@@ -152,18 +152,27 @@ FamixTypeScriptParametricTest >> testConcreteAndGenericParameter [
 
 	class ClassB extends ClassA<string>"
 
-	| parameter1 parameter2 |
-	parameter1 := FamixTypeScriptType new name: 'String'.
-	parameter2 := FamixTypeScriptParameterType new name: 'V'.
+	| classA classB v |
+	"ClassA"
+	classA := model newParametricClass name: 'ClassA'.
+	v := model newTypeParameter
+		     name: 'V';
+		     yourself.
+	classA addTypeParameter: v.
 
-	parametricClass concreteParameters: { parameter1 }.
-	parametricClass genericParameters: { parameter2 }.
-	self
-		assertCollection: parametricClass concreteParameters
-		hasSameElements: { parameter1 }.
-	self
-		assertCollection: parametricClass genericParameters
-		hasSameElements: { parameter2 }
+	"ClassB"
+	classB := model newClassNamed: 'ClassB'.
+
+	"Inheritance"
+	model newParametricInheritance
+		subclass: classB;
+		superclass: classA;
+		addConcretization: (model newConcretization
+				 typeArgument: stringClass;
+				 typeParameter: v).
+
+	self assertCollection: classA typeParameters hasSameElements: { v }.
+	self deny: classB isParametricEntity
 ]
 
 { #category : 'tests' }
@@ -171,14 +180,27 @@ FamixTypeScriptParametricTest >> testConcretizationEntity [
 	"class List<T>
 	class ClassB extends List<string>"
 
-	| listT listString |
+	| listT listString e pInheritance |
 	listT := FamixTypeScriptParametricClass new name: 'ListT'.
 	listString := FamixTypeScriptParametricClass new name: 'ListString'.
-	FamixTypeScriptConcretization new
-		concreteEntity: listString;
-		genericEntity: listT.
+	
+	e := FamixTypeScriptTypeParameter new
+		     name: 'E';
+		     genericEntity: listT;
+		     yourself.
+	
+	pInheritance := FamixTypeScriptParametricInheritance new superclass: listT;
+		subclass: listString;
+		addConcretization: (FamixTypeScriptConcretization new 
+			typeParameter: e;
+			typeArgument: listString).
+
 	self
-		assertCollection: (listT concretizations collect: #concreteEntity)
+		assertCollection: listT typeParameters
+		hasSameElements: { e }.
+		
+	self
+		assertCollection: (e concretizations collect: #typeArgument)
 		hasSameElements: { listString }
 ]
 
@@ -243,8 +265,8 @@ FamixTypeScriptParametricTest >> testInheritanceParameter [
 	"
 
 	| supGeneric subGeneric subConcrete |
-	supGeneric := FamixTypeScriptParameterType new name: 'supGeneric'.
-	subGeneric := FamixTypeScriptParameterType new name: 'subGeneric'.
+	supGeneric := FamixTypeScriptTypeParameter new name: 'supGeneric'.
+	subGeneric := FamixTypeScriptTypeParameter new name: 'subGeneric'.
 	subConcrete := FamixTypeScriptClass new name: 'String'.
 
 	FamixTypeScriptInheritance new

@@ -209,13 +209,6 @@ FamixTypeScriptImportingContext >> importParameter [
 ]
 
 { #category : 'importing' }
-FamixTypeScriptImportingContext >> importParameterType [
-
-	<generated>
-	^ self importConcreteEntity: (self class fm3ClassNamed: #ParameterType)
-]
-
-{ #category : 'importing' }
 FamixTypeScriptImportingContext >> importParametricArrowFunction [
 
 	<generated>
@@ -303,7 +296,7 @@ FamixTypeScriptImportingContext >> importProperty [
 FamixTypeScriptImportingContext >> importReference [
 
 	<generated>
-	^ self importConcreteEntity: (self class fm3ClassNamed: #Reference)
+	^ self importAssociation: (self class fm3ClassNamed: #Reference)
 ]
 
 { #category : 'importing' }
@@ -346,6 +339,13 @@ FamixTypeScriptImportingContext >> importType [
 
 	<generated>
 	^ self importConcreteEntity: (self class fm3ClassNamed: #Type)
+]
+
+{ #category : 'importing' }
+FamixTypeScriptImportingContext >> importTypeParameter [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #TypeParameter)
 ]
 
 { #category : 'importing' }
@@ -552,13 +552,6 @@ FamixTypeScriptImportingContext >> shouldImportParameter [
 ]
 
 { #category : 'testing' }
-FamixTypeScriptImportingContext >> shouldImportParameterType [
-
-	<generated>
-	^ self shouldImport: #ParameterType
-]
-
-{ #category : 'testing' }
 FamixTypeScriptImportingContext >> shouldImportParametricArrowFunction [
 
 	<generated>
@@ -689,6 +682,13 @@ FamixTypeScriptImportingContext >> shouldImportType [
 
 	<generated>
 	^ self shouldImport: #Type
+]
+
+{ #category : 'testing' }
+FamixTypeScriptImportingContext >> shouldImportTypeParameter [
+
+	<generated>
+	^ self shouldImport: #TypeParameter
 ]
 
 { #category : 'testing' }
