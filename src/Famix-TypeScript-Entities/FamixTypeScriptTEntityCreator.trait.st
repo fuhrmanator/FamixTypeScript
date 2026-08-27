@@ -391,6 +391,20 @@ FamixTypeScriptTEntityCreator >> newParametricFunctionNamed: aName [
 ]
 
 { #category : 'entity creation' }
+FamixTypeScriptTEntityCreator >> newParametricImplementation [
+
+	<generated>
+	^ self add: FamixTypeScriptParametricImplementation new
+]
+
+{ #category : 'entity creation' }
+FamixTypeScriptTEntityCreator >> newParametricInheritance [
+
+	<generated>
+	^ self add: FamixTypeScriptParametricInheritance new
+]
+
+{ #category : 'entity creation' }
 FamixTypeScriptTEntityCreator >> newParametricInterface [
 
 	<generated>
@@ -405,6 +419,13 @@ FamixTypeScriptTEntityCreator >> newParametricInterfaceNamed: aName [
 ]
 
 { #category : 'entity creation' }
+FamixTypeScriptTEntityCreator >> newParametricInvocation [
+
+	<generated>
+	^ self add: FamixTypeScriptParametricInvocation new
+]
+
+{ #category : 'entity creation' }
 FamixTypeScriptTEntityCreator >> newParametricMethod [
 
 	<generated>
@@ -416,6 +437,13 @@ FamixTypeScriptTEntityCreator >> newParametricMethodNamed: aName [
 
 	<generated>
 	^ self add: (FamixTypeScriptParametricMethod named: aName)
+]
+
+{ #category : 'entity creation' }
+FamixTypeScriptTEntityCreator >> newParametricReference [
+
+	<generated>
+	^ self add: FamixTypeScriptParametricReference new
 ]
 
 { #category : 'entity creation' }

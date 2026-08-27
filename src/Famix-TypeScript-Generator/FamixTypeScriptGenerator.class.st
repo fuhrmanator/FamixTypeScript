@@ -44,11 +44,14 @@ Class {
 		'parametricClass',
 		'parametricInterface',
 		'concretization',
-		'parameterConcretization',
 		'tTypeScriptFunctionMetrics',
 		'entityTyping',
 		'parametricEntityTyping',
-		'typeParameter'
+		'typeParameter',
+		'parametricInheritance',
+		'parametricImplementation',
+		'parametricInvocation',
+		'parametricReference'
 	],
 	#category : 'Famix-TypeScript-Generator',
 	#package : 'Famix-TypeScript-Generator'
@@ -214,6 +217,10 @@ FamixTypeScriptGenerator >> defineClasses [
 	parametricInterface := builder newClassNamed: #ParametricInterface.
 	parameterType := builder newClassNamed: #ParameterType.
 	parametricEntityTyping := builder newClassNamed: #ParametricEntityTyping.
+	parametricInheritance := self newClassNamed: #ParametricInheritance.
+	parametricImplementation := self newClassNamed: #ParametricImplementation.
+	parametricInvocation := self newClassNamed: #ParametricInvocation.
+	parametricReference := self newClassNamed: #ParametricReference.
 	primitiveType := builder newClassNamed: #PrimitiveType comment: 'I represent a TypeScript primitive type (string, number, boolean).'.
 	reference:= builder newClassNamed: #Reference.
 	scriptEntity :=builder newClassNamed: #ScriptEntity.
@@ -418,6 +425,15 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	
 	parametricEntityTyping --|> entityTyping.
 	parametricEntityTyping --|> #TParametricAssociation.
+	parametricInheritance --|> inheritance.
+	parametricInheritance --|> #TParametricAssociation.
+	parametricImplementation --|> implementation.
+	parametricImplementation --|> #TParametricAssociation.
+	parametricInvocation --|> invocation.
+	parametricInvocation --|> #TParametricAssociation.
+	parametricReference --|> reference.
+	parametricReference --|> #TParametricAssociation.
+	
 	
 	variable --|> structuralEntity.
 	variable --|> #TLocalVariable.

@@ -244,6 +244,20 @@ FamixTypeScriptImportingContext >> importParametricFunction [
 ]
 
 { #category : 'importing' }
+FamixTypeScriptImportingContext >> importParametricImplementation [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #ParametricImplementation)
+]
+
+{ #category : 'importing' }
+FamixTypeScriptImportingContext >> importParametricInheritance [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #ParametricInheritance)
+]
+
+{ #category : 'importing' }
 FamixTypeScriptImportingContext >> importParametricInterface [
 
 	<generated>
@@ -251,10 +265,24 @@ FamixTypeScriptImportingContext >> importParametricInterface [
 ]
 
 { #category : 'importing' }
+FamixTypeScriptImportingContext >> importParametricInvocation [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #ParametricInvocation)
+]
+
+{ #category : 'importing' }
 FamixTypeScriptImportingContext >> importParametricMethod [
 
 	<generated>
 	^ self importConcreteEntity: (self class fm3ClassNamed: #ParametricMethod)
+]
+
+{ #category : 'importing' }
+FamixTypeScriptImportingContext >> importParametricReference [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #ParametricReference)
 ]
 
 { #category : 'importing' }
@@ -559,6 +587,20 @@ FamixTypeScriptImportingContext >> shouldImportParametricFunction [
 ]
 
 { #category : 'testing' }
+FamixTypeScriptImportingContext >> shouldImportParametricImplementation [
+
+	<generated>
+	^ self shouldImport: #ParametricImplementation
+]
+
+{ #category : 'testing' }
+FamixTypeScriptImportingContext >> shouldImportParametricInheritance [
+
+	<generated>
+	^ self shouldImport: #ParametricInheritance
+]
+
+{ #category : 'testing' }
 FamixTypeScriptImportingContext >> shouldImportParametricInterface [
 
 	<generated>
@@ -566,10 +608,24 @@ FamixTypeScriptImportingContext >> shouldImportParametricInterface [
 ]
 
 { #category : 'testing' }
+FamixTypeScriptImportingContext >> shouldImportParametricInvocation [
+
+	<generated>
+	^ self shouldImport: #ParametricInvocation
+]
+
+{ #category : 'testing' }
 FamixTypeScriptImportingContext >> shouldImportParametricMethod [
 
 	<generated>
 	^ self shouldImport: #ParametricMethod
+]
+
+{ #category : 'testing' }
+FamixTypeScriptImportingContext >> shouldImportParametricReference [
+
+	<generated>
+	^ self shouldImport: #ParametricReference
 ]
 
 { #category : 'testing' }
