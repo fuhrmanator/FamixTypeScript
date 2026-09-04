@@ -328,20 +328,6 @@ FamixTypeScriptTEntityCreator >> newParameterNamed: aName [
 ]
 
 { #category : 'entity creation' }
-FamixTypeScriptTEntityCreator >> newParameterType [
-
-	<generated>
-	^ self add: FamixTypeScriptParameterType new
-]
-
-{ #category : 'entity creation' }
-FamixTypeScriptTEntityCreator >> newParameterTypeNamed: aName [
-
-	<generated>
-	^ self add: (FamixTypeScriptParameterType named: aName)
-]
-
-{ #category : 'entity creation' }
 FamixTypeScriptTEntityCreator >> newParametricArrowFunction [
 
 	<generated>
@@ -391,6 +377,20 @@ FamixTypeScriptTEntityCreator >> newParametricFunctionNamed: aName [
 ]
 
 { #category : 'entity creation' }
+FamixTypeScriptTEntityCreator >> newParametricImplementation [
+
+	<generated>
+	^ self add: FamixTypeScriptParametricImplementation new
+]
+
+{ #category : 'entity creation' }
+FamixTypeScriptTEntityCreator >> newParametricInheritance [
+
+	<generated>
+	^ self add: FamixTypeScriptParametricInheritance new
+]
+
+{ #category : 'entity creation' }
 FamixTypeScriptTEntityCreator >> newParametricInterface [
 
 	<generated>
@@ -405,6 +405,13 @@ FamixTypeScriptTEntityCreator >> newParametricInterfaceNamed: aName [
 ]
 
 { #category : 'entity creation' }
+FamixTypeScriptTEntityCreator >> newParametricInvocation [
+
+	<generated>
+	^ self add: FamixTypeScriptParametricInvocation new
+]
+
+{ #category : 'entity creation' }
 FamixTypeScriptTEntityCreator >> newParametricMethod [
 
 	<generated>
@@ -416,6 +423,13 @@ FamixTypeScriptTEntityCreator >> newParametricMethodNamed: aName [
 
 	<generated>
 	^ self add: (FamixTypeScriptParametricMethod named: aName)
+]
+
+{ #category : 'entity creation' }
+FamixTypeScriptTEntityCreator >> newParametricReference [
+
+	<generated>
+	^ self add: FamixTypeScriptParametricReference new
 ]
 
 { #category : 'entity creation' }
@@ -521,6 +535,20 @@ FamixTypeScriptTEntityCreator >> newTypeNamed: aName [
 
 	<generated>
 	^ self add: (FamixTypeScriptType named: aName)
+]
+
+{ #category : 'entity creation' }
+FamixTypeScriptTEntityCreator >> newTypeParameter [
+
+	<generated>
+	^ self add: FamixTypeScriptTypeParameter new
+]
+
+{ #category : 'entity creation' }
+FamixTypeScriptTEntityCreator >> newTypeParameterNamed: aName [
+
+	<generated>
+	^ self add: (FamixTypeScriptTypeParameter named: aName)
 ]
 
 { #category : 'entity creation' }

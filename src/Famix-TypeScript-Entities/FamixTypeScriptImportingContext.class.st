@@ -209,13 +209,6 @@ FamixTypeScriptImportingContext >> importParameter [
 ]
 
 { #category : 'importing' }
-FamixTypeScriptImportingContext >> importParameterType [
-
-	<generated>
-	^ self importConcreteEntity: (self class fm3ClassNamed: #ParameterType)
-]
-
-{ #category : 'importing' }
 FamixTypeScriptImportingContext >> importParametricArrowFunction [
 
 	<generated>
@@ -244,6 +237,20 @@ FamixTypeScriptImportingContext >> importParametricFunction [
 ]
 
 { #category : 'importing' }
+FamixTypeScriptImportingContext >> importParametricImplementation [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #ParametricImplementation)
+]
+
+{ #category : 'importing' }
+FamixTypeScriptImportingContext >> importParametricInheritance [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #ParametricInheritance)
+]
+
+{ #category : 'importing' }
 FamixTypeScriptImportingContext >> importParametricInterface [
 
 	<generated>
@@ -251,10 +258,24 @@ FamixTypeScriptImportingContext >> importParametricInterface [
 ]
 
 { #category : 'importing' }
+FamixTypeScriptImportingContext >> importParametricInvocation [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #ParametricInvocation)
+]
+
+{ #category : 'importing' }
 FamixTypeScriptImportingContext >> importParametricMethod [
 
 	<generated>
 	^ self importConcreteEntity: (self class fm3ClassNamed: #ParametricMethod)
+]
+
+{ #category : 'importing' }
+FamixTypeScriptImportingContext >> importParametricReference [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #ParametricReference)
 ]
 
 { #category : 'importing' }
@@ -275,7 +296,7 @@ FamixTypeScriptImportingContext >> importProperty [
 FamixTypeScriptImportingContext >> importReference [
 
 	<generated>
-	^ self importConcreteEntity: (self class fm3ClassNamed: #Reference)
+	^ self importAssociation: (self class fm3ClassNamed: #Reference)
 ]
 
 { #category : 'importing' }
@@ -318,6 +339,13 @@ FamixTypeScriptImportingContext >> importType [
 
 	<generated>
 	^ self importConcreteEntity: (self class fm3ClassNamed: #Type)
+]
+
+{ #category : 'importing' }
+FamixTypeScriptImportingContext >> importTypeParameter [
+
+	<generated>
+	^ self importConcreteEntity: (self class fm3ClassNamed: #TypeParameter)
 ]
 
 { #category : 'importing' }
@@ -524,13 +552,6 @@ FamixTypeScriptImportingContext >> shouldImportParameter [
 ]
 
 { #category : 'testing' }
-FamixTypeScriptImportingContext >> shouldImportParameterType [
-
-	<generated>
-	^ self shouldImport: #ParameterType
-]
-
-{ #category : 'testing' }
 FamixTypeScriptImportingContext >> shouldImportParametricArrowFunction [
 
 	<generated>
@@ -559,6 +580,20 @@ FamixTypeScriptImportingContext >> shouldImportParametricFunction [
 ]
 
 { #category : 'testing' }
+FamixTypeScriptImportingContext >> shouldImportParametricImplementation [
+
+	<generated>
+	^ self shouldImport: #ParametricImplementation
+]
+
+{ #category : 'testing' }
+FamixTypeScriptImportingContext >> shouldImportParametricInheritance [
+
+	<generated>
+	^ self shouldImport: #ParametricInheritance
+]
+
+{ #category : 'testing' }
 FamixTypeScriptImportingContext >> shouldImportParametricInterface [
 
 	<generated>
@@ -566,10 +601,24 @@ FamixTypeScriptImportingContext >> shouldImportParametricInterface [
 ]
 
 { #category : 'testing' }
+FamixTypeScriptImportingContext >> shouldImportParametricInvocation [
+
+	<generated>
+	^ self shouldImport: #ParametricInvocation
+]
+
+{ #category : 'testing' }
 FamixTypeScriptImportingContext >> shouldImportParametricMethod [
 
 	<generated>
 	^ self shouldImport: #ParametricMethod
+]
+
+{ #category : 'testing' }
+FamixTypeScriptImportingContext >> shouldImportParametricReference [
+
+	<generated>
+	^ self shouldImport: #ParametricReference
 ]
 
 { #category : 'testing' }
@@ -633,6 +682,13 @@ FamixTypeScriptImportingContext >> shouldImportType [
 
 	<generated>
 	^ self shouldImport: #Type
+]
+
+{ #category : 'testing' }
+FamixTypeScriptImportingContext >> shouldImportTypeParameter [
+
+	<generated>
+	^ self shouldImport: #TypeParameter
 ]
 
 { #category : 'testing' }

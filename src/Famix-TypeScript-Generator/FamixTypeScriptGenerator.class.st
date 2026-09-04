@@ -44,11 +44,14 @@ Class {
 		'parametricClass',
 		'parametricInterface',
 		'concretization',
-		'parameterConcretization',
 		'tTypeScriptFunctionMetrics',
 		'entityTyping',
 		'parametricEntityTyping',
-		'typeParameter'
+		'typeParameter',
+		'parametricInheritance',
+		'parametricImplementation',
+		'parametricInvocation',
+		'parametricReference'
 	],
 	#category : 'Famix-TypeScript-Generator',
 	#package : 'Famix-TypeScript-Generator'
@@ -212,8 +215,12 @@ FamixTypeScriptGenerator >> defineClasses [
 	parameter := builder newClassNamed: #Parameter.
 	parametricClass := builder newClassNamed: #ParametricClass.
 	parametricInterface := builder newClassNamed: #ParametricInterface.
-	parameterType := builder newClassNamed: #ParameterType.
+	typeParameter := builder newClassNamed: #TypeParameter.
 	parametricEntityTyping := builder newClassNamed: #ParametricEntityTyping.
+	parametricInheritance := self newClassNamed: #ParametricInheritance.
+	parametricImplementation := self newClassNamed: #ParametricImplementation.
+	parametricInvocation := self newClassNamed: #ParametricInvocation.
+	parametricReference := self newClassNamed: #ParametricReference.
 	primitiveType := builder newClassNamed: #PrimitiveType comment: 'I represent a TypeScript primitive type (string, number, boolean).'.
 	reference:= builder newClassNamed: #Reference.
 	scriptEntity :=builder newClassNamed: #ScriptEntity.
@@ -361,10 +368,6 @@ FamixTypeScriptGenerator >> defineHierarchy [
 
 	parameter --|> structuralEntity.
 	parameter --|> #TParameter.
-
-	parameterType --|> type.
-	parameterType --|> #TTypeParameter.
-	parameterType --|> #TTypeArgument.
 	
 	parametricClass --|> class.
 	"parameterizableClass --|> #TWithParameterizedTypes."
@@ -416,14 +419,27 @@ FamixTypeScriptGenerator >> defineHierarchy [
 	
 	entityTyping --|> #TEntityTyping.
 	
+	reference --|> #TReference.
+	
 	parametricEntityTyping --|> entityTyping.
 	parametricEntityTyping --|> #TParametricAssociation.
+	parametricInheritance --|> inheritance.
+	parametricInheritance --|> #TParametricAssociation.
+	parametricImplementation --|> implementation.
+	parametricImplementation --|> #TParametricAssociation.
+	parametricInvocation --|> invocation.
+	parametricInvocation --|> #TParametricAssociation.
+	parametricReference --|> reference.
+	parametricReference --|> #TParametricAssociation.
+	
+	typeParameter --|> type.
+	typeParameter --|> #TTypeParameter.
+	typeParameter --|> #TTypeArgument.
+	typeParameter --|> #TWithInheritances.
 	
 	variable --|> structuralEntity.
 	variable --|> #TLocalVariable.
 	variable --|> #TImportable.
-
-	parameterType --|> #TWithInheritances.
 ]
 
 { #category : 'definition' }
